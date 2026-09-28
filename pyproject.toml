@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "contextlab-tcc"
+version = "0.1.0"
+description = "Instrumento experimental de seleção de contexto e geração de testes"
+requires-python = ">=3.11"
+dependencies = ["pytest==8.4.2", "coverage==7.10.7"]
+
+[project.scripts]
+contextlab = "contextlab.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+
