@@ -87,6 +87,7 @@ def doctor_agent(agent: dict) -> dict:
         with tempfile.TemporaryDirectory(prefix="contextlab-doctor-") as temp:
             private = Path(temp)
             env = _environment(private, kind)
+            Path(env["CODEX_HOME" if kind == "codex" else "CLAUDE_CONFIG_DIR"]).mkdir(parents=True, exist_ok=True)
             # Doctor does not need credentials even if a CLI changes behavior.
             env.pop(credential, None)
             version = _probe([binary, "--version"], env, private)

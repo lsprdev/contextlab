@@ -117,6 +117,21 @@ else:
     return path
 
 
+@pytest.mark.parametrize("enabled_feature", [None, "unified_exec"])
+def test_doctor_creates_private_home_and_keeps_feature_rejection(fake_codex, monkeypatch, enabled_feature):
+    monkeypatch.setenv("CODEX_API_KEY", "fixture-not-a-real-credential")
+    script = fake_codex.read_text()
+    script = script.replace("elif 'features' in args:\n", "elif 'features' in args:\n    assert Path(os.environ['CODEX_HOME']).is_dir()\n")
+    if enabled_feature:
+        script = script.replace("print(name, 'stable false')", "print(name, 'stable', 'true' if name == 'unified_exec' else 'false')")
+    fake_codex.write_text(script)
+    result = doctor_agent({"kind": "codex", "model": "fixture-ok", "binary": str(fake_codex)})
+    assert result["ready"] is (enabled_feature is None)
+    assert result["isolation_verified"] is False
+    if enabled_feature:
+        assert "Cannot verify disabled Codex features: unified_exec" in result["details"]
+
+
 def test_native_lifecycle_and_redaction(fake_codex, tmp_path, monkeypatch):
     monkeypatch.setenv("CODEX_API_KEY", "sk-dummy-secret-not-a-real-key")
     agent = {"kind": "codex", "model": "fixture-ok", "binary": str(fake_codex)}
