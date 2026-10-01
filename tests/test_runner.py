@@ -4,7 +4,7 @@ from pathlib import Path
 import pytest
 
 from contextlab.manifest import ManifestError, freeze, load_config, load_lock, plan
-from contextlab.runner import execute, extract_submission
+from contextlab.runner import execute, extract_submission, review_trajectory
 
 
 DEMO = Path(__file__).parents[1] / "examples/demo.json"
@@ -77,3 +77,76 @@ def test_same_run_cannot_execute_concurrently(tmp_path):
         fcntl.flock(stream, fcntl.LOCK_EX | fcntl.LOCK_NB)
         with pytest.raises(ManifestError, match="já está em andamento"):
             execute(tmp_path / "unused.lock.json", tmp_path / "run", resume=True)
+
+
+@pytest.fixture
+def frozen_review(tmp_path, monkeypatch):
+    from unittest.mock import Mock
+    from contextlab import evaluation, manifest
+
+    config = load_config(DEMO)
+    config["evaluation"]["backend"] = "docker"
+    runtime = {"python": "3.12.11", "pytest": "8.4.2", "coverage": "7.10.7",
+               "evaluation_image_id": "sha256:original"}
+    monkeypatch.setattr(manifest, "runtime_fingerprint", lambda config: dict(runtime))
+    evaluator = Mock(return_value={"status": "completed", "approval": "pending_review"})
+    monkeypatch.setattr(evaluation, "evaluate_submission", evaluator)
+    lock = tmp_path / "demo.lock.json"
+    freeze(config, lock)
+    output = tmp_path / "run"
+    execute(lock, output, max_runs=1)
+    evaluator.reset_mock()
+    return output / plan(config)[0]["id"], runtime, evaluator
+
+
+def test_review_rejects_changed_implementation_before_evaluation(frozen_review, monkeypatch):
+    from contextlab import manifest
+    path, _, evaluator = frozen_review
+    monkeypatch.setattr(manifest, "implementation_hash", lambda: "changed-implementation")
+    with pytest.raises(ManifestError, match="Código do ContextLab mudou"):
+        review_trajectory(path, "test-reviewer", {})
+    evaluator.assert_not_called()
+    assert not (path / "reviews").exists()
+
+
+@pytest.mark.parametrize("component", ["python", "pytest", "coverage", "evaluation_image_id"])
+def test_review_rejects_changed_runtime_before_evaluation(frozen_review, component):
+    path, runtime, evaluator = frozen_review
+    runtime[component] = "changed"
+    with pytest.raises(ManifestError, match="Python, dependências ou imagem Docker mudaram"):
+        review_trajectory(path, "test-reviewer", {})
+    evaluator.assert_not_called()
+    assert not (path / "reviews").exists()
+
+
+def test_review_rejects_modified_header_or_record_lock(frozen_review):
+    path, _, evaluator = frozen_review
+    header_path = path.parent / "run.json"
+    original = header_path.read_text()
+    header = json.loads(original)
+    header["config"]["limits"]["context_chars"] += 1
+    header_path.write_text(json.dumps(header))
+    with pytest.raises(ManifestError, match="Lock foi alterado"):
+        review_trajectory(path, "test-reviewer", {})
+    header_path.write_text(original)
+    record_path = path / "record.json"
+    record = json.loads(record_path.read_text())
+    record["lock_hash"] = "other-lock"
+    record_path.write_text(json.dumps(record))
+    with pytest.raises(ManifestError, match="outro protocolo"):
+        review_trajectory(path, "test-reviewer", {})
+    evaluator.assert_not_called()
+
+
+def test_review_preserves_original_evaluation_and_appends_history(frozen_review):
+    path, _, evaluator = frozen_review
+    original = json.loads((path / "record.json").read_text())["evaluation"]
+    evaluator.return_value = {"status": "completed", "approval": "rejected"}
+    decisions = {"behavioral_assertions": False, "no_target_mock": True, "no_production_changes": True}
+    review_trajectory(path, "test-reviewer", decisions)
+    review_trajectory(path, "test-reviewer", decisions)
+    record = json.loads((path / "record.json").read_text())
+    assert record["evaluation"] == original
+    assert record["reviewed_evaluation"]["approval"] == "rejected"
+    assert len(list((path / "reviews").glob("review-*.json"))) == 2
+    assert evaluator.call_count == 2

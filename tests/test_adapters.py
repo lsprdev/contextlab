@@ -77,7 +77,7 @@ def test_mcp_only_returns_snapshot_content_and_stops_at_budget(tmp_path):
 
 
 @pytest.fixture
-def fake_codex(tmp_path):
+def fake_codex(tmp_path, monkeypatch):
     """Executable transport fixture; deliberately never calls a model."""
     path = tmp_path / "fake-codex"
     script = f"""#!{sys.executable}
@@ -86,6 +86,8 @@ from pathlib import Path
 args = sys.argv[1:]
 if '--version' in args:
     print('codex-cli test-fixture')
+elif 'models' in args:
+    print(json.dumps({{'models': [{{'slug': 'fixture-'+suffix}} for suffix in ('ok','auth','timeout','limit','forbidden') ]}}))
 elif '--help' in args:
     print({repr(' '.join(CODEX_FLAGS))})
 elif 'features' in args:
@@ -114,22 +116,44 @@ else:
 """
     path.write_text(script)
     path.chmod(0o755)
+    from contextlab import codex_policy
+
+    def fake_probe(binary, model, private, env):
+        _, catalog_hash = codex_policy.prepare_catalog(binary, model, private, env)
+        return {"tool_surface_verified": True, "catalog_sha256": catalog_hash}
+
+    monkeypatch.setattr(codex_policy, "probe_tools", fake_probe)
     return path
 
 
-@pytest.mark.parametrize("enabled_feature", [None, "unified_exec"])
+@pytest.mark.parametrize("enabled_feature", [None, "shell_tool", "unified_exec"])
 def test_doctor_creates_private_home_and_keeps_feature_rejection(fake_codex, monkeypatch, enabled_feature):
     monkeypatch.setenv("CODEX_API_KEY", "fixture-not-a-real-credential")
     script = fake_codex.read_text()
     script = script.replace("elif 'features' in args:\n", "elif 'features' in args:\n    assert Path(os.environ['CODEX_HOME']).is_dir()\n")
     if enabled_feature:
-        script = script.replace("print(name, 'stable false')", "print(name, 'stable', 'true' if name == 'unified_exec' else 'false')")
+        script = script.replace("print(name, 'stable false')", f"print(name, 'stable', 'true' if name == {enabled_feature!r} else 'false')")
     fake_codex.write_text(script)
     result = doctor_agent({"kind": "codex", "model": "fixture-ok", "binary": str(fake_codex)})
-    assert result["ready"] is (enabled_feature is None)
+    assert result["ready"] is (enabled_feature != "shell_tool")
     assert result["isolation_verified"] is False
-    if enabled_feature:
-        assert "Cannot verify disabled Codex features: unified_exec" in result["details"]
+    if enabled_feature == "shell_tool":
+        assert "Cannot verify disabled Codex features: shell_tool" in result["details"]
+    else:
+        assert result["capabilities"]["tool_surface_verified"]
+
+
+def test_doctor_rejects_extra_actual_tools_even_if_feature_flags_are_disabled(fake_codex, monkeypatch):
+    from contextlab import codex_policy
+    monkeypatch.setenv("CODEX_API_KEY", "fixture-not-a-real-credential")
+
+    def reject(*args):
+        raise ValueError("Unexpected Codex tool: exec_command")
+
+    monkeypatch.setattr(codex_policy, "probe_tools", reject)
+    result = doctor_agent({"kind": "codex", "model": "fixture-ok", "binary": str(fake_codex)})
+    assert not result["ready"]
+    assert "exec_command" in result["details"][0]
 
 
 def test_native_lifecycle_and_redaction(fake_codex, tmp_path, monkeypatch):
@@ -189,7 +213,7 @@ def test_oauth_reuses_only_auth_file_and_preserves_refresh(fake_codex, tmp_path,
 
 @pytest.mark.parametrize("failure", [KeyboardInterrupt, ValueError])
 def test_interruption_or_unexpected_error_stops_native_process_before_cleanup(tmp_path, monkeypatch, failure):
-    from contextlab import adapters
+    from contextlab import adapters, codex_policy
 
     class InterruptedProcess:
         returncode = None
@@ -217,7 +241,9 @@ def test_interruption_or_unexpected_error_stops_native_process_before_cleanup(tm
         process.returncode = -9
 
     monkeypatch.setattr(adapters, "doctor_agent", lambda _agent: {
-        "ready": True, "version": "test-fixture", "binary": "/fake/never-executed"})
+        "ready": True, "version": "test-fixture", "binary": "/fake/never-executed",
+        "capabilities": {"catalog_sha256": "fixture-hash"}})
+    monkeypatch.setattr(codex_policy, "prepare_catalog", lambda *_args: (tmp_path / "catalog.json", "fixture-hash"))
     monkeypatch.setattr(adapters.subprocess, "Popen", start)
     monkeypatch.setattr(adapters, "_stop", stop)
     args = ({"kind": "codex", "model": "fixture"}, "Generate",

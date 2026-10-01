@@ -70,14 +70,32 @@ A cobrança e os limites de API devem ser considerados no piloto.
 
 | Cliente | Configuração relevante |
 |---|---|
-| Codex | `exec --json --ephemeral --ignore-user-config --sandbox read-only`; modelo explícito; schema de saída; shell, unified exec, apps, subagentes, memórias, hooks, goals, shell snapshot e catálogo remoto de plugins desabilitados; pesquisa web e visualizador de arquivos desabilitados; instruções de projeto zeradas; políticas de navegador e aplicações em `deny`; somente o servidor MCP ContextLab configurado e obrigatório. |
+| Codex | `exec --json --ephemeral --ignore-user-config --sandbox read-only`; modelo explícito e catálogo restrito; schema de saída; shell, apps, subagentes, memórias, hooks, goals, plugins, skills, web, imagens e navegador desabilitados; instruções de projeto zeradas; somente o servidor MCP ContextLab configurado e obrigatório. |
 | Claude Code | `--print --bare --restricted --tools "" --strict-mcp-config --setting-sources "" --no-session-persistence --permission-mode dontAsk`; somente os três MCPs pré-aprovados; modelo explícito; saída stream-json e schema. |
 
-`doctor` recusa uma CLI sem as opções necessárias. Para Codex, exige também que
-`features list` confirme as flags obrigatórias desabilitadas. Configurações
+`doctor` recusa uma CLI sem as opções necessárias. Para Codex, confere as flags
+e o inventário real de ferramentas com um provedor simulado em localhost, sem
+credenciais nem chamadas a modelos. O diagnóstico também envia uma chamada de
+shell inexistente e uma leitura de arquivo externo ao pacote, exigindo recusa;
+uma leitura autorizada funciona como controle positivo. Configurações
 temporárias não substituem nem apagam as configurações pessoais do usuário.
 Restrições administrativas do cliente permanecem aplicáveis; se forem
 incompatíveis, a execução falha, sem tentar contorná-las.
+
+No Codex CLI 0.159.3, o catálogo de `gpt-6-luna` força `unified_exec` ativo,
+Code Mode e subagentes v2 apesar de algumas flags antigas. O adaptador deriva
+um catálogo do próprio binário, preservando identidade, instruções e parâmetros
+de inferência, mas usa ferramentas diretas (`tool_mode=standard`), sem
+`apply_patch`, ferramentas experimentais ou descoberta adiada. Desabilita também
+`agents.enabled` e `features.multi_agent_v2.enabled`. O hash do catálogo é
+registrado no diagnóstico e na geração; nenhuma troca silenciosa de modelo ocorre.
+
+A flag `unified_exec` sozinha não comprova a presença de shell. A verificação
+exige ausência de execução, escrita, imagens, navegação, subagentes e Code Mode
+no inventário efetivo. Apenas os três MCPs do ContextLab e os auxiliares nativos
+`list_mcp_resources`, `list_mcp_resource_templates` e `read_mcp_resource` são
+aceitos. Esses auxiliares não abrem arquivos: o único servidor configurado
+anuncia listas vazias de recursos/templates e recusa `resources/read`.
 
 O parser rejeita chamadas nativas de comandos, alteração de arquivos, pesquisa
 web, outro MCP e tipos inesperados de eventos. Para Claude, também verifica a
@@ -115,12 +133,12 @@ cliente. O tempo de `run_agent` inclui seu preflight e preparação; o timeout
 
 ## Como esta implementação foi verificada
 
-Neste ambiente, os binários reais `codex` e `claude` não estavam instalados.
-Não houve login, chamada paga, geração real nem alegação de isolamento validado
-com esses clientes. Os testes locais usam um executável falso explicitamente
+Os testes automatizados usam um executável falso explicitamente
 identificado, mas iniciam o servidor MCP real para conferir o transporte,
 contabilização de orçamento, recusa de ferramentas, tempo limite e redação de
-segredos. Isso testa o adaptador, não os agentes ou a hipótese do TCC.
+segredos. Isso testa o adaptador, não os agentes ou a hipótese do TCC. O
+diagnóstico local adicional exercita o Codex CLI real com respostas simuladas.
+O estado das execuções reais está em [VERIFICACAO.md](VERIFICACAO.md).
 
 No computador do pesquisador, execute o diagnóstico, configure uma credencial,
 fixe versões e rode o piloto antes de atestar o congelamento. Verifique tentativas

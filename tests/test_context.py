@@ -148,3 +148,46 @@ def test_same_file_dependency_already_present(example):
     packet = build_context(project, target, "R", 5000)
     assert packet["equal_to_local"]
     assert len(packet["snippets"]) == 1
+
+
+@pytest.mark.parametrize("import_line,call", [
+    ("from external import helper", "helper(x)"),
+    ("from external import helper as local", "local(x)"),
+    ("import external as helper", "helper.helper(x)"),
+])
+def test_local_import_shadows_same_named_module_definition(tmp_path, import_line, call):
+    project = project_at(tmp_path, {
+        "core.py": ("def helper(x):\n    return x + 1\n\n"
+                    "def local(x):\n    return x - 1\n\n"
+                    f"def focal(x):\n    {import_line}\n    return {call}\n"),
+        "external.py": "def helper(x):\n    return x * 10\n",
+    })
+    target = {"path": "core.py", "symbol": "focal"}
+    local = build_context(project, target, "L", 5000)
+    recovered = build_context(project, target, "R", 5000)
+    assert recovered["text"].startswith(local["text"])
+    assert "return x * 10" in recovered["text"]
+    assert not recovered["equal_to_local"]
+
+
+def test_unresolved_local_import_does_not_fall_back_to_module_definition(tmp_path):
+    project = project_at(tmp_path, {
+        "core.py": ("def helper(x):\n    return x + 1\n\n"
+                    "def focal(x):\n    from unavailable import helper\n    return helper(x)\n"),
+    })
+    result = build_context(project, {"path": "core.py", "symbol": "focal"}, "R", 5000)
+    assert result["equal_to_local"]
+    assert any(item.get("reference") == "helper" and item["reason"] == "not_statically_resolved"
+               for item in result["unresolved"])
+
+
+def test_local_import_keeps_module_bindings_including_shadowed_builtins(tmp_path):
+    project = project_at(tmp_path, {
+        "core.py": ("from helpers import len\n\ndef focal(x):\n"
+                    "    from external import helper\n    return len(x) + helper(x)\n"),
+        "helpers.py": "def len(x):\n    return x + 3\n",
+        "external.py": "def helper(x):\n    return x * 10\n",
+    })
+    result = build_context(project, {"path": "core.py", "symbol": "focal"}, "R", 5000)
+    assert "return x + 3" in result["text"]
+    assert "return x * 10" in result["text"]

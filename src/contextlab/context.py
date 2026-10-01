@@ -275,7 +275,10 @@ class _Index:
         if key in seen or len(seen) >= 32:
             return None
         seen.add(key)
-        definitions = self.defs.get(path, {}).get(reference[0], [])
+        # Function-local imports shadow module definitions. `bindings` contains
+        # only these local overrides; module bindings remain the fallback.
+        locally_imported = bindings is not None and reference[0] in bindings
+        definitions = [] if locally_imported else self.defs.get(path, {}).get(reference[0], [])
         if len(definitions) == 1:
             # Access to a class member carries the complete class. Dynamic values
             # and function-return attributes are deliberately not guessed.
@@ -285,8 +288,8 @@ class _Index:
             return None
         if definitions:
             return None
-        bindings = self.bindings.get(path, {}) if bindings is None else bindings
-        binding = bindings.get(reference[0])
+        binding = (bindings[reference[0]] if locally_imported
+                   else self.bindings.get(path, {}).get(reference[0]))
         if not binding:
             return None
         module, tail = binding
@@ -365,7 +368,8 @@ def build_context(project: dict[str, Any], target: dict[str, Any], condition: st
                     result["unresolved"].append({"reference": ".".join(reference), "reason": "dynamic_attribute", "phase": reason})
                 continue
             if (reference[0] in builtins_set and reference[0] not in index.defs[path]
-                    and reference[0] not in (bindings or index.bindings[path])):
+                    and reference[0] not in index.bindings[path]
+                    and reference[0] not in (bindings or {})):
                 continue
             resolved = index.resolve(path, reference, bindings=bindings)
             if resolved is None:
@@ -408,8 +412,8 @@ def build_context(project: dict[str, Any], target: dict[str, Any], condition: st
         visitor = Locals()
         for node in function.body:
             visitor.visit(node)
-        bindings = {**index.bindings[path], **index.imports(path, function.body)}
-        local_names.difference_update(index.imports(path, function.body))
+        bindings = index.imports(path, function.body)
+        local_names.difference_update(bindings)
         for snippet in recover(_references(function.body), "direct_dependency", bindings, local_names):
             candidate_text = _render([*selected, snippet])
             if len(candidate_text) <= budget:

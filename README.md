@@ -117,6 +117,12 @@ alterada. Não aprove automaticamente os três itens para testes ainda não
 inspecionados. Uma execução que passa pode ficar como `pending_review`; isso é
 um estado de trabalho, não uma aprovação implícita.
 
+A revisão confere o protocolo congelado, o código do ContextLab, as versões de
+Python e dependências, a imagem Docker, as fontes e a submissão antes de
+reavaliar. Se algum desses itens mudar, ela é recusada: mantenha o ambiente
+original para revisar uma coleta existente. As avaliações anteriores continuam
+preservadas no histórico de revisões.
+
 A detecção de cada defeito também exige examinar a falha obtida e atribuí-la à
 alteração de comportamento. Até essa atribuição ser registrada, o resultado
 permanece pendente. Depois de inspecionar a falha do defeito `vip-limite`, uma
@@ -226,6 +232,27 @@ estão detalhados em [docs/AVALIACAO.md](docs/AVALIACAO.md).
 
 ## Conectar Codex e Claude Code
 
+O piloto atual usa somente **Codex com `gpt-6-luna`**, em
+[examples/codex-pilot.json](examples/codex-pilot.json): dois projetos, L/R/A e
+uma repetição, totalizando **seis trajetórias**. O campo `auth_file` aponta para
+o login local do ChatGPT em `~/.codex-work/auth.json`; ajuste apenas esse caminho
+se seu login estiver em outro diretório. O manifesto contém o caminho, nunca o
+conteúdo da credencial. Claude fica fora deste piloto.
+
+```bash
+contextlab doctor examples/codex-pilot.json
+contextlab freeze examples/codex-pilot.json --out runs/codex-pilot.lock.json
+contextlab run runs/codex-pilot.lock.json --out runs/codex-pilot --max-runs 1
+contextlab report runs/codex-pilot
+```
+
+O diagnóstico do Codex usa um servidor simulado em localhost, sem chamadas ao
+modelo nem credenciais, para conferir o inventário real de ferramentas e testar
+recusas de comandos e leituras externas. O catálogo restrito preserva o modelo,
+suas instruções e parâmetros de inferência; remove capacidades nativas que
+permitiriam acesso fora do MCP. Sua identidade é registrada por SHA-256.
+Após inspecionar a primeira trajetória, `run --resume` continua a matriz.
+
 [examples/native-pilot.json](examples/native-pilot.json) é um modelo editável com
 os mesmos dois projetos didáticos, os dois agentes e avaliação Docker. Ele
 planeja **12 trajetórias** com uma repetição, destinadas ao ensaio de integração.
@@ -268,6 +295,10 @@ Configurações e históricos das sessões anteriores não são copiados como
 contexto para a próxima trajetória.
 
 ## Como configurar outros projetos
+
+O guia [Executar em outro projeto Python](docs/NOVOS_PROJETOS.md) apresenta o
+passo a passo completo: escolha da função, manifesto JSON, referências,
+defeitos, dependências Docker, geração com Codex, revisão e relatório.
 
 Comece copiando um dos manifestos em `examples/`. Caminhos de projeto,
 fixtures e credenciais são relativos ao arquivo de configuração, quando não

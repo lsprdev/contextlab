@@ -223,8 +223,8 @@ def freeze(config: dict, path: Path, evidence: dict | None = None) -> dict:
     return result
 
 
-def load_lock(path: Path) -> dict:
-    lock = json.loads(path.read_text(encoding="utf-8"))
+def verify_lock(lock: dict) -> dict:
+    """Apply the same integrity and environment checks to runs and reviews."""
     if lock.get("lock_hash") != digest({k: v for k, v in lock.items() if k != "lock_hash"}):
         raise ManifestError("Lock foi alterado")
     if lock["config_hash"] != digest(lock["config"]) or lock["source_hashes"] != snapshot(lock["config"]):
@@ -236,3 +236,7 @@ def load_lock(path: Path) -> dict:
     if lock["plan"] != plan(lock["config"]):
         raise ManifestError("Matriz ou ordem divergente do manifesto")
     return lock
+
+
+def load_lock(path: Path) -> dict:
+    return verify_lock(json.loads(path.read_text(encoding="utf-8")))

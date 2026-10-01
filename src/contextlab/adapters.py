@@ -23,7 +23,9 @@ OUTPUT_SCHEMA = {"type": "object", "properties": {"test_code": {"type": "string"
                  "required": ["test_code"], "additionalProperties": False}
 CODEX_DISABLED = ("shell_tool", "unified_exec", "apps", "multi_agent", "memories",
                   "hooks", "goals", "shell_snapshot", "remote_plugin",
-                  "skill_mcp_dependency_install")
+                  "skill_mcp_dependency_install", "view_image", "browser_use",
+                  "browser_use_external", "computer_use", "image_generation",
+                  "plugins", "skill_search", "sleep_tool")
 CLAUDE_FLAGS = ("--bare", "--restricted", "--tools", "--strict-mcp-config",
                 "--no-session-persistence", "--json-schema", "--setting-sources",
                 "--permission-mode", "--mcp-config", "--output-format")
@@ -110,16 +112,22 @@ def doctor_agent(agent: dict) -> dict:
                     fields = line.split()
                     if len(fields) >= 2:
                         states[fields[0]] = fields[-1].lower()
-                missing = [name for name in CODEX_DISABLED if states.get(name) != "false"]
+                # Some catalogs force the unified-exec *implementation* on even
+                # when shell_tool is off. Verify the actual tool registry below.
+                missing = [name for name in CODEX_DISABLED
+                           if name != "unified_exec" and states.get(name) != "false"]
                 if feature_result.returncode or missing:
                     result["details"].append("Cannot verify disabled Codex features: " + ", ".join(missing))
+                if not result["missing_flags"] and not result["details"] and agent.get("model") and not str(agent["model"]).startswith("SUBSTITUA_"):
+                    from .codex_policy import probe_tools
+                    result["capabilities"] = probe_tools(binary, agent["model"], private, env)
             if not auth_ready:
                 result["details"].append(f"Configure {credential}" +
                     (" or an explicit protected auth_file." if kind == "codex" else "; --bare does not use subscription OAuth."))
             if not agent.get("model") or str(agent.get("model", "")).startswith("SUBSTITUA_"):
                 result["details"].append("Set an explicit model identifier.")
             result["ready"] = not result["missing_flags"] and not result["details"]
-    except (OSError, ValueError, subprocess.TimeoutExpired) as exc:
+    except (OSError, ValueError, KeyError, subprocess.SubprocessError) as exc:
         result["details"].append(type(exc).__name__ + ": " + str(exc))
     result["isolation_verified"] = False
     return result
@@ -134,7 +142,7 @@ def _mcp_config(packet: Path, audit: Path) -> dict:
 
 
 def _codex_command(binary: str, model: str, workspace: Path, schema: Path,
-                   final: Path, mcp: dict) -> list[str]:
+                   final: Path, mcp: dict, catalog: Path) -> list[str]:
     command = [binary, "exec", "--json", "--ephemeral", "--ignore-user-config",
                "--skip-git-repo-check", "--sandbox", "read-only", "--model", model,
                "--output-schema", str(schema), "--output-last-message", str(final),
@@ -142,7 +150,11 @@ def _codex_command(binary: str, model: str, workspace: Path, schema: Path,
     settings: dict[str, Any] = {
         "approval_policy": "never", "web_search": "disabled", "project_doc_max_bytes": 0,
         "cli_auth_credentials_store": "file",
-        "project_doc_fallback_filenames": [], "tools.view_image": False,
+        "project_doc_fallback_filenames": [], "model_catalog_json": str(catalog),
+        "agents.enabled": False, "features.multi_agent_v2.enabled": False,
+        "skills.bundled.enabled": False, "skills.include_instructions": False,
+        "tools.experimental_request_user_input.enabled": False,
+        "features.tool_registry.turn_metadata_includes_tool_info": True,
         "features.code_mode.enabled": False, "features.context_management.experimental_mode": False,
         "browser_use.allow_history_access": False,
         "browser_use.default_origin_policy.access": "deny", "computer_use.default_app_access": "deny",
@@ -308,7 +320,12 @@ def run_agent(agent: dict, prompt: str, context: dict, output_dir: Path, limits:
             final = private / "final.json"
             mcp = _mcp_config(packet, audit)
             if kind == "codex":
-                command = _codex_command(readiness["binary"], agent["model"], workspace, schema, final, mcp)
+                from .codex_policy import prepare_catalog
+                catalog, catalog_hash = prepare_catalog(readiness["binary"], agent["model"], private, env)
+                if catalog_hash != readiness["capabilities"]["catalog_sha256"]:
+                    raise ValueError("Codex model catalog changed after capability verification")
+                result["capabilities"] = readiness["capabilities"]
+                command = _codex_command(readiness["binary"], agent["model"], workspace, schema, final, mcp, catalog)
             else:
                 mcp_file = private / "mcp.json"
                 mcp_file.write_text(json.dumps({"mcpServers": {"contextlab": mcp}}), encoding="utf-8")

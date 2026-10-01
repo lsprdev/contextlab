@@ -8,7 +8,7 @@ import time
 from pathlib import Path
 
 from .manifest import (ManifestError, digest, implementation_hash, load_lock, now, plan,
-                       runtime_fingerprint, snapshot, write_json)
+                       runtime_fingerprint, snapshot, verify_lock, write_json)
 
 
 def resolve_row(config: dict, row: dict):
@@ -260,10 +260,13 @@ def _execute_run(lock_path: Path, output: Path, *, trusted_local=False, resume=F
 def review_trajectory(path: Path, reviewer: str, decisions: dict, trusted_local=False) -> dict:
     from .evaluation import evaluate_submission
     header = json.loads((path.parent / "run.json").read_text())
-    config = header["config"]
-    if snapshot(config) != header["source_hashes"]:
-        raise ManifestError("Fontes mudaram; revisão não pode reavaliar outra versão")
+    # run.json preserves the complete lock plus these two run-only fields.
+    frozen = verify_lock({key: value for key, value in header.items()
+                          if key not in {"started_at", "demonstration"}})
+    config = frozen["config"]
     record = json.loads((path / "record.json").read_text())
+    if record.get("lock_hash") != frozen["lock_hash"]:
+        raise ManifestError("A trajetória pertence a outro protocolo congelado")
     if not (path / "test_generated.py").is_file() or not record.get("evaluation"):
         raise ManifestError("Trajetória sem avaliação para revisar")
     if record.get("submission_sha256") != hashlib.sha256((path / "test_generated.py").read_bytes()).hexdigest():
