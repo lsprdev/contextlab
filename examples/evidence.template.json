@@ -7,7 +7,6 @@
   "focal_mapping_verified": false,
   "budget_calibrated": false,
   "agent_versions": {
-    "codex": "COPIE_A_VERSAO_VERIFICADA_NO_PILOTO",
-    "claude": "COPIE_A_VERSAO_VERIFICADA_NO_PILOTO"
+    "codex": "COPIE_A_VERSAO_VERIFICADA_NO_PILOTO"
   }
 }

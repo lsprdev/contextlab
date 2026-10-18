@@ -1,6 +1,9 @@
 # Adaptadores nativos e limites de validação
 
-O ContextLab chama **Codex CLI** e **Claude Code CLI** como processos nativos.
+O protocolo principal usa somente **Codex CLI**, com modelo e configuração
+fixados, em 108 gerações. O ContextLab também conserva o adaptador **Claude
+Code CLI** para trabalhos futuros; ele não integra a matriz atual. Ambos são
+processos nativos.
 Não substitui esses agentes por uma chamada direta a um modelo. O modo
 `fixture` é uma demonstração separada e não gera evidência de desempenho de IA.
 

@@ -9,12 +9,14 @@ esforço de geração.
 
 Uma trajetória corresponde a **projeto × função × agente × condição ×
 repetição**. O número de funções `test_*` produzidas é um resultado da geração,
-não o número de trajetórias. Na matriz principal do TCC, ambos os agentes
-trabalham sobre as mesmas doze funções: 2 projetos × 6 funções × 2 agentes ×
-3 condições × 3 repetições = **216 trajetórias**.
+não o número de trajetórias. Na matriz principal do TCC, somente o Codex
+trabalha sobre as mesmas doze funções em L/R/A: 4 projetos × 3 funções ×
+1 agente × 3 condições × 3 repetições = **108 trajetórias**. São 9 por função,
+27 por projeto e 36 por estratégia, com modelo e configuração fixados. Outros
+agentes ficam para trabalhos futuros.
 
 Esta implementação inclui dois projetos didáticos e uma demonstração sem IA.
-Os projetos, os modelos e os limites da coleta principal ainda precisam ser
+Os projetos, o modelo e os limites da coleta principal ainda precisam ser
 selecionados e validados. Executar a demonstração não executa o experimento do
 TCC.
 
@@ -230,14 +232,16 @@ adaptadores.
 As categorias de falha, o cálculo da cobertura focal e as regras de detecção
 estão detalhados em [docs/AVALIACAO.md](docs/AVALIACAO.md).
 
-## Conectar Codex e Claude Code
+## Conectar o Codex
 
 O piloto atual usa somente **Codex com `gpt-6-luna`**, em
 [examples/codex-pilot.json](examples/codex-pilot.json): dois projetos, L/R/A e
 uma repetição, totalizando **seis trajetórias**. O campo `auth_file` aponta para
 o login local do ChatGPT em `~/.codex-work/auth.json`; ajuste apenas esse caminho
 se seu login estiver em outro diretório. O manifesto contém o caminho, nunca o
-conteúdo da credencial. Claude fica fora deste piloto.
+conteúdo da credencial. Esse modelo identifica o piloto de integração; o modelo
+da coleta principal ainda deve ser escolhido, validado e congelado. Claude fica
+fora do piloto atual e da matriz principal.
 
 ```bash
 contextlab doctor examples/codex-pilot.json
@@ -254,18 +258,17 @@ permitiriam acesso fora do MCP. Sua identidade é registrada por SHA-256.
 Após inspecionar a primeira trajetória, `run --resume` continua a matriz.
 
 [examples/native-pilot.json](examples/native-pilot.json) é um modelo editável com
-os mesmos dois projetos didáticos, os dois agentes e avaliação Docker. Ele
-planeja **12 trajetórias** com uma repetição, destinadas ao ensaio de integração.
-Substitua `SUBSTITUA_PELO_MODELO_CODEX` e `SUBSTITUA_PELO_MODELO_CLAUDE` por
-identificadores explícitos de modelos disponíveis na sua configuração.
+os mesmos dois projetos didáticos, somente Codex e avaliação Docker. Ele
+planeja **seis trajetórias** com uma repetição, destinadas ao ensaio de integração.
+Substitua `SUBSTITUA_PELO_MODELO_CODEX` pelo identificador explícito do modelo
+que será validado na sua configuração.
 
-Os adaptadores chamam os executáveis nativos `codex` e `claude`; eles não
-substituem esses clientes por uma chamada direta a uma API de modelo.
+O adaptador da coleta chama o executável nativo `codex`, sem substituí-lo por
+uma chamada direta a uma API de modelo. O adaptador `claude` continua disponível
+para extensões futuras do instrumento, fora do protocolo principal.
 
 - **Codex:** configure `CODEX_API_KEY` ou o campo `auth_file` apontando para um
   arquivo privado compatível. Não inclua a credencial no repositório.
-- **Claude Code:** o modo `--bare` usado pelo adaptador exige
-  `ANTHROPIC_API_KEY`. Este adaptador não utiliza o login OAuth da assinatura.
 - Use a verificação `doctor` antes de congelar o piloto; consulte
   `contextlab doctor --help` e [docs/ADAPTERS.md](docs/ADAPTERS.md).
 
@@ -278,7 +281,7 @@ contextlab run runs/native-pilot.lock.json --out runs/native-pilot
 contextlab report runs/native-pilot
 ```
 
-Execute essa sequência após escolher os modelos, configurar as credenciais e
+Execute essa sequência após escolher o modelo, configurar as credenciais e
 construir a imagem Docker. A execução com agentes pode consumir seu orçamento
 do provedor. Para começar com apenas uma trajetória, acrescente `--max-runs 1`
 ao comando `run`; depois continue com o mesmo lock e diretório usando `--resume`.
@@ -307,7 +310,7 @@ forem absolutos nos campos em que isso é permitido.
 | Campo | Finalidade |
 | --- | --- |
 | `phase` | `demo`, `pilot` ou `main`; fixtures são admitidas somente em `demo` |
-| `agents` | Identidade, adaptador e modelo explícito de cada agente |
+| `agents` | Em `main`, exatamente uma entrada Codex com modelo explícito e fixado |
 | `conditions`, `repetitions`, `seed` | Matriz e ordem de execução |
 | `limits` | Limites explícitos de caracteres, consultas, geração e avaliação |
 | `project.root` | Diretório do projeto |
@@ -328,10 +331,12 @@ práticos para demonstração, **não limites justificados para o TCC**. O pilot
 precisa registrar por que os limites escolhidos acomodam as unidades,
 restringem o esforço de maneira comparável e cabem no orçamento disponível.
 
-Para a coleta principal, selecione dois projetos e seis alvos em cada um,
-mantenha ambos os agentes em todos os alvos e use L/R/A com três repetições.
+Para a coleta principal, selecione quatro projetos e três alvos em cada um,
+use apenas Codex e mantenha L/R/A com três repetições: **108 gerações**. O plano
+sorteia os blocos de função/repetição e as estratégias dentro de cada bloco,
+com semente registrada. Os planos de demonstração e piloto mantêm sorteio global.
 Prepare suas referências e seu inventário de defeitos, execute a validação,
-faça o piloto com agentes reais e revise os contextos. O congelamento de `main`
+faça o piloto com o Codex real nas três estratégias e revise os contextos. O congelamento de `main`
 exige evidências de piloto e revisão nominal de isolamento, sanitização,
 mapeamento focal e calibração do orçamento. Consulte
 `contextlab freeze --help` para fornecer essas evidências. O comando recebe
@@ -343,7 +348,9 @@ itens; o comando também confere os artefatos de piloto e validação apontados.
 O arquivo [examples/evidence.template.json](examples/evidence.template.json)
 oferece a estrutura, com confirmações inicialmente falsas. Os caminhos nele
 são relativos ao próprio arquivo de evidências. Use outros alvos no piloto;
-versões, limites e implementação finais precisam coincidir com os verificados.
+versão do Codex, modelo, limites, ambiente e implementação finais precisam
+coincidir com os verificados. Mudanças exigem nova validação e novos locks;
+preserve os registros e locks das execuções anteriores.
 Não transforme a
 demonstração com fixtures em uma coleta principal renomeando sua fase.
 

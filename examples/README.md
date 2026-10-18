@@ -1,5 +1,11 @@
 # Projetos didáticos
 
+Os pilotos `codex-pilot.json` e `native-pilot.json` usam somente Codex, dois
+projetos didáticos, L/R/A e uma repetição: **seis gerações**. Eles não são a
+matriz principal de **108 gerações** (quatro projetos, três funções por projeto,
+Codex, L/R/A e três repetições). `evidence.template.json` registra apenas a
+versão do Codex e mantém as confirmações falsas até a verificação.
+
 Estes projetos permitem testar o funcionamento do ContextLab antes de conectar
 agentes e selecionar os projetos do estudo principal. São exemplos autorais,
 pequenos e fictícios; não representam uma amostra experimental.

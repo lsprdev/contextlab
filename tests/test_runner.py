@@ -10,8 +10,9 @@ from contextlab.runner import execute, extract_submission, review_trajectory
 DEMO = Path(__file__).parents[1] / "examples/demo.json"
 
 
-def test_paired_matrix_uses_same_targets_in_every_condition():
+def test_generic_pilot_can_plan_multiple_agents_for_future_work():
     config = load_config(DEMO)
+    config["phase"] = "pilot"
     config["agents"] = [{"id": "codex", "kind": "codex"}, {"id": "claude", "kind": "claude"}]
     config["repetitions"] = 3
     rows = plan(config)

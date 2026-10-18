@@ -447,11 +447,13 @@ Para ampliar, acrescente funções em `targets` e ajuste `repetitions` antes de 
 nova rodada. Com cinco funções, Codex, L/R/A e três repetições, serão **45
 gerações**. Use `plan` para conferir a matriz antes de executar.
 
-Por enquanto, mantenha `"phase": "pilot"`. A fase `main` ainda valida a matriz
-original do TCC: 2 projetos × 6 funções × 2 agentes × 3 condições × 3 repetições,
-totalizando 216 trajetórias, além das evidências de piloto. Uma coleta definitiva
-exclusivamente com Codex exigiria ajustar esse protocolo e sua validação. O
-piloto deve usar alvos externos à matriz principal.
+Para ensaios com quantidades diferentes da matriz principal, mantenha
+`"phase": "pilot"`. A fase `main` exige **4 projetos × 3 funções × 1 agente
+Codex × 3 condições (L/R/A) × 3 repetições = 108 trajetórias**, avaliação Docker
+e evidências do piloto do Codex nas três condições. O modelo, a versão, os
+limites, o ambiente e a implementação devem coincidir com os validados. O
+piloto usa alvos externos à matriz principal. Outros agentes ficam para
+trabalhos futuros; não são necessários para concluir a coleta atual.
 
 ## Documentação relacionada
 

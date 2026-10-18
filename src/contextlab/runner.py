@@ -27,7 +27,7 @@ def evaluation_config(config: dict, trusted_local: bool) -> dict:
 
 
 def prompt_for(target: dict, context: dict) -> str:
-    # O mesmo contrato é usado pelos dois clientes, independentemente da condição.
+    # O contrato é comum às estratégias e aos adaptadores disponíveis.
     common = (
         "Gere uma única suíte de testes unitários pytest para a função indicada.\n"
         f"Arquivo: {target['path']}\nSímbolo: {target['symbol']}\nImport: {target['import']}\n"
@@ -121,11 +121,11 @@ def check_main_evidence(config: dict, evidence: dict) -> None:
             continue
         _, _, agent = resolve_row(pilot["config"], row)
         found.add((agent["kind"], row["condition"]))
-    if found != {(a, c) for a in ("codex", "claude") for c in ("L", "R", "A")}:
-        raise ManifestError("Piloto não demonstra os dois agentes nas três condições")
+    if found != {("codex", c) for c in ("L", "R", "A")}:
+        raise ManifestError("Piloto não demonstra o Codex nas três condições com geração e avaliação completas")
     for agent in config["agents"]:
         matches = [a for a in pilot["config"]["agents"] if a["kind"] == agent["kind"]]
-        if not matches or matches[0].get("model") != agent["model"]:
+        if len(matches) != 1 or matches[0].get("model") != agent["model"]:
             raise ManifestError("Modelos da coleta devem coincidir com o piloto")
         doctor = doctor_agent(agent)
         if not doctor.get("ready"):

@@ -178,11 +178,11 @@ def load_config(path: str | Path) -> dict:
                     if defect["witness"].split("::")[0] not in files:
                         raise ManifestError("Testemunho fora de evaluation_include")
         if config["phase"] == "main":
-            if (len(config["projects"]) != 2 or any(len(p["targets"]) != 6 for p in config["projects"])
-                    or {a["kind"] for a in config["agents"]} != {"codex", "claude"}
-                    or len(config["agents"]) != 2 or set(conditions) != {"L", "R", "A"}
+            if (len(config["projects"]) != 4 or any(len(p["targets"]) != 3 for p in config["projects"])
+                    or {a["kind"] for a in config["agents"]} != {"codex"}
+                    or len(config["agents"]) != 1 or set(conditions) != {"L", "R", "A"}
                     or config["repetitions"] != 3):
-                raise ManifestError("O protocolo principal exige 2 projetos × 6 alvos × 2 agentes × L/R/A × 3 repetições")
+                raise ManifestError("O protocolo principal exige 4 projetos × 3 alvos × 1 agente Codex × L/R/A × 3 repetições = 108 gerações")
             if config["evaluation"]["backend"] != "docker":
                 raise ManifestError("A coleta principal exige avaliação Docker")
         return config
@@ -199,7 +199,21 @@ def plan(config: dict) -> list[dict]:
                    "condition": condition, "repetition": repetition}
             row["id"] = f"{project['id']}__{target['id']}__{agent['id']}__{condition}__{repetition}"
             rows.append(row)
-    random.Random(config["seed"]).shuffle(rows)
+    rng = random.Random(config["seed"])
+    if config["phase"] == "main":
+        # Cada bloco conserva a mesma função e repetição nas três estratégias.
+        blocks = {}
+        for row in rows:
+            key = (row["project"], row["target"], row["repetition"])
+            blocks.setdefault(key, []).append(row)
+        ordered_blocks = list(blocks.values())
+        rng.shuffle(ordered_blocks)
+        rows = []
+        for block in ordered_blocks:
+            rng.shuffle(block)
+            rows.extend(block)
+    else:
+        rng.shuffle(rows)
     return [{"order": i + 1, **row} for i, row in enumerate(rows)]
 
 

@@ -1,10 +1,31 @@
-# Verificação da implementação 0.1.0
+# Verificação do ContextLab
 
 Esta verificação cobre o instrumento e um piloto de integração com Codex;
 não compara a qualidade de agentes nem testa a hipótese principal.
-Atualizada em 1º de outubro de 2026.
+Atualizada em 18 de outubro de 2026. Os resultados da demonstração e do piloto
+abaixo são registros de 01/10; não foram refeitos nem incorporados à matriz principal.
 
-## Executado
+## Atualização do protocolo — 18/10/2026
+
+- **119 testes automatizados aprovados**, com `python -m pytest -q -p no:cacheprovider`,
+  em ambiente virtual Python com pytest 8.4.2 e coverage 7.10.7.
+- Aceitação de quatro projetos, três funções por projeto, somente Codex, L/R/A e
+  três repetições: **108 gerações únicas**, 9 por função, 27 por projeto e 36 por estratégia.
+- Rejeição das matrizes anteriores, de outros agentes na fase `main`, de modelos
+  Codex adicionais, da ausência de estratégias e da avaliação principal local.
+- Plano reproduzível por semente, com blocos completos de função/repetição e
+  sorteio das estratégias dentro deles.
+- Aceitação de evidências simuladas de piloto somente Codex nas três estratégias;
+  rejeição de condição ausente, modelo divergente e falhas de infraestrutura.
+  Esses testes validam as regras do instrumento, não comprovam um piloto real.
+- O piloto genérico em `examples/native-pilot.json` e o modelo de evidências
+  agora usam somente Codex. Claude permanece como capacidade para trabalhos futuros.
+
+A alteração da implementação exige nova validação e novos locks antes de uma
+nova coleta. O piloto de 01/10 e seus artefatos permanecem preservados; não
+constituem evidência suficiente para liberar esta versão da coleta principal.
+
+## Testes anteriores — 01/10/2026
 
 - **105 testes automatizados aprovados** em ambiente virtual Python, com pytest
   8.4.2 e coverage 7.10.7, pelo comando `python -m pytest -q`.
@@ -25,7 +46,7 @@ Atualizada em 1º de outubro de 2026.
 - Relatórios com todas as trajetórias planejadas, denominadores, pendências,
   infraestrutura, tokens ausentes e peso igual por função nos contrastes.
 
-## Demonstração de ponta a ponta
+## Demonstração de ponta a ponta — 01/10/2026
 
 Foi executado o manifesto `examples/demo.json`, em modo local confiável e
 sequencial, com os dois projetos autorais. As seis trajetórias produziram entregas
@@ -50,7 +71,7 @@ Os artefatos locais desta execução estão em
 `run/report.md`, com os dados em `run/report.json` e `run/results.csv`; as duas
 revisões da suíte de frete e seus logs permanecem em `run/loja__frete__fixture__L__1/reviews/`.
 
-## Verificação do avaliador Docker
+## Verificação do avaliador Docker — 01/10/2026
 
 A imagem `contextlab-evaluator:local` foi construída com Python 3.12.11,
 pytest 8.4.2 e coverage 7.10.7. As referências e os testemunhos dos dois projetos
@@ -60,7 +81,7 @@ Essa execução separada permaneceu com revisão pendente e não substituiu os
 registros congelados da demonstração local. Seus artefatos estão em
 `docker-validation/` e `docker-fixture/` no mesmo diretório de execução.
 
-## Piloto real com Codex e GPT-6 Luna
+## Piloto real com Codex e GPT-6 Luna — 01/10/2026
 
 O manifesto `examples/codex-pilot.json` foi executado em 1º de outubro de 2026,
 com Codex CLI 0.159.3, modelo `gpt-6-luna`, login ChatGPT já existente e avaliação
@@ -92,7 +113,7 @@ Os arquivos estão em `runs/codex-luna-f68ex7p9/`: `pilot.lock.json`, `validatio
 e `run/`, com entregas, eventos nativos, auditoria das ferramentas, logs do Docker
 e relatórios CSV/JSON/Markdown. O diretório é local e ignorado pelo Git.
 
-## Limites da verificação
+## Limites atuais da verificação
 
 - O Codex CLI 0.159.3 foi configurado com `gpt-6-luna` e reutilização de login
   ChatGPT. O catálogo restrito resolveu o bloqueio causado pelas capacidades
@@ -100,13 +121,13 @@ e relatórios CSV/JSON/Markdown. O diretório é local e ignorado pelo Git.
   como prova da presença ou ausência de comandos. O diagnóstico local confirmou
   a recusa de execução de shell e de leitura fora do pacote, com uma leitura
   permitida como controle positivo.
-- Claude Code fica fora do piloto atual por decisão do pesquisador. Seu
+- Claude Code fica fora do piloto atual e da coleta principal. Seu
   adaptador continua coberto por testes simulados; não houve geração por Claude.
 - Opções de cliente e auditoria posterior não comprovam isolamento. O piloto
-  precisa verificar os binários e modelos reais, tentativas de acesso proibido,
-  configurações e equivalência de ferramentas antes de liberar a coleta.
+  precisa verificar o binário e o modelo finais do Codex, tentativas de acesso
+  proibido, configurações e ferramentas permitidas em L/R/A antes de liberar a coleta.
 - Os projetos científicos, os limites calibrados, o inventário principal e as
-  216 trajetórias do estudo permanecem pendentes. Os valores dos exemplos são
+  108 trajetórias do estudo permanecem pendentes. Os valores dos exemplos são
   parâmetros de demonstração.
 - A revisão técnica automatizada da fixture demonstra o fluxo do instrumento;
   a coleta principal ainda exige a inspeção humana prevista no protocolo.

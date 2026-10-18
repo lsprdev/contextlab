@@ -19,11 +19,6 @@
       "id": "codex",
       "kind": "codex",
       "model": "SUBSTITUA_PELO_MODELO_CODEX"
-    },
-    {
-      "id": "claude",
-      "kind": "claude",
-      "model": "SUBSTITUA_PELO_MODELO_CLAUDE"
     }
   ],
   "evaluation": {

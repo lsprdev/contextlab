@@ -126,8 +126,7 @@ def test_main_gate_rejects_pilot_with_only_evaluation_infrastructure_failures(tm
     from contextlab import adapters, manifest, runner
     from contextlab.manifest import ManifestError, digest, implementation_hash, plan, snapshot
 
-    agents = [{"id": "codex", "kind": "codex", "model": "fixed-codex"},
-              {"id": "claude", "kind": "claude", "model": "fixed-claude"}]
+    agents = [{"id": "codex", "kind": "codex", "model": "fixed-codex"}]
     limits = {"context_chars": 10000, "tool_calls": 10, "generation_seconds": 30,
               "evaluation_seconds": 10}
     project_root = tmp_path / "main_project"
@@ -160,6 +159,6 @@ def test_main_gate_rejects_pilot_with_only_evaluation_infrastructure_failures(tm
     monkeypatch.setattr(manifest, "runtime_fingerprint", lambda config: runtime)
     monkeypatch.setattr(runner, "runtime_fingerprint", lambda config: runtime, raising=False)
     evidence = {"pilot_run": str(pilot_dir), "validation_dir": str(validation_dir),
-                "agent_versions": {"codex": "1", "claude": "1"}}
+                "agent_versions": {"codex": "1"}}
     with pytest.raises(ManifestError, match="Piloto|piloto|avaliação"):
         runner.check_main_evidence(config, evidence)
