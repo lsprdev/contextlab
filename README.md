@@ -154,7 +154,7 @@ que uma estratégia de contexto é melhor**.
 | --- | --- | --- |
 | **L — Local** | Arquivo focal completo e declarações de tipos diretamente necessárias à assinatura | Preparador determinístico |
 | **R — Recuperado** | L e declarações de dependências diretas da função, resolvidas estaticamente | Preparador determinístico |
-| **A — Autônomo** | Produção e documentação permitidas do projeto sanitizado | Agente, por listagem, leitura e busca |
+| **A — Autônomo** | Código de produção e documentação permitidos na cópia preparada do repositório | Agente, por listagem, leitura e busca |
 
 O recuperador usa a árvore sintática do Python (`ast`) para localizar símbolos,
 imports e referências. A expansão termina nas dependências diretas. Ele não
@@ -196,7 +196,8 @@ erro, resultado de cobertura ou teste de referência retorna ao agente para
 reparo. A trajetória termina após uma submissão.
 
 Os testes existentes e os arquivos privados ficam fora da lista de contexto.
-O sanitizador exclui padrões conhecidos, mas não substitui a curadoria:
+A preparação do repositório exclui automaticamente arquivos e conteúdos que
+correspondam aos padrões conhecidos, mas também exige inspeção:
 documentação pode conter exemplos de testes, resultados esperados e outros
 materiais que precisam ser revisados. Declare cada documento elegível pelo
 caminho exato; documentos abrangidos apenas por um glob não são admitidos.
@@ -337,13 +338,15 @@ sorteia os blocos de função/repetição e as estratégias dentro de cada bloco
 com semente registrada. Os planos de demonstração e piloto mantêm sorteio global.
 Prepare suas referências e seu inventário de defeitos, execute a validação,
 faça o piloto com o Codex real nas três estratégias e revise os contextos. O congelamento de `main`
-exige evidências de piloto e revisão nominal de isolamento, sanitização,
+exige evidências de piloto e revisão nominal de isolamento, preparação do repositório,
 mapeamento focal e calibração do orçamento. Consulte
 `contextlab freeze --help` para fornecer essas evidências. O comando recebe
 `--evidence caminho/para/evidencias.json`; o arquivo deve identificar
 `pilot_run`, `validation_dir`, `reviewer` e `agent_versions`, além das confirmações
 `isolation_verified`, `docs_sanitized`, `focal_mapping_verified` e
-`budget_calibrated`. Registre as confirmações somente depois de verificar os
+`budget_calibrated`. O campo `docs_sanitized` confirma a revisão da documentação
+permitida e a exclusão de materiais reservados; seu nome técnico foi mantido
+para compatibilidade dos manifestos. Registre as confirmações somente depois de verificar os
 itens; o comando também confere os artefatos de piloto e validação apontados.
 O arquivo [examples/evidence.template.json](examples/evidence.template.json)
 oferece a estrutura, com confirmações inicialmente falsas. Os caminhos nele
