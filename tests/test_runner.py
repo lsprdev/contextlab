@@ -7,7 +7,7 @@ from contextlab.manifest import ManifestError, freeze, load_config, load_lock, p
 from contextlab.runner import execute, extract_submission, review_trajectory
 
 
-DEMO = Path(__file__).parents[1] / "examples/demo.json"
+DEMO = Path(__file__).parent / "fixtures/demo.json"
 
 
 def test_generic_pilot_can_plan_multiple_agents_for_future_work():

@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "phase": "pilot",
+  "seed": 42,
+  "conditions": [
+    "L"
+  ],
+  "repetitions": 1,
+  "limits": {
+    "context_chars": 30000,
+    "tool_calls": 20,
+    "generation_seconds": 120,
+    "evaluation_seconds": 20
+  },
+  "agents": [
+    {
+      "id": "codex",
+      "kind": "codex",
+      "model": "gpt-6-luna",
+      "auth_file": "/Users/lsprdev/.codex-work/auth.json"
+    }
+  ],
+  "evaluation": {
+    "backend": "docker",
+    "image": "contextlab-evaluator:local"
+  },
+  "projects": [
+    {
+      "id": "cambio",
+      "root": ".",
+      "source_roots": [
+        "src"
+      ],
+      "include": [
+        "src/cambio/__init__.py",
+        "src/cambio/__main__.py",
+        "src/cambio/cli.py",
+        "src/cambio/conversao.py",
+        "src/cambio/cotacoes.py"
+      ],
+      "evaluation_include": [
+        "src/cambio/__init__.py",
+        "src/cambio/__main__.py",
+        "src/cambio/cli.py",
+        "src/cambio/conversao.py",
+        "src/cambio/cotacoes.py",
+        "tests/test_conversao.py"
+      ],
+      "targets": [
+        {
+          "id": "converter_para_brl",
+          "path": "src/cambio/conversao.py",
+          "symbol": "converter_para_brl",
+          "import": "cambio.conversao:converter_para_brl",
+          "reference_tests": [
+            "tests/test_conversao.py"
+          ],
+          "defects": []
+        }
+      ]
+    }
+  ]
+}

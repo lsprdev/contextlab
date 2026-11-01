@@ -1,0 +1,3 @@
+# A imagem base instala apenas as dependências declaradas neste Dockerfile.
+*
+!Dockerfile.evaluator

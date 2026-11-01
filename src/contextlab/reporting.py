@@ -303,8 +303,8 @@ def _markdown(report):
     return "\n".join(lines)
 
 
-def report_run(run_dir: Path) -> dict:
-    """Write CSV/JSON/Markdown for all planned trajectories without rerunning any."""
+def read_report(run_dir: Path) -> dict:
+    """Read all planned trajectories without writing or rerunning anything."""
     run_dir = Path(run_dir).resolve()
     header = _read(run_dir / "run.json")
     config = header["config"]
@@ -331,10 +331,17 @@ def report_run(run_dir: Path) -> dict:
                             for (project, target), definition in targets.items() for defect in definition.get("defects", [])],
               "groups": _grouped(rows, ("project", "agent", "condition")), "functions": functions,
               "defects": defect_groups, "contrasts": _contrasts(functions), "rows": rows}
+    return report
+
+
+def report_run(run_dir: Path) -> dict:
+    """Export the same read-only summary to CSV, JSON and Markdown."""
+    run_dir = Path(run_dir).resolve()
+    report = read_report(run_dir)
     with (run_dir / "results.csv").open("w", newline="", encoding="utf-8") as stream:
         writer = csv.DictWriter(stream, fieldnames=_CSV_FIELDS, extrasaction="ignore")
         writer.writeheader()
-        writer.writerows(rows)
+        writer.writerows(report["rows"])
     write_json(run_dir / "report.json", report)
     (run_dir / "report.md").write_text(_markdown(report), encoding="utf-8")
     return report

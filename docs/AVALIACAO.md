@@ -41,6 +41,12 @@ modelos, não repara testes e não devolve feedback ao gerador.
 Falhas têm categorias distintas: sintaxe, coleta/importação, preparação,
 asserção, execução, desmontagem, timeout e infraestrutura. Os JSON preservam
 os relatórios de cada fase, a exceção e a mensagem, junto dos logs de execução.
+O `show` apresenta um resumo por caso, considerando as três fases em conjunto:
+uma chamada que passa e falha na finalização aparece como erro. Isso difere de
+`passed_count`, que conta chamadas de testes ativos que passaram. Casos marcados
+`xfail` ficam separados, mesmo quando passam. Essas contagens explicam a entrega;
+não alteram o critério de aprovação nem tornam casos gerações independentes.
+Consulte [Arquivos de saída](SAIDAS.md) para localizar cada evidência.
 `pytest_report.json` é descartado antes de cada invocação para impedir que um
 relatório antigo seja interpretado como evidência de uma execução interrompida.
 

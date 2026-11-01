@@ -10,7 +10,8 @@ from .manifest import ManifestError, freeze, load_config, plan, write_json
 
 
 def parser() -> argparse.ArgumentParser:
-    result = argparse.ArgumentParser(prog="contextlab", description="Experimentos L/R/A de geração de testes unitários")
+    result = argparse.ArgumentParser(prog="contextlab", description="Experimentos L/R/A de geração de testes unitários",
+        epilog="Uso por projeto: contextlab create NOME; contextlab NOME configure|setup|plan|context|run|runs|show|review. Os comandos acima mantêm o acesso por manifesto.")
     commands = result.add_subparsers(dest="command", required=True)
     for name, help_text in (("plan", "Exibir matriz sorteada, sem chamadas de IA"),
                             ("doctor", "Verificar binários, versões e opções dos adaptadores")):
@@ -114,6 +115,11 @@ def _execute(args):
 
 
 def main(argv=None) -> int:
+    argv = list(sys.argv[1:] if argv is None else argv)
+    from .projects import RESERVED
+    if argv and (argv[0] == "create" or (not argv[0].startswith("-") and argv[0] not in RESERVED)):
+        from .project_cli import main as project_main
+        return project_main(argv)
     args = parser().parse_args(argv)
     try:
         result = _execute(args)

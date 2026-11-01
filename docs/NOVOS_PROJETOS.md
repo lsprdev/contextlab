@@ -23,9 +23,9 @@ O arquivo `*.lock.json` é a versão congelada desse contrato, com a matriz de
 execução e hashes para detectar alterações. Ele é produzido por `freeze`; não
 deve ser editado manualmente.
 
-O [demo.json](../examples/demo.json) usa saídas autorais fixas, sem geração por
+O [demo.json](../tests/fixtures/demo.json) usa saídas autorais fixas, sem geração por
 modelo. Para um piloto real somente com Codex, use como base o
-[codex-pilot.json](../examples/codex-pilot.json).
+[codex-pilot.json](../tests/fixtures/codex-pilot.json).
 
 ## 1. Clonar o projeto e fixar a versão
 
