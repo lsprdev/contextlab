@@ -94,6 +94,7 @@ O JSON é o manifesto do projeto. Os campos mais usados são:
 | `evaluation` | Avaliação `local` ou `docker` e imagem a usar quando for Docker. |
 | `projects[].root` | Raiz do código, relativa ao JSON; no cadastro por nome é `.`. |
 | `targets[].path` / `symbol` / `import` | Arquivo da função, seu nome e o caminho de importação. |
+| `targets[].test_kind` | `unit` por padrão; `http` muda o contrato para o exercício FastAPI/SQLite e exige revisão adicional. HTTP é permitido apenas fora de `main`. |
 | `reference_tests` | Testes reservados para validar o projeto. |
 | `defects` | Alterações controladas a avaliar; vazio no primeiro tutorial. |
 | `include` / `evaluation_include` | Arquivos candidatos ao contexto / arquivos necessários à avaliação. |
@@ -136,6 +137,32 @@ e `context`. O projeto `cambio` deste repositório já está cadastrado.
 contextlab cambio configure
 contextlab cambio configure --conditions L R A --repetitions 3
 ```
+
+A configuração é **por projeto e persistente**: `contextlab cambio configure`
+edita `projects/cambio/contextlab.json`; `contextlab orcamentos configure`
+edita `projects/orcamentos/contextlab.json`. Ela vale para todos os alvos e
+novos lotes daquele projeto até ser alterada novamente. Não é uma preferência
+global do ContextLab nem precisa ser refeita a cada execução.
+O modelo escolhido no chat ou nas preferências pessoais do Codex também não
+altera esse JSON: o adaptador passa o modelo do manifesto explicitamente.
+
+Um cadastro entregue pronto no repositório já pode ser usado por `run`, mesmo
+sem passar pelo assistente `configure`. Foi assim no OrçaAPI: seu JSON inicial
+foi criado com as opções do piloto, incluindo `gpt-6-luna`. A configuração não
+foi herdada automaticamente do câmbio.
+
+Para trocar somente o modelo de um projeto, mantendo suas demais opções:
+
+```bash
+contextlab orcamentos configure --model IDENTIFICADOR_DO_MODELO
+contextlab orcamentos plan
+```
+
+Um novo `run` usa esse JSON e congela uma cópia no lote. `run --resume LOTE`
+e `review` usam a configuração congelada daquele lote, incluindo o modelo
+original. Para comparar modelos, crie outro lote; não edite seus locks.
+Mudar o modelo não exige outra imagem Docker: ela contém as dependências da
+aplicação e do avaliador. `setup` pode conferir e reutilizar a mesma imagem.
 
 Sem opções, abre perguntas no terminal. Com opções, altera os valores informados
 e mantém os demais, solicitando dados que faltarem, como o modelo ao mudar para
@@ -310,6 +337,7 @@ após ler os testes; passar na execução não implica aprovação automática.
 | `--behavioral-assertions yes` ou `no` | As asserções verificam resultados ou exceções esperados? |
 | `--no-target-mock yes` ou `no` | A função alvo foi usada de verdade, sem ser substituída por uma resposta simulada? |
 | `--no-production-changes yes` ou `no` | A implementação foi preservada durante a execução? |
+| `--http-requests yes` ou `no` | Somente alvos `http`: o teste fez requisições ao alvo, com regras e SQLite reais, sem chamar diretamente o handler? |
 
 As opções adicionais abaixo não são perguntadas interativamente:
 
@@ -320,7 +348,9 @@ As opções adicionais abaixo não são perguntadas interativamente:
 
 O ContextLab registra o responsável e as respostas, reavalia a mesma entrega e
 atualiza a situação e os relatórios. Aprovação exige as três verificações e os
-critérios automáticos atendidos. Revisão não altera o teste nem chama o modelo.
+critérios automáticos atendidos. Alvos `http` exigem também a confirmação de
+`http_requests`; a instrumentação, sozinha, não comprova uso de HTTP.
+Revisão não altera o teste nem chama o modelo.
 Se houver defeitos com atribuição pendente, inspecione as falhas e registre a
 atribuição em nova revisão. O tutorial de câmbio não tem defeitos configurados.
 Os critérios completos estão em [Avaliação e métricas](AVALIACAO.md).
@@ -362,7 +392,7 @@ Todos os comandos também aceitam `-h` / `--help`.
 | `contextlab validate MANIFESTO --out PASTA` | Executa referências e testemunhos dos defeitos, salvando a validação. | `--trusted-local`. |
 | `contextlab freeze MANIFESTO --out ARQUIVO.lock.json` | Congela configuração, fontes, ambiente e ordem. Não gera testes. | `--evidence EVIDENCIAS.json`; exigida com evidências válidas para `main`. |
 | `contextlab run ARQUIVO.lock.json --out PASTA` | Executa o plano congelado. | `--trusted-local`, `--max-runs NUMERO`, `--resume`. |
-| `contextlab review PASTA_DA_TENTATIVA --reviewer "Seu nome" --behavioral-assertions yes --no-target-mock yes --no-production-changes yes` | Registra a inspeção e reavalia a entrega. Os três valores devem refletir a conferência; também aceitam `no`. | `--trusted-local`, `--defect-attribution ID_DO_DEFEITO=yes` ou `no`, repetível. |
+| `contextlab review PASTA_DA_TENTATIVA --reviewer "Seu nome" --behavioral-assertions yes --no-target-mock yes --no-production-changes yes` | Registra a inspeção e reavalia a entrega. Os valores devem refletir a conferência; também aceitam `no`. | `--http-requests yes` ou `no` para alvos HTTP; `--trusted-local`; `--defect-attribution ID_DO_DEFEITO=yes` ou `no`, repetível. |
 | `contextlab report PASTA_DA_EXECUCAO` | Exporta `results.csv`, `report.json` e `report.md`; não reexecuta os testes. | Nenhuma. |
 
 `--project` e `--target` em `prepare` são os IDs definidos no manifesto, não

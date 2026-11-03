@@ -3,7 +3,9 @@
   "phase": "pilot",
   "seed": 42,
   "conditions": [
-    "L"
+    "L",
+    "R",
+    "A"
   ],
   "repetitions": 1,
   "limits": {

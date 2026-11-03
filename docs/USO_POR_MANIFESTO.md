@@ -17,8 +17,12 @@ trabalha sobre as mesmas doze funções em L/R/A: 4 projetos × 3 funções ×
 27 por projeto e 36 por estratégia, com modelo e configuração fixados. Outros
 agentes ficam para trabalhos futuros.
 
-Esta implementação inclui dois projetos didáticos e uma demonstração sem IA.
-Executar a demonstração não executa o experimento do TCC.
+Os projetos de aprendizado estão em `projects/cambio/` e `projects/orcamentos/`.
+Loja e Agenda são fixtures internas. Executar demonstrações não executa o
+experimento do TCC. O [OrçaAPI](../../projects/orcamentos/README.md) tem um alvo
+unitário e outro HTTP. O campo opcional `targets[].test_kind` aceita `unit`
+(padrão) e `http` (exercício FastAPI/SQLite, somente fora de `main`). `create`
+cadastra alvos unitários; configure o tipo HTTP explicitamente no JSON.
 
 Os quatro projetos da coleta principal já foram escolhidos: **Fava, wger,
 python-dotenv e python-stdnum**, com três funções selecionadas por projeto.
@@ -186,6 +190,31 @@ material fornecido por esse canal, não o total de tokens internos do agente.
 Uma resposta que ultrapassaria o saldo não é entregue parcialmente. O arquivo
 focal de L precisa caber integralmente; em R, trechos adicionais que não cabem
 ficam registrados como omitidos.
+
+### Exemplos executáveis na documentação
+
+A preparação comum de L/R/A remove doctests: comandos iniciados por `>>>`,
+continuações com `...` e suas saídas esperadas, inclusive tracebacks. A regra
+vale para docstrings de módulos, classes, funções e métodos e para a
+documentação explicitamente incluída. A descrição do comportamento permanece.
+
+As linhas dos exemplos ficam vazias para manter a numeração de origem. As
+quebras de linha são normalizadas para LF. O código fora das docstrings não é
+reescrito; os arquivos do projeto e a cópia usada pelo avaliador conservam os
+originais. O preparador apenas analisa o texto, sem executar os exemplos ou
+importar o projeto. Fontes Python ou doctests que não possam ser analisados
+interrompem a preparação com indicação do arquivo.
+
+O `manifest` de cada contexto registra `preparation_version`, `source_sha256`,
+`sha256`, `source_chars`, `chars` e `transformations`: versão da regra, hashes
+e tamanhos antes/depois, tipos de transformação, intervalos das docstrings e
+quantidade de exemplos removidos. Os hashes do lock continuam identificando
+as fontes originais. As ferramentas de leitura e busca só acessam a visão
+preparada, impedindo que os exemplos removidos reapareçam na exploração de A.
+
+A detecção automática usa a sintaxe de doctest. Blocos de código sem esses
+marcadores, exemplos em outros formatos e materiais com respostas continuam
+sujeitos à curadoria e inspeção previstas antes do congelamento.
 
 ## Separação entre geração e avaliação
 

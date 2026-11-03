@@ -82,7 +82,7 @@ def project_parser(name):
             display.add_argument("--json", action="store_true", help="Mostrar somente o JSON da avaliação mais recente")
         else:
             sub.add_argument("--reviewer")
-            for flag in ("behavioral-assertions", "no-target-mock", "no-production-changes"):
+            for flag in ("behavioral-assertions", "no-target-mock", "no-production-changes", "http-requests"):
                 sub.add_argument("--" + flag, choices=["yes", "no"])
             sub.add_argument("--defect-attribution", action="append", default=[], metavar="ID=yes|no")
             sub.add_argument("--trusted-local", action="store_true")
@@ -271,6 +271,10 @@ def review_attempt(path, args, console):
                           ("no_production_changes", "O código de produção foi preservado?")]:
         answer = getattr(args, key) or _ask(console, question, choices=["yes", "no"], default="no")
         decisions[key] = answer == "yes"
+    if evaluation.get("test_kind") == "http":
+        answer = args.http_requests or _ask(console, "O alvo foi exercitado via HTTP, com regras e SQLite reais, sem chamada direta ao handler?",
+                                           choices=["yes", "no"], default="no")
+        decisions["http_requests"] = answer == "yes"
     attribution = {}
     configured = {d["id"] for d in evaluation.get("defects", [])}
     for item in args.defect_attribution:

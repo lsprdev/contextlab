@@ -60,6 +60,22 @@ def test_reviewed_full_coverage_and_no_defects_is_not_zero(tmp_path, fixture_pro
     assert result["defects_eligible"] == 0
 
 
+@pytest.mark.parametrize("http_review,approval", [(None, "pending_review"), (False, "rejected"), (True, "approved")])
+def test_http_pilot_needs_explicit_human_confirmation(tmp_path, fixture_project, http_review, approval):
+    # Executing the focal function alone cannot establish use of HTTP.
+    _, target = fixture_project
+    target["test_kind"] = "http"
+    review = dict(REVIEW)
+    if http_review is not None:
+        review["http_requests"] = http_review
+    result = run(tmp_path, fixture_project,
+                 "from product import price\ndef test_values():\n    assert price(2) == 4\n", review=review)
+    assert result["reference_passed"] is True
+    assert result["test_kind"] == "http"
+    assert result["approval"] == approval
+    assert (result["coverage_main"] is not None) == (approval == "approved")
+
+
 @pytest.mark.parametrize("source,category,active", [
     ("def test_syntax(:\n", "syntax_error", False),
     ("import nonexistent_library\ndef test_x():\n    assert True\n", "collection_error", False),

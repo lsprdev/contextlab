@@ -130,6 +130,8 @@ def print_evaluation(record, evaluation, console):
                              ("no_production_changes", "A revisão identificou alteração da produção.")]:
             if review.get(key) is False:
                 console.print(message)
+        if review.get("http_requests") is False:
+            console.print("A revisão não confirmou requisições HTTP ao alvo com regras e persistência reais.")
     elif approval == "pending_review":
         console.print("Os critérios automáticos passaram; falta a inspeção humana para aprovar a suíte.")
     if any(case["status"] == "xfail" for case in cases):

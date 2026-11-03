@@ -13,6 +13,8 @@ import re
 from pathlib import Path, PurePosixPath
 from typing import Any
 
+from .documentation import PREPARATION_VERSION, prepare_documentation
+
 
 class ContextError(ValueError):
     """The requested context cannot meet the frozen protocol."""
@@ -113,14 +115,23 @@ def sanitize_project(project: dict[str, Any]) -> tuple[dict[str, str], list[dict
                 text = raw.decode("utf-8")
                 if "\x00" in text:
                     reason = "binary_content"
-                elif _TEST_TEXT.search(text):
-                    reason = "test_content"
                 elif _SECRET_TEXT.search(text):
                     reason = "secret_pattern"
                 else:
-                    files[relative] = text
-                    record.update(status="included", sha256=hashlib.sha256(raw).hexdigest(),
-                                  chars=len(text), documentation_review_required=PurePosixPath(relative).suffix.lower() in _DOC_SUFFIXES)
+                    try:
+                        prepared, transformations = prepare_documentation(
+                            text, python=PurePosixPath(relative).suffix.lower() == ".py")
+                    except (SyntaxError, ValueError) as exc:
+                        raise ContextError(f"Cannot prepare documentation in {relative}: {type(exc).__name__}") from exc
+                    if _TEST_TEXT.search(prepared):
+                        reason = "test_content"
+                    else:
+                        files[relative] = prepared
+                        record.update(status="included", sha256=hashlib.sha256(prepared.encode("utf-8")).hexdigest(),
+                                      source_sha256=hashlib.sha256(raw).hexdigest(),
+                                      chars=len(prepared), source_chars=len(text),
+                                      preparation_version=PREPARATION_VERSION, transformations=transformations,
+                                      documentation_review_required=PurePosixPath(relative).suffix.lower() in _DOC_SUFFIXES)
             except (OSError, UnicodeError):
                 reason = "unreadable_or_non_utf8"
         if reason:

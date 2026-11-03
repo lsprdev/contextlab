@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "phase": "pilot",
+  "seed": 42,
+  "conditions": [
+    "L",
+    "R",
+    "A"
+  ],
+  "repetitions": 1,
+  "limits": {
+    "context_chars": 30000,
+    "tool_calls": 20,
+    "generation_seconds": 120,
+    "evaluation_seconds": 20
+  },
+  "agents": [
+    {
+      "id": "codex",
+      "kind": "codex",
+      "model": "gpt-6.1-sol",
+      "auth_file": "~/.codex-work/auth.json"
+    }
+  ],
+  "evaluation": {
+    "backend": "docker",
+    "image": "contextlab-orcamentos:local"
+  },
+  "projects": [
+    {
+      "id": "orcamentos",
+      "root": ".",
+      "source_roots": [
+        "src"
+      ],
+      "include": [
+        "src/orcamentos/*.py"
+      ],
+      "evaluation_include": [
+        "src/orcamentos/*.py",
+        "tests/test_orcamentos.py",
+        "tests/test_api.py"
+      ],
+      "targets": [
+        {
+          "id": "calcular_orcamento",
+          "path": "src/orcamentos/orcamentos.py",
+          "symbol": "calcular_orcamento",
+          "import": "orcamentos.orcamentos:calcular_orcamento",
+          "test_kind": "unit",
+          "reference_tests": [
+            "tests/test_orcamentos.py"
+          ],
+          "defects": []
+        },
+        {
+          "id": "criar_orcamento",
+          "path": "src/orcamentos/api.py",
+          "symbol": "criar_orcamento",
+          "import": "orcamentos.api:criar_orcamento",
+          "test_kind": "http",
+          "reference_tests": [
+            "tests/test_api.py"
+          ],
+          "defects": []
+        }
+      ]
+    }
+  ]
+}

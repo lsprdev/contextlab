@@ -312,14 +312,15 @@ def evaluate_submission(project, target, submission_path, output_dir, config, de
 
     `defects` is the fixed inventory of {id,path,old,new,witness}; each definition
     is validated against its witness before evaluating the submitted suite.
-    `review` requires all three boolean review keys, and may additionally contain
+    `review` requires the three boolean review keys (plus http_requests for HTTP pilots), and may contain
     defect_attribution={defect_id: true|false} after inspecting mutant failures.
     """
     evaluation_started = time.monotonic()
     out = Path(output_dir).resolve()
     out.mkdir(parents=True, exist_ok=True)
     submitted = Path(submission_path).resolve() if submission_path else None
-    result = {"target_id": target["id"], "received": bool(submitted and submitted.is_file()),
+    result = {"target_id": target["id"], "test_kind": target.get("test_kind", "unit"),
+              "received": bool(submitted and submitted.is_file()),
               "syntax_ok": None, "collected": None, "active_started": None,
               "reference_passed": None, "approval": "not_applicable", "approved": False,
               "coverage_raw": None, "coverage_main": None, "defects": [], "detection_rate": None,
@@ -356,8 +357,9 @@ def evaluate_submission(project, target, submission_path, output_dir, config, de
     result["coverage_raw"] = original.get("focal")
     candidate = bool(original.get("reference_passed") and original.get("production_unchanged") and
                      (original.get("focal") or {}).get("executed"))
-    review_complete = review is not None and all(review.get(key) is True for key in _REVIEW_KEYS)
-    rejected_review = review is not None and any(review.get(key) is False for key in _REVIEW_KEYS)
+    review_keys = _REVIEW_KEYS + (("http_requests",) if target.get("test_kind") == "http" else ())
+    review_complete = review is not None and all(review.get(key) is True for key in review_keys)
+    rejected_review = review is not None and any(review.get(key) is False for key in review_keys)
     result["approved"] = bool(candidate and review_complete)
     result["approval"] = ("not_applicable" if original["status"] != "completed" else
                           "approved" if result["approved"] else "rejected" if not candidate or rejected_review

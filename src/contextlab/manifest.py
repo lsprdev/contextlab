@@ -161,6 +161,10 @@ def load_config(path: str | Path) -> dict:
                 raise ManifestError("IDs diferentes não podem representar a mesma função")
             files = {f.relative_to(root).as_posix() for f in selected_files(project)}
             for target in project["targets"]:
+                if target.get("test_kind", "unit") not in {"unit", "http"}:
+                    raise ManifestError("test_kind deve ser unit ou http")
+                if config["phase"] == "main" and target.get("test_kind", "unit") != "unit":
+                    raise ManifestError("Testes HTTP pertencem aos pilotos; a coleta principal mantém testes unitários")
                 safe_file(root, target["path"])
                 if target["path"] not in files or not target["symbol"] or ":" not in target["import"]:
                     raise ManifestError("Alvo exige arquivo incluído, símbolo e import no formato modulo:simbolo")

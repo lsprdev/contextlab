@@ -7,6 +7,7 @@ cadastrado em `projects/cambio/contextlab.json`.
 ## Qual documentação abrir
 
 - [Primeiro projeto](docs/PRIMEIRO_PROJETO.md): acompanhe uma execução de câmbio, passo a passo.
+- [Segundo projeto: OrçaAPI](../projects/orcamentos/README.md): conheça a API com SQLite e prepare exercícios de cálculo e HTTP.
 - [Referência de comandos](docs/COMANDOS.md): consulte todos os comandos, opções `--`, exemplos, revisão, uso local e Docker.
 - [Arquivos de saída](docs/SAIDAS.md): entenda cada arquivo, as etapas do experimento e como explicar os resultados.
 - [Uso por manifesto](docs/USO_POR_MANIFESTO.md): controle as etapas separadamente e prepare o protocolo completo.
@@ -98,6 +99,7 @@ consulte [setup na referência](docs/COMANDOS.md#setup-preparar-a-imagem-do-aval
 | Local | Conteúdo |
 |---|---|
 | `../projects/cambio/` | Aplicação de câmbio, configuração e tutorial atual. |
+| `../projects/orcamentos/` | OrçaAPI: API didática com SQLite, referências e configuração de piloto. |
 | `src/contextlab/` | Código da ferramenta. |
 | `tests/` | Testes automatizados do ContextLab. |
 | `tests/fixtures/` | Pequenos projetos e manifestos usados pelos testes internos. |

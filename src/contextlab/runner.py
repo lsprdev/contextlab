@@ -28,8 +28,10 @@ def evaluation_config(config: dict, trusted_local: bool) -> dict:
 
 def prompt_for(target: dict, context: dict) -> str:
     # O contrato é comum às estratégias e aos adaptadores disponíveis.
+    http = target.get("test_kind", "unit") == "http"
     common = (
-        "Gere uma única suíte de testes unitários pytest para a função indicada.\n"
+        ("Gere uma única suíte pytest de integração HTTP para a rota atendida pela função indicada.\n" if http else
+         "Gere uma única suíte de testes unitários pytest para a função indicada.\n") +
         f"Arquivo: {target['path']}\nSímbolo: {target['symbol']}\nImport: {target['import']}\n"
         "Ambiente de avaliação: Python 3.11+, pytest 8.4.2.\n"
         "Use somente list_files, read_file e search para consultar os materiais permitidos.\n"
@@ -39,6 +41,14 @@ def prompt_for(target: dict, context: dict) -> str:
         "A avaliação acontecerá após esta sessão. Você não receberá resultados para reparo.\n"
         "Entregue uma resposta final com o código Python de um único arquivo, sem explicações.\n"
     )
+    if http:
+        common += (
+            "Use fastapi.testclient.TestClient com a aplicação real, sem servidor externo ou acesso à rede.\n"
+            "Exercite a função alvo por requisições HTTP; não chame diretamente o handler.\n"
+            "Confira status HTTP e conteúdo das respostas. Não faça mock das regras nem da persistência.\n"
+            "Use um arquivo SQLite real em tmp_path e a configuração pública da aplicação, com dados isolados por teste.\n"
+            "Não dependa de fixtures reservadas nem de conftest.py do projeto; entregue a preparação no seu arquivo.\n"
+        )
     if context["text"]:
         return common + "\nMaterial inicial permitido:\n" + context["text"]
     return common + "\nConsulte as ferramentas para escolher o contexto.\n"

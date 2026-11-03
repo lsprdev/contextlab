@@ -26,6 +26,15 @@ modelos, não repara testes e não devolve feedback ao gerador.
 
 ## Estados e denominadores
 
+O piloto didático [OrçaAPI](../../projects/orcamentos/README.md) acrescenta o
+tipo explícito `test_kind: http`. O prompt pede TestClient e SQLite temporário;
+a revisão exige `http_requests: true`, além dos três critérios comuns, para
+confirmar requisições reais à aplicação e ausência de mocks das regras e da
+persistência. A instrumentação detecta a execução do alvo, mas não distingue
+automaticamente uma chamada direta de uma requisição HTTP. Esse tipo fica
+restrito a demonstrações/pilotos; a coleta principal continua unitária.
+O modo `unit`, inclusive quando o campo está ausente, conserva o contrato.
+
 | Campo | Interpretação |
 | --- | --- |
 | `received` / `syntax_ok` | Existência e validade sintática da entrega |

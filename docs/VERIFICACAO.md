@@ -2,8 +2,114 @@
 
 Esta verificação cobre o instrumento e um piloto de integração com Codex;
 não compara a qualidade de agentes nem testa a hipótese principal.
-Atualizada em 1º de novembro de 2026. Cada seção identifica a data da verificação.
+Atualizada em 2 de novembro de 2026. Cada seção identifica a data da verificação.
 Os resultados de 01/10 permanecem históricos e não foram incorporados à matriz principal.
+
+## Remoção de doctests da visão de geração — 02/11/2026
+
+A regra `doctest-1` omite comandos, continuações e saídas esperadas dos
+doctests nas docstrings e nos documentos permitidos. A transformação acontece
+antes de montar os contextos L/R ou disponibilizar os arquivos para A.
+Descrições e numeração de linhas são preservadas; quebras são normalizadas
+para LF. O manifesto registra hashes de origem e de conteúdo preparado,
+tamanhos e transformações. Os arquivos fornecidos ao avaliador permanecem
+originais. Não houve novas gerações ou alterações na metodologia.
+
+- **171 testes passaram** na suíte completa do ContextLab.
+- As regressões verificam ausência dos exemplos no contexto inicial e nas
+  ferramentas `read_file` e `search` de L/R/A, incluindo tipos de assinatura
+  e dependências recuperadas.
+- Foram conferidos docstrings de módulo, classe, função interna e método
+  assíncrono; continuações, tracebacks, texto Unicode, literais raw,
+  concatenação de strings, newlines escapadas e documentos Markdown.
+- A verificação confere preservação do código fora das docstrings, das linhas,
+  dos arquivos originais e da cópia de avaliação. Não há importação do projeto
+  nem execução dos exemplos. Formatação inválida interrompe a preparação.
+- Os 696 arquivos de runs anteriores permaneceram idênticos por SHA-256.
+  Nas nove combinações de alvo/estratégia do câmbio e do OrçaAPI conferidas,
+  sem doctests, o texto e os arquivos dos contextos permaneceram idênticos aos
+  registros dos pilotos. O novo manifesto acrescenta a auditoria da preparação.
+- O reconhecimento automático cobre doctests; a revisão de outros formatos
+  de exemplos continua fazendo parte da curadoria, conforme o protocolo.
+
+A implementação anterior, de hash
+`6bfdda3568c1497df27fce30f6f0bbaf655d10d7e17392d07091e9b20051624a`,
+foi preservada em `.build/contextlab-antes-docstrings/src/contextlab/`.
+Ela corresponde aos dois lotes OrçaAPI. Seus locks não devem ser atualizados
+para a implementação nova. Para revisar uma entrega antiga, use essa cópia
+com o ambiente e a imagem originais. Exemplo a partir da raiz do repositório:
+
+```bash
+PYTHONPATH=.build/contextlab-antes-docstrings/src \
+  contextlab/.venv/bin/python -m contextlab orcamentos review 20261102-181902-a473e6/01
+```
+
+Esse comando continua pedindo a inspeção humana; não foi executado nesta etapa.
+O inventário anterior dos 696 arquivos de runs fica em
+`.build/contextlab-antes-docstrings/preservacao.json`. A nova implementação
+exigirá validação e piloto próprios antes da coleta principal. A conferência
+dos registros e contextos está em `verificacao.json` nesse mesmo diretório.
+
+## Segundo piloto OrçaAPI, com GPT-6.1 Sol — 02/11/2026
+
+O [lote `20261102-181902-a473e6`](../../docs/COMPARACAO_MODELOS_ORCAAPI.md)
+repetiu as seis combinações com `gpt-6.1-sol`, mantendo os demais parâmetros
+explícitos, fontes, instrumento, ambiente e contextos iniciais. Foram 26, 31,
+33, 20, 17 e 52 casos passando, na ordem do plano; as seis suítes aguardam
+revisão. O diagnóstico do adaptador passou para o novo modelo. Os 253 arquivos
+anteriores foram preservados, sem reparo de entregas nem edição de locks.
+Somente o cadastro do OrçaAPI passou a usar Sol; o câmbio continua em Luna.
+
+## Inspeção do piloto OrçaAPI em L/R/A — 02/11/2026
+
+O autor concluiu as seis gerações do lote `20261102-174143-7c4081`.
+A [inspeção técnica](../../docs/EXERCICIO_ORCAAPI_LRA.md) conferiu todas as
+entregas e repetiu a avaliação, sem registrar decisões humanas: HTTP/L falhou
+na sintaxe; cálculo/R repetiu sete casos passando e um falhando; cálculo/A,
+HTTP/R, cálculo/L e HTTP/A repetiram, respectivamente, 7, 4, 4 e 4 casos
+passando e seguem pendentes de revisão. Os 104 arquivos originais permaneceram
+idênticos. Não houve nova geração, reparo de testes ou alteração do instrumento.
+
+## OrçaAPI: extensão didática de HTTP — 02/11/2026
+
+O [registro de preparação](../../docs/ORCAAPI.md) descreve os dois alvos, a
+imagem própria, a diferença observada entre L/R, a revisão HTTP adicional e
+os limites do exercício. Foram aprovadas as verificações de infraestrutura:
+158 testes do instrumento e 44 da aplicação, além das referências e de duas
+entregas autorais no avaliador Docker. As entregas permanecem sem revisão;
+não houve geração do agente nem execução da coleta principal nesta etapa.
+As runs anteriores do câmbio foram preservadas.
+Após o uso manual, cupom vazio passou a significar ausência de cupom. As
+referências atualizadas (29 casos de cálculo e 14 de HTTP) passaram no Docker;
+os registros estão em `.build/orcaapi/cupom-vazio/`. As entregas autorais
+foram verificadas na preparação inicial, antes dessa correção.
+
+## Exercício real de câmbio em L/R/A — 01/11/2026 (Brasília)
+
+- Lote `20261102-020722-a321cd` (identificação em UTC), com uma repetição por
+  estratégia, Codex CLI `0.164.0`, modelo `gpt-6-luna` e avaliação Docker.
+  O código do instrumento corresponde ao commit `ce1ee0f`; somente configuração
+  de estratégias e documentação foram alteradas nesta etapa.
+- Referências validadas; três gerações e avaliações completas, na ordem R/L/A.
+  R: 31/31 casos passando. L: 23/23 passando. A: 31/32 passando, com
+  `decimal.InvalidOperation` ao calcular a expectativa com precisão dois.
+  A execução de A foi reprovada, e L/R aguardam revisão humana. Não houve
+  reparo das entregas, revisão automática ou detecção de defeitos configurada.
+- L e R receberam exatamente 1.251 caracteres e não fizeram consultas. A teve
+  cinco arquivos disponíveis e fez três consultas: listagem, leitura da
+  conversão e leitura de `__init__.py`, totalizando 1.603 caracteres entregues.
+  O exercício não demonstra superioridade de estratégia nem inclusão de
+  dependência adicional em R, pois os contextos L/R são iguais nesse alvo.
+- `setup` preparou a imagem porque a tag local estava ausente. A identificação
+  efetiva está no novo lock. A coleta principal ainda exige o congelamento do
+  ambiente final, verificação das restrições e as demais evidências do protocolo.
+- Todos os 89 arquivos das runs anteriores de câmbio permaneceram idênticos,
+  conforme conferência por SHA-256. Os resultados novos continuam ignorados
+  pelo Git. A suíte de desenvolvimento não foi repetida, pois não houve mudança
+  de código; o exercício real executou as referências e as três entregas.
+- [Roteiro e interpretação do exercício](../../docs/EXERCICIO_CAMBIO_LRA.md).
+  Por decisão do autor, o próximo projeto didático será uma API, antes da
+  preparação dos alvos das bibliotecas da amostra principal.
 
 ## Consulta por caso e leitura dos arquivos — 01/11/2026
 

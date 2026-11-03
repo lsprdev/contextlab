@@ -42,6 +42,7 @@ def parser() -> argparse.ArgumentParser:
     reviewing.add_argument("--reviewer", required=True)
     for key in ("behavioral-assertions", "no-target-mock", "no-production-changes"):
         reviewing.add_argument("--" + key, choices=["yes", "no"], required=True)
+    reviewing.add_argument("--http-requests", choices=["yes", "no"], help="Revisão adicional dos alvos HTTP de piloto")
     reviewing.add_argument("--defect-attribution", action="append", default=[], metavar="ID=yes|no")
     reviewing.add_argument("--trusted-local", action="store_true")
     reporting = commands.add_parser("report", help="Exportar CSV, JSON e relatório com denominadores")
@@ -108,6 +109,8 @@ def _execute(args):
         decisions = {key: getattr(args, key) == "yes" for key in
                      ("behavioral_assertions", "no_target_mock", "no_production_changes")}
         decisions["defect_attribution"] = attribution
+        if args.http_requests is not None:
+            decisions["http_requests"] = args.http_requests == "yes"
         return review_trajectory(args.trajectory.resolve(), args.reviewer, decisions, args.trusted_local)
     if args.command == "report":
         from .reporting import report_run
