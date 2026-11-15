@@ -90,7 +90,7 @@ A lista de defeitos está vazia, então essa métrica ficará não aplicável.
 
 ## 5. Experimente as três estratégias
 
-O [exercício real de câmbio em L/R/A](../../docs/EXERCICIO_CAMBIO_LRA.md) registra
+O [exercício real de câmbio em L/R/A](../../docs/historico/EXERCICIO_CAMBIO_LRA.md) registra
 um lote já executado com Codex e Docker, com comandos para ler cada entrega e
 as consultas do agente. A sequência abaixo continua sendo a demonstração com
 fixture; ela não chama o modelo.

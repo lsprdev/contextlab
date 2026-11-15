@@ -1,7 +1,7 @@
 # Projetos didáticos
 
-Os pilotos `codex-pilot.json` e `native-pilot.json` usam somente Codex, dois
-projetos didáticos, L/R/A e uma repetição: **seis gerações**. Eles não são a
+O piloto `codex-pilot.json` usa somente Codex, dois
+projetos didáticos, L/R/A e uma repetição: **seis gerações**. Ele não é a
 matriz principal de **108 gerações** (quatro projetos, três funções por projeto,
 Codex, L/R/A e três repetições). `evidence.template.json` registra apenas a
 versão do Codex e mantém as confirmações falsas até a verificação.

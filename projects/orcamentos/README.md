@@ -162,12 +162,12 @@ função alvo, não de toda a API. Os dois exercícios têm finalidades distinta
 não interprete a média conjunta como comparação de L/R/A. Não há defeitos
 artificiais cadastrados neste projeto.
 
-O [registro de preparação](../../docs/ORCAAPI.md) acompanha a validação e a
-[inspeção do primeiro lote L/R/A](../../docs/EXERCICIO_ORCAAPI_LRA.md) explica
+O [registro de preparação](../../docs/historico/ORCAAPI.md) acompanha a validação e a
+[inspeção do primeiro lote L/R/A](../../docs/historico/EXERCICIO_ORCAAPI_LRA.md) explica
 as seis entregas e as revisões pendentes. A [referência de comandos](../../contextlab/docs/COMANDOS.md)
 explica as opções e a [documentação do FastAPI](https://fastapi.tiangolo.com/tutorial/testing/)
 detalha o TestClient.
 
-O [segundo piloto, com GPT-6.1 Sol](../../docs/COMPARACAO_MODELOS_ORCAAPI.md),
+O [segundo piloto, com GPT-6.1 Sol](../../docs/historico/COMPARACAO_MODELOS_ORCAAPI.md),
 registra a repetição das seis combinações com o modelo atual, preservando o
 lote inicial com Luna.

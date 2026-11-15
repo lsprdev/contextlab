@@ -2,8 +2,23 @@
 
 Esta verificação cobre o instrumento e um piloto de integração com Codex;
 não compara a qualidade de agentes nem testa a hipótese principal.
-Atualizada em 2 de novembro de 2026. Cada seção identifica a data da verificação.
+Atualizada em 15 de novembro de 2026. Cada seção identifica a data da verificação.
 Os resultados de 01/10 permanecem históricos e não foram incorporados à matriz principal.
+
+## Limites informados no enunciado — 15/11/2026
+
+O enunciado comum passou a informar o limite de caracteres e o de consultas da
+sessão e a avisar que ultrapassá-los a encerra sem entrega. O texto é idêntico
+em L, R e A e vem dos limites do manifesto. O encerramento ao esgotar um limite
+não mudou. A mudança altera o hash da implementação: lotes anteriores continuam
+consultáveis, e sua revisão exige a implementação da época.
+
+- **173 testes passaram** na suíte completa do ContextLab.
+- O teste novo confere a presença do aviso, sua posição antes do material
+  inicial e sua ausência quando nenhum limite é fornecido.
+- O manifesto `native-pilot.json` foi removido das fixtures por duplicar
+  `codex-pilot.json`; nenhum teste o utilizava.
+- Não houve novas gerações.
 
 ## Remoção de doctests da visão de geração — 02/11/2026
 
@@ -52,7 +67,7 @@ dos registros e contextos está em `verificacao.json` nesse mesmo diretório.
 
 ## Segundo piloto OrçaAPI, com GPT-6.1 Sol — 02/11/2026
 
-O [lote `20261102-181902-a473e6`](../../docs/COMPARACAO_MODELOS_ORCAAPI.md)
+O [lote `20261102-181902-a473e6`](../../docs/historico/COMPARACAO_MODELOS_ORCAAPI.md)
 repetiu as seis combinações com `gpt-6.1-sol`, mantendo os demais parâmetros
 explícitos, fontes, instrumento, ambiente e contextos iniciais. Foram 26, 31,
 33, 20, 17 e 52 casos passando, na ordem do plano; as seis suítes aguardam
@@ -63,7 +78,7 @@ Somente o cadastro do OrçaAPI passou a usar Sol; o câmbio continua em Luna.
 ## Inspeção do piloto OrçaAPI em L/R/A — 02/11/2026
 
 O autor concluiu as seis gerações do lote `20261102-174143-7c4081`.
-A [inspeção técnica](../../docs/EXERCICIO_ORCAAPI_LRA.md) conferiu todas as
+A [inspeção técnica](../../docs/historico/EXERCICIO_ORCAAPI_LRA.md) conferiu todas as
 entregas e repetiu a avaliação, sem registrar decisões humanas: HTTP/L falhou
 na sintaxe; cálculo/R repetiu sete casos passando e um falhando; cálculo/A,
 HTTP/R, cálculo/L e HTTP/A repetiram, respectivamente, 7, 4, 4 e 4 casos
@@ -72,7 +87,7 @@ idênticos. Não houve nova geração, reparo de testes ou alteração do instru
 
 ## OrçaAPI: extensão didática de HTTP — 02/11/2026
 
-O [registro de preparação](../../docs/ORCAAPI.md) descreve os dois alvos, a
+O [registro de preparação](../../docs/historico/ORCAAPI.md) descreve os dois alvos, a
 imagem própria, a diferença observada entre L/R, a revisão HTTP adicional e
 os limites do exercício. Foram aprovadas as verificações de infraestrutura:
 158 testes do instrumento e 44 da aplicação, além das referências e de duas
@@ -107,7 +122,7 @@ foram verificadas na preparação inicial, antes dessa correção.
   conforme conferência por SHA-256. Os resultados novos continuam ignorados
   pelo Git. A suíte de desenvolvimento não foi repetida, pois não houve mudança
   de código; o exercício real executou as referências e as três entregas.
-- [Roteiro e interpretação do exercício](../../docs/EXERCICIO_CAMBIO_LRA.md).
+- [Roteiro e interpretação do exercício](../../docs/historico/EXERCICIO_CAMBIO_LRA.md).
   Por decisão do autor, o próximo projeto didático será uma API, antes da
   preparação dos alvos das bibliotecas da amostra principal.
 

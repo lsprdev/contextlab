@@ -16,8 +16,9 @@ Não substitui esses agentes por uma chamada direta a um modelo. O modo
 3. Um servidor MCP local recebe um dicionário de arquivos virtuais permitidos.
    Ele expõe somente `list_files`, `read_file` e `search`. Os caminhos enviados
    pelo modelo são chaves desse dicionário, nunca caminhos abertos no sistema.
-4. A sessão começa sem retomada. O pacote inicial L/R já está no prompt; A
-   consulta o MCP conforme sua decisão. Todas as respostas das ferramentas e
+4. A sessão começa sem retomada. O prompt informa os limites de conteúdo e de
+   consultas, com o mesmo texto nas três estratégias. O pacote inicial L/R já
+   está no prompt; A consulta o MCP conforme sua decisão. Todas as respostas das ferramentas e
    releituras consomem o orçamento comum do broker.
 5. A resposta final deve ser um objeto `{"test_code": "..."}`. O orquestrador
    recolhe esse texto. O agente não escreve o arquivo de teste, não o executa e

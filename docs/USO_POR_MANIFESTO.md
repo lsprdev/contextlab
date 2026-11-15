@@ -33,7 +33,7 @@ principal também precisam ser definidos, validados e congelados. O
 
 ## Instalação
 
-Requisitos: Python 3.11 ou posterior em macOS ou Linux (WSL no Windows). Os comandos abaixo partem da pasta
+Requisitos: Python 3.11 ou posterior em macOS ou Linux (WSL no Windows) para executar o ContextLab. A imagem de avaliação usa Python 3.12. Os comandos abaixo partem da pasta
 `contextlab/`, na raiz deste repositório.
 
 ```bash
@@ -191,6 +191,10 @@ Uma resposta que ultrapassaria o saldo não é entregue parcialmente. O arquivo
 focal de L precisa caber integralmente; em R, trechos adicionais que não cabem
 ficam registrados como omitidos.
 
+O enunciado enviado ao agente informa os limites de caracteres e de consultas
+da sessão e avisa que ultrapassá-los a encerra sem entrega. O aviso é o mesmo
+em L, R e A e fica registrado em `prompt.txt`.
+
 ### Exemplos executáveis na documentação
 
 A preparação comum de L/R/A remove doctests: comandos iniciados por `>>>`,
@@ -294,11 +298,9 @@ suas instruções e parâmetros de inferência; remove capacidades nativas que
 permitiriam acesso fora do MCP. Sua identidade é registrada por SHA-256.
 Após inspecionar a primeira trajetória, `run --resume` continua a matriz.
 
-[tests/fixtures/native-pilot.json](../tests/fixtures/native-pilot.json) é um modelo editável com
-os mesmos dois projetos didáticos, somente Codex e avaliação Docker. Ele
-planeja **seis trajetórias** com uma repetição, destinadas ao ensaio de integração.
-Substitua `SUBSTITUA_PELO_MODELO_CODEX` pelo identificador explícito do modelo
-que será validado na sua configuração.
+Para ensaiar a integração com outro modelo, copie `codex-pilot.json`, altere o
+campo `model` para o identificador explícito que será validado e repita os
+comandos acima com o novo arquivo.
 
 O adaptador da coleta chama o executável nativo `codex`, sem substituí-lo por
 uma chamada direta a uma API de modelo. O adaptador `claude` continua disponível
@@ -309,16 +311,7 @@ para extensões futuras do instrumento, fora do protocolo principal.
 - Use a verificação `doctor` antes de congelar o piloto; consulte
   `contextlab doctor --help` e [docs/ADAPTERS.md](ADAPTERS.md).
 
-```bash
-contextlab doctor tests/fixtures/native-pilot.json
-contextlab plan tests/fixtures/native-pilot.json
-contextlab validate tests/fixtures/native-pilot.json --out runs/native-validation
-contextlab freeze tests/fixtures/native-pilot.json --out runs/native-pilot.lock.json
-contextlab run runs/native-pilot.lock.json --out runs/native-pilot
-contextlab report runs/native-pilot
-```
-
-Execute essa sequência após escolher o modelo, configurar as credenciais e
+Execute a sequência `doctor`, `freeze`, `run` e `report` após escolher o modelo, configurar as credenciais e
 construir a imagem Docker. A execução com agentes pode consumir seu orçamento
 do provedor. Para começar com apenas uma trajetória, acrescente `--max-runs 1`
 ao comando `run`; depois continue com o mesmo lock e diretório usando `--resume`.
@@ -363,7 +356,7 @@ aparecer exatamente uma vez no arquivo. `witness` aceita o identificador pytest,
 por exemplo `reference/test_frete.py::test_limite_vip`. Essa representação torna
 o inventário pequeno e auditável; não é um gerador geral de mutantes.
 
-Os números de `tests/fixtures/demo.json` e `tests/fixtures/native-pilot.json` são valores
+Os números de `tests/fixtures/demo.json` e `tests/fixtures/codex-pilot.json` são valores
 práticos para demonstração, **não limites justificados para o TCC**. O piloto
 precisa registrar por que os limites escolhidos acomodam as unidades,
 restringem o esforço de maneira comparável e cabem no orçamento disponível.

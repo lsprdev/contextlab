@@ -1,8 +1,8 @@
 # Executar o ContextLab em outro projeto Python
 
 Este guia acompanha um piloto desde a escolha da função até a revisão dos testes
-e o relatório final. A configuração usa **Codex com `gpt-6-luna` e avaliação
-Docker**, sem Claude.
+e o relatório final. Os exemplos usam **Codex com `gpt-6-luna`**, modelo dos pilotos didáticos, **e
+avaliação Docker**; troque o caminho do projeto e o modelo pelos seus.
 
 Já é possível fazer pilotos com funções de projetos maiores. Cada backend ainda
 precisa ter suas dependências e seus alvos preparados para o avaliador. O
@@ -32,8 +32,8 @@ modelo. Para um piloto real somente com Codex, use como base o
 Substitua `URL_DO_REPOSITORIO` pela URL real:
 
 ```bash
-git clone URL_DO_REPOSITORIO /Users/lsprdev/Code/backend-experimento
-git -C /Users/lsprdev/Code/backend-experimento rev-parse HEAD
+git clone URL_DO_REPOSITORIO /caminho/para/backend-experimento
+git -C /caminho/para/backend-experimento rev-parse HEAD
 ```
 
 Anote o commit. Prepare os arquivos necessários antes de congelar o experimento
@@ -160,7 +160,7 @@ Salve o exemplo adaptado em `experiments/backend-pilot.json`:
   "projects": [
     {
       "id": "backend",
-      "root": "/Users/lsprdev/Code/backend-experimento",
+      "root": "/caminho/para/backend-experimento",
       "source_roots": ["src"],
       "include": [
         "src/backend/**/*.py"
@@ -267,9 +267,9 @@ Construa a imagem:
 
 ```bash
 docker build \
-  -f /Users/lsprdev/Code/backend-experimento/Dockerfile.contextlab \
+  -f /caminho/para/backend-experimento/Dockerfile.contextlab \
   -t backend-evaluator:pilot \
-  /Users/lsprdev/Code/backend-experimento
+  /caminho/para/backend-experimento
 ```
 
 Nesse caso, altere `evaluation.image` para `"backend-evaluator:pilot"`. Bibliotecas

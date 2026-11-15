@@ -94,7 +94,7 @@ Os caminhos desta seção são relativos a `results/PASTA_DA_TENTATIVA/`.
 | Arquivo ou pasta | Para que serve e quando consultar |
 |---|---|
 | `context.json` | Material preparado para a estratégia: texto inicial, arquivos disponíveis e dados da preparação. Ajuda a conferir qual contexto estava acessível. Em A, estar disponível não significa ter sido lido. |
-| `prompt.txt` | Instrução enviada ao agente, incluindo o alvo e o contexto inicial. Abra para entender exatamente o pedido de geração. |
+| `prompt.txt` | Instrução enviada ao agente, incluindo o alvo, os limites da sessão e o contexto inicial. Abra para entender exatamente o pedido de geração. |
 | `agent/native.jsonl` | Eventos emitidos pela CLI do agente, um JSON por linha: histórico técnico da sessão e informações de uso quando disponíveis. O adaptador aplica ocultação das credenciais conhecidas antes de salvar. |
 | `agent/stderr.txt` | Diagnósticos emitidos pela CLI do agente. Ajuda a investigar falhas de geração. Pode estar vazio. |
 | `agent/tool_audit.json` | Auditoria das ferramentas de contexto: consultas, material entregue e uso dos limites. Ajuda a distinguir o que estava disponível do que foi efetivamente consultado. |

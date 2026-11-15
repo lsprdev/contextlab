@@ -108,8 +108,7 @@ consulte [setup na referência](docs/COMANDOS.md#setup-preparar-a-imagem-do-aval
 | `../projects/*/runs/` | Novos lotes executados pela interface por nome. |
 
 Caches e ambientes virtuais são arquivos locais, fora do Git. Os exemplos
-antigos de Loja e Agenda agora são fixtures internas; o exemplo de frete
-independente está no [arquivo histórico](../docs/historico/exemplos/loja/README.md).
+antigos de Loja e Agenda agora são fixtures internas dos testes.
 
 ## Relação com o TCC
 
