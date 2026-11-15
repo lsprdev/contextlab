@@ -26,8 +26,10 @@ def evaluation_config(config: dict, trusted_local: bool) -> dict:
     return result
 
 
-def prompt_for(target: dict, context: dict) -> str:
+def prompt_for(target: dict, context: dict, limits: dict | None = None) -> str:
     # O contrato é comum às estratégias e aos adaptadores disponíveis.
+    # Os limites são informados a L, R e A com o mesmo texto: esgotá-los
+    # encerra a sessão, e o agente não deve descobrir isso pela falha.
     http = target.get("test_kind", "unit") == "http"
     common = (
         ("Gere uma única suíte pytest de integração HTTP para a rota atendida pela função indicada.\n" if http else
@@ -41,6 +43,13 @@ def prompt_for(target: dict, context: dict) -> str:
         "A avaliação acontecerá após esta sessão. Você não receberá resultados para reparo.\n"
         "Entregue uma resposta final com o código Python de um único arquivo, sem explicações.\n"
     )
+    if limits is not None:
+        common += (
+            f"Limites desta sessão: {limits['context_chars']} caracteres de contexto, somando o material "
+            f"inicial e as respostas das ferramentas, e {limits['tool_calls']} consultas.\n"
+            "Ultrapassar um desses limites encerra a sessão sem entrega. Planeje as leituras e, em arquivos "
+            "longos, use read_file com start_line e end_line.\n"
+        )
     if http:
         common += (
             "Use fastapi.testclient.TestClient com a aplicação real, sem servidor externo ou acesso à rede.\n"
@@ -226,7 +235,7 @@ def _execute_run(lock_path: Path, output: Path, *, trusted_local=False, resume=F
             context = build_context(project, target, row["condition"], config["limits"]["context_chars"])
             record["preparation_seconds"] = time.monotonic() - started
             write_json(destination / "context.json", context)
-            prompt = prompt_for(target, context)
+            prompt = prompt_for(target, context, config["limits"])
             (destination / "prompt.txt").write_text(prompt, encoding="utf-8")
             if agent["kind"] == "fixture":
                 generation = fixture_generation(agent, project, target, context, config["limits"])

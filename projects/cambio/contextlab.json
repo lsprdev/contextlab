@@ -19,7 +19,7 @@
       "id": "codex",
       "kind": "codex",
       "model": "gpt-6-luna",
-      "auth_file": "/Users/lsprdev/.codex-work/auth.json"
+      "auth_file": "~/.codex-work/auth.json"
     }
   ],
   "evaluation": {

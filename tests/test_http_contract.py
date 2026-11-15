@@ -46,3 +46,18 @@ def test_http_contract_changes_only_explicit_http_targets(context):
     assert "tmp_path" in http
     assert "Não faça mock das regras nem da persistência" in http
     assert http.endswith(context["text"] or "Consulte as ferramentas para escolher o contexto.\n")
+
+
+@pytest.mark.parametrize("context", [{"text": "arquivo permitido"}, {"text": ""}])
+def test_prompt_states_the_same_session_limits_for_every_strategy(context):
+    target = {"path": "api.py", "symbol": "create", "import": "api:create"}
+    limits = {"context_chars": 30000, "tool_calls": 20, "generation_seconds": 120, "evaluation_seconds": 20}
+    prompt = prompt_for(target, context, limits)
+    assert "30000 caracteres de contexto" in prompt
+    assert "20 consultas" in prompt
+    assert "encerra a sessão sem entrega" in prompt
+    # O aviso antecede o material inicial e só aparece quando há limites.
+    assert prompt.index("Limites desta sessão") < prompt.index("\n", prompt.index("consultas."))
+    if context["text"]:
+        assert prompt.index("Limites desta sessão") < prompt.index("Material inicial permitido")
+    assert "Limites desta sessão" not in prompt_for(target, context)
