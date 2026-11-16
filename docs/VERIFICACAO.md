@@ -5,6 +5,24 @@ não compara a qualidade de agentes nem testa a hipótese principal.
 Atualizada em 15 de novembro de 2026. Cada seção identifica a data da verificação.
 Os resultados de 01/10 permanecem históricos e não foram incorporados à matriz principal.
 
+## Visualizador web somente leitura — 15/11/2026
+
+Os comandos `contextlab NOME serve` e `contextlab serve RESULTADOS` abrem uma
+página local com as tentativas, seus resultados, tokens, tempos, contexto,
+consultas e testes gerados; `--export` grava a mesma página em um arquivo.
+O visualizador não escreve nos diretórios de resultados nem reavalia entregas.
+
+- **181 testes passaram** na suíte completa; oito são do visualizador.
+- Os testes conferem que a leitura não altera nenhum arquivo do lote, que o
+  código gerado não escapa do bloco de dados da página, que o servidor recusa
+  outros caminhos, escrita e nomes de host externos, e que registros novos
+  aparecem sem reiniciar.
+- A página foi aberta em Chromium sem interface com os lotes reais de câmbio e
+  OrçaAPI: tabela, filtros, visão por função e abas de detalhe.
+- O subpacote `viewer/` não entra no hash de implementação. A inclusão do
+  comando alterou `cli.py`, `project_cli.py` e `projects.py`, que entram.
+- Não houve novas gerações.
+
 ## Limites informados no enunciado — 15/11/2026
 
 O enunciado comum passou a informar o limite de caracteres e o de consultas da

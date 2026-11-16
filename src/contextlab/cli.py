@@ -11,7 +11,7 @@ from .manifest import ManifestError, freeze, load_config, plan, write_json
 
 def parser() -> argparse.ArgumentParser:
     result = argparse.ArgumentParser(prog="contextlab", description="Experimentos L/R/A de geração de testes unitários",
-        epilog="Uso por projeto: contextlab create NOME; contextlab NOME configure|setup|plan|context|run|runs|show|review. Os comandos acima mantêm o acesso por manifesto.")
+        epilog="Uso por projeto: contextlab create NOME; contextlab NOME configure|setup|plan|context|run|runs|show|review|serve. Os comandos acima mantêm o acesso por manifesto.")
     commands = result.add_subparsers(dest="command", required=True)
     for name, help_text in (("plan", "Exibir matriz sorteada, sem chamadas de IA"),
                             ("doctor", "Verificar binários, versões e opções dos adaptadores")):
@@ -47,7 +47,28 @@ def parser() -> argparse.ArgumentParser:
     reviewing.add_argument("--trusted-local", action="store_true")
     reporting = commands.add_parser("report", help="Exportar CSV, JSON e relatório com denominadores")
     reporting.add_argument("run_dir", type=Path)
+    serving = commands.add_parser("serve", help="Abrir o visualizador web dos registros, somente leitura")
+    serving.add_argument("run_dir", type=Path, help="Diretório de resultados que contém run.json")
+    _serve_options(serving)
     return result
+
+
+def _serve_options(command) -> None:
+    command.add_argument("--port", type=int, default=8765, help="Porta local (padrão: 8765)")
+    command.add_argument("--no-open", action="store_true", help="Não abrir o navegador automaticamente")
+    command.add_argument("--prices", type=Path, metavar="TARIFAS.json",
+                         help="Tarifas de API por milhão de tokens, para estimar o custo de cada tentativa")
+    command.add_argument("--export", type=Path, metavar="ARQUIVO.html",
+                         help="Gravar uma página autossuficiente em vez de iniciar o servidor")
+
+
+def serve_command(load, args, announce=print) -> None:
+    """Compartilhado pelos fluxos por manifesto e por projeto; nunca escreve nos registros."""
+    from .viewer import export, serve
+    if args.export:
+        announce(f"Página gravada em {export(load(), args.export.resolve())}")
+    else:
+        serve(load, port=args.port, open_browser=not args.no_open, announce=announce)
 
 
 def _execute(args):
@@ -125,6 +146,12 @@ def main(argv=None) -> int:
         return project_main(argv)
     args = parser().parse_args(argv)
     try:
+        if args.command == "serve":
+            from .viewer import collect, load_prices
+            run_dir = args.run_dir.resolve()
+            prices = load_prices(args.prices)
+            serve_command(lambda: collect([(run_dir.name, run_dir)], run_dir.name, prices), args)
+            return 0
         result = _execute(args)
         print(json.dumps(result, ensure_ascii=False, indent=2))
         if args.command == "validate" and any(not x.get("valid") for x in result["targets"].values()):
@@ -136,5 +163,8 @@ def main(argv=None) -> int:
         print(f"ContextLab: {exc}", file=sys.stderr)
         return 2
     except KeyboardInterrupt:
+        if args.command == "serve":
+            print("\nVisualizador encerrado.", file=sys.stderr)
+            return 0
         print("Interrompido. A tentativa foi preservada, sem regeneração automática.", file=sys.stderr)
         return 130

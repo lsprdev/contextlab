@@ -73,6 +73,10 @@ def project_parser(name):
     run.add_argument("--trusted-local", action="store_true", help="Autorizar avaliação local de testes autorais em demo")
     run.add_argument("--max-runs", type=int, help="Processar no máximo N tentativas nesta chamada; cada uma pode conter vários testes")
     run.add_argument("--resume", metavar="LOTE", help="Continuar um lote preservado sem regenerar entregas")
+    serving = commands.add_parser("serve", help="Abrir o visualizador web das execuções, somente leitura")
+    serving.add_argument("--batch", metavar="LOTE", help="Mostrar apenas um lote; por padrão, todos")
+    from .cli import _serve_options
+    _serve_options(serving)
     for command in ("show", "review"):
         sub = commands.add_parser(command, help="Inspecionar uma tentativa" if command == "show" else "Revisar uma tentativa")
         sub.add_argument("attempt", help="ID exibido por runs, no formato lote/01")
@@ -310,6 +314,19 @@ def main(argv) -> int:
                 console.print(f"Próximo passo: contextlab {folder.name} plan; depois contextlab {folder.name} run")
         elif args.command == "runs":
             list_runs(folder, args, console)
+        elif args.command == "serve":
+            from .cli import serve_command
+            from .viewer import collect, load_prices, project_runs
+            if args.batch:
+                batch_folder(folder, args.batch)
+            try:
+                # Sem --prices, usa as tarifas mantidas ao lado da configuração do projeto, se existirem.
+                default = folder / "precos.json"
+                prices = load_prices(args.prices or (default if default.is_file() else None))
+                serve_command(lambda: collect(project_runs(folder, args.batch), folder.name, prices), args,
+                              announce=lambda text: console.print(text, markup=False, highlight=False, soft_wrap=True))
+            except KeyboardInterrupt:
+                console.print("\nVisualizador encerrado.")
         elif args.command in {"show", "review"}:
             path = find_attempt(folder, args.attempt)
             if args.command == "show":

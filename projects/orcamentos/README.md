@@ -103,9 +103,20 @@ O cadastro já existe; não execute `create` novamente. Há dois exercícios:
 | `calcular_orcamento` | `unit` | Função de cálculo, sem HTTP ou banco. |
 | `criar_orcamento` | `http` | Requisição à rota, regras reais e SQLite temporário. |
 
-O plano tem **6 gerações**: 2 alvos × 3 estratégias × 1 repetição. Está em
-`pilot`, agora com `gpt-6.1-sol`. O primeiro lote usou `gpt-6-luna`, como o
-câmbio, e conserva sua configuração original. O caminho de login
+O plano tem **18 gerações**: 2 alvos × 3 estratégias × 3 repetições. Está em
+`pilot`, com `gpt-6.1-sol`. O alvo `calcular_orcamento` tem três defeitos
+controlados, cada um com uma testemunha em `tests/test_orcamentos.py`:
+
+| Defeito | Alteração no corpo do alvo |
+|---|---|
+| `frete-antes-do-desconto` | O frete passa a ser calculado sobre o subtotal, antes do cupom. |
+| `total-sem-desconto` | O total deixa de subtrair o desconto. |
+| `quantidade-ignorada` | O subtotal soma os preços sem multiplicar pela quantidade. |
+
+A detecção só é medida em suítes aprovadas, ou seja, depois da revisão humana
+registrada por `review`. Os lotes de 02/11, com uma repetição e sem defeitos,
+foram arquivados fora do Git em `.build/orcaapi/runs-anteriores-2026-11-02/`.
+O caminho de login
 em `auth_file` precisa existir na máquina; contém apenas o caminho, não o token.
 Esse exercício não muda a matriz das 108 gerações.
 

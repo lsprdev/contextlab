@@ -74,3 +74,22 @@ def test_rejeita_lista_vazia_e_modalidade_desconhecida():
         Pedido(itens=[])
     with pytest.raises(ValidationError):
         pedido(entrega="inexistente")
+
+
+# Testemunhas dos defeitos controlados do piloto. Cada uma passa no código
+# original e falha, por diferença de comportamento, em uma única alteração.
+def test_testemunha_frete_usa_valor_apos_desconto():
+    # 200,00 com DESC10 fica em 180,00: abaixo do limite de frete gratuito.
+    result = calcular_orcamento(pedido("200.00", 1, cupom="DESC10", entrega="padrao"))
+    assert result.frete == Decimal("15.00")
+
+
+def test_testemunha_total_desconta_cupom():
+    # 100,00 - 10,00 de desconto + 15,00 de frete.
+    result = calcular_orcamento(pedido("100.00", 1, cupom="DESC10", entrega="padrao"))
+    assert result.total == Decimal("105.00")
+
+
+def test_testemunha_subtotal_multiplica_quantidade():
+    result = calcular_orcamento(pedido("10.00", 3, entrega="padrao"))
+    assert result.subtotal == Decimal("30.00")

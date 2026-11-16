@@ -1,0 +1,421 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ContextLab — execuções</title>
+<style>
+:root {
+  --bg: #f6f7f9; --panel: #ffffff; --ink: #1c2330; --muted: #5d6778; --line: #dfe3ea;
+  --accent: #2f5fd0; --accent-soft: #e6edfb; --code-bg: #f1f3f7;
+  --ok: #1d7a46; --ok-bg: #e2f4e9; --bad: #b3261e; --bad-bg: #fbe6e4;
+  --wait: #8a5a00; --wait-bg: #fdf0d0; --infra: #5b4b9a; --infra-bg: #ece8f8; --idle: #5d6778; --idle-bg: #e9ecf1;
+  --L: #2f5fd0; --R: #0f8a7a; --A: #b3541e;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #12151b; --panel: #1b2029; --ink: #e6e9ef; --muted: #9aa4b5; --line: #2c3442;
+    --accent: #7ea2ff; --accent-soft: #223052; --code-bg: #151a22;
+    --ok: #6fd69a; --ok-bg: #173524; --bad: #ff9a92; --bad-bg: #40201d;
+    --wait: #f0c264; --wait-bg: #3b2f12; --infra: #b9a9f5; --infra-bg: #2b2547; --idle: #9aa4b5; --idle-bg: #262d39;
+    --L: #7ea2ff; --R: #4fd1bf; --A: #f0a06a;
+  }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 14px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; }
+header.top { padding: 18px 24px 10px; }
+header.top h1 { margin: 0; font-size: 20px; font-weight: 650; }
+header.top p { margin: 4px 0 0; color: var(--muted); font-size: 13px; }
+.notice { margin: 10px 24px 0; padding: 8px 12px; border-radius: 8px; background: var(--wait-bg); color: var(--wait); font-size: 13px; }
+main { padding: 12px 24px 40px; }
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 12px; margin-bottom: 14px; }
+.card { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; border-top: 3px solid var(--line); }
+.card h2 { margin: 0 0 8px; font-size: 14px; display: flex; justify-content: space-between; align-items: baseline; }
+.card h2 small { color: var(--muted); font-weight: 400; }
+.card dl { margin: 0; display: grid; grid-template-columns: 1fr auto; gap: 2px 10px; font-size: 13px; }
+.card dt { color: var(--muted); } .card dd { margin: 0; text-align: right; font-variant-numeric: tabular-nums; }
+.bar { height: 6px; border-radius: 3px; background: var(--idle-bg); margin-top: 8px; overflow: hidden; }
+.bar i { display: block; height: 100%; }
+.filters { display: flex; flex-wrap: wrap; gap: 8px; align-items: end; margin-bottom: 10px; }
+.filters label { display: flex; flex-direction: column; font-size: 12px; color: var(--muted); gap: 2px; }
+select, input[type=search] { font: inherit; color: var(--ink); background: var(--panel); border: 1px solid var(--line); border-radius: 7px; padding: 5px 8px; min-width: 120px; }
+input[type=search] { min-width: 220px; }
+.seg { display: inline-flex; border: 1px solid var(--line); border-radius: 7px; overflow: hidden; }
+.seg button, .tabs button, button.plain { font: inherit; color: var(--ink); background: var(--panel); border: 0; padding: 6px 12px; cursor: pointer; }
+.seg button[aria-pressed=true] { background: var(--accent-soft); color: var(--accent); font-weight: 600; }
+button.plain { border: 1px solid var(--line); border-radius: 7px; }
+.count { margin-left: auto; color: var(--muted); font-size: 13px; align-self: center; }
+.wrap { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; overflow: auto; }
+table { border-collapse: collapse; width: 100%; font-size: 13px; }
+th, td { padding: 7px 10px; border-bottom: 1px solid var(--line); text-align: left; white-space: nowrap; }
+th { position: sticky; top: 0; background: var(--panel); font-weight: 600; color: var(--muted); cursor: pointer; user-select: none; }
+th.num, td.num { text-align: right; font-variant-numeric: tabular-nums; }
+tbody tr { cursor: pointer; } tbody tr:hover { background: var(--accent-soft); }
+tbody tr:last-child td { border-bottom: 0; }
+.badge { display: inline-block; padding: 1px 8px; border-radius: 999px; font-size: 12px; font-weight: 600; }
+.s-aprovada { color: var(--ok); background: var(--ok-bg); } .s-reprovada { color: var(--bad); background: var(--bad-bg); }
+.s-aguardando { color: var(--wait); background: var(--wait-bg); } .s-infraestrutura { color: var(--infra); background: var(--infra-bg); }
+.s-pendente, .s-sem { color: var(--idle); background: var(--idle-bg); }
+.cond { font-weight: 700; } .c-L { color: var(--L); } .c-R { color: var(--R); } .c-A { color: var(--A); }
+.cell { display: flex; flex-direction: column; gap: 2px; white-space: normal; min-width: 170px; }
+.cell small { color: var(--muted); } .cell .badge { align-self: flex-start; }
+td.pick { cursor: pointer; vertical-align: top; } td.pick:hover { background: var(--accent-soft); }
+.empty { padding: 28px; text-align: center; color: var(--muted); }
+aside.drawer { position: fixed; inset: 0 0 0 auto; width: min(860px, 100%); background: var(--panel); border-left: 1px solid var(--line);
+  box-shadow: -12px 0 30px rgba(0,0,0,.18); display: none; flex-direction: column; z-index: 5; }
+aside.drawer.open { display: flex; }
+.drawer header { padding: 14px 18px 8px; border-bottom: 1px solid var(--line); display: flex; gap: 12px; align-items: start; }
+.drawer header h2 { margin: 0; font-size: 16px; } .drawer header p { margin: 2px 0 0; color: var(--muted); font-size: 12px; word-break: break-all; }
+.drawer header button { margin-left: auto; }
+.tabs { display: flex; gap: 2px; padding: 6px 12px 0; border-bottom: 1px solid var(--line); flex-wrap: wrap; }
+.tabs button { border-radius: 7px 7px 0 0; color: var(--muted); }
+.tabs button[aria-selected=true] { color: var(--accent); font-weight: 600; box-shadow: inset 0 -2px 0 var(--accent); }
+.body { padding: 14px 18px 30px; overflow: auto; flex: 1; }
+.kv { display: grid; grid-template-columns: max-content 1fr; gap: 4px 16px; margin: 0 0 14px; }
+.kv dt { color: var(--muted); } .kv dd { margin: 0; font-variant-numeric: tabular-nums; }
+h3 { font-size: 13px; margin: 16px 0 6px; color: var(--muted); text-transform: uppercase; letter-spacing: .04em; }
+pre { margin: 0; padding: 12px; background: var(--code-bg); border: 1px solid var(--line); border-radius: 8px; overflow: auto;
+  font: 12.5px/1.5 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; white-space: pre; tab-size: 4; }
+pre.wrapped { white-space: pre-wrap; word-break: break-word; }
+ol.code { margin: 0; padding: 12px 12px 12px 54px; background: var(--code-bg); border: 1px solid var(--line); border-radius: 8px; overflow: auto;
+  font: 12.5px/1.5 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+ol.code li { white-space: pre; color: var(--muted); } ol.code li span { color: var(--ink); }
+.case { border: 1px solid var(--line); border-radius: 8px; margin-bottom: 6px; padding: 6px 10px; }
+.case summary { cursor: pointer; display: flex; gap: 8px; align-items: baseline; }
+.case summary code { word-break: break-all; white-space: normal; }
+.case pre { margin-top: 8px; }
+code { font: 12.5px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+.muted { color: var(--muted); }
+@media (max-width: 700px) { header.top, main { padding-left: 14px; padding-right: 14px; } .notice { margin: 10px 14px 0; } }
+</style>
+</head>
+<body>
+<header class="top">
+  <h1 id="title">ContextLab</h1>
+  <p id="subtitle"></p>
+</header>
+<div id="notice" class="notice" hidden></div>
+<main>
+  <section class="cards" id="cards" aria-label="Resumo por estratégia"></section>
+  <section class="filters" id="filters" aria-label="Filtros"></section>
+  <div class="wrap" id="table"></div>
+</main>
+<aside class="drawer" id="drawer" aria-label="Detalhe da tentativa">
+  <header><div><h2 id="d-title"></h2><p id="d-sub"></p></div><button class="plain" id="d-close">Fechar</button></header>
+  <nav class="tabs" id="d-tabs"></nav>
+  <div class="body" id="d-body"></div>
+</aside>
+<script type="application/json" id="data">/*__CONTEXTLAB_DATA__*/</script>
+<script>
+"use strict";
+// Todo conteúdo dos registros é inserido como texto (textContent); nada é interpretado como HTML.
+const DATA = JSON.parse(document.getElementById("data").textContent);
+const ATTEMPTS = DATA.attempts;
+const CONDITIONS = ["L", "R", "A"];
+const STATE_CLASS = {"aprovada": "s-aprovada", "reprovada": "s-reprovada", "aguardando revisão": "s-aguardando",
+                     "infraestrutura": "s-infraestrutura", "pendente": "s-pendente", "sem desfecho": "s-sem"};
+const state = {filters: {source: "", model: "", project: "", target: "", condition: "", state: "", repetition: "", q: ""},
+               view: "tabela", sort: {key: "order", dir: 1}, selected: null, tab: "resumo"};
+
+function el(tag, props, ...children) {
+  const node = document.createElement(tag);
+  for (const [key, value] of Object.entries(props || {})) {
+    if (value === null || value === undefined || value === false) continue;
+    if (key === "class") node.className = value;
+    else if (key === "text") node.textContent = value;
+    else if (key.startsWith("on")) node.addEventListener(key.slice(2), value);
+    else node.setAttribute(key, value === true ? "" : value);
+  }
+  for (const child of children.flat()) {
+    if (child === null || child === undefined || child === false) continue;
+    node.append(child instanceof Node ? child : document.createTextNode(String(child)));
+  }
+  return node;
+}
+const fmtInt = v => v === null || v === undefined ? "—" : Math.round(v).toLocaleString("pt-BR");
+const fmtSec = v => v === null || v === undefined ? "—" : v.toLocaleString("pt-BR", {maximumFractionDigits: 1}) + " s";
+const fmtPct = v => v === null || v === undefined ? "—" : (v * 100).toLocaleString("pt-BR", {maximumFractionDigits: 0}) + "%";
+const PRICED = Boolean(DATA.pricing) && ATTEMPTS.some(a => typeof a.cost === "number");
+const CURRENCY = (DATA.pricing && DATA.pricing.moeda) || "USD";
+const fmtCost = v => v === null || v === undefined ? "—" : v.toLocaleString("pt-BR", {style: "currency", currency: CURRENCY, minimumFractionDigits: 4, maximumFractionDigits: 4});
+const sum = values => values.filter(x => typeof x === "number").reduce((a, b) => a + b, 0);
+const mean = values => { const v = values.filter(x => typeof x === "number"); return v.length ? v.reduce((a, b) => a + b, 0) / v.length : null; };
+const badge = text => el("span", {class: "badge " + (STATE_CLASS[text] || "s-sem"), text});
+const cond = c => el("span", {class: "cond c-" + c, text: c});
+const defectCount = a => { const e = a.defects.filter(d => d.eligible !== false); return [e.filter(d => d.detected === true).length, e.length]; };
+const defectText = a => !a.defects.length ? "—" : defectCount(a).join("/") + (a.defects.some(d => d.eligible !== false && d.detected === null) ? "?" : "");
+const casesText = a => a.cases.active === null || a.cases.active === undefined ? "—" : `${a.cases.passed ?? 0}/${a.cases.active}`;
+
+function filtered() {
+  const f = state.filters, q = f.q.trim().toLowerCase();
+  return ATTEMPTS.filter(a =>
+    (!f.source || a.source === f.source) && (!f.model || a.model === f.model) && (!f.project || a.project === f.project) &&
+    (!f.target || a.target === f.target) && (!f.condition || a.condition === f.condition) &&
+    (!f.state || a.state === f.state) && (!f.repetition || String(a.repetition) === f.repetition) &&
+    (!q || [a.id, a.target, a.project, a.model, a.detail.test_code].some(t => t && t.toLowerCase().includes(q))));
+}
+
+function renderHeader() {
+  document.getElementById("title").textContent = DATA.title;
+  document.title = DATA.title + " — ContextLab";
+  const when = new Date(DATA.generated_at).toLocaleString("pt-BR");
+  document.getElementById("subtitle").textContent =
+    `${ATTEMPTS.length} tentativa(s) em ${DATA.sources.length} execução(ões) · lido em ${when} · somente leitura`;
+  const notes = [];
+  if (DATA.sources.some(s => s.demonstration)) notes.push("Há demonstrações com testes autorais fixos: não são gerações de modelo.");
+  if (DATA.sources.some(s => s.phase === "pilot")) notes.push("Execuções de piloto não integram a coleta principal.");
+  if (PRICED) notes.push(`Custo estimado por tarifas de API${DATA.pricing.consulta ? " consultadas em " + DATA.pricing.consulta.split("-").reverse().join("/") : ""}: é um cenário de preço, não a despesa efetiva.`);
+  const notice = document.getElementById("notice");
+  notice.hidden = !notes.length;
+  notice.textContent = notes.join(" ");
+}
+
+function renderCards(rows) {
+  const box = document.getElementById("cards");
+  box.replaceChildren();
+  const stats = CONDITIONS.map(c => {
+    const items = rows.filter(a => a.condition === c);
+    const observable = items.filter(a => a.observable);
+    return {c, n: items.length, observable: observable.length,
+            approved: items.filter(a => a.state === "aprovada").length,
+            waiting: items.filter(a => a.state === "aguardando revisão").length,
+            rejected: items.filter(a => a.state === "reprovada").length,
+            input: mean(observable.map(a => a.tokens.input)), output: mean(observable.map(a => a.tokens.output)),
+            seconds: mean(observable.map(a => a.seconds.generation)), calls: mean(observable.map(a => a.tool_calls)),
+            chars: mean(observable.map(a => a.context_chars)),
+            cost: mean(observable.map(a => a.cost)), costTotal: sum(observable.map(a => a.cost)),
+            costComplete: observable.length > 0 && observable.every(a => typeof a.cost === "number")};
+  }).filter(s => s.n);
+  const top = Math.max(1, ...stats.map(s => s.input || 0));
+  const names = {L: "Local", R: "Recuperado", A: "Autônomo"};
+  for (const s of stats) {
+    const card = el("div", {class: "card", style: `border-top-color: var(--${s.c})`},
+      el("h2", {}, el("span", {}, cond(s.c), " " + names[s.c]), el("small", {text: `${s.n} tentativa(s)`})),
+      el("dl", {},
+        el("dt", {text: "Aprovadas / observáveis"}), el("dd", {text: `${s.approved} / ${s.observable}`}),
+        el("dt", {text: "Aguardando revisão"}), el("dd", {text: s.waiting}),
+        el("dt", {text: "Reprovadas"}), el("dd", {text: s.rejected}),
+        el("dt", {text: "Tokens de entrada (média)"}), el("dd", {text: fmtInt(s.input)}),
+        el("dt", {text: "Tokens de saída (média)"}), el("dd", {text: fmtInt(s.output)}),
+        el("dt", {text: "Caracteres entregues (média)"}), el("dd", {text: fmtInt(s.chars)}),
+        el("dt", {text: "Consultas (média)"}), el("dd", {text: s.calls === null ? "—" : s.calls.toLocaleString("pt-BR", {maximumFractionDigits: 1})}),
+        el("dt", {text: "Geração (média)"}), el("dd", {text: fmtSec(s.seconds)}),
+        PRICED ? [el("dt", {text: "Custo estimado (média)"}), el("dd", {text: fmtCost(s.cost)}),
+                  el("dt", {text: "Custo estimado (total)"}), el("dd", {text: s.costComplete ? fmtCost(s.costTotal) : "—"}),
+                  el("dt", {title: "Custo de todas as gerações observáveis dividido pelo número de suítes aprovadas", text: "Custo por suíte aprovada"}),
+                  el("dd", {text: s.costComplete && s.approved ? fmtCost(s.costTotal / s.approved) : "—"})] : null),
+      el("div", {class: "bar", title: "Tokens de entrada em relação à maior média"},
+        el("i", {style: `width: ${Math.round(100 * (s.input || 0) / top)}%; background: var(--${s.c})`})));
+    box.append(card);
+  }
+  if (!stats.length) box.append(el("div", {class: "card"}, el("span", {class: "muted", text: "Nenhuma tentativa nos filtros atuais."})));
+}
+
+function renderFilters() {
+  const box = document.getElementById("filters");
+  box.replaceChildren();
+  const options = (key, label, values, names) => {
+    const select = el("select", {onchange: e => { state.filters[key] = e.target.value; update(); }},
+      el("option", {value: "", text: "Todos"}),
+      values.map(v => el("option", {value: String(v), text: names ? names(v) : String(v), selected: String(v) === state.filters[key]})));
+    return el("label", {}, label, select);
+  };
+  const uniq = key => [...new Set(ATTEMPTS.map(a => a[key]))].sort((a, b) => String(a).localeCompare(String(b), "pt-BR", {numeric: true}));
+  box.append(...[
+    DATA.sources.length > 1 ? options("source", "Execução", DATA.sources.map(s => s.id)) : null,
+    uniq("model").filter(Boolean).length > 1 ? options("model", "Modelo", uniq("model").filter(Boolean)) : null,
+    uniq("project").length > 1 ? options("project", "Projeto", uniq("project")) : null,
+    options("target", "Função", uniq("target")),
+    options("condition", "Estratégia", CONDITIONS.filter(c => ATTEMPTS.some(a => a.condition === c))),
+    uniq("repetition").length > 1 ? options("repetition", "Repetição", uniq("repetition")) : null,
+    options("state", "Situação", uniq("state")),
+    el("label", {}, "Busca", el("input", {type: "search", placeholder: "função, modelo ou trecho do teste", value: state.filters.q,
+      oninput: e => { state.filters.q = e.target.value; update(false); }})),
+    el("div", {class: "seg", role: "group", "aria-label": "Visão"},
+      ["tabela", "por função"].map(v => el("button", {"aria-pressed": String(state.view === v), text: v === "tabela" ? "Tabela" : "Por função",
+        onclick: () => { state.view = v; update(); }}))),
+    el("span", {class: "count", id: "count"})].filter(Boolean));
+}
+
+const COLUMNS = [
+  {key: "source", label: "Execução", get: a => a.source, show: () => DATA.sources.length > 1},
+  {key: "order", label: "Nº", get: a => a.order, num: true},
+  {key: "project", label: "Projeto", get: a => a.project, show: () => new Set(ATTEMPTS.map(a => a.project)).size > 1},
+  {key: "target", label: "Função", get: a => a.target},
+  {key: "condition", label: "Estr.", get: a => a.condition, cell: a => cond(a.condition)},
+  {key: "repetition", label: "Rep.", get: a => a.repetition, num: true},
+  {key: "state", label: "Situação", get: a => a.state, cell: a => badge(a.state)},
+  {key: "cases", label: "Casos", get: a => a.cases.passed ?? -1, cell: a => casesText(a), num: true, title: "Casos aprovados / casos ativos"},
+  {key: "line", label: "Linhas", get: a => a.coverage.line_rate ?? -1, cell: a => fmtPct(a.coverage.line_rate) + (a.coverage.line_rate !== null && !a.coverage.primary ? "*" : ""), num: true,
+   title: "Cobertura de linhas da função. * = diagnóstica: a suíte não está aprovada"},
+  {key: "branch", label: "Ramif.", get: a => a.coverage.branch_rate ?? -1, cell: a => fmtPct(a.coverage.branch_rate) + (a.coverage.branch_rate !== null && !a.coverage.primary ? "*" : ""), num: true},
+  {key: "defects", label: "Defeitos", get: a => defectCount(a)[1] ? defectCount(a)[0] / defectCount(a)[1] : -1, cell: a => defectText(a), num: true,
+   title: "Defeitos detectados / defeitos elegíveis; medido só em suítes aprovadas", show: () => ATTEMPTS.some(a => a.defects.length)},
+  {key: "tin", label: "Tok. entrada", get: a => a.tokens.input ?? -1, cell: a => fmtInt(a.tokens.input), num: true},
+  {key: "tout", label: "Tok. saída", get: a => a.tokens.output ?? -1, cell: a => fmtInt(a.tokens.output), num: true},
+  {key: "cost", label: "Custo est.", get: a => a.cost ?? -1, cell: a => fmtCost(a.cost), num: true, show: () => PRICED,
+   title: "Estimativa por tarifas de API; não é despesa efetiva"},
+  {key: "chars", label: "Caracteres", get: a => a.context_chars ?? -1, cell: a => fmtInt(a.context_chars), num: true, title: "Caracteres de contexto entregues"},
+  {key: "calls", label: "Consultas", get: a => a.tool_calls ?? -1, cell: a => fmtInt(a.tool_calls), num: true},
+  {key: "gen", label: "Geração", get: a => a.seconds.generation ?? -1, cell: a => fmtSec(a.seconds.generation), num: true},
+];
+
+function renderTable(rows) {
+  const columns = COLUMNS.filter(c => !c.show || c.show());
+  const sortColumn = columns.find(c => c.key === state.sort.key) || columns[0];
+  const sorted = [...rows].sort((a, b) => {
+    const x = sortColumn.get(a), y = sortColumn.get(b);
+    const base = typeof x === "number" && typeof y === "number" ? x - y : String(x).localeCompare(String(y), "pt-BR", {numeric: true});
+    return (base || a.key.localeCompare(b.key)) * state.sort.dir;
+  });
+  const head = el("tr", {}, columns.map(c => el("th", {class: c.num ? "num" : "", title: c.title, scope: "col",
+    onclick: () => { state.sort = {key: c.key, dir: state.sort.key === c.key ? -state.sort.dir : 1}; update(false); }},
+    c.label + (state.sort.key === c.key ? (state.sort.dir > 0 ? " ▲" : " ▼") : ""))));
+  const body = sorted.map(a => el("tr", {tabindex: "0", onclick: () => open(a.key), onkeydown: e => { if (e.key === "Enter") open(a.key); }},
+    columns.map(c => el("td", {class: c.num ? "num" : ""}, c.cell ? c.cell(a) : String(c.get(a))))));
+  return el("table", {}, el("thead", {}, head), el("tbody", {}, body));
+}
+
+function renderByFunction(rows) {
+  const groups = new Map();
+  for (const a of rows) {
+    const key = [a.source, a.project, a.target, a.repetition].join("\u0000");
+    if (!groups.has(key)) groups.set(key, {a, items: {}});
+    groups.get(key).items[a.condition] = a;
+  }
+  const many = DATA.sources.length > 1;
+  const cell = a => !a ? el("td", {}, el("span", {class: "muted", text: "—"})) :
+    el("td", {class: "pick", tabindex: "0", onclick: () => open(a.key), onkeydown: e => { if (e.key === "Enter") open(a.key); }},
+      el("div", {class: "cell"}, badge(a.state),
+        el("span", {text: `Casos ${casesText(a)} · linhas ${fmtPct(a.coverage.line_rate)}` + (a.defects.length ? ` · defeitos ${defectText(a)}` : "")}),
+        el("small", {text: `${fmtInt(a.tokens.input)} tok. entrada · ${fmtInt(a.tokens.output)} saída` + (PRICED ? ` · ${fmtCost(a.cost)}` : "")}),
+        el("small", {text: `${fmtInt(a.context_chars)} caracteres · ${fmtInt(a.tool_calls)} consulta(s) · ${fmtSec(a.seconds.generation)}`})));
+  const body = [...groups.values()].map(g => el("tr", {style: "cursor: default"},
+    many ? el("td", {text: g.a.source}) : null,
+    el("td", {}, el("strong", {text: g.a.target}), el("br"), el("small", {class: "muted", text: `${g.a.project} · repetição ${g.a.repetition}`})),
+    CONDITIONS.map(c => cell(g.items[c]))));
+  return el("table", {}, el("thead", {}, el("tr", {}, many ? el("th", {text: "Execução"}) : null, el("th", {text: "Função"}),
+    CONDITIONS.map(c => el("th", {}, cond(c))))), el("tbody", {}, body));
+}
+
+function codeBlock(text) {
+  // Numeração por linha sem interpretar o conteúdo.
+  return el("ol", {class: "code"}, text.replace(/\n$/, "").split("\n").map(line => el("li", {}, el("span", {text: line || " "}))));
+}
+
+const TABS = [["resumo", "Resumo"], ["casos", "Casos"], ["teste", "Teste gerado"], ["contexto", "Contexto"], ["consultas", "Consultas"], ["enunciado", "Enunciado"]];
+
+function tabBody(a) {
+  const d = a.detail, out = [];
+  if (state.tab === "resumo") {
+    out.push(el("dl", {class: "kv"},
+      el("dt", {text: "Situação"}), el("dd", {}, badge(a.state)),
+      el("dt", {text: "Estratégia"}), el("dd", {}, cond(a.condition), ` · repetição ${a.repetition} · ordem ${a.order}`),
+      el("dt", {text: "Modelo"}), el("dd", {text: (a.model || "—") + (a.agent_version ? ` · ${a.agent_version}` : "") + (a.simulated ? " · entrega autoral fixa" : "")}),
+      el("dt", {text: "Geração"}), el("dd", {text: a.generation_status || "—"}),
+      el("dt", {text: "Avaliação"}), el("dd", {text: (a.evaluation_status || "—") + (a.failure_categories.length ? " · " + a.failure_categories.join(", ") : "")}),
+      el("dt", {text: "Casos"}), el("dd", {text: `${a.cases.passed ?? "—"} aprovados de ${a.cases.active ?? "—"} ativos (${a.cases.collected ?? "—"} coletados, ${a.cases.skipped ?? 0} ignorados, ${a.cases.xfail ?? 0} falha esperada)`}),
+      el("dt", {text: "Cobertura de linhas"}), el("dd", {text: `${fmtPct(a.coverage.line_rate)} (${a.coverage.line_covered ?? "—"}/${a.coverage.line_total ?? "—"})` + (a.coverage.line_rate !== null && !a.coverage.primary ? " — diagnóstica, suíte não aprovada" : "")}),
+      el("dt", {text: "Cobertura de ramificações"}), el("dd", {text: a.coverage.branch_total ? `${fmtPct(a.coverage.branch_rate)} (${a.coverage.branch_covered}/${a.coverage.branch_total})` : "não aplicável"}),
+      el("dt", {text: "Tokens"}), el("dd", {text: `${fmtInt(a.tokens.input)} de entrada (${fmtInt(a.tokens.cached_input)} em cache) · ${fmtInt(a.tokens.output)} de saída (${fmtInt(a.tokens.reasoning_output)} de raciocínio)`}),
+      PRICED ? [el("dt", {text: "Custo estimado"}), el("dd", {text: fmtCost(a.cost) + " — tarifas de API" + (DATA.pricing.fonte ? `, fonte: ${DATA.pricing.fonte}` : "") + "; não é despesa efetiva"})] : null,
+      el("dt", {text: "Contexto entregue"}), el("dd", {text: `${fmtInt(a.context_chars)} caracteres de ${fmtInt(a.budget)} (${fmtInt(a.initial_chars)} iniciais) · ${fmtInt(a.tool_calls)} consulta(s)`}),
+      el("dt", {text: "Tempos"}), el("dd", {text: `preparação ${fmtSec(a.seconds.preparation)} · geração ${fmtSec(a.seconds.generation)} · avaliação ${fmtSec(a.seconds.evaluation)}`}),
+      el("dt", {text: "Início"}), el("dd", {text: a.started_at ? new Date(a.started_at).toLocaleString("pt-BR") : "—"})));
+    if (d.error) out.push(el("h3", {text: "Erro registrado"}), el("pre", {class: "wrapped", text: d.error}));
+    if (d.generation_details.length) out.push(el("h3", {text: "Detalhes da geração"}), el("pre", {class: "wrapped", text: d.generation_details.join("\n")}));
+    if (a.defects.length) out.push(el("h3", {text: "Defeitos controlados"}),
+      el("dl", {class: "kv"}, a.defects.flatMap(x => [el("dt", {text: x.id}), el("dd", {text: x.status + (x.eligible === false ? " (inelegível)" : "")})])));
+    out.push(el("h3", {text: "Revisão humana"}), d.review
+      ? el("dl", {class: "kv"}, Object.entries(d.review).flatMap(([k, v]) => [el("dt", {text: k}), el("dd", {text: typeof v === "object" ? JSON.stringify(v) : String(v)})]))
+      : el("p", {class: "muted", text: "Sem revisão registrada. A revisão é feita pelo comando review."}));
+  } else if (state.tab === "casos") {
+    if (!d.cases.length) out.push(el("p", {class: "muted", text: "Nenhum caso registrado para esta tentativa."}));
+    const order = {failed: 0, skipped: 1, passed: 2};
+    for (const c of [...d.cases].sort((x, y) => (order[x.outcome] ?? 3) - (order[y.outcome] ?? 3))) {
+      const label = c.outcome === "passed" ? "aprovada" : c.outcome === "failed" ? "reprovada" : "pendente";
+      const text = c.outcome === "passed" ? "passou" : c.outcome === "failed" ? `falhou (${c.phase === "call" ? (c.exception || "erro") : c.phase})` :
+        c.outcome === "skipped" ? "ignorado" : "não executado";
+      const summary = el("summary", {}, el("span", {class: "badge " + STATE_CLASS[label], text}), el("code", {text: c.name}),
+        c.expected_failure ? el("small", {class: "muted", text: "falha esperada"}) : null);
+      out.push(el("details", {class: "case", open: c.outcome === "failed"}, summary, c.message ? el("pre", {text: c.message}) : null));
+    }
+  } else if (state.tab === "teste") {
+    if (d.test_code) out.push(codeBlock(d.test_code));
+    else if (d.response) out.push(el("p", {class: "muted", text: "A resposta não gerou um arquivo de teste válido. Resposta recebida:"}), el("pre", {class: "wrapped", text: d.response}));
+    else out.push(el("p", {class: "muted", text: "Não há entrega preservada para esta tentativa."}));
+  } else if (state.tab === "contexto") {
+    const c = d.context;
+    if (!c) out.push(el("p", {class: "muted", text: "Contexto não registrado."}));
+    else {
+      if (a.condition === "R") out.push(el("p", {text: c.equal_to_local ? "Neste alvo, R não acrescentou conteúdo a L." : "R acrescentou conteúdo a L."}));
+      if (c.snippets.length) out.push(el("h3", {text: "Trechos do pacote inicial"}), el("dl", {class: "kv"},
+        c.snippets.flatMap(s => [el("dt", {}, el("code", {text: s.key})), el("dd", {text: `${s.reason} · ${fmtInt(s.chars)} caracteres`})])));
+      if (c.available.length) out.push(el("h3", {text: `Arquivos disponíveis para consulta (${c.available.length})`}), el("pre", {text: c.available.join("\n")}),
+        el("p", {class: "muted", text: "Disponível não significa lido: veja a aba Consultas."}));
+      if (c.omitted.length) out.push(el("h3", {text: "Omitidos por limite"}), el("pre", {text: c.omitted.map(o => o.key).join("\n")}));
+      if (c.unresolved.length) out.push(el("h3", {text: `Referências não resolvidas (${c.unresolved.length})`}),
+        el("pre", {text: c.unresolved.map(u => `${u.reference ?? u.path ?? "?"} — ${u.reason}`).join("\n")}));
+      if (c.text) out.push(el("h3", {text: "Conteúdo entregue"}), el("pre", {text: c.text}));
+    }
+  } else if (state.tab === "consultas") {
+    if (!d.tool_log.length) out.push(el("p", {class: "muted", text: "Nenhuma consulta registrada."}));
+    else out.push(el("div", {class: "wrap"}, el("table", {}, el("thead", {}, el("tr", {}, ["Nº", "Ferramenta", "Argumentos", "Situação", "Caracteres", "Acumulado"].map((t, i) => el("th", {class: i > 3 ? "num" : "", text: t, style: "cursor: default"})))),
+      el("tbody", {}, d.tool_log.map(t => el("tr", {style: "cursor: default"},
+        el("td", {text: t.index}), el("td", {}, el("code", {text: t.tool})),
+        el("td", {style: "white-space: normal"}, el("code", {text: JSON.stringify(t.arguments ?? {})})),
+        el("td", {text: t.status}), el("td", {class: "num", text: fmtInt(t.delivered_chars)}), el("td", {class: "num", text: fmtInt(t.chars_after)})))))));
+  } else if (state.tab === "enunciado") {
+    out.push(d.prompt ? el("pre", {class: "wrapped", text: d.prompt}) : el("p", {class: "muted", text: "Enunciado não registrado."}));
+  }
+  return out;
+}
+
+function renderDrawer() {
+  const drawer = document.getElementById("drawer");
+  const a = ATTEMPTS.find(x => x.key === state.selected);
+  drawer.classList.toggle("open", Boolean(a));
+  if (!a) return;
+  document.getElementById("d-title").replaceChildren(a.target + " · ", cond(a.condition), ` · repetição ${a.repetition}`);
+  document.getElementById("d-sub").textContent = `${a.project} · ${a.detail.path}`;
+  document.getElementById("d-tabs").replaceChildren(...TABS.map(([id, label]) => el("button", {role: "tab", "aria-selected": String(state.tab === id), text: label,
+    onclick: () => { state.tab = id; syncHash(); renderDrawer(); }})));
+  const body = document.getElementById("d-body");
+  body.replaceChildren(...tabBody(a));
+  body.scrollTop = 0;
+}
+
+// O endereço guarda a tentativa e a aba abertas, para voltar ao mesmo ponto ou indicá-lo a alguém.
+function syncHash() {
+  const value = state.selected ? "#" + encodeURIComponent(state.selected) + "@" + state.tab : " ";
+  history.replaceState(null, "", value === " " ? location.pathname + location.search : value);
+}
+function fromHash() {
+  const [key, tab] = decodeURIComponent(location.hash.slice(1)).split("@");
+  if (ATTEMPTS.some(a => a.key === key)) {
+    state.selected = key;
+    if (TABS.some(([id]) => id === tab)) state.tab = tab;
+  }
+}
+function open(key) { state.selected = key; syncHash(); renderDrawer(); }
+function closeDrawer() { state.selected = null; syncHash(); renderDrawer(); }
+
+function update(rebuildFilters = true) {
+  const rows = filtered();
+  renderCards(rows);
+  if (rebuildFilters) renderFilters();
+  document.getElementById("count").textContent = `${rows.length} de ${ATTEMPTS.length} tentativa(s)`;
+  const table = document.getElementById("table");
+  table.replaceChildren(rows.length ? (state.view === "tabela" ? renderTable(rows) : renderByFunction(rows))
+    : el("div", {class: "empty", text: "Nenhuma tentativa corresponde aos filtros."}));
+}
+
+document.getElementById("d-close").addEventListener("click", closeDrawer);
+document.addEventListener("keydown", e => { if (e.key === "Escape" && state.selected) closeDrawer(); });
+renderHeader();
+fromHash();
+update();
+renderDrawer();
+</script>
+</body>
+</html>

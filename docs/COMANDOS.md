@@ -321,6 +321,69 @@ registros, e pode consultar lotes antigos sem restaurar seu ambiente.
 Uma tentativa ainda não iniciada não tem registro para abrir.
 Veja o [guia dos arquivos de saída](SAIDAS.md) para relacionar a tela às evidências.
 
+### serve: explorar as execuções no navegador
+
+```bash
+contextlab cambio serve
+contextlab cambio serve --batch LOTE
+contextlab cambio serve --export cambio.html
+contextlab serve RESULTADOS
+```
+
+Abre uma página local com as tentativas registradas. A primeira forma reúne
+todos os lotes de `projects/NOME/runs/`; `--batch` restringe a um lote. A última
+forma pertence ao fluxo por manifesto e recebe o diretório de resultados que
+contém `run.json`, como o da coleta principal.
+
+A página mostra, por estratégia, aprovações, tokens de entrada e saída,
+caracteres entregues, consultas e tempo de geração. A tabela pode ser filtrada
+por execução, modelo, projeto, função, estratégia, repetição e situação, e
+ordenada por qualquer coluna. A visão **Por função** coloca L, R e A lado a lado
+para o mesmo alvo e a mesma repetição. Ao abrir uma tentativa, as abas mostram
+o resumo, os casos de teste com as mensagens de falha, o teste gerado, o
+contexto entregue, as consultas feitas pelo agente e o enunciado.
+
+| Opção | Efeito |
+|---|---|
+| `--port N` | Porta local; o padrão é 8765. |
+| `--no-open` | Não abre o navegador; o endereço aparece no terminal. |
+| `--prices TARIFAS.json` | Estima o custo de cada tentativa a partir de tarifas de API. No fluxo por projeto, `projects/NOME/precos.json` é usado automaticamente quando existe. |
+| `--export ARQUIVO.html` | Grava uma página única, com os dados embutidos, em vez de iniciar o servidor. Não sobrescreve um arquivo existente. |
+
+O arquivo de tarifas informa valores por milhão de tokens, com fonte e data:
+
+```json
+{
+  "moeda": "USD",
+  "fonte": "https://developers.openai.com/api/docs/models/gpt-6.1-sol",
+  "consulta": "2026-11-15",
+  "modelos": {
+    "gpt-6.1-sol": {"entrada": 2.00, "entrada_cache": 0.10, "escrita_cache": 2.50, "saida": 10.00}
+  }
+}
+```
+
+A estimativa separa a entrada sem cache, a leitura e a escrita de cache, que são
+partes da entrada, e a saída, que já inclui os tokens de raciocínio. A página
+mostra o custo por tentativa, a média e o total por estratégia e o custo por
+suíte aprovada (custo das gerações observáveis dividido pelas aprovações).
+**É um cenário de preço de API, não a despesa efetiva**: com login por
+assinatura não há cobrança por tentativa. Sem tarifa para o modelo ou sem
+contagem de tokens, o custo fica ausente, nunca zero.
+
+O visualizador é **somente leitura**: não reavalia entregas, não registra
+revisões e não grava nada nos diretórios de resultados. A revisão continua pelo
+comando `review`. O servidor atende apenas `127.0.0.1` e relê os registros a
+cada acesso; recarregue a página para ver tentativas novas. `Ctrl+C` encerra.
+
+A página exportada pode ser enviada a outra pessoa e aberta sem instalação. Ela
+contém os enunciados, os contextos e os testes gerados das tentativas
+incluídas; confira esse conteúdo antes de compartilhar.
+
+O código do visualizador fica em `src/contextlab/viewer/`, fora do conjunto de
+arquivos conferido pelo congelamento. Alterar a apresentação não invalida
+pilotos nem protocolos congelados.
+
 ### review: registrar a inspeção dos testes
 
 ```bash

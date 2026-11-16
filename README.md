@@ -79,6 +79,7 @@ validação, entregas e resultados. Listar execuções não as repete.
 | `contextlab NOME context --condition R` | Mostra o contexto de uma estratégia, sem chamar o agente. |
 | `contextlab NOME run` | Valida referências, congela a configuração e executa. |
 | `contextlab NOME runs` | Lista uma linha por tentativa, incluindo as não iniciadas. |
+| `contextlab NOME serve` | Abre uma página local, somente leitura, para filtrar e explorar as tentativas; `--export` grava a página em um arquivo. |
 | `contextlab NOME show LOTE/01` | Mostra contagens, casos e falhas; `--code` inclui a entrega e `--json` exibe a avaliação técnica. |
 | `contextlab NOME review LOTE/01` | Solicita a revisão e reavalia a mesma entrega. |
 

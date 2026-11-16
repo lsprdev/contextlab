@@ -7,7 +7,7 @@
     "R",
     "A"
   ],
-  "repetitions": 1,
+  "repetitions": 3,
   "limits": {
     "context_chars": 30000,
     "tool_calls": 20,
@@ -51,7 +51,29 @@
           "reference_tests": [
             "tests/test_orcamentos.py"
           ],
-          "defects": []
+          "defects": [
+            {
+              "id": "frete-antes-do-desconto",
+              "path": "src/orcamentos/orcamentos.py",
+              "old": "frete = calcular_frete(base, pedido.entrega)",
+              "new": "frete = calcular_frete(subtotal, pedido.entrega)",
+              "witness": "tests/test_orcamentos.py::test_testemunha_frete_usa_valor_apos_desconto"
+            },
+            {
+              "id": "total-sem-desconto",
+              "path": "src/orcamentos/orcamentos.py",
+              "old": "total=base + frete",
+              "new": "total=subtotal + frete",
+              "witness": "tests/test_orcamentos.py::test_testemunha_total_desconta_cupom"
+            },
+            {
+              "id": "quantidade-ignorada",
+              "path": "src/orcamentos/orcamentos.py",
+              "old": "item.preco_unitario * item.quantidade",
+              "new": "item.preco_unitario",
+              "witness": "tests/test_orcamentos.py::test_testemunha_subtotal_multiplica_quantidade"
+            }
+          ]
         },
         {
           "id": "criar_orcamento",

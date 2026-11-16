@@ -1,0 +1,14 @@
+{
+  "moeda": "USD",
+  "fonte": "https://developers.openai.com/api/docs/models/gpt-6.1-sol",
+  "consulta": "2026-11-15",
+  "observacao": "Tarifas padrão de API por milhão de tokens, contexto curto. Os pilotos usaram login por assinatura: o valor é um cenário de preço de API, não despesa efetiva.",
+  "modelos": {
+    "gpt-6.1-sol": {
+      "entrada": 2.0,
+      "entrada_cache": 0.1,
+      "escrita_cache": 2.5,
+      "saida": 10.0
+    }
+  }
+}

@@ -15,7 +15,7 @@ from .manifest import ManifestError, load_config, safe_file
 
 
 RESERVED = {"create", "projects", "plan", "doctor", "prepare", "validate", "freeze",
-            "run", "review", "report", "help"}
+            "run", "review", "report", "serve", "help"}
 _EXCLUDED = {"tests", "test", "reference", "tutorial", "runs", "__pycache__",
              ".venv", "venv", ".git", "build", "dist", "node_modules"}
 
