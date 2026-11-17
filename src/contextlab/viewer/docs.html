@@ -1,0 +1,421 @@
+<!-- Documentação embutida no visualizador. Conteúdo autoral e estático: nenhum dado de execução entra aqui. -->
+<section id="doc-visao" data-title="Visão geral">
+  <h2>Visão geral</h2>
+  <p class="lead">O ContextLab compara três formas de dar contexto a um agente de programação que escreve testes unitários. Ele prepara o material que o agente pode ver, pede <strong>uma</strong> suíte de testes, guarda a resposta sem alterá-la e só então a executa, em um ambiente separado.</p>
+  <div class="grid3">
+    <div class="tile tile-L"><h4><span class="cond c-L">L</span> Local</h4><p>O agente recebe o arquivo da função e os tipos usados na assinatura dela.</p></div>
+    <div class="tile tile-R"><h4><span class="cond c-R">R</span> Recuperado</h4><p>Recebe o pacote L mais as definições de outros arquivos que a função usa diretamente.</p></div>
+    <div class="tile tile-A"><h4><span class="cond c-A">A</span> Autônomo</h4><p>Começa só com o enunciado e escolhe o que ler, por listagem, leitura e busca.</p></div>
+  </div>
+  <p>Três ideias organizam todo o resto:</p>
+  <ul>
+    <li><strong>Geração e avaliação são separadas.</strong> O agente nunca executa o projeto nem vê o resultado dos testes. Não há segunda chance nem reparo.</li>
+    <li><strong>Tudo fica registrado.</strong> O enunciado, o contexto, cada consulta, a resposta, os resultados por caso e as decisões de revisão ficam em arquivos, por tentativa.</li>
+    <li><strong>O que foi congelado não muda.</strong> Antes de executar, a configuração, a ordem sorteada e os arquivos do projeto recebem um <em>hash</em>. Se algo mudar depois, o ContextLab se recusa a continuar aquele lote.</li>
+  </ul>
+  <h3>Fluxo de uma tentativa</h3>
+  <pre class="mermaid-src">flowchart LR
+    A["Manifesto"] --> B["Contexto"] --> C["Geração&lt;br/&gt;Codex"] --> D["Entrega&lt;br/&gt;preservada"] --> E["Avaliação&lt;br/&gt;Docker"] --> F["Revisão&lt;br/&gt;humana"] --> G["Defeitos e&lt;br/&gt;relatórios"]
+    E -. "nenhum resultado volta ao agente" .-x C</pre>
+  <p class="note">Uma <strong>tentativa</strong> é a combinação de projeto, função, agente, estratégia e repetição. Um <strong>lote</strong> é o conjunto de tentativas de um plano congelado. Uma tentativa pode conter dezenas de casos de teste; o número de tentativas não muda por isso.</p>
+</section>
+
+<section id="doc-contexto" data-title="Preparação do contexto">
+  <h2>Como o contexto é preparado</h2>
+  <p>O código do projeto é <strong>lido e analisado, nunca executado</strong>. O preparador monta primeiro uma <em>visão preparada do repositório</em>, um conjunto de arquivos virtuais em memória, e é dela que saem as três estratégias.</p>
+  <pre class="mermaid-src">flowchart TD
+    I["include do contextlab.json&lt;br/&gt;arquivos candidatos"] --> F{"Filtros"}
+    F -- "testes, .git, runs, credenciais,&lt;br/&gt;instruções para agentes, links simbólicos" --> X["Excluído&lt;br/&gt;(motivo registrado)"]
+    F -- "aceito" --> D["Remoção dos exemplos doctest&lt;br/&gt;das docstrings e documentos"]
+    D --> V[("Visão preparada&lt;br/&gt;arquivos virtuais")]
+    V --> L["L: arquivo focal inteiro&lt;br/&gt;+ tipos da assinatura"]
+    L --> R["R: L + dependências diretas&lt;br/&gt;de outros arquivos"]
+    V --> A["A: todos os arquivos ficam&lt;br/&gt;disponíveis para consulta"]</pre>
+  <h3>O que entra e o que fica de fora</h3>
+  <ul>
+    <li>Só entram arquivos listados em <code>include</code>. Documentos (<code>.md</code>, <code>.rst</code>, <code>.txt</code>) precisam ser indicados pelo caminho exato, sem curinga.</li>
+    <li>Ficam de fora, mesmo se listados: pastas e arquivos de teste, <code>.git</code>, <code>runs</code>, <code>conftest.py</code>, arquivos de credenciais, instruções para agentes (<code>AGENTS.md</code>, <code>CLAUDE.md</code>) e links simbólicos.</li>
+    <li>Um arquivo cujo conteúdo pareça teste ou contenha padrão de chave secreta também é excluído.</li>
+    <li>Exemplos no formato <em>doctest</em> são retirados, porque trazem entradas e respostas esperadas. A numeração das linhas é preservada.</li>
+  </ul>
+  <h3>Como o trecho específico é escolhido</h3>
+  <p>O alvo é localizado pelo campo <code>symbol</code> dentro do arquivo <code>path</code>, usando a árvore de sintaxe do Python (AST).</p>
+  <table class="doc">
+    <thead><tr><th>Estratégia</th><th>O que é entregue</th><th>Como é decidido</th></tr></thead>
+    <tbody>
+      <tr><td><span class="cond c-L">L</span></td><td>O arquivo focal completo e as declarações dos tipos que aparecem na assinatura da função, mesmo que estejam em outro arquivo.</td><td>Regra fixa. Se não couber no limite de caracteres, a execução é recusada: o pacote L nunca é cortado.</td></tr>
+      <tr><td><span class="cond c-R">R</span></td><td>Tudo de L, mais funções, classes e constantes de <strong>outros arquivos do projeto</strong> usadas no corpo do alvo.</td><td>Análise estática, profundidade um: não segue as dependências das dependências. Um trecho que não caiba é registrado como omitido.</td></tr>
+      <tr><td><span class="cond c-A">A</span></td><td>Nada além do enunciado. Os arquivos da visão preparada ficam disponíveis.</td><td>O próprio agente escolhe, usando <code>list_files</code>, <code>read_file</code> e <code>search</code>.</td></tr>
+    </tbody>
+  </table>
+  <p class="note">R pode ficar igual a L. Isso acontece quando a função não usa nada de outro arquivo, ou quando a origem do que ela usa não pode ser determinada sem executar o código, como <code>self.atributo</code> ou <code>from modulo import *</code>. O registro informa essa coincidência, e a aba <em>Contexto</em> de cada tentativa mostra o que foi entregue.</p>
+  <h3>Limites</h3>
+  <p>O limite de contexto é contado em <strong>caracteres</strong> e soma o pacote inicial com todas as respostas das ferramentas, inclusive releituras e erros. Há também um limite de número de consultas e um de tempo de geração. O enunciado informa esses limites ao agente, com o mesmo texto nas três estratégias. Ultrapassar um deles encerra a sessão sem entrega.</p>
+</section>
+
+<section id="doc-geracao" data-title="Geração com o Codex">
+  <h2>Como o Codex entra na história</h2>
+  <p class="lead">O Codex <strong>não roda dentro do Docker</strong>. Ele é o cliente de linha de comando instalado no seu computador, iniciado pelo ContextLab em uma sessão nova para cada tentativa, e conversa com o serviço do modelo pela internet.</p>
+  <pre class="mermaid-src">sequenceDiagram
+    autonumber
+    participant CL as ContextLab
+    participant CX as Codex CLI
+    participant MCP as Servidor de contexto
+    participant M as Serviço do modelo
+    CL->>CL: cria pasta temporária vazia e copia só o login
+    CL->>MCP: entrega os arquivos virtuais e os limites
+    CL->>CX: inicia codex exec com o enunciado
+    CX->>M: envia enunciado e pacote inicial (L ou R)
+    loop consultas, até o limite
+        M-->>CX: pede list_files, read_file ou search
+        CX->>MCP: repassa a consulta
+        MCP-->>CX: responde com o conteúdo permitido
+        CX->>M: devolve a resposta ao modelo
+    end
+    M-->>CX: resposta final com o código do teste
+    CX-->>CL: objeto com test_code
+    CL->>CL: grava test_generated.py sem alterar
+    Note over CL,M: a sessão termina aqui, e só depois começa a avaliação</pre>
+  <h3>O que o agente consegue e não consegue fazer</h3>
+  <div class="grid2">
+    <div class="tile ok"><h4>Consegue</h4><ul><li>Listar, ler e buscar nos arquivos virtuais permitidos.</li><li>Reler o próprio pacote inicial em L e R.</li><li>Entregar uma resposta final com o arquivo de teste.</li></ul></div>
+    <div class="tile no"><h4>Não consegue</h4><ul><li>Executar comandos, o projeto ou os testes.</li><li>Abrir arquivos do seu disco: as ferramentas só conhecem os arquivos virtuais.</li><li>Navegar na internet, usar outras integrações ou a sua configuração pessoal do Codex.</li><li>Ver testes de referência, defeitos ou resultados de avaliação.</li></ul></div>
+  </div>
+  <p>Antes de cada sessão, o ContextLab faz uma sondagem com um servidor falso, local e sem credenciais, para conferir que o Codex realmente recusa um comando e uma leitura fora do pacote. Se a sondagem falhar, a tentativa não começa.</p>
+  <h3>Desfechos possíveis da geração</h3>
+  <table class="doc">
+    <thead><tr><th>Desfecho</th><th>Significado</th><th>Conta como</th></tr></thead>
+    <tbody>
+      <tr><td><code>completed</code></td><td>O agente entregou uma resposta no formato pedido.</td><td>Geração observável; segue para a avaliação.</td></tr>
+      <tr><td><code>invalid_submission</code></td><td>A resposta não continha um único arquivo Python.</td><td>Geração observável, reprovada.</td></tr>
+      <tr><td><code>limit</code>, <code>timeout</code></td><td>O agente esgotou o contexto, as consultas ou o tempo.</td><td>Geração observável, reprovada: é resultado da estratégia.</td></tr>
+      <tr><td><code>protocol_violation</code></td><td>Apareceu uma ferramenta ou um evento fora do previsto.</td><td>Geração observável, reprovada.</td></tr>
+      <tr><td><code>infrastructure_error</code></td><td>Falha externa: serviço fora do ar, login, cliente.</td><td>Não observável; informada à parte.</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="doc-avaliacao" data-title="Avaliação no Docker">
+  <h2>Como o contêiner funciona</h2>
+  <p class="lead">O Docker é usado só para <strong>executar os testes</strong>. Cada execução sobe um contêiner novo, roda o pytest e se apaga. Por isso ele quase nunca aparece na lista do Docker: dura um ou dois segundos.</p>
+  <pre class="mermaid-src">flowchart TD
+    S["test_generated.py&lt;br/&gt;cópia congelada da entrega"] --> P
+    subgraph P ["Preparação, fora do contêiner"]
+      C1["Copia o projeto para uma pasta temporária"] --> C2["Retira os testes de referência&lt;br/&gt;e as testemunhas"]
+    end
+    P --> K
+    subgraph K ["Contêiner temporário"]
+      direction TB
+      M1["/project: código, só leitura"]
+      M2["/submission: o teste, só leitura"]
+      M3["/results: único lugar gravável"]
+      R1["pytest + medição de cobertura&lt;br/&gt;sem rede, sem privilégios,&lt;br/&gt;memória e CPU limitadas"]
+      M1 --> R1
+      M2 --> R1
+      R1 --> M3
+    end
+    K --> O["Relatório por caso&lt;br/&gt;e cobertura da função"]
+    O --> Z["Contêiner removido"]
+    O --> V{"Passou tudo e&lt;br/&gt;exercitou o alvo?"}
+    V -- "sim" --> W["aguardando revisão"]
+    V -- "não" --> X["reprovada"]</pre>
+  <h3>Por que é rápido</h3>
+  <ul>
+    <li><strong>Um contêiner não é uma máquina virtual.</strong> Ele é um processo isolado que usa o sistema já em execução.</li>
+    <li><strong>A imagem já vem pronta.</strong> Python, pytest, coverage e as dependências do projeto são instalados uma vez, pelo comando <code>setup</code>.</li>
+    <li><strong>Nada é copiado para dentro.</strong> As pastas são montadas; o contêiner só lê.</li>
+  </ul>
+  <h3>O que protege a avaliação</h3>
+  <table class="doc">
+    <thead><tr><th>Controle</th><th>Para quê</th></tr></thead>
+    <tbody>
+      <tr><td>Sem rede (<code>--network=none</code>)</td><td>O teste gerado não baixa nem envia nada.</td></tr>
+      <tr><td>Sistema de arquivos só de leitura</td><td>O teste não altera o código de produção. Um resumo do conteúdo é comparado antes e depois.</td></tr>
+      <tr><td>Sem privilégios, com limite de memória, CPU e processos</td><td>Um teste mal escrito não derruba a máquina.</td></tr>
+      <tr><td>Limite de tempo</td><td>Uma suíte que trava vira <code>timeout</code>, não um resultado.</td></tr>
+      <tr><td>Testes de referência fora da pasta</td><td>A suíte gerada é medida sozinha, sem ajuda dos seus testes.</td></tr>
+    </tbody>
+  </table>
+  <h3>Cobertura focal</h3>
+  <p>A cobertura considera <strong>apenas o corpo da função-alvo</strong>, não o arquivo inteiro, e só conta o que foi executado durante os testes. Importar o módulo não conta. Funções sem ramificações recebem "não aplicável" na coluna de ramificações, nunca zero.</p>
+</section>
+
+<section id="doc-revisao" data-title="Revisão e defeitos">
+  <h2>Revisão humana e defeitos controlados</h2>
+  <p>Passar no pytest não basta para aprovar. Uma suíte que passa fica <strong>aguardando revisão</strong>, e a aprovação depende de uma pessoa, pelo comando <code>review</code>.</p>
+  <pre class="mermaid-src">stateDiagram-v2
+    [*] --> Pendente
+    Pendente --> Gerando
+    Gerando --> Infraestrutura: falha externa
+    Gerando --> Reprovada: sem entrega válida ou limite esgotado
+    Gerando --> Avaliando: entrega preservada
+    Avaliando --> Reprovada: erro, falha ou alvo não exercitado
+    Avaliando --> AguardandoRevisao: passou em tudo
+    AguardandoRevisao --> Reprovada: revisão negativa
+    AguardandoRevisao --> Aprovada: revisão positiva
+    Aprovada --> [*]
+    Reprovada --> [*]</pre>
+  <h3>O que a revisão confere</h3>
+  <table class="doc">
+    <thead><tr><th>Critério</th><th>Pergunta</th></tr></thead>
+    <tbody>
+      <tr><td><code>--behavioral-assertions</code></td><td>Os testes verificam valores e comportamentos, e não apenas que a função "não quebrou"?</td></tr>
+      <tr><td><code>--no-target-mock</code></td><td>A função-alvo foi chamada de verdade, sem ser trocada por uma resposta simulada?</td></tr>
+      <tr><td><code>--no-production-changes</code></td><td>O código de produção ficou intacto?</td></tr>
+      <tr><td><code>--http-requests</code></td><td>Só em alvos HTTP de piloto: a rota foi exercitada por requisições reais?</td></tr>
+    </tbody>
+  </table>
+  <p>A revisão reexecuta a mesma entrega e guarda a avaliação original. Ela não gera de novo e não permite editar o teste: se o arquivo mudou, o comando recusa.</p>
+  <h3>Defeitos controlados</h3>
+  <p>Um defeito é uma alteração pequena e proposital no código, definida antes da geração. Serve para medir se a suíte percebe quando o comportamento fica errado. Só é medido em suítes aprovadas.</p>
+  <pre class="mermaid-src">flowchart LR
+    A["Suíte aprovada"] --> B["Para cada defeito"]
+    B --> C["Testemunha no&lt;br/&gt;código original"]
+    C -- "passa" --> D["Testemunha no&lt;br/&gt;código alterado"]
+    D -- "falha" --> E["Suíte gerada no&lt;br/&gt;código alterado"]
+    E -- "passou" --> F["sobreviveu"]
+    E -- "falhou" --> G{"A falha vem do&lt;br/&gt;comportamento alterado?"}
+    G -- "sim, na revisão" --> H["detectado"]
+    G -- "não" --> I["não atribuído"]
+    C -- "falha" --> J["defeito inelegível"]
+    D -- "passa" --> J</pre>
+  <p class="note">A <strong>testemunha</strong> é um teste seu que passa no código original e falha no alterado. Ela prova que o defeito muda mesmo o comportamento. Um defeito sem testemunha válida não entra na conta.</p>
+</section>
+
+<section id="doc-json" data-title="contextlab.json">
+  <h2>O arquivo contextlab.json</h2>
+  <p class="lead">É o <strong>manifesto</strong>: descreve o experimento inteiro. Ele aponta para o código, sem copiá-lo. No uso por projeto fica em <code>projects/NOME/contextlab.json</code>; na coleta principal, um único manifesto reúne os quatro projetos.</p>
+  <pre class="code-sample">{
+  "schema_version": 1,
+  "phase": "pilot",                      <span class="cmt">// demo, pilot ou main</span>
+  "seed": 42,                            <span class="cmt">// semente do sorteio da ordem</span>
+  "conditions": ["L", "R", "A"],         <span class="cmt">// estratégias a executar</span>
+  "repetitions": 3,                      <span class="cmt">// sessões novas por estratégia</span>
+  "limits": {
+    "context_chars": 30000,              <span class="cmt">// pacote inicial + respostas das ferramentas</span>
+    "tool_calls": 20,                    <span class="cmt">// consultas por sessão</span>
+    "generation_seconds": 120,           <span class="cmt">// tempo máximo de geração</span>
+    "evaluation_seconds": 20             <span class="cmt">// tempo máximo de cada execução no Docker</span>
+  },
+  "agents": [
+    { "id": "codex", "kind": "codex", "model": "gpt-6.1-sol",
+      "auth_file": "~/.codex-work/auth.json" }   <span class="cmt">// caminho do login, nunca o conteúdo</span>
+  ],
+  "evaluation": { "backend": "docker", "image": "contextlab-orcamentos:local" },
+  "projects": [
+    {
+      "id": "orcamentos",                <span class="cmt">// identificador fixo, igual ao nome da pasta</span>
+      "name": "OrçaAPI",                 <span class="cmt">// opcional: nome mostrado na interface</span>
+      "root": ".",                       <span class="cmt">// pasta do projeto, relativa ao manifesto</span>
+      "source_roots": ["src"],           <span class="cmt">// de onde os módulos são importados</span>
+      "include": ["src/orcamentos/*.py"],            <span class="cmt">// o que o agente pode ver</span>
+      "evaluation_include": ["src/orcamentos/*.py",  <span class="cmt">// o que vai para o avaliador</span>
+                             "tests/test_orcamentos.py"],
+      "targets": [
+        {
+          "id": "calcular_orcamento",
+          "path": "src/orcamentos/orcamentos.py",
+          "symbol": "calcular_orcamento",
+          "import": "orcamentos.orcamentos:calcular_orcamento",
+          "reference_tests": ["tests/test_orcamentos.py"],
+          "defects": [
+            { "id": "total-sem-desconto",
+              "path": "src/orcamentos/orcamentos.py",
+              "old": "total=base + frete",
+              "new": "total=subtotal + frete",
+              "witness": "tests/test_orcamentos.py::test_testemunha_total_desconta_cupom" }
+          ]
+        }
+      ]
+    }
+  ]
+}</pre>
+  <p class="note">Os comentários acima são explicativos. O arquivo real é JSON puro e não aceita comentários.</p>
+
+  <h3>Campos gerais</h3>
+  <table class="doc">
+    <thead><tr><th>Campo</th><th>Valores</th><th>O que controla</th></tr></thead>
+    <tbody>
+      <tr><td><code>schema_version</code></td><td><code>1</code></td><td>Versão do formato do arquivo.</td></tr>
+      <tr><td><code>phase</code></td><td><code>demo</code>, <code>pilot</code>, <code>main</code></td><td><code>demo</code> usa testes escritos por você, sem modelo. <code>pilot</code> chama o Codex em ensaios. <code>main</code> é a coleta principal e exige a matriz completa.</td></tr>
+      <tr><td><code>seed</code></td><td>inteiro</td><td>Semente do sorteio. A mesma semente produz a mesma ordem.</td></tr>
+      <tr><td><code>conditions</code></td><td><code>L</code>, <code>R</code>, <code>A</code></td><td>Estratégias que entram no plano.</td></tr>
+      <tr><td><code>repetitions</code></td><td>inteiro ≥ 1</td><td>Quantas sessões novas por combinação de função e estratégia.</td></tr>
+      <tr><td><code>limits</code></td><td>quatro inteiros</td><td>Limites de contexto, consultas, geração e avaliação. Todos obrigatórios: não há valor implícito.</td></tr>
+    </tbody>
+  </table>
+
+  <h3>agents e evaluation</h3>
+  <table class="doc">
+    <thead><tr><th>Campo</th><th>Valores</th><th>O que controla</th></tr></thead>
+    <tbody>
+      <tr><td><code>agents[].kind</code></td><td><code>codex</code>, <code>fixture</code></td><td><code>codex</code> chama o cliente real. <code>fixture</code> carrega um teste já escrito e só vale em <code>demo</code>.</td></tr>
+      <tr><td><code>agents[].model</code></td><td>texto</td><td>Identificador exato do modelo. Obrigatório para agentes reais.</td></tr>
+      <tr><td><code>agents[].auth_file</code></td><td>caminho</td><td>Onde está o login do Codex. Aceita <code>~</code>. Sem ele, usa a variável <code>CODEX_API_KEY</code>.</td></tr>
+      <tr><td><code>agents[].fixture_dir</code></td><td>pasta</td><td>Onde ficam os testes prontos do modo <code>demo</code>.</td></tr>
+      <tr><td><code>evaluation.backend</code></td><td><code>docker</code>, <code>local</code></td><td><code>local</code> só é aceito em <code>demo</code>, com <code>--trusted-local</code>. Código gerado por modelo sempre roda no Docker.</td></tr>
+      <tr><td><code>evaluation.image</code></td><td>nome da imagem</td><td>Imagem com Python, pytest, coverage e as dependências do projeto.</td></tr>
+    </tbody>
+  </table>
+
+  <h3>projects e targets</h3>
+  <table class="doc">
+    <thead><tr><th>Campo</th><th>O que controla</th></tr></thead>
+    <tbody>
+      <tr><td><code>id</code></td><td>Identificador do projeto. Só letras sem acento, números, <code>-</code> e <code>_</code>. No uso por projeto, precisa ser igual ao nome da pasta. Aparece nos nomes das pastas e nos registros, por isso não deve mudar depois da primeira execução.</td></tr>
+      <tr><td><code>name</code></td><td>Opcional. Nome de exibição, livre, usado como título desta página. Exemplo: <code>"OrçaAPI"</code>.</td></tr>
+      <tr><td><code>root</code></td><td>Pasta do projeto, relativa ao manifesto.</td></tr>
+      <tr><td><code>source_roots</code></td><td>Pastas a partir das quais os módulos são importados, como <code>src</code>. Usadas para resolver dependências e para montar o caminho de importação no avaliador.</td></tr>
+      <tr><td><code>include</code></td><td>O que pode entrar na visão do agente. Aceita curingas para arquivos Python.</td></tr>
+      <tr><td><code>exclude</code></td><td>Opcional. Exclusões adicionais dentro do que foi incluído.</td></tr>
+      <tr><td><code>evaluation_include</code></td><td>O que é copiado para o avaliador: o código de produção e os testes de referência.</td></tr>
+      <tr><td><code>targets[].path</code></td><td>Arquivo onde a função está.</td></tr>
+      <tr><td><code>targets[].symbol</code></td><td>Nome da função, ou <code>Classe.metodo</code>.</td></tr>
+      <tr><td><code>targets[].import</code></td><td>Caminho de importação, no formato <code>modulo:simbolo</code>. Vai para o enunciado.</td></tr>
+      <tr><td><code>targets[].test_kind</code></td><td><code>unit</code> (padrão) ou <code>http</code>. O tipo <code>http</code> só vale fora de <code>main</code>.</td></tr>
+      <tr><td><code>targets[].reference_tests</code></td><td>Seus testes para o alvo. Precisam passar no avaliador antes de qualquer geração e nunca são mostrados ao agente.</td></tr>
+      <tr><td><code>targets[].defects</code></td><td>Lista de alterações controladas. Cada uma tem <code>id</code>, <code>path</code>, o trecho <code>old</code> (que precisa aparecer exatamente uma vez no arquivo), o trecho <code>new</code> e a <code>witness</code>.</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Regras da fase main</h3>
+  <p>Com <code>"phase": "main"</code>, o ContextLab só aceita a matriz do experimento: <strong>4 projetos × 3 funções × Codex × L, R e A × 3 repetições = 108 tentativas</strong>, com avaliação no Docker e alvos do tipo <code>unit</code>. O congelamento também exige a evidência de um piloto feito com a mesma versão do ContextLab, a mesma imagem, os mesmos limites e o mesmo modelo.</p>
+  <p class="note">Alterar o <code>contextlab.json</code> vale para os próximos lotes. Lotes já criados guardam a própria cópia congelada e não são afetados.</p>
+  <div id="doc-live-config"></div>
+</section>
+
+<section id="doc-comandos" data-title="Comandos">
+  <h2>Comandos</h2>
+  <p class="lead">Há duas formas de usar. Por <strong>projeto</strong>, para aprender, demonstrar e pilotar: <code>contextlab NOME comando</code>. Por <strong>manifesto</strong>, para controlar cada etapa da coleta principal: <code>contextlab comando ARQUIVO</code>.</p>
+
+  <h3>Caminho típico por projeto</h3>
+  <pre class="mermaid-src">flowchart LR
+    A["create"] --> B["configure"] --> C["setup"] --> D["plan"] --> E["context"] --> F["run"] --> G["runs / show / serve"] --> H["review"]
+    F -. "interrompeu?" .-> F2["run --resume LOTE"] --> G</pre>
+
+  <div class="cmd"><div class="cmd-head"><code>contextlab create NOME</code><span>cadastra um projeto</span></div>
+    <p>Procura funções no código que já existe em <code>projects/NOME/</code>, deixa você escolher o primeiro alvo e grava o <code>contextlab.json</code>. Não executa o projeto e não sobrescreve um cadastro existente.</p>
+    <table class="doc opts"><tbody>
+      <tr><td><code>--target ARQUIVO:SIMBOLO</code></td><td>Escolhe o alvo sem perguntar.</td></tr>
+      <tr><td><code>--reference TESTE</code></td><td>Teste de referência do alvo. Pode repetir.</td></tr>
+      <tr><td><code>--mode demo|pilot</code></td><td>Modo inicial.</td></tr>
+      <tr><td><code>--conditions L R A</code></td><td>Estratégias.</td></tr>
+      <tr><td><code>--repetitions N</code></td><td>Repetições.</td></tr>
+      <tr><td><code>--model ID</code></td><td>Modelo do Codex, obrigatório em <code>pilot</code>.</td></tr>
+      <tr><td><code>--auth-file CAMINHO</code></td><td>Arquivo de login.</td></tr>
+      <tr><td><code>--image NOME</code></td><td>Imagem Docker do avaliador.</td></tr>
+      <tr><td><code>--fixture-dir PASTA</code></td><td>Pasta dos testes prontos do modo <code>demo</code>.</td></tr>
+    </tbody></table></div>
+
+  <div class="cmd"><div class="cmd-head"><code>contextlab NOME configure</code><span>ajusta o cadastro</span></div>
+    <p>Muda modo, estratégias, repetições, modelo, login ou imagem. Sem opções, pergunta uma a uma. Aceita as mesmas opções de <code>create</code>, exceto as de alvo. Vale para os próximos lotes.</p></div>
+
+  <div class="cmd"><div class="cmd-head"><code>contextlab NOME setup</code><span>prepara a imagem Docker</span></div>
+    <p>Confere se o Docker está disponível e constrói ou reutiliza a imagem do avaliador. Não inicia gerações.</p>
+    <table class="doc opts"><tbody><tr><td><code>--dockerfile ARQUIVO</code></td><td>Receita própria, quando o projeto tem dependências além de pytest e coverage.</td></tr></tbody></table></div>
+
+  <div class="cmd"><div class="cmd-head"><code>contextlab NOME plan</code><span>mostra o que será executado</span></div>
+    <p>Lista as tentativas na ordem sorteada. Não chama o modelo nem o Docker.</p>
+    <table class="doc opts"><tbody><tr><td><code>--json</code></td><td>Saída em JSON.</td></tr></tbody></table></div>
+
+  <div class="cmd"><div class="cmd-head"><code>contextlab NOME context</code><span>mostra o contexto de uma estratégia</span></div>
+    <p>Exibe o pacote que L ou R entregariam, ou a lista de arquivos disponíveis em A. Serve para conferir o material antes de gastar uma geração.</p>
+    <table class="doc opts"><tbody>
+      <tr><td><code>--condition L|R|A</code></td><td>Estratégia a inspecionar. Padrão: L.</td></tr>
+      <tr><td><code>--target ID</code></td><td>Obrigatório quando o projeto tem mais de um alvo.</td></tr>
+    </tbody></table></div>
+
+  <div class="cmd"><div class="cmd-head"><code>contextlab NOME run</code><span>executa o plano</span></div>
+    <p>Cria um lote, valida os testes de referência e as testemunhas, congela o plano e executa cada tentativa: gera, preserva a entrega e avalia.</p>
+    <table class="doc opts"><tbody>
+      <tr><td><code>--max-runs N</code></td><td>Processa no máximo N tentativas nesta chamada. Não reduz o plano.</td></tr>
+      <tr><td><code>--resume LOTE</code></td><td>Continua um lote. Pula o que já foi registrado, inclusive falhas: nunca gera de novo.</td></tr>
+      <tr><td><code>--trusted-local</code></td><td>Só em <code>demo</code>: permite avaliar sem Docker testes escritos por você.</td></tr>
+    </tbody></table></div>
+
+  <div class="cmd"><div class="cmd-head"><code>contextlab NOME runs</code><span>lista as tentativas</span></div>
+    <p>Uma linha por tentativa de todos os lotes, com a situação. Só consulta.</p>
+    <table class="doc opts"><tbody><tr><td><code>--json</code></td><td>Saída em JSON.</td></tr></tbody></table></div>
+
+  <div class="cmd"><div class="cmd-head"><code>contextlab NOME show ID</code><span>abre uma tentativa no terminal</span></div>
+    <p>Mostra contagens, tabela dos casos e detalhes das falhas. O <code>ID</code> tem o formato <code>lote/01</code> e aparece em <code>runs</code>.</p>
+    <table class="doc opts"><tbody>
+      <tr><td><code>--code</code></td><td>Mostra também o teste entregue.</td></tr>
+      <tr><td><code>--json</code></td><td>Mostra só o JSON da avaliação mais recente.</td></tr>
+    </tbody></table></div>
+
+  <div class="cmd"><div class="cmd-head"><code>contextlab NOME review ID</code><span>registra a revisão</span></div>
+    <p>Grava as decisões do revisor e reexecuta a mesma entrega. Em suítes aprovadas, executa também os defeitos.</p>
+    <table class="doc opts"><tbody>
+      <tr><td><code>--reviewer NOME</code></td><td>Quem revisou.</td></tr>
+      <tr><td><code>--behavioral-assertions yes|no</code></td><td>Há verificações de comportamento.</td></tr>
+      <tr><td><code>--no-target-mock yes|no</code></td><td>O alvo não foi simulado.</td></tr>
+      <tr><td><code>--no-production-changes yes|no</code></td><td>A produção ficou intacta.</td></tr>
+      <tr><td><code>--http-requests yes|no</code></td><td>Só em alvos HTTP.</td></tr>
+      <tr><td><code>--defect-attribution ID=yes|no</code></td><td>Atribui a falha ao defeito. Pode repetir, uma vez por defeito.</td></tr>
+    </tbody></table></div>
+
+  <div class="cmd"><div class="cmd-head"><code>contextlab NOME serve</code><span>abre esta página</span></div>
+    <p>Abre o visualizador com todos os lotes do projeto. É somente leitura. No fluxo por manifesto: <code>contextlab serve RESULTADOS</code>.</p>
+    <table class="doc opts"><tbody>
+      <tr><td><code>--batch LOTE</code></td><td>Mostra só um lote.</td></tr>
+      <tr><td><code>--port N</code></td><td>Porta local. Padrão: 8765.</td></tr>
+      <tr><td><code>--no-open</code></td><td>Não abre o navegador.</td></tr>
+      <tr><td><code>--prices ARQUIVO.json</code></td><td>Tarifas de API para estimar o custo. Por projeto, <code>projects/NOME/precos.json</code> é usado automaticamente.</td></tr>
+      <tr><td><code>--export ARQUIVO.html</code></td><td>Grava a página em um arquivo único, que abre sem instalação.</td></tr>
+    </tbody></table></div>
+
+  <h3>Fluxo por manifesto, usado na coleta principal</h3>
+  <pre class="mermaid-src">flowchart LR
+    A["plan"] --> B["doctor"] --> C["prepare"] --> D["validate"] --> E["freeze"] --> F["run"] --> G["review"] --> H["report"]
+    P["piloto com alvos&lt;br/&gt;fora da amostra"] -. "evidência exigida em main" .-> E</pre>
+  <table class="doc">
+    <thead><tr><th>Comando</th><th>O que faz</th><th>Opções</th></tr></thead>
+    <tbody>
+      <tr><td><code>contextlab plan MANIFESTO</code></td><td>Mostra a matriz na ordem sorteada.</td><td></td></tr>
+      <tr><td><code>contextlab doctor MANIFESTO</code></td><td>Confere o cliente do Codex: versão, opções exigidas, login e a sondagem das ferramentas. Não chama o modelo.</td><td></td></tr>
+      <tr><td><code>contextlab prepare MANIFESTO</code></td><td>Grava em uma pasta o contexto de um alvo e uma estratégia, para inspeção.</td><td><code>--project</code>, <code>--target</code>, <code>--condition</code>, <code>--out</code></td></tr>
+      <tr><td><code>contextlab validate MANIFESTO</code></td><td>Executa os testes de referência e as testemunhas de todos os defeitos.</td><td><code>--out</code>, <code>--trusted-local</code></td></tr>
+      <tr><td><code>contextlab freeze MANIFESTO</code></td><td>Congela configuração, arquivos, ambiente e ordem em um arquivo <code>.lock.json</code>. Nunca sobrescreve.</td><td><code>--out</code>, <code>--evidence</code></td></tr>
+      <tr><td><code>contextlab run LOCK</code></td><td>Executa o plano congelado.</td><td><code>--out</code>, <code>--resume</code>, <code>--max-runs</code>, <code>--trusted-local</code></td></tr>
+      <tr><td><code>contextlab review TENTATIVA</code></td><td>Registra a revisão de uma pasta de tentativa.</td><td>as mesmas de <code>review</code> por projeto</td></tr>
+      <tr><td><code>contextlab report RESULTADOS</code></td><td>Exporta <code>results.csv</code>, <code>report.json</code> e <code>report.md</code>, sem reexecutar nada.</td><td></td></tr>
+      <tr><td><code>contextlab serve RESULTADOS</code></td><td>Abre este visualizador para uma pasta de resultados.</td><td><code>--port</code>, <code>--no-open</code>, <code>--prices</code>, <code>--export</code></td></tr>
+    </tbody>
+  </table>
+  <p class="note">Todo comando aceita <code>--help</code>. No fluxo por manifesto, <code>--resume</code> não recebe argumento: o arquivo congelado e a pasta de resultados já identificam o lote.</p>
+</section>
+
+<section id="doc-arquivos" data-title="Arquivos de um lote">
+  <h2>O que fica gravado</h2>
+  <p>Cada lote guarda tudo o que é necessário para conferir uma tentativa sem repeti-la.</p>
+  <pre class="code-sample">projects/NOME/runs/LOTE/
+├── protocol.lock.json          <span class="cmt">plano congelado, com hashes</span>
+├── validation/                 <span class="cmt">referências e testemunhas executadas antes da geração</span>
+└── results/
+    ├── run.json                <span class="cmt">cabeçalho da execução</span>
+    ├── results.csv  report.json  report.md
+    └── PROJETO__ALVO__AGENTE__ESTRATEGIA__REPETICAO/
+        ├── record.json         <span class="cmt">situação, tempos, tokens, avaliação e revisão</span>
+        ├── prompt.txt          <span class="cmt">enunciado enviado, com limites e pacote inicial</span>
+        ├── context.json        <span class="cmt">o que foi preparado, omitido e não resolvido</span>
+        ├── response.txt        <span class="cmt">resposta recebida</span>
+        ├── test_generated.py   <span class="cmt">a entrega, sem alterações</span>
+        ├── agent/              <span class="cmt">eventos do Codex e auditoria das consultas</span>
+        ├── evaluation/         <span class="cmt">resultados por caso e cobertura</span>
+        └── reviews/            <span class="cmt">cada revisão e sua reavaliação</span></pre>
+  <h3>Como ler os números desta página</h3>
+  <table class="doc">
+    <thead><tr><th>Termo</th><th>Significado</th></tr></thead>
+    <tbody>
+      <tr><td>Geração observável</td><td>Tentativa que chegou a um desfecho atribuível ao agente: entrega válida, entrega inválida ou limite esgotado. Falhas externas ficam de fora e são contadas à parte.</td></tr>
+      <tr><td>Casos</td><td>Casos de teste que passaram sobre os que foram executados. Um teste parametrizado gera um caso por conjunto de entradas.</td></tr>
+      <tr><td>Linhas, Ramif.</td><td>Cobertura do corpo da função-alvo. Um asterisco indica valor diagnóstico, de uma suíte ainda não aprovada.</td></tr>
+      <tr><td>Defeitos</td><td>Defeitos detectados sobre os elegíveis. Só existe depois da aprovação.</td></tr>
+      <tr><td>Tok. entrada, Tok. saída</td><td>Totais informados pelo Codex para a sessão. A entrada soma todas as trocas, por isso cresce com o número de consultas.</td></tr>
+      <tr><td>Caracteres</td><td>Contexto efetivamente entregue: pacote inicial mais respostas das ferramentas.</td></tr>
+      <tr><td>Custo est.</td><td>Estimativa por tarifas de API. Não é a despesa efetiva quando o login é por assinatura.</td></tr>
+      <tr><td>Custo por suíte aprovada</td><td>Custo de todas as gerações observáveis de uma estratégia dividido pelo número de suítes aprovadas.</td></tr>
+    </tbody>
+  </table>
+</section>

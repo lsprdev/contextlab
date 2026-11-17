@@ -29,6 +29,7 @@
   "projects": [
     {
       "id": "orcamentos",
+      "name": "OrçaAPI",
       "root": ".",
       "source_roots": [
         "src"

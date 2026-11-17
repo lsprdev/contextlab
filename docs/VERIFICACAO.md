@@ -5,6 +5,28 @@ não compara a qualidade de agentes nem testa a hipótese principal.
 Atualizada em 15 de novembro de 2026. Cada seção identifica a data da verificação.
 Os resultados de 01/10 permanecem históricos e não foram incorporados à matriz principal.
 
+## Visualizador: novo visual e documentação embutida — 16/11/2026
+
+A página do `serve` foi redesenhada como produto de análise de dados, inspirada
+em ferramentas de avaliação de LLMs: faixa de indicadores, comparação lado a
+lado das estratégias com o melhor valor destacado, tabela compacta, fonte do
+sistema, paleta neutra e cor reservada a L, R, A e à situação. Textos
+explicativos viraram dicas. Tem tema claro e escuro e estimativa de custo por
+tarifas de API.
+Ganhou a seção Documentação, com oito diagramas Mermaid, a referência do
+`contextlab.json` e de todos os comandos, e o manifesto congelado do lote com
+os caminhos locais omitidos.
+
+- **185 testes passaram** na suíte completa; treze são do visualizador.
+- A biblioteca Mermaid 11.4.1 (licença MIT) foi incluída em `viewer/vendor/`,
+  com origem e SHA-256 registrados. No modo servidor ela é entregue pelo
+  próprio visualizador; na exportação é embutida na página.
+- Os oito diagramas foram renderizados em Chromium sem interface, pelo servidor
+  local com a política de segurança de conteúdo ativa e pelo arquivo exportado,
+  nos temas claro e escuro.
+- O servidor continua recusando qualquer outro caminho além da página, dos
+  dados e da biblioteca.
+
 ## Visualizador web somente leitura — 15/11/2026
 
 Os comandos `contextlab NOME serve` e `contextlab serve RESULTADOS` abrem uma

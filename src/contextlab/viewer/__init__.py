@@ -14,9 +14,13 @@ from pathlib import Path
 
 _MAX_TEXT = 400_000  # Um texto maior é truncado na página, nunca no disco.
 _PAGE = Path(__file__).with_name("page.html")
+_DOCS = Path(__file__).with_name("docs.html")
+_MERMAID = Path(__file__).parent / "vendor" / "mermaid.min.js"
 _SECURITY_HEADERS = {
+    # 'self' atende apenas à biblioteca de diagramas servida pelo próprio visualizador.
     "Content-Security-Policy": "default-src 'none'; style-src 'unsafe-inline'; "
-                               "script-src 'unsafe-inline'; img-src data:; base-uri 'none'; form-action 'none'",
+                               "script-src 'self' 'unsafe-inline'; img-src data:; font-src data:; "
+                               "base-uri 'none'; form-action 'none'",
     "X-Content-Type-Options": "nosniff",
     "Referrer-Policy": "no-referrer",
     "Cache-Control": "no-store",
@@ -196,7 +200,19 @@ def _attempt(run_dir: Path, row: dict, source: dict, models: dict, prices: dict 
     }
 
 
-def collect(run_dirs: list[tuple[str, Path]], title: str, prices: dict | None = None) -> dict:
+def _public_config(config: dict) -> dict:
+    """Manifesto congelado para exibição, sem caminhos da máquina de quem executou."""
+    shown = json.loads(json.dumps(config))
+    for agent in shown.get("agents", []):
+        for key in ("auth_file", "fixture_dir", "binary"):
+            if key in agent:
+                agent[key] = "(caminho local omitido)"
+    for project in shown.get("projects", []):
+        project["root"] = "(pasta do projeto)"
+    return shown
+
+
+def collect(run_dirs: list[tuple[str, Path]], title: str | None, prices: dict | None = None) -> dict:
     """Lê os lotes indicados sem escrever, reavaliar ou exportar relatórios."""
     from ..reporting import read_report
 
@@ -210,7 +226,7 @@ def collect(run_dirs: list[tuple[str, Path]], title: str, prices: dict | None = 
             continue
         report = read_report(run_dir)
         config = header["config"]
-        source = {"id": label, "phase": config.get("phase"),
+        source = {"id": label, "config": _public_config(config), "phase": config.get("phase"),
                   "demonstration": config.get("phase") == "demo", "lock_hash": header.get("lock_hash"),
                   "started_at": header.get("started_at"), "limits": config.get("limits"),
                   "planned": len(header["plan"])}
@@ -219,6 +235,10 @@ def collect(run_dirs: list[tuple[str, Path]], title: str, prices: dict | None = 
         attempts.extend(_attempt(run_dir, row, source, models, prices) for row in report["rows"])
     if not sources:
         raise ViewerError("Nenhuma execução encontrada: informe um diretório com run.json ou um projeto com lotes em runs/.")
+    if title is None:
+        # Sem título explícito: o nome de exibição dos projetos congelados, ou o id deles.
+        names = {project.get("name") or project["id"] for source in sources for project in source["config"].get("projects", [])}
+        title = " · ".join(sorted(names)) if names else sources[0]["id"]
     return {"title": title, "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
             "sources": sources, "attempts": attempts,
             "pricing": prices}
@@ -239,14 +259,31 @@ def project_runs(folder: Path, batch: str | None = None) -> list[tuple[str, Path
     return found
 
 
-def render(data: dict) -> str:
-    """Página autossuficiente. Os dados entram como JSON inerte, nunca como HTML."""
+def render(data: dict, inline_assets: bool = True) -> str:
+    """Página com dados, documentação e diagramas.
+
+    Os dados entram como JSON inerte, nunca como HTML. A documentação é texto
+    autoral do pacote. Com `inline_assets`, a biblioteca de diagramas é embutida
+    e o arquivo abre sem servidor; sem ele, é pedida ao próprio visualizador.
+    """
     payload = json.dumps(data, ensure_ascii=False)
     # Dentro de <script>, só "</" e "<!--" podem encerrar ou alterar o bloco.
     payload = payload.replace("<", "\\u003c").replace("\u2028", "\\u2028").replace("\u2029", "\\u2029")
     template = _PAGE.read_text(encoding="utf-8")
     if template.count("/*__CONTEXTLAB_DATA__*/") != 1:
         raise ViewerError("Modelo da página inválido")
+    for marker in ("<!--__CONTEXTLAB_DOCS__-->", "<!--__CONTEXTLAB_MERMAID__-->"):
+        if template.count(marker) != 1:
+            raise ViewerError("Modelo da página inválido")
+    if not inline_assets:
+        script = '<script src="/assets/mermaid.min.js"></script>'
+    elif _MERMAID.is_file():
+        # "</script" dentro da biblioteca encerraria o bloco; a barra escapada é equivalente em JavaScript.
+        script = "<script>" + _MERMAID.read_text(encoding="utf-8").replace("</script", "<\\/script") + "</script>"
+    else:
+        script = ""
+    template = template.replace("<!--__CONTEXTLAB_DOCS__-->", _DOCS.read_text(encoding="utf-8"))
+    template = template.replace("<!--__CONTEXTLAB_MERMAID__-->", script)
     return template.replace("/*__CONTEXTLAB_DATA__*/", payload)
 
 
@@ -284,6 +321,8 @@ def make_server(load, port: int = 0) -> ThreadingHTTPServer:
             if host not in {"127.0.0.1", "localhost"}:
                 return self._send(403, b"Acesso somente local.", "text/plain; charset=utf-8")
             path = self.path.split("?", 1)[0]
+            if path == "/assets/mermaid.min.js" and _MERMAID.is_file():
+                return self._send(200, _MERMAID.read_bytes(), "text/javascript; charset=utf-8")
             if path not in {"/", "/data.json"}:
                 return self._send(404, b"Nao encontrado.", "text/plain; charset=utf-8")
             try:
@@ -292,7 +331,7 @@ def make_server(load, port: int = 0) -> ThreadingHTTPServer:
                 return self._send(500, f"Falha ao ler os registros: {exc}".encode(), "text/plain; charset=utf-8")
             if path == "/data.json":
                 return self._send(200, json.dumps(data, ensure_ascii=False).encode(), "application/json; charset=utf-8")
-            self._send(200, render(data).encode(), "text/html; charset=utf-8")
+            self._send(200, render(data, inline_assets=False).encode(), "text/html; charset=utf-8")
 
         do_HEAD = do_GET
 

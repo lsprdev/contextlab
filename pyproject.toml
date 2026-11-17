@@ -16,7 +16,7 @@ contextlab = "contextlab.cli:main"
 where = ["src"]
 
 [tool.setuptools.package-data]
-contextlab = ["viewer/*.html"]
+contextlab = ["viewer/*.html", "viewer/vendor/*"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

@@ -146,6 +146,8 @@ def load_config(path: str | Path) -> dict:
             if not root.is_dir():
                 raise ManifestError(f"Projeto ausente: {root}")
             project["root"] = str(root)
+            if "name" in project and (not isinstance(project["name"], str) or not project["name"].strip()):
+                raise ManifestError(f"name deve ser um texto não vazio em {project['id']}")
             if root in seen_roots:
                 raise ManifestError("Projetos diferentes devem apontar para raízes diferentes")
             seen_roots.add(root)

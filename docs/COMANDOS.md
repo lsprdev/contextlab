@@ -350,6 +350,19 @@ contexto entregue, as consultas feitas pelo agente e o enunciado.
 | `--prices TARIFAS.json` | Estima o custo de cada tentativa a partir de tarifas de API. No fluxo por projeto, `projects/NOME/precos.json` é usado automaticamente quando existe. |
 | `--export ARQUIVO.html` | Grava uma página única, com os dados embutidos, em vez de iniciar o servidor. Não sobrescreve um arquivo existente. |
 
+Tem duas seções, alternadas no topo. **Execuções** traz uma faixa de indicadores
+com o valor de cada estratégia, a comparação lado a lado de L, R e A (o melhor
+valor de cada medida fica destacado), os filtros e a tabela das tentativas.
+Definições e avisos ficam em dicas, ao passar o mouse sobre o ícone ⓘ.
+**Documentação** explica o funcionamento do instrumento com diagramas: o fluxo
+de uma tentativa, a preparação do contexto, a sessão do Codex, o contêiner de
+avaliação, a revisão e os defeitos. Ela também descreve cada campo do
+`contextlab.json`, mostra o manifesto congelado do lote aberto e lista todos os
+comandos com suas opções. Um botão alterna entre tema claro e escuro.
+
+Os diagramas usam a biblioteca Mermaid, incluída no pacote em
+`src/contextlab/viewer/vendor/`. O visualizador não acessa a internet.
+
 O arquivo de tarifas informa valores por milhão de tokens, com fonte e data:
 
 ```json
@@ -376,7 +389,8 @@ revisões e não grava nada nos diretórios de resultados. A revisão continua p
 comando `review`. O servidor atende apenas `127.0.0.1` e relê os registros a
 cada acesso; recarregue a página para ver tentativas novas. `Ctrl+C` encerra.
 
-A página exportada pode ser enviada a outra pessoa e aberta sem instalação. Ela
+A página exportada pode ser enviada a outra pessoa e aberta sem instalação. Por
+embutir a biblioteca de diagramas, o arquivo tem cerca de 3 MB. Ela
 contém os enunciados, os contextos e os testes gerados das tentativas
 incluídas; confira esse conteúdo antes de compartilhar.
 

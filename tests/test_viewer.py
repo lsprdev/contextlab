@@ -188,3 +188,78 @@ def test_cost_is_an_estimate_by_token_category_and_stays_absent_without_data(tmp
     _write(prices, {"modelos": {"modelo-x": {"entrada": -1, "entrada_cache": 0, "saida": 1}}})
     with pytest.raises(ViewerError, match="tarifas inválido"):
         load_prices(prices)
+
+
+def test_page_embeds_documentation_and_optional_diagram_library(tmp_path):
+    data = collect([("lote", _run(tmp_path / "run"))], "exemplo")
+    standalone = render(data)
+    served = render(data, inline_assets=False)
+    for page in (standalone, served):
+        assert "__CONTEXTLAB_" not in page
+        for section in ("doc-visao", "doc-contexto", "doc-geracao", "doc-avaliacao", "doc-revisao",
+                        "doc-json", "doc-comandos", "doc-arquivos"):
+            assert f'id="{section}"' in page
+        assert page.count('class="mermaid-src"') >= 6
+    # A página exportada abre sem servidor; a servida pede a biblioteca ao próprio visualizador.
+    assert '<script src="/assets/mermaid.min.js"></script>' in served
+    assert "/assets/mermaid.min.js" not in standalone and len(standalone) > len(served) + 1_000_000
+    assert "http://" not in served.split("<script>", 1)[1] and "https://cdn" not in served
+
+
+def test_frozen_config_is_shown_without_local_paths(tmp_path):
+    run = _run(tmp_path / "run")
+    header = json.loads((run / "run.json").read_text())
+    header["config"]["agents"][0]["auth_file"] = str(tmp_path / "segredo" / "auth.json")
+    header["config"]["projects"][0]["root"] = str(tmp_path / "projeto")
+    _write(run / "run.json", header)
+    data = collect([("lote", run)], "exemplo")
+    shown = data["sources"][0]["config"]
+    assert shown["agents"][0]["auth_file"] == "(caminho local omitido)"
+    assert shown["projects"][0]["root"] == "(pasta do projeto)"
+    assert shown["agents"][0]["model"] == "modelo-x" and shown["limits"]["tool_calls"] == 5
+    assert str(tmp_path) not in json.dumps(data)
+
+
+def test_server_offers_only_the_bundled_diagram_library(tmp_path):
+    run = _run(tmp_path / "run")
+    server = make_server(lambda: collect([("lote", run)], "exemplo"))
+    thread = threading.Thread(target=server.serve_forever, daemon=True)
+    thread.start()
+    base = f"http://127.0.0.1:{server.server_address[1]}"
+    try:
+        with urllib.request.urlopen(base + "/assets/mermaid.min.js") as response:
+            assert response.headers["Content-Type"].startswith("text/javascript")
+            assert len(response.read()) > 1_000_000
+        with urllib.request.urlopen(base + "/") as response:
+            assert "script-src 'self' 'unsafe-inline'" in response.headers["Content-Security-Policy"]
+            assert '<script src="/assets/mermaid.min.js"></script>' in response.read().decode()
+        for path in ("/assets/", "/assets/outro.js", "/assets/../__init__.py"):
+            with pytest.raises(urllib.error.HTTPError) as error:
+                urllib.request.urlopen(base + path)
+            assert error.value.code == 404
+    finally:
+        server.shutdown()
+        server.server_close()
+        thread.join(timeout=2)
+
+
+def test_display_name_titles_the_page_and_never_replaces_the_identifier(tmp_path):
+    from contextlab.manifest import ManifestError, load_config
+
+    run = _run(tmp_path / "run")
+    header = json.loads((run / "run.json").read_text())
+    header["config"]["projects"][0]["name"] = "Projeto Ç"
+    _write(run / "run.json", header)
+    data = collect([("lote", run)], None)
+    assert data["title"] == "Projeto Ç"
+    assert {a["project"] for a in data["attempts"]} == {"p"}
+
+    config = json.loads(Path(__file__).with_name("fixtures").joinpath("demo.json").read_text())
+    config["projects"][0]["name"] = ""
+    manifest = Path(__file__).with_name("fixtures") / "tmp-nome-vazio.json"
+    try:
+        manifest.write_text(json.dumps(config))
+        with pytest.raises(ManifestError, match="name deve ser"):
+            load_config(manifest)
+    finally:
+        manifest.unlink(missing_ok=True)

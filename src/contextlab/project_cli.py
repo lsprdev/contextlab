@@ -323,7 +323,8 @@ def main(argv) -> int:
                 # Sem --prices, usa as tarifas mantidas ao lado da configuração do projeto, se existirem.
                 default = folder / "precos.json"
                 prices = load_prices(args.prices or (default if default.is_file() else None))
-                serve_command(lambda: collect(project_runs(folder, args.batch), folder.name, prices), args,
+                title = read_project(folder)["projects"][0].get("name") or folder.name
+                serve_command(lambda: collect(project_runs(folder, args.batch), title, prices), args,
                               announce=lambda text: console.print(text, markup=False, highlight=False, soft_wrap=True))
             except KeyboardInterrupt:
                 console.print("\nVisualizador encerrado.")

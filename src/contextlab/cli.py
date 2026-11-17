@@ -150,7 +150,7 @@ def main(argv=None) -> int:
             from .viewer import collect, load_prices
             run_dir = args.run_dir.resolve()
             prices = load_prices(args.prices)
-            serve_command(lambda: collect([(run_dir.name, run_dir)], run_dir.name, prices), args)
+            serve_command(lambda: collect([(run_dir.name, run_dir)], None, prices), args)
             return 0
         result = _execute(args)
         print(json.dumps(result, ensure_ascii=False, indent=2))
