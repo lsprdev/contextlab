@@ -55,27 +55,22 @@
 
 <section id="doc-geracao" data-title="Geração com o Codex">
   <h2>Como o Codex entra na história</h2>
-  <p class="lead">O Codex <strong>não roda dentro do Docker</strong>. Ele é o cliente de linha de comando instalado no seu computador, iniciado pelo ContextLab em uma sessão nova para cada tentativa, e conversa com o serviço do modelo pela internet.</p>
-  <pre class="mermaid-src">sequenceDiagram
-    autonumber
-    participant CL as ContextLab
-    participant CX as Codex CLI
-    participant MCP as Servidor de contexto
-    participant M as Serviço do modelo
-    CL->>CL: cria pasta temporária vazia e copia só o login
-    CL->>MCP: entrega os arquivos virtuais e os limites
-    CL->>CX: inicia codex exec com o enunciado
-    CX->>M: envia enunciado e pacote inicial (L ou R)
-    loop consultas, até o limite
-        M-->>CX: pede list_files, read_file ou search
-        CX->>MCP: repassa a consulta
-        MCP-->>CX: responde com o conteúdo permitido
-        CX->>M: devolve a resposta ao modelo
-    end
-    M-->>CX: resposta final com o código do teste
-    CX-->>CL: objeto com test_code
-    CL->>CL: grava test_generated.py sem alterar
-    Note over CL,M: a sessão termina aqui, e só depois começa a avaliação</pre>
+  <p class="lead">O Codex roda no seu computador, numa <strong>pasta vazia</strong>. Ele só vê código pedindo ao ContextLab, que responde apenas com o pacote da estratégia.</p>
+  <pre class="mermaid-src">flowchart LR
+    CL["ContextLab"] -- "1 · enunciado" --> CX["Codex&lt;br/&gt;pasta vazia"]
+    CX <-- "2 · pensa" --> M["Modelo&lt;br/&gt;OpenAI"]
+    CX <-- "3 · pede código" --> P[("Pacote&lt;br/&gt;L, R ou A")]
+    CX -- "4 · teste pronto" --> T["test_generated.py"]</pre>
+  <ol>
+    <li><strong>Enunciado.</strong> O ContextLab abre uma sessão nova do Codex e envia qual função testar. Em L e R, o código do pacote já vai junto; em A, não vai nada.</li>
+    <li><strong>Pensa.</strong> O Codex repassa a conversa ao modelo, pela internet.</li>
+    <li><strong>Pede código.</strong> Quando o modelo quer ver mais, usa <code>list_files</code>, <code>read_file</code> ou <code>search</code>. Quem responde é o ContextLab, só com arquivos do pacote, contando caracteres e consultas. Os passos 2 e 3 se repetem até o modelo terminar ou um limite estourar.</li>
+    <li><strong>Teste pronto.</strong> A resposta é gravada sem alteração e a sessão acaba. Só depois o teste vai para o Docker.</li>
+  </ol>
+  <div class="grid2">
+    <div class="tile"><h4>Por que a pasta vazia</h4><p>Para que o único caminho até o código seja o pacote. Com o projeto na pasta, o Codex poderia ler testes ou arquivos fora da estratégia.</p></div>
+    <div class="tile"><h4>Por que fora do Docker</h4><p>Gerar não executa nada, só produz texto, e o Codex precisa de internet para falar com o modelo. O Docker fica para a etapa que executa código: a avaliação.</p></div>
+  </div>
   <h3>O que o agente consegue e não consegue fazer</h3>
   <div class="grid2">
     <div class="tile ok"><h4>Consegue</h4><ul><li>Listar, ler e buscar nos arquivos virtuais permitidos.</li><li>Reler o próprio pacote inicial em L e R.</li><li>Entregar uma resposta final com o arquivo de teste.</li></ul></div>
@@ -282,6 +277,81 @@
   <p>Com <code>"phase": "main"</code>, o ContextLab só aceita a matriz do experimento: <strong>4 projetos × 3 funções × Codex × L, R e A × 3 repetições = 108 tentativas</strong>, com avaliação no Docker e alvos do tipo <code>unit</code>. O congelamento também exige a evidência de um piloto feito com a mesma versão do ContextLab, a mesma imagem, os mesmos limites e o mesmo modelo.</p>
   <p class="note">Alterar o <code>contextlab.json</code> vale para os próximos lotes. Lotes já criados guardam a própria cópia congelada e não são afetados.</p>
   <div id="doc-live-config"></div>
+</section>
+
+<section id="doc-passos" data-title="Passo a passo">
+  <h2>Passo a passo, comando a comando</h2>
+  <p class="lead">O caminho completo de um projeto, do cadastro à análise. Cada desenho mostra o que acontece por dentro quando o comando é executado.</p>
+  <pre class="mermaid-src">flowchart LR
+    A["create"] --> B["setup"] --> C["plan"] --> D["context"] --> E["run"] --> F["show"] --> G["review"] --> H["serve"]</pre>
+
+  <h3><code>contextlab create NOME</code> · cadastrar</h3>
+  <pre class="mermaid-src">flowchart LR
+    P["projects/NOME/"] --> S["Procura funções&lt;br/&gt;no código"] --> E["Você escolhe&lt;br/&gt;o alvo"] --> J[("contextlab.json")]</pre>
+  <p>Lê o código sem executá-lo e grava o cadastro: alvo, testes de referência, modo, estratégias, repetições, modelo e imagem. Para mudar depois, use <code>configure</code>.</p>
+
+  <h3><code>contextlab NOME setup</code> · preparar o Docker</h3>
+  <pre class="mermaid-src">flowchart LR
+    D{"Docker&lt;br/&gt;disponível?"} -- "sim" --> I{"Imagem&lt;br/&gt;existe?"}
+    I -- "não" --> B["Constrói a imagem&lt;br/&gt;Python + pytest + coverage"] --> OK["Pronto"]
+    I -- "sim" --> OK</pre>
+  <p>Deixa pronta a imagem em que os testes serão executados. Nenhum modelo é chamado.</p>
+
+  <h3><code>contextlab NOME plan</code> · ver o plano</h3>
+  <pre class="mermaid-src">flowchart LR
+    J[("contextlab.json")] --> M["Alvos × estratégias&lt;br/&gt;× repetições"] --> O["Sorteia a ordem"] --> T["Lista na tela"]</pre>
+  <p>Mostra quais tentativas serão feitas e em que ordem. Não grava nada.</p>
+
+  <h3><code>contextlab NOME context</code> · ver o contexto</h3>
+  <pre class="mermaid-src">flowchart LR
+    C["Código do projeto"] --> F["Filtra testes,&lt;br/&gt;credenciais e docs"] --> X{"Estratégia"}
+    X -- "L" --> L["Arquivo da função"]
+    X -- "R" --> R["L + dependências"]
+    X -- "A" --> A["Lista de arquivos&lt;br/&gt;disponíveis"]</pre>
+  <p>Mostra exatamente o que o agente receberia, sem gastar uma geração.</p>
+
+  <h3><code>contextlab NOME run</code> · executar</h3>
+  <p>É o comando principal. Ele passa por três fases.</p>
+  <pre class="mermaid-src">flowchart TD
+    subgraph V ["1 · Conferências"]
+      direction LR
+      V1["Codex&lt;br/&gt;responde?"] --> V2["Contexto cabe&lt;br/&gt;no limite?"] --> V3["Docker: referências passam&lt;br/&gt;e testemunhas pegam defeitos?"]
+    end
+    subgraph Z ["2 · Congelamento"]
+      direction LR
+      Z1["Grava protocol.lock.json&lt;br/&gt;configuração, ordem e hashes"]
+    end
+    subgraph T ["3 · Cada tentativa"]
+      direction LR
+      T1["Monta o&lt;br/&gt;contexto"] --> T2["Codex gera&lt;br/&gt;o teste"] --> T3["Grava a entrega&lt;br/&gt;sem alterar"] --> T4["Docker executa&lt;br/&gt;no projeto completo"] --> T5[("record.json")]
+    end
+    V --> Z --> T</pre>
+  <ul>
+    <li><strong>Conferências:</strong> se algo falhar aqui, nenhuma geração começa e nada é gasto.</li>
+    <li><strong>Congelamento:</strong> a partir daqui o lote não aceita mudanças no código, na configuração ou na ordem.</li>
+    <li><strong>Tentativas:</strong> seguem a ordem sorteada. O resultado de uma nunca volta ao agente. Se a execução parar no meio, <code>run --resume LOTE</code> continua de onde parou, sem repetir nada.</li>
+  </ul>
+  <p>Ao final, o teste pode ter passado, mas ainda fica <em>aguardando revisão</em>.</p>
+
+  <h3><code>contextlab NOME runs</code> e <code>show ID</code> · conferir</h3>
+  <pre class="mermaid-src">flowchart LR
+    R[("record.json")] --> L["runs&lt;br/&gt;uma linha por tentativa"]
+    R --> S["show&lt;br/&gt;casos, falhas e código"]</pre>
+  <p>Só leem os registros. Servem para escolher o que revisar.</p>
+
+  <h3><code>contextlab NOME review ID</code> · revisar</h3>
+  <pre class="mermaid-src">flowchart TD
+    H["Você responde três perguntas&lt;br/&gt;verifica comportamento?&lt;br/&gt;sem mock do alvo?&lt;br/&gt;produção intacta?"] --> E["Docker reexecuta&lt;br/&gt;a mesma entrega"]
+    E --> Q{"Aprovada?"}
+    Q -- "não" --> N["Reprovada"]
+    Q -- "sim" --> D["Docker executa o teste&lt;br/&gt;em cada versão com defeito"]
+    D --> A["Você confirma se cada falha&lt;br/&gt;foi causada pelo defeito"] --> F[("Revisão gravada")]</pre>
+  <p>A aprovação depende do teste passar <strong>e</strong> da revisão humana. Só as suítes aprovadas são testadas contra os defeitos.</p>
+
+  <h3><code>contextlab NOME serve</code> · analisar</h3>
+  <pre class="mermaid-src">flowchart LR
+    R[("Lotes do projeto")] --> P["Calcula médias,&lt;br/&gt;tokens e custo"] --> W["Esta página&lt;br/&gt;no navegador"]</pre>
+  <p>Só lê. Nada é alterado nos lotes.</p>
 </section>
 
 <section id="doc-comandos" data-title="Comandos">
