@@ -197,9 +197,11 @@ def test_page_embeds_documentation_and_optional_diagram_library(tmp_path):
     for page in (standalone, served):
         assert "__CONTEXTLAB_" not in page
         for section in ("doc-visao", "doc-contexto", "doc-geracao", "doc-avaliacao", "doc-revisao",
-                        "doc-json", "doc-comandos", "doc-arquivos"):
+                        "doc-json", "doc-comandos", "doc-arquivos", "doc-passos"):
             assert f'id="{section}"' in page
         assert page.count('class="mermaid-src"') >= 6
+        # A animação do passo a passo vem embutida, com as logos em SVG local.
+        assert page.count('id="tour"') == 1 and 'id="tour-docker"' in page and 'id="tour-python"' in page
     # A página exportada abre sem servidor; a servida pede a biblioteca ao próprio visualizador.
     assert '<script src="/assets/mermaid.min.js"></script>' in served
     assert "/assets/mermaid.min.js" not in standalone and len(standalone) > len(served) + 1_000_000

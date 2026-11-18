@@ -358,7 +358,11 @@ Definições e avisos ficam em dicas, ao passar o mouse sobre o ícone ⓘ.
 de uma tentativa, a preparação do contexto, a sessão do Codex, o contêiner de
 avaliação, a revisão e os defeitos. Ela também descreve cada campo do
 `contextlab.json`, mostra o manifesto congelado do lote aberto e lista todos os
-comandos com suas opções. Um botão alterna entre tema claro e escuro.
+comandos com suas opções. A seção **Passo a passo** traz uma animação em que um
+terminal digita cada comando, de `create` a `serve`, e logo abaixo mostra o que
+acontece por dentro, com dados reais do piloto do OrçaAPI. Ela pode ser pausada
+ou aberta direto em um comando; com a opção de reduzir movimento do sistema,
+avança só pelos botões. Um botão alterna entre tema claro e escuro.
 
 Os diagramas usam a biblioteca Mermaid, incluída no pacote em
 `src/contextlab/viewer/vendor/`. O visualizador não acessa a internet.

@@ -15,6 +15,7 @@ from pathlib import Path
 _MAX_TEXT = 400_000  # Um texto maior é truncado na página, nunca no disco.
 _PAGE = Path(__file__).with_name("page.html")
 _DOCS = Path(__file__).with_name("docs.html")
+_TOUR = Path(__file__).with_name("tour.html")
 _MERMAID = Path(__file__).parent / "vendor" / "mermaid.min.js"
 _SECURITY_HEADERS = {
     # 'self' atende apenas à biblioteca de diagramas servida pelo próprio visualizador.
@@ -282,7 +283,8 @@ def render(data: dict, inline_assets: bool = True) -> str:
         script = "<script>" + _MERMAID.read_text(encoding="utf-8").replace("</script", "<\\/script") + "</script>"
     else:
         script = ""
-    template = template.replace("<!--__CONTEXTLAB_DOCS__-->", _DOCS.read_text(encoding="utf-8"))
+    docs = _DOCS.read_text(encoding="utf-8").replace("<!--__CONTEXTLAB_TOUR__-->", _TOUR.read_text(encoding="utf-8"))
+    template = template.replace("<!--__CONTEXTLAB_DOCS__-->", docs)
     template = template.replace("<!--__CONTEXTLAB_MERMAID__-->", script)
     return template.replace("/*__CONTEXTLAB_DATA__*/", payload)
 
