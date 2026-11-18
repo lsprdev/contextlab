@@ -8,7 +8,7 @@ SHA-256: `a43bc1afd446f9c4cc66ac5dd45d02e8d65e26fc5344ec0ef787f88d6ddb6f9e`
 
 ## Logos da animação do passo a passo
 
-Embutidas como SVG em `../tour.html`, sem acesso à internet, só para identificar as ferramentas:
+Embutidas como SVG em `../tour.html` (motor comum às animações `tour-passos.html` e `tour-contexto.html`), sem acesso à internet, só para identificar as ferramentas:
 
 | Logo | Origem | Licença |
 |---|---|---|

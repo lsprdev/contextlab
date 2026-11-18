@@ -1,0 +1,219 @@
+<!-- Animação de como L, R e A montam o contexto, com o alvo real calcular_orcamento do OrçaAPI. Usa o motor de tour.html. -->
+<div class="tour" id="tour-contexto" aria-label="Animação da preparação do contexto em L, R e A"></div>
+<script>
+contextlabTour(document.getElementById("tour-contexto"), {
+  title: "terminal · projects/orcamentos",
+  end: "Fim. Escolha uma etapa abaixo para rever.",
+  scenes: ({type, out, ic, box, moveTo, gone, wire, rows, travel, say, fmt, wait}) => {
+    const S = (k, t, cls = "") => `<span class="mk ${cls}" data-k="${k}">${t}</span>`;
+    const ln = (n, html, k = "") => `<div class="on"${k ? ` data-k="${k}"` : ""}><span class="ln">${n}</span>${html}</div>`;
+    const gap = '<div class="on gap">⋮</div>';
+    const mk = (el, k, cls = "hot") => el.querySelectorAll(`[data-k~="${k}"]`).forEach(e => e.classList.add(cls));
+    const def = '<span class="k">def</span>', cls = '<span class="k">class</span>', frm = '<span class="k">from</span>', imp = '<span class="k">import</span>';
+
+    // src/orcamentos/orcamentos.py, linhas reais (algumas omitidas para caber)
+    const ORC = [
+      ln(4, `${frm} orcamentos.descontos ${imp} ${S("imp-desc", "calcular_desconto")}`, "l4"),
+      ln(5, `${frm} orcamentos.frete ${imp} ${S("imp-frete", "calcular_frete")}`, "l5"),
+      ln(6, `${frm} orcamentos.schemas ${imp} ${S("imp-ped", "Pedido")}, ${S("imp-res", "ResumoOrcamento")}`, "l6"),
+      gap,
+      ln(9, `${def} ${S("def", '<span class="f">calcular_orcamento</span>')}(pedido: ${S("sig-ped", "Pedido")}) -&gt; ${S("sig-res", "ResumoOrcamento")}:`, "l9"),
+      gap,
+      ln(16, `    <span class="k">with</span> ${S("lib1", "localcontext")}() <span class="k">as</span> context:`),
+      ln(18, `        subtotal = ${S("lib2", "sum")}(item.preco_unitario * …)`),
+      ln(20, `        desconto = ${S("call-desc", "calcular_desconto")}(subtotal, pedido.cupom)`),
+      ln(21, "        base = subtotal - desconto"),
+      ln(22, `        frete = ${S("call-frete", "calcular_frete")}(base, pedido.entrega)`),
+      ln(23, `        <span class="k">return</span> ResumoOrcamento(…, total=base + frete)`),
+    ].join("");
+    const SCHEMAS = [
+      ln(8, `${cls} ItemPedido(BaseModel): …`, "item"),
+      gap,
+      ln(20, `${cls} <span class="f">Pedido</span>(BaseModel):`, "ped"),
+      ln(29, `    itens: list[${S("item-uso", "ItemPedido")}] = Field(…)`, "ped"),
+      gap,
+      ln(42, `${cls} <span class="f">ResumoOrcamento</span>(BaseModel):`, "res"),
+      gap,
+      ln(53, `${cls} OrcamentoSalvo(ResumoOrcamento): …`, "salvo"),
+    ].join("");
+    const codeCard = (x, y, w, title, body) => box(x, y, w, `<div class="hd">${ic("python")} ${title}</div><pre class="code">${body}</pre>`, "card");
+    function pacote(x, y, w, c, nome) {
+      return box(x, y, w, `<div class="hd"><span class="colhd ${c} pc">${c}</span> <span class="pn">${nome}</span><span class="sub cnt"></span></div><div class="items wrap"></div><div class="foot ft">montando…</div>`, "card");
+    }
+    function addChip(card, nome, onde) {
+      card.querySelector(".items").insertAdjacentHTML("beforeend", `<div class="r on"><span class="chip chip2"><b>${nome}</b><small>${onde}</small></span></div>`);
+    }
+    const L_CHIPS = [["orcamentos.py", "arquivo da função, inteiro"], ["Pedido", "schemas.py · L20–39"], ["ResumoOrcamento", "schemas.py · L42–50"]];
+
+    return [
+      { name: "alvo", async run() {
+        await type(`grep -A3 '"targets"' contextlab.json`);
+        await out(['      "targets": [', "        {", '          "id": "calcular_orcamento",', '          "path": "src/orcamentos/orcamentos.py",'], 160);
+        say("Tudo começa no alvo do <code>contextlab.json</code>: o arquivo e o nome da função.");
+        const js = box(16, 24, 330, `<div class="hd">${ic("file")} contextlab.json · alvo</div><pre class="code">` + [
+          '<div class="on">{</div>',
+          `<div class="on">  <span class="f">"path"</span>: ${S("p", '<span class="s">"src/orcamentos/orcamentos.py"</span>')},</div>`,
+          `<div class="on">  <span class="f">"symbol"</span>: ${S("s", '<span class="s">"calcular_orcamento"</span>')}</div>`,
+          '<div class="on">}</div>'].join("") + "</pre>", "card");
+        await wait(1400);
+        mk(js, "p"); await wait(500);
+        wire(350, 70, 368, 70);
+        const code = codeCard(372, 24, 492, "src/orcamentos/orcamentos.py", ORC);
+        await wait(1600);
+        say("O arquivo vira uma <b>árvore de sintaxe</b> (AST). O código é lido, nunca executado.");
+        const ast = box(16, 176, 330, `<div class="hd">${ic("search")} árvore de sintaxe</div><pre class="code">` + [
+          "Module",
+          "├─ ImportFrom × 4",
+          `└─ ${S("fd", "FunctionDef calcular_orcamento")}`,
+          `   ├─ args: pedido: ${S("a1", "Pedido")}`,
+          `   └─ returns: ${S("a2", "ResumoOrcamento")}`,
+        ].map(l => `<div>${l}</div>`).join("") + "</pre>", "card");
+        await wait(300); await rows(ast, 260, "pre > div");
+        await wait(500);
+        mk(js, "s"); await wait(500);
+        say("Na árvore, ele encontra a definição pelo nome. É dela que partem L, R e A.");
+        mk(ast, "fd"); mk(code, "def"); mk(code, "l9", "blk");
+        wire(350, 262, 368, 140);
+        await wait(3000);
+      } },
+
+      { name: "L", async run() {
+        await type("contextlab orcamentos context --condition L");
+        await out(["Estratégia L; 3 arquivo(s)/trecho(s) disponíveis."]);
+        const code = codeCard(16, 16, 474, "orcamentos.py", ORC);
+        const pk = pacote(510, 204, 354, "L", "Pacote L");
+        say("<b>L</b> começa pelo arquivo da função, <b>inteiro</b>.");
+        await wait(900);
+        code.classList.add("sel");
+        await travel("orcamentos.py", 200, 120, 540, 245, "back");
+        addChip(pk, ...L_CHIPS[0]);
+        await out(["### src/orcamentos/orcamentos.py (original lines 1-23)"]);
+        code.classList.remove("sel");
+        await wait(600);
+        say("Depois olha a assinatura: ela usa os tipos <code>Pedido</code> e <code>ResumoOrcamento</code>.");
+        mk(code, "sig-ped"); mk(code, "sig-res");
+        await wait(1800);
+        say("Segue o <code>import</code> até <code>schemas.py</code> e recorta <b>só</b> essas duas definições.");
+        mk(code, "imp-ped"); mk(code, "imp-res");
+        await wait(700);
+        wire(492, 60, 506, 60);
+        const sch = codeCard(510, 16, 354, "schemas.py", SCHEMAS);
+        await wait(900);
+        mk(sch, "ped", "blk"); await wait(500);
+        await travel("Pedido", 600, 90, 700, 245, "back");
+        addChip(pk, ...L_CHIPS[1]);
+        mk(sch, "res", "blk"); await wait(500);
+        await travel("ResumoOrcamento", 600, 130, 540, 285, "back");
+        addChip(pk, ...L_CHIPS[2]);
+        await out(["### src/orcamentos/schemas.py::L20-L39 (original lines 20-39)", "### src/orcamentos/schemas.py::L42-L50 (original lines 42-50)"], 200);
+        say("<code>ItemPedido</code> e <code>OrcamentoSalvo</code> ficam de fora: L não segue o que os próprios tipos usam.");
+        mk(sch, "item", "off"); mk(sch, "salvo", "off"); mk(sch, "item-uso");
+        pk.querySelector(".ft").textContent = "2.515 caracteres, colados no enunciado";
+        await wait(3400);
+      } },
+
+      { name: "R", async run() {
+        await type("contextlab orcamentos context --condition R");
+        await out(["Estratégia R; 5 arquivo(s)/trecho(s) disponíveis."]);
+        const code = codeCard(16, 16, 474, "orcamentos.py", ORC);
+        const pk = pacote(510, 16, 354, "L", "Pacote L");
+        L_CHIPS.forEach(c => addChip(pk, ...c));
+        pk.querySelector(".ft").textContent = "2.515 caracteres";
+        say("<b>R</b> parte do pacote L e examina o <b>corpo</b> da função.");
+        await wait(1600);
+        mk(code, "call-desc"); mk(code, "call-frete");
+        say("Encontra duas chamadas para funções de <b>outros arquivos do projeto</b>.");
+        await wait(1900);
+        mk(code, "lib1", "lib"); mk(code, "lib2", "lib");
+        say("O que vem da linguagem ou da biblioteca padrão, como <code>sum</code> e <code>localcontext</code>, fica de fora.");
+        await wait(2400);
+        say("Segue os <code>imports</code> até <code>descontos.py</code> e <code>frete.py</code> e recorta as duas funções.");
+        mk(code, "imp-desc"); mk(code, "imp-frete");
+        await wait(800);
+        const desc = codeCard(16, 280, 236, "descontos.py · L5–17", ln(5, `${def} <span class="f">calcular_desconto</span>(…):`, "d") + '<div class="on gap">⋮ 12 linhas</div>');
+        const fr = codeCard(266, 280, 224, "frete.py · L5–18", ln(5, `${def} <span class="f">calcular_frete</span>(…):`, "d") + '<div class="on gap">⋮ 13 linhas</div>');
+        await wait(900);
+        pk.querySelector(".pc").textContent = "R"; pk.querySelector(".pc").className = "colhd R pc"; pk.querySelector(".pn").textContent = "Pacote R";
+        mk(desc, "d", "blk");
+        await travel("calcular_desconto", 60, 310, 540, 200, "back");
+        addChip(pk, "calcular_desconto", "descontos.py · L5–17");
+        mk(fr, "d", "blk");
+        await travel("calcular_frete", 300, 310, 700, 200, "back");
+        addChip(pk, "calcular_frete", "frete.py · L5–18");
+        await out(["### src/orcamentos/descontos.py::L5-L17 (original lines 5-17)", "### src/orcamentos/frete.py::L5-L18 (original lines 5-18)"], 200);
+        pk.classList.add("sel");
+        pk.querySelector(".ft").textContent = "3.865 caracteres, colados no enunciado";
+        say("<b>Profundidade um</b>: o que essas funções chamam não é seguido. Quem decide é a análise, não o agente.");
+        await wait(3600);
+      } },
+
+      { name: "A", async run() {
+        await type("contextlab orcamentos context --condition A");
+        await out(["Estratégia A; 7 arquivo(s)/trecho(s) disponíveis.", "src/orcamentos/__init__.py", "src/orcamentos/api.py", "…"], 160);
+        say("<b>A</b> não recorta nada: o enunciado chega <b>sem código</b>.");
+        const en = box(330, 16, 260, `<div class="hd">${ic("file")} Enunciado</div><div class="r on">Teste <code>calcular_orcamento</code></div><div class="r on muted">src/orcamentos/orcamentos.py</div><div class="foot">0 caractere de código</div>`, "card");
+        await wait(1800);
+        say("Os 7 arquivos da visão preparada ficam disponíveis, mas <b>só por consulta</b>.");
+        const files = ["__init__.py", "api.py", "descontos.py", "frete.py", "orcamentos.py", "repositorio.py", "schemas.py"];
+        const vis = box(16, 16, 296, `<div class="hd">${ic("folder")} Visão preparada <span class="sub">7 arquivos</span></div>` +
+          files.map(f => `<div class="r mono" data-f="${f}">${ic("python")} ${f}<span class="ttag b-idle">${ic("lock")}</span></div>`).join(""), "card");
+        await rows(vis, 120);
+        await wait(700);
+        say("O próprio agente escolhe o que ler. Na tentativa 08 do piloto, foi assim:");
+        const agent = box(400, 170, 0, `<div class="agent">${ic("openai")} Codex</div>`);
+        const log = box(610, 16, 254, `<div class="hd">Consultas</div><div class="items"></div>`, "card");
+        const meter = box(330, 300, 280, `<div class="meter">Contexto entregue <b class="mc">0</b> de 30.000<div class="bar"><span></span></div>Consultas <b class="mq">0</b> de 20</div>`);
+        await wait(900);
+        const calls = [["list_files()", null, 211], ["read_file(orcamentos.py)", "orcamentos.py", 1478], ["read_file(schemas.py)", "schemas.py", 3654], ["read_file(descontos.py)", "descontos.py", 4468], ["read_file(frete.py)", "frete.py", 5293]];
+        let prev = 0;
+        for (const [i, [call, f, total]] of calls.entries()) {
+          const row = f ? vis.querySelector(`[data-f="${f}"]`) : null;
+          const y = row ? 16 + 38 + files.indexOf(f) * 25 : 30;
+          await travel(call, 380, 170, 120, y, "");
+          if (row) { row.classList.add("pick"); row.querySelector(".ttag").outerHTML = `<span class="ttag b-ok">+${fmt(total - prev)}</span>`; }
+          else vis.querySelectorAll(".r").forEach(r => r.classList.add("pick"));
+          await travel(`+${fmt(total - prev)} caracteres`, 140, y, 400, 200, "back");
+          if (!row) vis.querySelectorAll(".r").forEach(r => r.classList.remove("pick"));
+          log.querySelector(".items").insertAdjacentHTML("beforeend", `<div class="r on mono" style="font-size:11px">${ic("check")} ${call}</div>`);
+          prev = total;
+          meter.querySelector(".mc").textContent = fmt(total);
+          meter.querySelector(".mq").textContent = i + 1;
+          meter.querySelector(".bar span").style.width = (total / 30000 * 100) + "%";
+          await wait(200);
+        }
+        say("Leu os mesmos arquivos de R, mas <b>inteiros</b>: viu também <code>ItemPedido</code> e <code>OrcamentoSalvo</code>.");
+        await wait(2800);
+        say("Total: <b>5 consultas</b> e <b>5.293 caracteres</b>, dentro do limite. A escolha foi do agente.");
+        await wait(3000);
+      } },
+
+      { name: "comparação", async run() {
+        await type("# piloto do OrçaAPI · 6 tentativas por estratégia");
+        say("As três têm os <b>mesmos limites</b>: 30.000 caracteres e 20 consultas.");
+        const data = [
+          ["L", "Local", "o ContextLab", "2.515", "2,2", "20,1 mil", 20.1],
+          ["R", "Recuperado", "o ContextLab", "3.865", "1,7", "18,2 mil", 18.2],
+          ["A", "Autônomo", "o agente", "0", "5,8", "46,6 mil", 46.6],
+        ];
+        for (const [i, [c, nome, quem, ini, cons, tok, v]] of data.entries()) {
+          const col = box(16 + i * 288, 20, 272, `<div class="hd"><span class="colhd ${c}">${c}</span> ${nome}</div>` + [
+            ["Quem escolhe", `<b>${quem}</b>`],
+            ["Código no enunciado", `${ini} caracteres`],
+            ["Consultas por tentativa", cons],
+            ["Tokens de entrada", tok],
+            ["Aprovação", '<span class="ttag b-ok">6/6</span>'],
+          ].map(([k, val]) => `<div class="r"><span class="muted">${k}</span><span style="margin-left:auto">${val}</span></div>`).join("") +
+            `<div class="bars" style="padding:8px 12px 2px"><div class="muted" style="font-size:11px;margin-bottom:3px">tokens de entrada por tentativa</div><div class="track"><span data-w="${v / 46.6 * 100}" style="background: var(--${c})"></span></div></div>`, "card");
+          await wait(250); await rows(col, 180);
+          col.querySelector(".track span").style.width = col.querySelector(".track span").dataset.w + "%";
+        }
+        await wait(1600);
+        say("A diferença é <b>quem escolhe o contexto</b>: o ContextLab, em L e R, ou o próprio agente, em A.");
+        await wait(3000);
+        say("No piloto, A teve a mesma aprovação, mas gastou mais que o dobro de tokens de entrada.");
+        await wait(3400);
+      } },
+    ];
+  },
+});
+</script>

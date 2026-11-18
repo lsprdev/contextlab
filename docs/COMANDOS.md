@@ -362,7 +362,10 @@ comandos com suas opções. A seção **Passo a passo** traz uma animação em q
 terminal digita cada comando, de `create` a `serve`, e logo abaixo mostra o que
 acontece por dentro, com dados reais do piloto do OrçaAPI. Ela pode ser pausada
 ou aberta direto em um comando; com a opção de reduzir movimento do sistema,
-avança só pelos botões. Um botão alterna entre tema claro e escuro.
+avança só pelos botões. Na seção **Preparação do contexto**, outra animação
+acompanha o alvo `calcular_orcamento` desde o `contextlab.json` e a árvore de
+sintaxe até os pacotes L e R e a exploração de A, terminando com a comparação
+das três estratégias no piloto. Um botão alterna entre tema claro e escuro.
 
 Os diagramas usam a biblioteca Mermaid, incluída no pacote em
 `src/contextlab/viewer/vendor/`. O visualizador não acessa a internet.

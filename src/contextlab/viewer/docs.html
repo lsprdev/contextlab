@@ -1,4 +1,5 @@
 <!-- Documentação embutida no visualizador. Conteúdo autoral e estático: nenhum dado de execução entra aqui. -->
+<!--__CONTEXTLAB_TOUR__-->
 <section id="doc-visao" data-title="Visão geral">
   <h2>Visão geral</h2>
   <p class="lead">O ContextLab compara três formas de dar contexto a um agente de programação que escreve testes unitários. Ele prepara o material que o agente pode ver, pede <strong>uma</strong> suíte de testes, guarda a resposta sem alterá-la e só então a executa, em um ambiente separado.</p>
@@ -23,6 +24,8 @@
 <section id="doc-contexto" data-title="Preparação do contexto">
   <h2>Como o contexto é preparado</h2>
   <p>O código do projeto é <strong>lido e analisado, nunca executado</strong>. O preparador monta primeiro uma <em>visão preparada do repositório</em>, um conjunto de arquivos virtuais em memória, e é dela que saem as três estratégias.</p>
+  <p>Na animação, o alvo real <code>calcular_orcamento</code> do OrçaAPI passa pelas três estratégias.</p>
+  <!--__CONTEXTLAB_TOUR_CONTEXTO__-->
   <pre class="mermaid-src">flowchart TD
     I["include do contextlab.json&lt;br/&gt;arquivos candidatos"] --> F{"Filtros"}
     F -- "testes, .git, runs, credenciais,&lt;br/&gt;instruções para agentes, links simbólicos" --> X["Excluído&lt;br/&gt;(motivo registrado)"]
@@ -282,7 +285,7 @@
 <section id="doc-passos" data-title="Passo a passo">
   <h2>Passo a passo, comando a comando</h2>
   <p class="lead">O caminho completo de um projeto, do cadastro à análise, com dados reais do piloto do OrçaAPI. Use os botões para pausar ou pular para um comando.</p>
-  <!--__CONTEXTLAB_TOUR__-->
+  <!--__CONTEXTLAB_TOUR_PASSOS__-->
   <p>Os mesmos passos, em diagramas para consulta:</p>
 
   <h3><code>contextlab create NOME</code> · cadastrar</h3>

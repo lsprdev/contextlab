@@ -123,31 +123,28 @@
 .tour .t-ctrl .chips { display: flex; gap: 4px; flex-wrap: wrap; margin-left: 6px; }
 .tour .t-ctrl .chips button { font-family: var(--mono); font-weight: 500; background: none; border-color: transparent; color: var(--muted); }
 .tour .t-ctrl .chips button.on { background: var(--accent-soft); color: var(--accent); border-color: var(--accent); }
+.tour .items.wrap { display: flex; flex-wrap: wrap; gap: 4px; padding: 2px 8px; }
+.tour .items.wrap .r { padding: 0; }
+.tour pre.code .ln { display: inline-block; width: 24px; color: var(--faint); }
+.tour pre.code .gap { color: var(--faint); padding-left: 24px; }
+.tour .mk { border-radius: 4px; padding: 0 1px; transition: background .3s, color .3s, box-shadow .3s, opacity .3s; }
+.tour .mk.hot { background: var(--accent-soft); box-shadow: 0 0 0 1.5px var(--accent); }
+.tour .mk.lib { text-decoration: line-through; color: var(--faint); }
+.tour pre.code > div.blk { background: var(--accent-soft); }
+.tour pre.code > div.off { opacity: .4; text-decoration: line-through; }
 @media (prefers-reduced-motion: reduce) { .tour .tn, .tour .r, .tour pre.code > div, .tour .term2 div, .tour .bars .track span, .tour .meter .bar > span { transition: none !important; } .tour .cur { animation: none; } }
 </style>
 
-<div class="tour" id="tour" aria-label="Animação dos comandos do ContextLab">
-  <div class="t-fit">
-    <div class="t-stage">
-      <div class="t-term"><div class="t-bar"><i></i><i></i><i></i><span>terminal · projects/orcamentos</span></div><div class="t-term-body" aria-live="polite"></div></div>
-      <div class="t-scene"></div>
-      <div class="t-cap" aria-live="polite"></div>
-    </div>
-  </div>
-  <div class="t-ctrl">
-    <button class="ctl" data-act="prev" title="Comando anterior" aria-label="Comando anterior">‹</button>
-    <button class="ctl" data-act="play" title="Pausar ou continuar" aria-label="Pausar ou continuar">❚❚</button>
-    <button class="ctl" data-act="next" title="Próximo comando" aria-label="Próximo comando">›</button>
-    <div class="chips"></div>
-  </div>
-</div>
-
 <script>
-(() => {
-  const root = document.getElementById("tour");
+// Motor das animações da documentação: cada uma recebe um terminal, um palco e uma legenda.
+window.contextlabTour = (root, opts) => {
   if (!root || root.dataset.ready) return;
   root.dataset.ready = "1";
-  const W = 880, H = 600, NS = root.parentNode.querySelector(".tour-sprite").namespaceURI;
+  root.innerHTML = `<div class="t-fit"><div class="t-stage">
+      <div class="t-term"><div class="t-bar"><i></i><i></i><i></i><span>${opts.title}</span></div><div class="t-term-body" aria-live="polite"></div></div>
+      <div class="t-scene"></div><div class="t-cap" aria-live="polite"></div></div></div>
+    <div class="t-ctrl"><button class="ctl" data-act="prev" title="Anterior" aria-label="Anterior">‹</button><button class="ctl" data-act="play" title="Pausar ou continuar" aria-label="Pausar ou continuar">❚❚</button><button class="ctl" data-act="next" title="Próximo" aria-label="Próximo">›</button><div class="chips"></div></div>`;
+  const W = 880, H = 600, NS = document.querySelector(".tour-sprite").namespaceURI, uid = Math.random().toString(36).slice(2, 8);
   const fit = root.querySelector(".t-fit"), stage = root.querySelector(".t-stage");
   const termBody = root.querySelector(".t-term-body"), scene = root.querySelector(".t-scene"), cap = root.querySelector(".t-cap");
   const playBtn = root.querySelector('[data-act="play"]'), chipsBox = root.querySelector(".chips");
@@ -202,7 +199,7 @@
     wires = document.createElementNS(NS, "svg");
     wires.setAttribute("class", "t-wires");
     wires.setAttribute("viewBox", "0 0 880 388");
-    wires.innerHTML = '<defs><marker id="tour-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" style="fill: var(--faint)"></path></marker></defs>';
+    wires.innerHTML = `<defs><marker id="tour-arr-${uid}" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" style="fill: var(--faint)"></path></marker></defs>`;
     scene.append(wires);
   }
   function show(el) {
@@ -225,8 +222,8 @@
     const p = document.createElementNS(NS, "path");
     p.setAttribute("d", `M${x1} ${y1} L${x2} ${y2}`);
     p.setAttribute("class", "w " + cls);
-    p.setAttribute("marker-end", "url(#tour-arr)");
-    if (both) p.setAttribute("marker-start", "url(#tour-arr)");
+    p.setAttribute("marker-end", `url(#tour-arr-${uid})`);
+    if (both) p.setAttribute("marker-start", `url(#tour-arr-${uid})`);
     wires.append(p);
     if (!cls.includes("flow") && !reduce) {
       const len = Math.hypot(x2 - x1, y2 - y1);
@@ -257,340 +254,7 @@
   }
   const fmt = n => n.toLocaleString("pt-BR");
 
-  const LOTE = "20261116-003341-b0cff9";
-  const RUN_PHASES = ["Conferências", "Congelamento", "Geração", "Avaliação"];
-  const TEST_CODE = [
-    '<span class="n">@pytest</span>.mark.parametrize(<span class="s">"cupom"</span>, [<span class="k">None</span>, <span class="s">""</span>, <span class="s">" "</span>])',
-    '<span class="k">def</span> <span class="f">test_cupom_ausente_ou_vazio_e_entrega_padrao</span>(cupom):',
-    '    pedido = Pedido(',
-    '        itens=[ItemPedido(descricao=<span class="s">"Produto"</span>,',
-    '                          preco_unitario=<span class="s">"10.00"</span>, quantidade=<span class="n">2</span>)],',
-    '        cupom=cupom)',
-    '    conferir_resumo(calcular_orcamento(pedido),',
-    '                    (<span class="s">"20.00"</span>, <span class="s">"0.00"</span>, <span class="s">"15.00"</span>, <span class="s">"35.00"</span>))',
-  ];
-
-  const SCENES = [
-    { name: "create", async run() {
-      await type("contextlab create orcamentos");
-      say("O ContextLab lê a pasta do projeto, <b>sem executar nada</b>.");
-      const files = [["orcamentos.py", 1], ["descontos.py", 1], ["frete.py", 1], ["api.py", 1], ["schemas.py", 1], ["tests/test_orcamentos.py", 0]];
-      const proj = box(16, 26, 244, `<div class="hd">${ic("folder")} projects/orcamentos/</div>` +
-        files.map(([f, py]) => `<div class="r mono ${py ? "" : "dim"}">${py ? ic("python") : ic("file")} ${py ? "src/…/" : ""}${f}</div>`).join(""), "card");
-      await wait(400); await rows(proj, 230);
-      wire(264, 110, 292, 110);
-      say("Procura as funções do código e você escolhe qual será testada.");
-      const fns = box(296, 26, 232, `<div class="hd">${ic("search")} Funções encontradas</div>` +
-        ["calcular_orcamento", "criar_orcamento", "calcular_desconto", "calcular_frete"].map(f => `<div class="r mono">${f}()</div>`).join(""), "card");
-      await wait(400); await rows(fns, 220);
-      await out(["? Qual função será o alvo?"]);
-      await wait(400);
-      fns.querySelector(".r").classList.add("pick");
-      await out(['<span class="hl">› calcular_orcamento</span>']);
-      wire(532, 110, 560, 110);
-      say("O cadastro fica gravado no <code>contextlab.json</code>.");
-      const json = box(564, 26, 300, `<div class="hd">${ic("file")} contextlab.json</div><pre class="code">` + [
-        "{",
-        '  <span class="f">"phase"</span>: <span class="s">"pilot"</span>,',
-        '  <span class="f">"conditions"</span>: [<span class="s">"L"</span>, <span class="s">"R"</span>, <span class="s">"A"</span>],',
-        '  <span class="f">"repetitions"</span>: <span class="n">3</span>,',
-        '  <span class="f">"targets"</span>: [{',
-        '    <span class="f">"symbol"</span>: <span class="s">"calcular_orcamento"</span>,',
-        '    <span class="f">"path"</span>: <span class="s">"src/orcamentos/…"</span>',
-        "  }]",
-        "}"].map(l => `<div>${l}</div>`).join("") + "</pre>", "card");
-      await wait(300); await lines(json.querySelector("pre"));
-      await out(['<span class="ok">✓</span> Gravado: projects/orcamentos/contextlab.json']);
-      await wait(1600);
-    } },
-
-    { name: "setup", async run() {
-      await type("contextlab orcamentos setup");
-      say("Primeiro, confere se o Docker está instalado e rodando.");
-      // Três peças alinhadas pelo centro (y = 194): Docker → imagem; à direita, o aviso.
-      const dk = box(24, 110, 200, `<div class="big">${ic("docker", "xl")}<b>Docker</b><span class="tbadge b-idle st">verificando…</span></div>`, "card");
-      dk.style.height = "168px";
-      await wait(1300);
-      dk.querySelector(".st").outerHTML = `<span class="tbadge b-ok">${ic("check")} disponível</span>`;
-      await out(['<span class="ok">✓</span> Docker disponível']);
-      wire(228, 194, 268, 194);
-      say("Depois monta a <b>imagem</b>: um ambiente fixo, igual para todas as avaliações.");
-      const img = box(272, 74, 360, `<div class="hd">${ic("docker")} Imagem do avaliador<span class="sub st">montando…</span></div><div class="r on mono muted">contextlab-orcamentos:local</div>`, "card");
-      img.style.height = "240px";
-      await wait(500);
-      const layers = [
-        [254, "l1", `${ic("python", "lg")} <span><b>python:3.12.11-slim</b> <span class="muted">· versão fixa</span></span>`],
-        [200, "l2", `${ic("file")} <span><b>Dependências</b> <span class="muted">· fastapi, pydantic…</span></span>`],
-        [146, "l3", `${ic("check")} <span><b>pytest 8.4.2 · coverage 7.10.7</b></span>`],
-      ];
-      for (const [y, cls, html] of layers) {
-        const l = box(288, 100, 328, html, "layer " + cls);
-        await wait(80); moveTo(l, 288, y); await wait(750);
-      }
-      img.querySelector(".st").outerHTML = `<span class="sub"><span class="tbadge b-ok">${ic("check")} pronta</span></span>`;
-      img.classList.add("sel");
-      await out(['<span class="ok">✓</span> Imagem contextlab-orcamentos:local pronta']);
-      box(668, 122, 192, `<div class="big">${ic("openai", "lg")}<b>Sem modelo</b><span class="muted center">Nenhuma chamada ao Codex nesta etapa.</span></div>`, "card").style.height = "144px";
-      say("A imagem é a “caixa” onde os testes vão rodar depois. Nada é gerado aqui.");
-      await wait(2400);
-    } },
-
-    { name: "plan", async run() {
-      await type("contextlab orcamentos plan");
-      say("2 funções × 3 estratégias × 3 repetições = <b>18 tentativas</b>.");
-      const fns = { calcular_orcamento: "calcular", criar_orcamento: "criar" };
-      const cards = {};
-      const x0 = 84, step = 80;
-      const labels = [box(x0, 16, 0, '<span class="lbl">calcular_orcamento</span>'), box(x0, 106, 0, '<span class="lbl">criar_orcamento</span>')];
-      let row = 0;
-      for (const fn of Object.keys(fns)) {
-        let col = 0;
-        for (const c of ["L", "R", "A"]) for (const rep of [1, 2, 3]) {
-          const id = `${fn}__${c}__${rep}`;
-          cards[id] = box(x0 + col * step, 40 + row * 90, 0, `<div class="tk k-${c}"><b>${c}${rep}</b><i>${fns[fn]}</i><span class="no"></span></div>`);
-          col++;
-          await wait(45);
-        }
-        row++;
-      }
-      await wait(1200);
-      say("A ordem é sorteada com uma <b>semente fixa</b> (42): o mesmo plano sai sempre igual.");
-      const order = ["criar_orcamento__R__2", "criar_orcamento__R__1", "calcular_orcamento__R__2", "criar_orcamento__L__1", "calcular_orcamento__R__3", "calcular_orcamento__A__2", "criar_orcamento__A__2", "calcular_orcamento__A__1", "criar_orcamento__L__2", "criar_orcamento__A__1", "calcular_orcamento__L__2", "criar_orcamento__L__3", "calcular_orcamento__L__3", "criar_orcamento__R__3", "criar_orcamento__A__3", "calcular_orcamento__A__3", "calcular_orcamento__L__1", "calcular_orcamento__R__1"];
-      labels.forEach(gone);
-      box(x0, 206, 0, '<span class="lbl">ordem de execução</span>');
-      for (const [i, id] of order.entries()) {
-        const el = cards[id];
-        moveTo(el, x0 + (i % 9) * step, 236 + Math.floor(i / 9) * 72);
-        const no = el.querySelector(".no"); no.textContent = String(i + 1).padStart(2, "0"); no.classList.add("on");
-        await wait(110);
-      }
-      await out(["01  criar_orcamento     R  rep. 2", "02  criar_orcamento     R  rep. 1", "03  calcular_orcamento  R  rep. 2", "…   18 tentativas"], 200);
-      await wait(800);
-      say("Só mostra o plano: nada é gerado nem executado.");
-      await wait(2000);
-    } },
-
-    { name: "context", async run() {
-      await type("contextlab orcamentos context --condition R");
-      say("Primeiro saem os <b>testes</b>, credenciais e instruções para agentes.");
-      const files = ["orcamentos.py", "descontos.py", "frete.py", "schemas.py", "api.py", "repositorio.py", "__init__.py"];
-      const proj = box(18, 16, 252, `<div class="hd">${ic("folder")} Projeto</div>` +
-        files.map(f => `<div class="r mono">${ic("python")} ${f}</div>`).join("") +
-        `<div class="r mono t">${ic("file")} tests/test_orcamentos.py</div><div class="r mono t">${ic("file")} tests/test_api.py</div>`, "card");
-      await rows(proj, 110);
-      await wait(500);
-      for (const r of proj.querySelectorAll(".t")) { r.classList.add("struck"); r.insertAdjacentHTML("beforeend", '<span class="ttag b-bad">excluído</span>'); await wait(500); }
-      await wait(600);
-      for (const r of proj.querySelectorAll(".t")) r.classList.add("gone");
-      await wait(500);
-      say("Da visão que sobrou saem os três pacotes. Em R, a função vem com as dependências diretas.");
-      const chip = t => { const [nome, onde] = t.split("|"); return `<div class="r"><span class="chip chip2"><b>${nome}</b>${onde ? `<small>${onde}</small>` : ""}</span></div>`; };
-      const cols = [
-        ["L", "Local", ["orcamentos.py|arquivo da função, inteiro", "Pedido|schemas.py · L20–39", "ResumoOrcamento|schemas.py · L42–50"], "2.515 caracteres no enunciado"],
-        ["R", "Recuperado", ["orcamentos.py|arquivo da função, inteiro", "Pedido|schemas.py · L20–39", "ResumoOrcamento|schemas.py · L42–50", "calcular_desconto|descontos.py · L5–17", "calcular_frete|frete.py · L5–18"], "3.865 caracteres no enunciado"],
-        ["A", "Autônomo", [], "nada no enunciado"],
-      ];
-      const xs = [296, 484, 672];
-      wire(274, 110, 292, 110);
-      for (const [i, [c, nome, items, foot]] of cols.entries()) {
-        const html = `<div class="hd"><span class="colhd ${c}">${c}</span> ${nome}</div>` +
-          (items.length ? items.map(chip).join("") : `<div class="r">${ic("search")} <span>7 arquivos para<br>consultar sob demanda</span></div>`) +
-          `<div class="foot">${foot}</div>`;
-        const col = box(xs[i], 16, 180, html, "card" + (c === "R" ? " sel" : ""));
-        await wait(250); await rows(col, 160);
-      }
-      await out(["--- src/orcamentos/orcamentos.py ---", "--- src/orcamentos/descontos.py (5-17) ---", "--- src/orcamentos/frete.py (5-18) ---"], 220);
-      const code = box(16, 240, 430, `<div class="hd">${ic("python")} frete.py · trecho entregue em R</div><pre class="code">` + [
-        '<span class="k">def</span> <span class="f">calcular_frete</span>(valor_apos_desconto, entrega):',
-        '    <span class="k">if</span> entrega == <span class="s">"expressa"</span>:',
-        '        <span class="k">return</span> Decimal(<span class="s">"25.00"</span>)',
-        '    <span class="k">if</span> valor_apos_desconto &gt;= Decimal(<span class="s">"200.00"</span>):',
-        '        <span class="k">return</span> Decimal(<span class="s">"0.00"</span>)',
-      ].map(l => `<div>${l}</div>`).join("") + "</pre>", "card");
-      await wait(300); await lines(code.querySelector("pre"));
-      say("Serve para conferir o material antes de gastar uma geração.");
-      await wait(2400);
-    } },
-
-    { name: "run", async run() {
-      await type("contextlab orcamentos run");
-      await out([`Lote: ${LOTE}`, "Validando referências e defeitos; depois será iniciada a geração."], 300);
-      // 1 · Conferências
-      stepper(RUN_PHASES, 0);
-      say("<b>1 · Conferências.</b> Se alguma falhar, nada é gerado e nada é gasto.");
-      const checks = box(150, 70, 580, `<div class="hd">Antes de começar</div>` + [
-        ["openai", "O Codex responde e recusa ferramentas proibidas"],
-        ["file", "O contexto de L, R e A cabe em 30.000 caracteres"],
-        ["docker", "Testes de referência passam e cada testemunha pega o seu defeito"],
-      ].map(([i, t]) => `<div class="r" style="padding:9px 14px">${ic(i, "lg")} <span>${t}</span><span class="ttag b-idle">…</span></div>`).join(""), "card");
-      await wait(300);
-      for (const r of checks.querySelectorAll(".r")) {
-        r.classList.add("on"); await wait(800);
-        r.querySelector(".ttag").outerHTML = `<span class="ttag b-ok">✓ ok</span>`; await wait(300);
-      }
-      await wait(1000);
-      // 2 · Congelamento
-      clear(); stepper(RUN_PHASES, 1);
-      say("<b>2 · Congelamento.</b> Configuração, código e ordem ganham um <i>hash</i>. Se algo mudar, o lote para.");
-      const parts = [["contextlab.json", 70], ["código-fonte · 7 arquivos", 145], ["ordem das 18 tentativas", 220]].map(([t, y]) =>
-        box(60, y, 0, `<span class="chip">${ic("file")} ${t}</span>`));
-      const lock = box(500, 110, 300, `<div class="big"><span class="lk">${ic("unlock", "xl")}</span><b>protocol.lock.json</b><span class="muted mono hs">aguardando…</span></div>`, "card");
-      await wait(1100);
-      for (const p of parts) { moveTo(p, 560, 190); await wait(450); gone(p); }
-      await wait(500);
-      lock.querySelector(".lk").innerHTML = ic("lock", "xl");
-      lock.querySelector(".hs").innerHTML = "hash 904badf0402f8e4d…";
-      lock.classList.add("sel");
-      await wait(2000);
-      // 3 · Geração
-      clear(); stepper(RUN_PHASES, 2);
-      await out(['<span class="hl">[08/18]</span> calcular_orcamento · A · repetição 1']);
-      say("<b>3 · Geração.</b> Para cada tentativa, o ContextLab cria uma pasta temporária <b>vazia</b>.");
-      const cl = box(16, 56, 236, `<div class="hd">ContextLab <span class="sub">pacote A · 7 arquivos</span></div><div class="log"></div>`, "card");
-      const folder = box(318, 76, 240, `<div class="tab">${ic("folder")} pasta temporária</div><div class="empty">workspace/ · vazia</div>`, "folder");
-      folder.style.height = "180px";
-      await wait(1500);
-      say("O Codex é aberto nela: sem comandos, sem internet própria, sem ver o seu disco.");
-      const agent = box(390, -50, 0, `<div class="agent">${ic("openai")} Codex</div>`);
-      await wait(200); moveTo(agent, 390, 120); await wait(500);
-      const model = box(668, 52, 196, `<div class="big">${ic("openai", "lg")}<b>Modelo da OpenAI</b><span class="muted">pela internet</span></div>`, "card");
-      await wait(600);
-      const think = wire(562, 150, 664, 112, "flow", true);
-      await travel("enunciado + limites", 120, 30, 380, 100);
-      say("Em A o enunciado não traz código. O modelo pede o que quer ler, e o ContextLab responde.");
-      const meter = box(300, 284, 290, `<div class="meter">Contexto entregue <b class="mc">0</b> de 30.000 caracteres<div class="bar"><span></span></div>Consultas <b class="mq">0</b> de 20</div>`);
-      const calls = [["list_files()", 211], ["read_file(orcamentos.py)", 1478], ["read_file(schemas.py)", 3654], ["read_file(descontos.py)", 4468], ["read_file(frete.py)", 5293]];
-      let prev = 0;
-      for (const [i, [call, total]] of calls.entries()) {
-        await travel(call, 370, 170, 40, 100);
-        const log = cl.querySelector(".log");
-        log.insertAdjacentHTML("beforeend", `<div class="r mono on" style="font-size:11px">${ic("check")} ${call.replace("read_file", "read")}</div>`);
-        await travel(`+${fmt(total - prev)} caracteres`, 60, 100, 380, 170, "back");
-        prev = total;
-        meter.querySelector(".mc").textContent = fmt(total);
-        meter.querySelector(".mq").textContent = i + 1;
-        meter.querySelector(".bar span").style.width = (total / 30000 * 100) + "%";
-        think.classList.add("hot"); await wait(350); think.classList.remove("hot");
-      }
-      await wait(500);
-      say("Com o que leu, o modelo escreve o teste. A resposta é gravada <b>sem nenhuma alteração</b>.");
-      const test = box(206, 40, 660, `<div class="hd">${ic("python")} test_generated.py <span class="sub">31 casos · 153 linhas</span></div><pre class="code">${TEST_CODE.map(l => `<div>${l}</div>`).join("")}<div class="cm">…</div></pre>`, "card");
-      await wait(300); await lines(test.querySelector("pre"), 160);
-      await wait(1400);
-      say("A sessão termina e a pasta temporária é apagada. Geração: 56,6 s.");
-      gone(test); await wait(300); gone(agent); gone(folder); gone(meter); think.remove();
-      await wait(1600);
-      // 4 · Avaliação
-      clear(); stepper(RUN_PHASES, 3);
-      say("<b>4 · Avaliação.</b> O teste roda num contêiner Docker novo, isolado do seu computador.");
-      const cont = box(250, 56, 420, `<div class="tab">${ic("docker", "lg")} contêiner temporário</div><div class="flags"><span class="tbadge b-idle">sem rede</span><span class="tbadge b-idle">só leitura</span><span class="tbadge b-idle">descartável</span></div>`, "box");
-      cont.style.height = "300px";
-      const tf = box(24, 150, 0, `<span class="chip">${ic("python")} test_generated.py</span>`);
-      await wait(1000);
-      moveTo(tf, 272, 100); await wait(700);
-      box(272, 138, 0, `<span class="chip">${ic("folder")} projeto completo · código original</span>`);
-      await wait(700);
-      const pt = box(272, 180, 376, `<div class="term2">` + [
-        "$ pytest test_generated.py",
-        "collected 31 items",
-        '<span class="g">...............................</span> [100%]',
-        '<span class="g">31 passed</span>',
-        "cobertura da função: 8 de 8 linhas",
-      ].map(l => `<div>${l}</div>`).join("") + "</div>");
-      await wait(300); await rows(pt, 450, ".term2 > div");
-      await wait(1400);
-      say("O contêiner é apagado. O resultado vai para o <code>record.json</code>, aguardando revisão.");
-      scene.querySelectorAll(".tn").forEach(n => { if (!n.querySelector(".stepper")) gone(n); });
-      await wait(600);
-      box(300, 130, 280, `<div class="big">${ic("file", "lg")}<b>record.json</b><span><span class="tbadge b-ok">31/31 casos</span> <span class="tbadge b-wait">aguardando revisão</span></span></div>`, "card");
-      await out(['<span class="ok">✓</span> Tentativas processadas: 18. Para consultar: contextlab orcamentos runs']);
-      await wait(2400);
-    } },
-
-    { name: "show", async run() {
-      await type(`contextlab orcamentos show ${LOTE}/08`);
-      await out(["Casos: 31 aprovados de 31 ativos", "Cobertura da função: 8/8 linhas", "Situação: aguardando revisão"], 240);
-      say("O <code>show</code> só lê o registro da tentativa: números, casos e o código entregue.");
-      const rec = box(18, 18, 282, `<div class="hd">${ic("file")} record.json <span class="sub">tentativa 08</span></div>` + [
-        ["Estratégia", '<span class="colhd A">A</span> · repetição 1'],
-        ["Consultas", "5 de 20"],
-        ["Contexto entregue", "5.293 caracteres"],
-        ["Tokens de entrada", "37.498"],
-        ["Tokens de saída", "2.173"],
-        ["Tempo de geração", "56,6 s"],
-        ["Casos", '<span class="tbadge b-ok">31/31</span>'],
-        ["Situação", '<span class="tbadge b-wait">aguardando revisão</span>'],
-      ].map(([k, v]) => `<div class="r"><span class="muted">${k}</span><span style="margin-left:auto">${v}</span></div>`).join(""), "card");
-      await wait(300); await rows(rec, 170);
-      const code = box(318, 18, 544, `<div class="hd">${ic("python")} test_generated.py <span class="sub">--code</span></div><pre class="code">${TEST_CODE.map(l => `<div>${l}</div>`).join("")}</pre>`, "card");
-      await wait(300); await lines(code.querySelector("pre"), 120);
-      await wait(2600);
-    } },
-
-    { name: "review", async run() {
-      await type(`contextlab orcamentos review ${LOTE}/08`);
-      say("Você lê o teste e responde três perguntas.");
-      const qs = box(18, 14, 430, `<div class="hd">${ic("user")} Revisão humana</div>` + [
-        "As asserções verificam o comportamento esperado?",
-        "A função alvo foi preservada, sem mock dela?",
-        "O código de produção foi preservado?",
-      ].map(q => `<div class="r" style="padding:7px 12px"><span>${q}</span><span class="ttag b-idle">?</span></div>`).join(""), "card");
-      await wait(300);
-      for (const r of qs.querySelectorAll(".r")) {
-        r.classList.add("on"); await wait(500);
-        await out([`? ${r.querySelector("span").textContent} <span class="ok">yes</span>`], 120);
-        r.querySelector(".ttag").outerHTML = '<span class="ttag b-ok">sim</span>';
-        await wait(300);
-      }
-      wire(452, 70, 478, 70);
-      const dk = box(482, 14, 380, `<div class="hd">${ic("docker")} Reexecuta a mesma entrega</div><div class="r on" style="padding:8px 12px"><span class="mono">31 passed</span><span class="ttag b-idle st">…</span></div>`, "card");
-      await wait(1200);
-      dk.querySelector(".st").outerHTML = '<span class="ttag b-ok">✓ aprovada</span>';
-      await wait(900);
-      say("Aprovada, a suíte enfrenta os <b>defeitos</b>: cópias da função com um erro de propósito.");
-      const diff = box(18, 196, 500, `<div class="hd">${ic("docker")} defeito <span class="mono">frete-antes-do-desconto</span></div><pre class="code">` +
-        '<div class="del">− frete = calcular_frete(<b>base</b>, pedido.entrega)</div>' +
-        '<div class="add">+ frete = calcular_frete(<b>subtotal</b>, pedido.entrega)</div>' +
-        '<div class="cm">  # o frete passa a ignorar o desconto</div></pre><div class="r rs" style="padding:6px 12px"></div>', "card");
-      await wait(300); await lines(diff.querySelector("pre"), 400);
-      const rs = diff.querySelector(".rs");
-      rs.innerHTML = `<span class="bad-c">${ic("x")}</span><span>o teste gerado <b>falhou</b> nesta versão → defeito detectado</span>`;
-      rs.classList.add("on");
-      await wait(1200);
-      const defs = box(538, 196, 324, `<div class="hd">Defeitos <span class="sub">3 elegíveis</span></div>` +
-        ["frete-antes-do-desconto", "total-sem-desconto", "quantidade-ignorada"].map(d => `<div class="r mono">${d}<span class="ttag b-ok">${ic("check")}</span></div>`).join("") +
-        `<div class="foot"><b>3 de 3</b> detectados · você confirma cada falha</div>`, "card");
-      await wait(300); await rows(defs, 450);
-      say("Você confirma que cada falha veio do defeito, e a revisão é gravada.");
-      await out(['<span class="ok">✓</span> Revisão registrada: approved.']);
-      await wait(2600);
-    } },
-
-    { name: "serve", async run() {
-      await type("contextlab orcamentos serve");
-      await out(["Visualizador em http&#58;//127.0.0.1:8765 (somente leitura)."]);
-      say("Todas as tentativas reunidas em uma página, sem alterar nada nos lotes.");
-      const b = box(40, 12, 800, `<div class="bb"><i></i><i></i><i></i><span class="url">127.0.0.1:8765</span></div>
-        <div class="kpis">
-          <div class="kpi"><span>Tentativas</span><b>18</b></div>
-          <div class="kpi"><span>Aprovação</span><b>18/18</b></div>
-          <div class="kpi"><span>Tokens de entrada</span><b>510,2 mil</b></div>
-          <div class="kpi"><span>Custo estimado</span><b>US$ 0,95</b></div>
-        </div>
-        <div class="bars"><div class="lbl">Tokens de entrada por estratégia · aprovação 6/6 em cada uma</div>
-          ${[["L", 120.9], ["R", 109.4], ["A", 279.8]].map(([c, v]) => `<div class="row"><span class="colhd ${c}">${c}</span><div class="track"><span data-w="${v / 279.8 * 100}" style="background: var(--${c})"></span></div><span>${String(v).replace(".", ",")} mil</span></div>`).join("")}
-          <div class="lbl" style="margin-top:12px">Custo estimado por estratégia</div>
-          ${[["L", "0,285"], ["R", "0,280"], ["A", "0,385"]].map(([c, v]) => `<div class="row"><span class="colhd ${c}">${c}</span><div class="track"><span data-w="${parseFloat(v.replace(",", ".")) / 0.385 * 100}" style="background: var(--${c})"></span></div><span>US$ ${v}</span></div>`).join("")}
-        </div>`, "browser");
-      b.style.height = "364px";
-      await wait(900);
-      b.querySelectorAll(".track span").forEach(s => { s.style.width = s.dataset.w + "%"; });
-      await wait(1600);
-      say("No piloto: a mesma aprovação nas três estratégias, e A gastou mais que o dobro de tokens.");
-      await wait(3200);
-    } },
-  ];
-
+  const SCENES = opts.scenes({type, out, ic, clear, box, moveTo, gone, wire, rows, lines, travel, say, stepper, fmt, wait, scene: () => scene});
   // Controles
   SCENES.forEach((s, i) => {
     const b = document.createElement("button");
@@ -612,7 +276,7 @@
       await wait(1200);
       if (my !== gen) return;
       if (i + 1 < SCENES.length) play(i + 1);
-      else { finished = true; paint(); say("Fim. Escolha um comando abaixo para rever."); }
+      else { finished = true; paint(); say(opts.end || "Fim."); }
     } catch (e) { if (e !== STOP) throw e; }
   }
   root.querySelector('[data-act="prev"]').onclick = () => { paused = false; play(Math.max(0, current - 1)); };
@@ -626,5 +290,5 @@
     visible = entries.some(e => e.isIntersecting);
     if (visible && !started) { started = true; play(0); }
   }, {threshold: 0.35}).observe(root);
-})();
+};
 </script>
