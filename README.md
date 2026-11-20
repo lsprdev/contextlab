@@ -115,7 +115,7 @@ antigos de Loja e Agenda agora são fixtures internas dos testes.
 
 Câmbio é um exercício autoral, fora da amostra. A coleta principal permanece em
 **4 projetos × 3 funções × Codex × L/R/A × 3 repetições = 108 gerações**.
-Fava, wger, python-dotenv e python-stdnum já foram escolhidos; sua preparação e
+Fava, bump-my-version, python-dotenv e python-stdnum já foram escolhidos; sua preparação e
 validação ainda estão pendentes, conforme o [status do TCC](../docs/STATUS.md).
 
 Os atalhos por nome atendem demonstrações e pilotos de um projeto. O protocolo

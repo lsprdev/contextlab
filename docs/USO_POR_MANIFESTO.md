@@ -24,7 +24,7 @@ unitário e outro HTTP. O campo opcional `targets[].test_kind` aceita `unit`
 (padrão) e `http` (exercício FastAPI/SQLite, somente fora de `main`). `create`
 cadastra alvos unitários; configure o tipo HTTP explicitamente no JSON.
 
-Os quatro projetos da coleta principal já foram escolhidos: **Fava, wger,
+Os quatro projetos da coleta principal já foram escolhidos: **Fava, bump-my-version,
 python-dotenv e python-stdnum**, com três funções selecionadas por projeto.
 A instalação, os testes de referência e a integração desses alvos com o
 ContextLab ainda precisam ser validados. O modelo e os limites da coleta
