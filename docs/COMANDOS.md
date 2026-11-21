@@ -26,7 +26,7 @@ Com a instalação do [README](../README.md) concluída, ative o ambiente a part
 da raiz do repositório em cada novo terminal:
 
 ```bash
-source contextlab/.venv/bin/activate
+source .venv/bin/activate
 ```
 
 `contextlab` e `python -m contextlab` iniciam a mesma ferramenta. Os comandos
@@ -605,5 +605,4 @@ cada tentativa, as cópias da entrega, os logs, a instrumentação e as revisõe
 
 `run` encerrar sem erro de comando não significa que todas as suítes foram
 aprovadas: consulte a situação em `runs` ou no relatório. Câmbio é um exercício
-fora da amostra; o protocolo principal continua em 108 gerações. O estado da
-preparação está em [STATUS.md](../../docs/STATUS.md).
+fora da amostra; o protocolo principal continua em 108 gerações.

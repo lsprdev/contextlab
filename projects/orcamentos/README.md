@@ -9,7 +9,7 @@ fora da amostra principal do TCC.
 Na raiz do repositório, com Python 3.12 ou posterior:
 
 ```bash
-source contextlab/.venv/bin/activate
+source .venv/bin/activate
 python -m pip install -r projects/orcamentos/requirements-evaluator.txt -e projects/orcamentos
 cd projects/orcamentos
 uvicorn orcamentos.api:create_app --factory --reload
@@ -125,7 +125,7 @@ para os próximos lotes até outra alteração. Como o cadastro já foi entregue
 pronto, não era necessário executar o assistente antes do primeiro `run`.
 `run --resume LOTE` usa a configuração congelada do lote escolhido, mesmo que
 o modelo no JSON atual já tenha mudado. Os detalhes estão na
-[referência de configure](../../contextlab/docs/COMANDOS.md#configure-ajustar-o-cadastro).
+[referência de configure](../../docs/COMANDOS.md#configure-ajustar-o-cadastro).
 
 Comece inspecionando, sem chamar IA:
 
@@ -173,12 +173,8 @@ função alvo, não de toda a API. Os dois exercícios têm finalidades distinta
 não interprete a média conjunta como comparação de L/R/A. Não há defeitos
 artificiais cadastrados neste projeto.
 
-O [registro de preparação](../../docs/historico/ORCAAPI.md) acompanha a validação e a
-[inspeção do primeiro lote L/R/A](../../docs/historico/EXERCICIO_ORCAAPI_LRA.md) explica
-as seis entregas e as revisões pendentes. A [referência de comandos](../../contextlab/docs/COMANDOS.md)
+Os registros de preparação e das inspeções dos pilotos ficam no repositório do
+TCC. A [referência de comandos](../../docs/COMANDOS.md)
 explica as opções e a [documentação do FastAPI](https://fastapi.tiangolo.com/tutorial/testing/)
 detalha o TestClient.
 
-O [segundo piloto, com GPT-6.1 Sol](../../docs/historico/COMPARACAO_MODELOS_ORCAAPI.md),
-registra a repetição das seis combinações com o modelo atual, preservando o
-lote inicial com Luna.

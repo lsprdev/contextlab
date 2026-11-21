@@ -12,7 +12,7 @@ a referência serve para localizar uma dúvida específica.
 Na raiz do repositório, após a instalação descrita no [README](../README.md):
 
 ```bash
-source contextlab/.venv/bin/activate
+source .venv/bin/activate
 cambio --demo
 ```
 
@@ -90,9 +90,8 @@ A lista de defeitos está vazia, então essa métrica ficará não aplicável.
 
 ## 5. Experimente as três estratégias
 
-O [exercício real de câmbio em L/R/A](../../docs/historico/EXERCICIO_CAMBIO_LRA.md) registra
-um lote já executado com Codex e Docker, com comandos para ler cada entrega e
-as consultas do agente. A sequência abaixo continua sendo a demonstração com
+O câmbio também já foi executado em L/R/A com Codex e Docker, em um exercício
+registrado no repositório do TCC. A sequência abaixo continua sendo a demonstração com
 fixture; ela não chama o modelo.
 
 ```bash

@@ -29,12 +29,11 @@ python-dotenv e python-stdnum**, com três funções selecionadas por projeto.
 A instalação, os testes de referência e a integração desses alvos com o
 ContextLab ainda precisam ser validados. O modelo e os limites da coleta
 principal também precisam ser definidos, validados e congelados. O
-[acompanhamento do TCC](../../docs/STATUS.md) detalha essas pendências.
+acompanhamento do TCC detalha essas pendências.
 
 ## Instalação
 
-Requisitos: Python 3.11 ou posterior em macOS ou Linux (WSL no Windows) para executar o ContextLab. A imagem de avaliação usa Python 3.12. Os comandos abaixo partem da pasta
-`contextlab/`, na raiz deste repositório.
+Requisitos: Python 3.11 ou posterior em macOS ou Linux (WSL no Windows) para executar o ContextLab. A imagem de avaliação usa Python 3.12. Os comandos abaixo partem da raiz deste repositório.
 
 ```bash
 python -m venv .venv

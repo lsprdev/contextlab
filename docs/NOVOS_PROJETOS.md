@@ -124,7 +124,7 @@ Para um primeiro piloto apenas de geração e execução, é possível usar
 
 ## 5. Criar o manifesto
 
-Na pasta `contextlab/`, crie o diretório de manifestos locais:
+Na raiz deste repositório, crie o diretório de manifestos locais:
 
 ```bash
 mkdir -p experiments
@@ -234,8 +234,7 @@ partida para o piloto, não limites já justificados para qualquer backend.
 
 ## 6. Preparar o ambiente de execução
 
-Os comandos seguintes partem da pasta `contextlab/`, dentro do repositório do
-TCC. Se ainda não houver um ambiente instalado e ativo:
+Os comandos seguintes partem da raiz deste repositório. Se ainda não houver um ambiente instalado e ativo:
 
 ```bash
 python3.12 -m venv .venv

@@ -1,140 +1,217 @@
 # ContextLab
 
-O ContextLab organiza experimentos de geração de testes: prepara o contexto,
-recebe um teste e o avalia separadamente. Comece pelo projeto **cambio**, já
-cadastrado em `projects/cambio/contextlab.json`.
+O ContextLab é uma ferramenta de linha de comando para conduzir experimentos de
+**seleção de contexto na geração de testes unitários por agentes de
+programação**. Para cada função escolhida, ele prepara o material que o agente
+pode consultar, abre uma sessão do Codex, guarda o teste entregue e o avalia
+depois, em um contêiner Docker separado. O ContextLab compara três estratégias:
 
-## Qual documentação abrir
+| Estratégia | O que o agente recebe |
+|---|---|
+| **Local (L)** | O arquivo da função e os tipos necessários à assinatura. |
+| **Recuperado (R)** | O pacote L mais as definições do projeto usadas diretamente pela função, encontradas por análise estática. |
+| **Autônomo (A)** | Uma visão preparada do repositório, para o agente decidir o que listar, ler e buscar. |
 
-- [Primeiro projeto](docs/PRIMEIRO_PROJETO.md): acompanhe uma execução de câmbio, passo a passo.
-- [Segundo projeto: OrçaAPI](../projects/orcamentos/README.md): conheça a API com SQLite e prepare exercícios de cálculo e HTTP.
-- [Referência de comandos](docs/COMANDOS.md): consulte todos os comandos, opções `--`, exemplos, revisão, uso local e Docker.
-- [Arquivos de saída](docs/SAIDAS.md): entenda cada arquivo, as etapas do experimento e como explicar os resultados.
-- [Uso por manifesto](docs/USO_POR_MANIFESTO.md): controle as etapas separadamente e prepare o protocolo completo.
+O agente entrega uma única vez e não recebe erros de execução para corrigir. A
+avaliação registra execução, aprovação após revisão humana, cobertura da
+função, detecção de defeitos controlados, tempo, *tokens* e consultas. Cada
+tentativa fica guardada com a configuração e os hashes de seus materiais, para
+conferência posterior.
 
-## Comece aqui
+O ContextLab é o instrumento do Trabalho de Conclusão de Curso *Seleção de
+contexto na geração de testes unitários por agentes de programação: uma
+avaliação experimental* (Bacharelado em Sistemas de Informação, IFC Campus
+Araquari, 2026).
 
-Na raiz do repositório, prepare o ambiente uma vez:
+## Requisitos
+
+- **Python 3.11+** em macOS ou Linux (no Windows, use o WSL).
+- **Docker**, para avaliar testes gerados por IA. A demonstração não precisa dele.
+- **[Codex CLI](https://learn.chatgpt.com/docs/non-interactive-mode)** com login
+  próprio, só para pilotos e experimentos com geração real.
+
+## Instalação
 
 ```bash
-python3 -m venv contextlab/.venv
-source contextlab/.venv/bin/activate
-python -m pip install -e ./contextlab -e ./projects/cambio
+git clone https://github.com/lsprdev/contextlab.git
+cd contextlab
 ```
 
-Nas próximas sessões, basta ativar esse ambiente. Primeiro, conheça a aplicação:
+### Como comando global
+
+Com o [pipx](https://pipx.pypa.io/), o comando `contextlab` fica disponível em
+qualquer pasta do sistema:
+
+```bash
+pipx install -e .
+contextlab --help
+```
+
+O `-e` (instalação editável) faz o comando usar o código desta pasta. Uma
+alteração no código vale na hora, sem reinstalar. Mantenha a pasta clonada,
+porque a imagem base do avaliador é construída a partir do
+`Dockerfile.evaluator` dela.
+
+### Em um ambiente virtual
+
+É a forma indicada para rodar a demonstração e os testes do ContextLab:
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -e . -e ./projects/cambio
+```
+
+## Primeiros passos: demonstração sem IA
+
+O projeto didático **câmbio**, em `projects/cambio/`, é uma pequena CLI de
+conversão de moedas. Comece conhecendo a aplicação:
 
 ```bash
 cambio --demo
 ```
 
-O menu consulta e converte valores fictícios. Use `cambio` para consultar a
-Frankfurter pela internet. A aplicação mostra a data das taxas diárias.
-
-Depois, inspecione o experimento:
+A demonstração do ContextLab usa um teste já escrito, em
+`projects/cambio/tutorial/`. Nenhum modelo é chamado. Coloque o projeto em modo
+`demo`, com uma tentativa na estratégia L:
 
 ```bash
+contextlab cambio configure --mode demo --conditions L --repetitions 1
 contextlab cambio plan
 contextlab cambio context --condition L
 ```
 
-O plano inicial tem **uma tentativa em L**, para `converter_para_brl`. O modo
-`demo` do ContextLab utiliza um teste previamente escrito em `tutorial/`: não
-chama IA. Isso permite aprender o fluxo antes de configurar um piloto real.
-
-Após ler esse teste, execute a demonstração local e consulte o resultado:
+`plan` mostra as tentativas, e `context` mostra exatamente o que o agente
+receberia. Execute e consulte o resultado:
 
 ```bash
 contextlab cambio run --trusted-local
 contextlab cambio runs
+contextlab cambio show ID --code
 ```
 
-`--trusted-local` autoriza executar os testes autorais no ambiente virtual.
-Testes produzidos pelo Codex exigem avaliação Docker. Uma tentativa que passa
-fica aguardando revisão; aprovação não é automática.
+`--trusted-local` permite avaliar no seu ambiente um teste escrito por você.
+Testes gerados por IA são sempre avaliados no Docker. Passar nos testes deixa a
+tentativa **aguardando revisão**, porque a aprovação exige a inspeção humana:
 
-Siga o [guia passo a passo](docs/PRIMEIRO_PROJETO.md) para abrir a entrega,
-registrar a revisão e experimentar as três estratégias.
+```bash
+contextlab cambio review ID
+contextlab cambio serve
+```
 
-## Como o nome encontra a configuração
+`serve` abre no navegador uma página somente de leitura com as tentativas, os
+casos de teste, o contexto entregue, as consultas e o consumo de cada
+estratégia.
 
-```text
+O [guia do primeiro projeto](docs/PRIMEIRO_PROJETO.md) percorre esse fluxo em
+detalhe e mostra como experimentar R e A.
+
+## Piloto com o Codex
+
+Com o Docker ligado e o Codex instalado:
+
+```bash
+contextlab cambio configure --mode pilot --conditions L R A --model MODELO --auth-file ~/.codex/auth.json
+contextlab cambio setup
 contextlab cambio plan
-           └── projects/cambio/contextlab.json
-
-contextlab cambio runs
-           └── projects/cambio/runs/<lote>/
+contextlab cambio run --max-runs 1
 ```
 
-Os comandos procuram `projects/` na pasta atual ou em seus ancestrais. Use-os
-na raiz deste repositório ou em suas subpastas. Cada lote conserva configuração,
-validação, entregas e resultados. Listar execuções não as repete.
+- **`--model`:** fixa o modelo explicitamente.
+- **`--auth-file`:** aponta o login do Codex. O ContextLab guarda só o caminho,
+  nunca o conteúdo da credencial.
+- **`setup`:** prepara a imagem do avaliador.
+- **`--max-runs 1`:** processa uma tentativa por vez. Para continuar o mesmo
+  lote, use `run --resume LOTE`.
+
+## Usar com o seu projeto
+
+Os comandos por nome procuram uma pasta `projects/` na pasta atual ou acima
+dela. Cada projeto fica em `projects/NOME/`, com seu `contextlab.json`:
+
+```bash
+mkdir -p projects && cp -r /caminho/do/meu-projeto projects/meu-projeto
+contextlab create meu-projeto
+contextlab meu-projeto plan
+```
+
+`create` encontra as funções do código, sem executá-lo, e grava a configuração
+inicial. Projetos com dependências próprias precisam de um Dockerfile, que o
+`setup` recebe pela opção `--dockerfile`. Veja [Novos projetos](docs/NOVOS_PROJETOS.md).
+
+Para experimentos com vários projetos, ordem sorteada e congelamento do
+protocolo, use a interface por manifesto: `plan`, `doctor`, `prepare`,
+`validate`, `freeze`, `run`, `review` e `report`. Ela está descrita em
+[Uso por manifesto](docs/USO_POR_MANIFESTO.md).
+
+## Comandos do fluxo por projeto
 
 | Comando | O que faz |
 |---|---|
-| `contextlab create NOME` | Cadastra uma aplicação Python já existente em `projects/NOME/`, sem sobrescrever configuração. |
-| `contextlab NOME configure` | Orienta mudanças de modo, estratégias, repetições e modelo. |
+| `contextlab create NOME` | Cadastra uma aplicação Python existente em `projects/NOME/`. |
+| `contextlab NOME configure` | Ajusta modo, estratégias, repetições, modelo e imagem. |
 | `contextlab NOME setup` | Confere o Docker e prepara ou reutiliza a imagem do avaliador. |
-| `contextlab NOME plan` | Mostra as tentativas planejadas. |
-| `contextlab NOME context --condition R` | Mostra o contexto de uma estratégia, sem chamar o agente. |
-| `contextlab NOME run` | Valida referências, congela a configuração e executa. |
-| `contextlab NOME runs` | Lista uma linha por tentativa, incluindo as não iniciadas. |
-| `contextlab NOME serve` | Abre uma página local, somente leitura, para filtrar e explorar as tentativas; `--export` grava a página em um arquivo. |
-| `contextlab NOME show LOTE/01` | Mostra contagens, casos e falhas; `--code` inclui a entrega e `--json` exibe a avaliação técnica. |
-| `contextlab NOME review LOTE/01` | Solicita a revisão e reavalia a mesma entrega. |
+| `contextlab NOME plan` | Mostra as tentativas planejadas, sem chamar o agente. |
+| `contextlab NOME context --condition R` | Mostra o contexto de uma estratégia. |
+| `contextlab NOME run` | Valida referências, congela a configuração, gera e avalia. |
+| `contextlab NOME runs` | Lista as tentativas e suas situações. |
+| `contextlab NOME show ID` | Mostra casos e falhas; `--code` inclui a entrega. |
+| `contextlab NOME review ID` | Registra a revisão humana e reavalia a mesma entrega. |
+| `contextlab NOME serve` | Abre o visualizador; `--export` grava a página em um arquivo. |
 
-`plan` e `runs` aceitam `--json`. `run --max-runs 1` limita quantas tentativas
-pendentes são processadas; `run --resume LOTE` continua o mesmo lote sem
-regenerar entregas. O ID completo aparece em `runs`. Os comandos com caminhos de
-manifesto continuam disponíveis no [guia completo](docs/USO_POR_MANIFESTO.md).
+Todas as opções estão na [referência de comandos](docs/COMANDOS.md).
 
-Para um piloto, o fluxo é `configure` → `setup` → `plan` → `run`. `setup`
-substitui a construção manual da imagem: reutiliza uma existente e constrói a
-base quando necessário. O Docker precisa estar ligado. Os contêineres de
-avaliação continuam sendo criados e removidos pelo `run`, sem serviço permanente
-por projeto. Dependências próprias exigem uma imagem/Dockerfile do projeto;
-consulte [setup na referência](docs/COMANDOS.md#setup-preparar-a-imagem-do-avaliador).
+## Documentação
 
-## Onde encontrar cada coisa
+| Guia | Conteúdo |
+|---|---|
+| [Primeiro projeto](docs/PRIMEIRO_PROJETO.md) | Passo a passo com o câmbio. |
+| [OrçaAPI](projects/orcamentos/README.md) | Segundo projeto didático: API com FastAPI e SQLite, dependências locais e teste HTTP. |
+| [Referência de comandos](docs/COMANDOS.md) | Todos os comandos e opções. |
+| [Arquivos de saída](docs/SAIDAS.md) | O que cada arquivo de um lote registra. |
+| [Uso por manifesto](docs/USO_POR_MANIFESTO.md) | Protocolo completo, congelamento e relatórios. |
+| [Novos projetos](docs/NOVOS_PROJETOS.md) | Como preparar outro projeto Python. |
+| [Avaliação e métricas](docs/AVALIACAO.md) | Execução, aprovação, cobertura focal e defeitos. |
+| [Adaptadores](docs/ADAPTERS.md) | Integração com o Codex e isolamento da sessão. |
+| [Verificações](docs/VERIFICACAO.md) | Registro histórico das verificações do instrumento. |
+
+## Organização do repositório
 
 | Local | Conteúdo |
 |---|---|
-| `../projects/cambio/` | Aplicação de câmbio, configuração e tutorial atual. |
-| `../projects/orcamentos/` | OrçaAPI: API didática com SQLite, referências e configuração de piloto. |
 | `src/contextlab/` | Código da ferramenta. |
-| `tests/` | Testes automatizados do ContextLab. |
-| `tests/fixtures/` | Pequenos projetos e manifestos usados pelos testes internos. |
-| `docs/` | Guias de uso, avaliação e histórico de verificações. |
-| `runs/` | Registros antigos, preservados nos locais originais. |
-| `../projects/*/runs/` | Novos lotes executados pela interface por nome. |
+| `tests/` | Testes automatizados; `tests/fixtures/` tem projetos e manifestos de teste. |
+| `docs/` | Guias de uso e verificação. |
+| `projects/cambio/` | Projeto didático: CLI de câmbio. |
+| `projects/orcamentos/` | Projeto didático: OrçaAPI. |
+| `projects/*/runs/` | Lotes executados localmente, fora do Git. |
 
-Caches e ambientes virtuais são arquivos locais, fora do Git. Os exemplos
-antigos de Loja e Agenda agora são fixtures internas dos testes.
+## Experimento do TCC
 
-## Relação com o TCC
+O experimento principal compara L, R e A com o Codex em quatro projetos Python
+públicos, com três funções por projeto e três repetições: **108 tentativas de
+geração**.
 
-Câmbio é um exercício autoral, fora da amostra. A coleta principal permanece em
-**4 projetos × 3 funções × Codex × L/R/A × 3 repetições = 108 gerações**.
-Fava, bump-my-version, python-dotenv e python-stdnum já foram escolhidos; sua preparação e
-validação ainda estão pendentes, conforme o [status do TCC](../docs/STATUS.md).
+| Projeto | Tipo | Funções |
+|---|---|---|
+| Fava 1.30.16 | Aplicação web | `calculate_budget`, `group_entries_by_account`, `find_insert_position` |
+| bump-my-version 1.8.1 | Aplicação de linha de comando | `VersionConfig.parse`, `serialize`, `SCMConfig.get_version_from_tag` |
+| python-dotenv 1.2.4 | Biblioteca | `parse_value`, `parse_variables`, `resolve_variables` |
+| python-stdnum 2.2 | Biblioteca | `br.cpf.validate`, `isbn.validate`, `es.nif.validate` |
 
-Os atalhos por nome atendem demonstrações e pilotos de um projeto. O protocolo
-principal continua reunindo os quatro projetos no mesmo manifesto, mantendo o
-sorteio dos blocos e os critérios de congelamento. Os limites do tutorial não
-são uma calibração para a pesquisa. Outros agentes ficam para trabalhos futuros.
+O manifesto, os testes de referência, os defeitos controlados e os resultados
+do experimento serão publicados neste repositório depois da coleta. O código
+dos quatro projetos não é copiado: o manifesto aponta as revisões usadas. Os
+projetos didáticos ficam fora da amostra e não servem como evidência do
+experimento.
 
-## Desenvolvimento e detalhes
-
-Na pasta `contextlab/`, com o ambiente ativado:
+## Desenvolvimento
 
 ```bash
+source .venv/bin/activate
 python -m pytest -q -p no:cacheprovider
 ```
 
-- [Primeiro projeto](docs/PRIMEIRO_PROJETO.md)
-- [Referência de todos os comandos e opções](docs/COMANDOS.md)
-- [Comandos por manifesto e protocolo completo](docs/USO_POR_MANIFESTO.md)
-- [Preparar outros projetos](docs/NOVOS_PROJETOS.md)
-- [Avaliação e métricas](docs/AVALIACAO.md)
-- [Adaptadores](docs/ADAPTERS.md)
-- [Verificações e limites conhecidos](docs/VERIFICACAO.md)
+## Licença
+
+[MIT](LICENSE).

@@ -8,9 +8,9 @@ valores. Possui menu interativo, tabela de cotações e animação durante a con
 Na raiz deste repositório:
 
 ```bash
-python3 -m venv contextlab/.venv
-source contextlab/.venv/bin/activate
-python -m pip install -e ./contextlab -e ./projects/cambio
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -e . -e ./projects/cambio
 cambio
 ```
 
@@ -55,6 +55,6 @@ contextlab cambio context --condition L
 ```
 
 Os testes automatizados não dependem da API. O
-[guia passo a passo](../../contextlab/docs/PRIMEIRO_PROJETO.md) acompanha a primeira
+[guia passo a passo](../../docs/PRIMEIRO_PROJETO.md) acompanha a primeira
 execução. A configuração inicial usa uma tentativa em L e uma entrega já
 escrita; não chama o Codex. O projeto está fora das 108 gerações do TCC.
