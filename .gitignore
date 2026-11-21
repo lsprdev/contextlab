@@ -27,3 +27,6 @@ auth.json
 ._*
 *.swp
 *~
+
+# Site gerado localmente
+site-dist/

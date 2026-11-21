@@ -1,0 +1,9 @@
+# Site de documentação. No Dokploy, o domínio aponta para o serviço "site", porta 80.
+services:
+  site:
+    build:
+      context: .
+      dockerfile: site/Dockerfile
+    restart: unless-stopped
+    expose:
+      - "80"

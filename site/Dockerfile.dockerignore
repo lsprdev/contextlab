@@ -1,0 +1,5 @@
+# O site precisa só do código do visualizador e da configuração do nginx.
+*
+!src/
+!site/nginx.conf
+**/__pycache__

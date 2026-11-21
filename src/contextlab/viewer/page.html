@@ -38,6 +38,9 @@ code { font-size: 12px; background: var(--panel-2); border: 1px solid var(--line
 .nav button { padding: 6px 11px; border-radius: 7px; color: var(--muted); font-weight: 500; }
 .nav button:hover { color: var(--ink); background: var(--hover); }
 .nav button[aria-current="page"] { color: var(--ink); background: var(--panel-2); }
+.site-link { margin-left: auto; padding: 6px 11px; border-radius: 7px; color: var(--muted); font-weight: 500; text-decoration: none; }
+.site-link:hover { color: var(--ink); background: var(--hover); }
+.site-link + .icon-btn { margin-left: 0; }
 .icon-btn { margin-left: auto; width: 32px; height: 32px; border-radius: 8px; display: grid; place-items: center; color: var(--muted); border: 1px solid var(--line); }
 .icon-btn:hover { color: var(--ink); background: var(--hover); }
 .icon-btn svg { width: 16px; height: 16px; }
@@ -177,7 +180,8 @@ pre.code-sample { font-size: 12px; line-height: 1.65; } .cmt { color: var(--fain
 .cmd-head code { font-size: 13px; font-weight: 600; color: var(--ink); background: var(--panel-2); }
 .cmd-head span { color: var(--muted); font-size: 13px; } .cmd p { font-size: 13.5px; }
 [hidden] { display: none !important; }
-@media (max-width: 900px) { .docs { grid-template-columns: 1fr; } .toc { position: static; flex-direction: row; flex-wrap: wrap; } .toc b { width: 100%; }
+@media (max-width: 520px) { body.site .nav { display: none; } }
+@media (max-width: 900px) { .docs { grid-template-columns: minmax(0, 1fr); gap: 20px; } .toc { position: static; flex-direction: row; flex-wrap: wrap; } .toc b { width: 100%; }
   .topbar { padding: 0 14px; } main { padding: 18px 14px 50px; } .seg { margin-left: 0; } table.compare td:first-child { width: auto; } }
 </style>
 </head>
@@ -594,7 +598,7 @@ function liveConfig() {
 }
 
 function setupDocs() {
-  if (docsReady) return;
+  if (docsReady) return Promise.resolve();
   docsReady = true;
   const toc = document.getElementById("toc");
   const sections = [...document.querySelectorAll("#doc > section")];
@@ -607,7 +611,7 @@ function setupDocs() {
   }, {rootMargin: "-90px 0px -65% 0px"});
   sections.forEach(s => spy.observe(s));
   liveConfig();
-  renderDiagrams();
+  return renderDiagrams();
 }
 
 function showPage(page, anchor) {
@@ -638,17 +642,35 @@ document.documentElement.dataset.theme = ["light", "dark"].includes(forced) ? fo
   : saved || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
 
 document.getElementById("theme").addEventListener("click", () => applyTheme(isDark() ? "light" : "dark"));
-document.getElementById("nav-runs").addEventListener("click", () => { showPage("runs"); syncHash(); });
-document.getElementById("nav-docs").addEventListener("click", () => { showPage("docs"); syncHash(); });
-document.getElementById("d-close").addEventListener("click", closeDrawer);
-document.getElementById("backdrop").addEventListener("click", closeDrawer);
-document.addEventListener("keydown", e => { if (e.key === "Escape" && state.selected) closeDrawer(); });
+if (!DATA.site) {
+  document.getElementById("nav-runs").addEventListener("click", () => { showPage("runs"); syncHash(); });
+  document.getElementById("nav-docs").addEventListener("click", () => { showPage("docs"); syncHash(); });
+  document.getElementById("d-close").addEventListener("click", closeDrawer);
+  document.getElementById("backdrop").addEventListener("click", closeDrawer);
+  document.addEventListener("keydown", e => { if (e.key === "Escape" && state.selected) closeDrawer(); });
+}
 
-renderHeader();
-const anchor = fromHash();
-update();
-renderDrawer();
-showPage(state.page, anchor);
+// Site público: só a documentação, sem registros de execução.
+if (DATA.site) {
+  for (const id of ["nav-runs", "view-runs", "backdrop", "drawer"]) document.getElementById(id).remove();
+  document.getElementById("nav-docs").setAttribute("aria-current", "page");
+  document.getElementById("view-docs").hidden = false;
+  document.body.classList.add("site");
+  if (DATA.site.repository) document.getElementById("theme").before(el("a", {class: "site-link", href: DATA.site.repository, text: "GitHub"}));
+  document.title = "ContextLab · Documentação";
+  const raw = decodeURIComponent(location.hash.slice(1));
+  state.page = "docs";
+  const target = raw.startsWith("docs/") && document.getElementById(raw.slice(5));
+  if (target) target.scrollIntoView();
+  // Os diagramas mudam a altura da página: reposiciona depois de desenhá-los.
+  setupDocs().then(() => { if (target) target.scrollIntoView(); });
+} else {
+  renderHeader();
+  const anchor = fromHash();
+  update();
+  renderDrawer();
+  showPage(state.page, anchor);
+}
 </script>
 </body>
 </html>

@@ -7,7 +7,7 @@ from pathlib import Path
 import pytest
 
 from contextlab.cli import main
-from contextlab.viewer import ViewerError, collect, export, make_server, project_runs, render
+from contextlab.viewer import ViewerError, build_site, collect, export, make_server, project_runs, render
 
 HOSTILE = 'def test_x():\n    assert "</script><script>alert(1)</script><!--" != ""\n'
 
@@ -268,3 +268,15 @@ def test_display_name_titles_the_page_and_never_replaces_the_identifier(tmp_path
             load_config(manifest)
     finally:
         manifest.unlink(missing_ok=True)
+
+
+def test_build_site_publishes_only_documentation(tmp_path):
+    index = build_site(tmp_path / "site")
+    html = index.read_text(encoding="utf-8")
+    data = json.loads(html.split('<script type="application/json" id="data">', 1)[1].split("</script>", 1)[0])
+    assert data["site"] == {"repository": "https://github.com/lsprdev/contextlab"}
+    assert data["attempts"] == [] and data["sources"] == []
+    assert 'id="doc-visao"' in html and 'id="doc-comandos"' in html
+    assert '<script src="/assets/mermaid.min.js"></script>' in html
+    assert (tmp_path / "site" / "assets" / "mermaid.min.js").is_file()
+    assert "/Users/" not in html

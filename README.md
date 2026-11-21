@@ -182,6 +182,7 @@ Todas as opções estão na [referência de comandos](docs/COMANDOS.md).
 | `src/contextlab/` | Código da ferramenta. |
 | `tests/` | Testes automatizados; `tests/fixtures/` tem projetos e manifestos de teste. |
 | `docs/` | Guias de uso e verificação. |
+| `site/` | Dockerfile e nginx do site de documentação. |
 | `projects/cambio/` | Projeto didático: CLI de câmbio. |
 | `projects/orcamentos/` | Projeto didático: OrçaAPI. |
 | `projects/*/runs/` | Lotes executados localmente, fora do Git. |
@@ -204,6 +205,20 @@ do experimento serão publicados neste repositório depois da coleta. O código
 dos quatro projetos não é copiado: o manifesto aponta as revisões usadas. Os
 projetos didáticos ficam fora da amostra e não servem como evidência do
 experimento.
+
+## Site de documentação
+
+A documentação do visualizador também é publicada como site estático em
+[contextlab.lspr.dev](https://contextlab.lspr.dev). Ele é gerado a partir das
+mesmas páginas do `serve`, sem registros de execução:
+
+```bash
+python -m contextlab.viewer.site site-dist   # gera site-dist/index.html
+docker compose up --build                    # serve o site com nginx, porta 80 do serviço "site"
+```
+
+`site/Dockerfile` gera a página e a entrega por nginx; `docker-compose.yml` é o
+arquivo usado na implantação.
 
 ## Desenvolvimento
 

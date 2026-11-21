@@ -294,6 +294,25 @@ def render(data: dict, inline_assets: bool = True) -> str:
     return template.replace("/*__CONTEXTLAB_DATA__*/", payload)
 
 
+REPOSITORY = "https://github.com/lsprdev/contextlab"
+
+
+def build_site(destination: Path, repository: str = REPOSITORY) -> Path:
+    """Site estático só com a documentação, para publicação.
+
+    Usa o mesmo modelo do visualizador, sem registros de execução. A biblioteca
+    de diagramas fica em `assets/`, servida pelo mesmo endereço da página.
+    """
+    destination = Path(destination)
+    (destination / "assets").mkdir(parents=True, exist_ok=True)
+    data = {"title": "ContextLab", "site": {"repository": repository},
+            "sources": [], "attempts": [], "pricing": None}
+    (destination / "index.html").write_text(render(data, inline_assets=False), encoding="utf-8")
+    if _MERMAID.is_file():
+        (destination / "assets" / "mermaid.min.js").write_bytes(_MERMAID.read_bytes())
+    return destination / "index.html"
+
+
 def export(data: dict, destination: Path) -> Path:
     destination = Path(destination)
     if destination.exists():
