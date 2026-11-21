@@ -8,6 +8,7 @@ servidor atende apenas requisições locais de leitura.
 from __future__ import annotations
 
 from datetime import datetime, timezone
+import html
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 import json
 from pathlib import Path
@@ -307,7 +308,21 @@ def build_site(destination: Path, repository: str = REPOSITORY) -> Path:
     (destination / "assets").mkdir(parents=True, exist_ok=True)
     data = {"title": "ContextLab", "site": {"repository": repository},
             "sources": [], "attempts": [], "pricing": None}
-    (destination / "index.html").write_text(render(data, inline_assets=False), encoding="utf-8")
+    page = render(data, inline_assets=False)
+    # A página já sai na forma final: sem a tela de execuções, que apareceria
+    # por um instante antes do script rodar.
+    link = f'<a class="site-link" href="{html.escape(repository)}">GitHub</a>\n  ' if repository else ""
+    for old, new in (("<title>ContextLab</title>", "<title>ContextLab · Documentação</title>"),
+                     ("<body>", '<body class="site">'),
+                     ('    <button id="nav-runs" aria-current="page">Execuções</button>\n', ""),
+                     ('<button id="nav-docs">', '<button id="nav-docs" aria-current="page">'),
+                     ('<button class="icon-btn" id="theme"', link + '<button class="icon-btn" id="theme"'),
+                     ('<main id="view-runs">', '<main id="view-runs" hidden>'),
+                     ('<main id="view-docs" hidden>', '<main id="view-docs">')):
+        if page.count(old) != 1:
+            raise ViewerError("Modelo da página inválido para o site")
+        page = page.replace(old, new)
+    (destination / "index.html").write_text(page, encoding="utf-8")
     if _MERMAID.is_file():
         (destination / "assets" / "mermaid.min.js").write_bytes(_MERMAID.read_bytes())
     return destination / "index.html"

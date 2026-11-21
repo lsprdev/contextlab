@@ -280,3 +280,7 @@ def test_build_site_publishes_only_documentation(tmp_path):
     assert '<script src="/assets/mermaid.min.js"></script>' in html
     assert (tmp_path / "site" / "assets" / "mermaid.min.js").is_file()
     assert "/Users/" not in html
+    # Sem a tela de execuções nem o tema decidido tarde: nada pisca ao abrir.
+    assert 'id="nav-runs"' not in html and '<main id="view-runs" hidden>' in html
+    assert '<main id="view-docs">' in html and '<body class="site">' in html
+    assert html.index("contextlab-tema") < html.index("<style>")
