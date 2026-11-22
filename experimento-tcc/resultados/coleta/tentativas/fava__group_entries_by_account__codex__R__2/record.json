@@ -1,0 +1,255 @@
+{
+  "schema_version": 1,
+  "order": 4,
+  "project": "fava",
+  "target": "group_entries_by_account",
+  "agent": "codex",
+  "condition": "R",
+  "repetition": 2,
+  "id": "fava__group_entries_by_account__codex__R__2",
+  "phase": "main",
+  "lock_hash": "49dd66a522994eb03001a67255ded0aa13cc696255859f45a924b43f05f5da33",
+  "started_at": "2026-11-22T03:13:18.696727+00:00",
+  "status": "finished",
+  "generation": {
+    "status": "completed",
+    "input_tokens": 22042,
+    "output_tokens": 2286,
+    "seconds": 52.734372332983185,
+    "version": "codex-cli 0.170.0",
+    "tool_log": [
+      {
+        "index": 1,
+        "tool": "list_files",
+        "arguments": {
+          "path": "src/fava/beans"
+        },
+        "delivered_chars": 115,
+        "chars_before": 4214,
+        "status": "ok",
+        "chars_after": 4329
+      },
+      {
+        "index": 2,
+        "tool": "list_files",
+        "arguments": {},
+        "delivered_chars": 148,
+        "chars_before": 4329,
+        "status": "ok",
+        "chars_after": 4477
+      }
+    ],
+    "usage": {
+      "input_tokens": 22042,
+      "cached_input_tokens": 7040,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 2286,
+      "reasoning_output_tokens": 998
+    },
+    "details": [],
+    "capabilities": {
+      "tool_surface_verified": true,
+      "tools": [
+        "functions.list_mcp_resource_templates",
+        "functions.list_mcp_resources",
+        "functions.read_mcp_resource",
+        "mcp__contextlab.list_files",
+        "mcp__contextlab.read_file",
+        "mcp__contextlab.search"
+      ],
+      "catalog_sha256": "a61b50641627a2941fc8be4db823d1fbbfa4ae628add4d7ec443dbab559140fb",
+      "probe": "offline-localhost",
+      "model": "gpt-6.2-sol",
+      "command_rejected": true,
+      "outside_packet_rejected": true,
+      "allowed_read_verified": true
+    },
+    "returncode": 0,
+    "context_stats": {
+      "chars_used": 4477,
+      "initial_chars": 4214,
+      "response_chars": 263,
+      "remaining_chars": 25523,
+      "tool_calls": 2,
+      "max_calls": 20,
+      "budget": 30000
+    },
+    "session_id": "01a2013e-7365-7a83-8678-792ca2a07be0"
+  },
+  "evaluation": {
+    "target_id": "group_entries_by_account",
+    "test_kind": "unit",
+    "received": true,
+    "syntax_ok": true,
+    "collected": 0,
+    "active_started": false,
+    "reference_passed": false,
+    "approval": "rejected",
+    "approved": false,
+    "coverage_raw": {
+      "executed": false,
+      "line_total": 8,
+      "line_covered": 0,
+      "line_rate": 0.0,
+      "branch_total": 8,
+      "branch_covered": 0,
+      "branch_rate": 0.0,
+      "executable_lines": [
+        80,
+        84,
+        85,
+        86,
+        87,
+        89,
+        90,
+        92
+      ],
+      "covered_lines": [],
+      "branches": {
+        "86": {
+          "total": 2,
+          "covered": 0
+        },
+        "84": {
+          "total": 2,
+          "covered": 0
+        },
+        "89": {
+          "total": 2,
+          "covered": 0
+        },
+        "85": {
+          "total": 2,
+          "covered": 0
+        }
+      }
+    },
+    "coverage_main": null,
+    "defects": [],
+    "detection_rate": null,
+    "review": null,
+    "backend": "docker",
+    "submission_sha256": "f64b9024ab4926598ced28d805613067948f2a0be1392e45ee64c43617bfedea",
+    "status": "completed",
+    "seconds": 0.9434563330141827,
+    "active_count": 0,
+    "passed_count": 0,
+    "skipped_count": 0,
+    "xfail_count": 0,
+    "failure_categories": [
+      "collection_error"
+    ],
+    "original": {
+      "status": "completed",
+      "seconds": 0.9434563330141827,
+      "exit_code": 2,
+      "production_unchanged": true,
+      "collected": 0,
+      "active_started": false,
+      "active_count": 0,
+      "passed_count": 0,
+      "skipped_count": 0,
+      "xfail_count": 0,
+      "failure_categories": [
+        "collection_error"
+      ],
+      "reference_passed": false,
+      "assertion_failure": false,
+      "focal": {
+        "executed": false,
+        "line_total": 8,
+        "line_covered": 0,
+        "line_rate": 0.0,
+        "branch_total": 8,
+        "branch_covered": 0,
+        "branch_rate": 0.0,
+        "executable_lines": [
+          80,
+          84,
+          85,
+          86,
+          87,
+          89,
+          90,
+          92
+        ],
+        "covered_lines": [],
+        "branches": {
+          "86": {
+            "total": 2,
+            "covered": 0
+          },
+          "84": {
+            "total": 2,
+            "covered": 0
+          },
+          "89": {
+            "total": 2,
+            "covered": 0
+          },
+          "85": {
+            "total": 2,
+            "covered": 0
+          }
+        }
+      },
+      "raw": {
+        "exit_code": 2,
+        "collected": 0,
+        "reports": [],
+        "collection_errors": [
+          {
+            "nodeid": "",
+            "message": "/submission/test_generated.py:12: in <module>\n    class LedgerTransaction(abc.Transaction):\n/submission/test_generated.py:22: in LedgerTransaction\n    def __init__(self, *postings, entry_date=date(2024, 1, 1)):\n                                             ^^^^^^^^^^^^^^^^\nE   TypeError: 'datetime.date' object is not callable"
+          }
+        ],
+        "focal": {
+          "executed": false,
+          "line_total": 8,
+          "line_covered": 0,
+          "line_rate": 0.0,
+          "branch_total": 8,
+          "branch_covered": 0,
+          "branch_rate": 0.0,
+          "executable_lines": [
+            80,
+            84,
+            85,
+            86,
+            87,
+            89,
+            90,
+            92
+          ],
+          "covered_lines": [],
+          "branches": {
+            "86": {
+              "total": 2,
+              "covered": 0
+            },
+            "84": {
+              "total": 2,
+              "covered": 0
+            },
+            "89": {
+              "total": 2,
+              "covered": 0
+            },
+            "85": {
+              "total": 2,
+              "covered": 0
+            }
+          }
+        }
+      }
+    },
+    "defects_eligible": null,
+    "defects_measured": null,
+    "defects_detected": null,
+    "detection_complete": null,
+    "total_seconds": 0.980969374999404
+  },
+  "preparation_seconds": 0.05637991696130484,
+  "submission_sha256": "f64b9024ab4926598ced28d805613067948f2a0be1392e45ee64c43617bfedea",
+  "finished_at": "2026-11-22T03:14:12.472551+00:00"
+}

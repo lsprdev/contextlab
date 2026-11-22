@@ -1,0 +1,1671 @@
+{
+  "schema_version": 1,
+  "order": 80,
+  "project": "python_stdnum",
+  "target": "br_cpf_validate",
+  "agent": "codex",
+  "condition": "R",
+  "repetition": 1,
+  "id": "python_stdnum__br_cpf_validate__codex__R__1",
+  "phase": "main",
+  "lock_hash": "49dd66a522994eb03001a67255ded0aa13cc696255859f45a924b43f05f5da33",
+  "started_at": "2026-11-22T04:23:59.823145+00:00",
+  "status": "finished",
+  "generation": {
+    "status": "completed",
+    "input_tokens": 21421,
+    "output_tokens": 2946,
+    "seconds": 65.42402837506961,
+    "version": "codex-cli 0.170.0",
+    "tool_log": [
+      {
+        "index": 1,
+        "tool": "search",
+        "arguments": {
+          "query": "def clean",
+          "path": "stdnum/util.py"
+        },
+        "delivered_chars": 44,
+        "chars_before": 3028,
+        "status": "ok",
+        "chars_after": 3072
+      },
+      {
+        "index": 2,
+        "tool": "list_files",
+        "arguments": {},
+        "delivered_chars": 58,
+        "chars_before": 3072,
+        "status": "ok",
+        "chars_after": 3130
+      }
+    ],
+    "usage": {
+      "input_tokens": 21421,
+      "cached_input_tokens": 17792,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 2946,
+      "reasoning_output_tokens": 2018
+    },
+    "details": [],
+    "capabilities": {
+      "tool_surface_verified": true,
+      "tools": [
+        "functions.list_mcp_resource_templates",
+        "functions.list_mcp_resources",
+        "functions.read_mcp_resource",
+        "mcp__contextlab.list_files",
+        "mcp__contextlab.read_file",
+        "mcp__contextlab.search"
+      ],
+      "catalog_sha256": "a61b50641627a2941fc8be4db823d1fbbfa4ae628add4d7ec443dbab559140fb",
+      "probe": "offline-localhost",
+      "model": "gpt-6.2-sol",
+      "command_rejected": true,
+      "outside_packet_rejected": true,
+      "allowed_read_verified": true
+    },
+    "returncode": 0,
+    "context_stats": {
+      "chars_used": 3130,
+      "initial_chars": 3028,
+      "response_chars": 102,
+      "remaining_chars": 26870,
+      "tool_calls": 2,
+      "max_calls": 20,
+      "budget": 30000
+    },
+    "session_id": "01a2017f-2a5b-7cf1-8a44-bd80ace39136"
+  },
+  "evaluation": {
+    "target_id": "br_cpf_validate",
+    "test_kind": "unit",
+    "received": true,
+    "syntax_ok": true,
+    "collected": 52,
+    "active_started": true,
+    "reference_passed": false,
+    "approval": "rejected",
+    "approved": false,
+    "coverage_raw": {
+      "executed": true,
+      "line_total": 8,
+      "line_covered": 8,
+      "line_rate": 1.0,
+      "branch_total": 6,
+      "branch_covered": 6,
+      "branch_rate": 1.0,
+      "executable_lines": [
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76
+      ],
+      "covered_lines": [
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76
+      ],
+      "branches": {
+        "72": {
+          "total": 2,
+          "covered": 2
+        },
+        "74": {
+          "total": 2,
+          "covered": 2
+        },
+        "70": {
+          "total": 2,
+          "covered": 2
+        }
+      }
+    },
+    "coverage_main": null,
+    "defects": [],
+    "detection_rate": null,
+    "review": null,
+    "backend": "docker",
+    "submission_sha256": "ca164c99b1aff07797808cc9ea5425e8e33f410d368379f7e2fdb344c436f442",
+    "status": "completed",
+    "seconds": 0.6711169159971178,
+    "active_count": 52,
+    "passed_count": 51,
+    "skipped_count": 0,
+    "xfail_count": 0,
+    "failure_categories": [
+      "execution_error"
+    ],
+    "original": {
+      "status": "completed",
+      "seconds": 0.6711169159971178,
+      "exit_code": 1,
+      "production_unchanged": true,
+      "collected": 52,
+      "active_started": true,
+      "active_count": 52,
+      "passed_count": 51,
+      "skipped_count": 0,
+      "xfail_count": 0,
+      "failure_categories": [
+        "execution_error"
+      ],
+      "reference_passed": false,
+      "assertion_failure": false,
+      "focal": {
+        "executed": true,
+        "line_total": 8,
+        "line_covered": 8,
+        "line_rate": 1.0,
+        "branch_total": 6,
+        "branch_covered": 6,
+        "branch_rate": 1.0,
+        "executable_lines": [
+          69,
+          70,
+          71,
+          72,
+          73,
+          74,
+          75,
+          76
+        ],
+        "covered_lines": [
+          69,
+          70,
+          71,
+          72,
+          73,
+          74,
+          75,
+          76
+        ],
+        "branches": {
+          "72": {
+            "total": 2,
+            "covered": 2
+          },
+          "74": {
+            "total": 2,
+            "covered": 2
+          },
+          "70": {
+            "total": 2,
+            "covered": 2
+          }
+        }
+      },
+      "raw": {
+        "exit_code": 1,
+        "collected": 52,
+        "reports": [
+          {
+            "nodeid": "::test_validate_returns_valid_cpf_unchanged[52998224725]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_valid_cpf_unchanged[52998224725]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_valid_cpf_unchanged[52998224725]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_valid_cpf_unchanged[10000000019]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_valid_cpf_unchanged[10000000019]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_valid_cpf_unchanged[10000000019]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_valid_cpf_unchanged[01000000028]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_valid_cpf_unchanged[01000000028]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_valid_cpf_unchanged[01000000028]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_valid_cpf_unchanged[00100000037]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_valid_cpf_unchanged[00100000037]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_valid_cpf_unchanged[00100000037]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_valid_cpf_unchanged[00010000046]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_valid_cpf_unchanged[00010000046]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_valid_cpf_unchanged[00010000046]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_valid_cpf_unchanged[00001000055]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_valid_cpf_unchanged[00001000055]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_valid_cpf_unchanged[00001000055]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_valid_cpf_unchanged[00000100064]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_valid_cpf_unchanged[00000100064]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_valid_cpf_unchanged[00000100064]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_valid_cpf_unchanged[00000010073]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_valid_cpf_unchanged[00000010073]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_valid_cpf_unchanged[00000010073]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_valid_cpf_unchanged[00000001082]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_valid_cpf_unchanged[00000001082]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_valid_cpf_unchanged[00000001082]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_valid_cpf_unchanged[00000000191]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_valid_cpf_unchanged[00000000191]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_valid_cpf_unchanged[00000000191]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_valid_cpf_unchanged[16899535009]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_valid_cpf_unchanged[16899535009]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_valid_cpf_unchanged[16899535009]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_valid_cpf_unchanged[00000000604]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_valid_cpf_unchanged[00000000604]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_valid_cpf_unchanged[00000000604]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_valid_cpf_unchanged[60000000060]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_valid_cpf_unchanged[60000000060]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_valid_cpf_unchanged[60000000060]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_valid_cpf_unchanged[10000001090]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_valid_cpf_unchanged[10000001090]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_valid_cpf_unchanged[10000001090]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_valid_cpf_unchanged[19100000000]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_valid_cpf_unchanged[19100000000]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_valid_cpf_unchanged[19100000000]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_accepts_positive_repeated_digits_with_matching_checksum[1]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_accepts_positive_repeated_digits_with_matching_checksum[1]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_accepts_positive_repeated_digits_with_matching_checksum[1]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_accepts_positive_repeated_digits_with_matching_checksum[2]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_accepts_positive_repeated_digits_with_matching_checksum[2]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_accepts_positive_repeated_digits_with_matching_checksum[2]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_accepts_positive_repeated_digits_with_matching_checksum[3]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_accepts_positive_repeated_digits_with_matching_checksum[3]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_accepts_positive_repeated_digits_with_matching_checksum[3]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_accepts_positive_repeated_digits_with_matching_checksum[4]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_accepts_positive_repeated_digits_with_matching_checksum[4]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_accepts_positive_repeated_digits_with_matching_checksum[4]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_accepts_positive_repeated_digits_with_matching_checksum[5]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_accepts_positive_repeated_digits_with_matching_checksum[5]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_accepts_positive_repeated_digits_with_matching_checksum[5]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_accepts_positive_repeated_digits_with_matching_checksum[6]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_accepts_positive_repeated_digits_with_matching_checksum[6]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_accepts_positive_repeated_digits_with_matching_checksum[6]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_accepts_positive_repeated_digits_with_matching_checksum[7]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_accepts_positive_repeated_digits_with_matching_checksum[7]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_accepts_positive_repeated_digits_with_matching_checksum[7]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_accepts_positive_repeated_digits_with_matching_checksum[8]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_accepts_positive_repeated_digits_with_matching_checksum[8]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_accepts_positive_repeated_digits_with_matching_checksum[8]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_accepts_positive_repeated_digits_with_matching_checksum[9]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_accepts_positive_repeated_digits_with_matching_checksum[9]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_accepts_positive_repeated_digits_with_matching_checksum[9]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_compact_cpf[529.982.247-25-52998224725]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_compact_cpf[529.982.247-25-52998224725]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_compact_cpf[529.982.247-25-52998224725]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_compact_cpf[\\t\\n  529.982.247-25  \\r\\n-52998224725]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_compact_cpf[\\t\\n  529.982.247-25  \\r\\n-52998224725]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_compact_cpf[\\t\\n  529.982.247-25  \\r\\n-52998224725]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_compact_cpf[.5-2 9.9-8 2.2-4 7-2.5--52998224725]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_compact_cpf[.5-2 9.9-8 2.2-4 7-2.5--52998224725]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_compact_cpf[.5-2 9.9-8 2.2-4 7-2.5--52998224725]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_compact_cpf[ 000.000.001-91 -00000000191]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_compact_cpf[ 000.000.001-91 -00000000191]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_compact_cpf[ 000.000.001-91 -00000000191]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_format_before_length_or_checksum[]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_format_before_length_or_checksum[]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_format_before_length_or_checksum[]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_format_before_length_or_checksum[\\t \\n]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_format_before_length_or_checksum[\\t \\n]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_format_before_length_or_checksum[\\t \\n]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_format_before_length_or_checksum[ .---. ]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_format_before_length_or_checksum[ .---. ]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_format_before_length_or_checksum[ .---. ]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_format_before_length_or_checksum[0]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_format_before_length_or_checksum[0]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_format_before_length_or_checksum[0]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_format_before_length_or_checksum[00000000000]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_format_before_length_or_checksum[00000000000]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_format_before_length_or_checksum[00000000000]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_format_before_length_or_checksum[000000000000]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_format_before_length_or_checksum[000000000000]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_format_before_length_or_checksum[000000000000]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_format_before_length_or_checksum[ 000.000.000-00 ]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_format_before_length_or_checksum[ 000.000.000-00 ]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_format_before_length_or_checksum[ 000.000.000-00 ]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_format_before_length_or_checksum[52998224A25]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_format_before_length_or_checksum[52998224A25]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_format_before_length_or_checksum[52998224A25]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_format_before_length_or_checksum[x]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_format_before_length_or_checksum[x]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_format_before_length_or_checksum[x]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_format_before_length_or_checksum[+52998224725]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_format_before_length_or_checksum[+52998224725]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_format_before_length_or_checksum[+52998224725]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_format_before_length_or_checksum[52998_224725]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_format_before_length_or_checksum[52998_224725]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_format_before_length_or_checksum[52998_224725]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_format_before_length_or_checksum[529\\t98224725]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_format_before_length_or_checksum[529\\t98224725]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_format_before_length_or_checksum[529\\t98224725]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_format_before_length_or_checksum[529\\n98224725]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_format_before_length_or_checksum[529\\n98224725]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_format_before_length_or_checksum[529\\n98224725]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_format_before_length_or_checksum[\\U0001e9552998224725]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_format_before_length_or_checksum[\\U0001e9552998224725]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_format_before_length_or_checksum[\\U0001e9552998224725]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_checks_compact_length_before_checksum[1]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_checks_compact_length_before_checksum[1]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_checks_compact_length_before_checksum[1]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_checks_compact_length_before_checksum[00000000001]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_checks_compact_length_before_checksum[00000000001]",
+            "when": "call",
+            "outcome": "failed",
+            "exception": "InvalidChecksum",
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": "/submission/test_generated.py:87: in test_validate_checks_compact_length_before_checksum\n    validate(number)\nstdnum/br/cpf.py:75: in validate\n    raise InvalidChecksum()\nE   stdnum.exceptions.InvalidChecksum: The number's checksum or check digit is invalid."
+          },
+          {
+            "nodeid": "::test_validate_checks_compact_length_before_checksum[00000000001]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_checks_compact_length_before_checksum[529.982.247]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_checks_compact_length_before_checksum[529.982.247]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_checks_compact_length_before_checksum[529.982.247]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_checks_compact_length_before_checksum[529.982.247-2]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_checks_compact_length_before_checksum[529.982.247-2]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_checks_compact_length_before_checksum[529.982.247-2]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_checks_compact_length_before_checksum[529.982.247-025]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_checks_compact_length_before_checksum[529.982.247-025]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_checks_compact_length_before_checksum[529.982.247-025]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_checks_compact_length_before_checksum[00.529.982.247-25]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_checks_compact_length_before_checksum[00.529.982.247-25]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_checks_compact_length_before_checksum[00.529.982.247-25]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_every_other_check_digit_pair[529982247-25]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_every_other_check_digit_pair[529982247-25]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_every_other_check_digit_pair[529982247-25]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_every_other_check_digit_pair[000000006-4]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_every_other_check_digit_pair[000000006-4]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_every_other_check_digit_pair[000000006-4]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_every_other_check_digit_pair[600000000-60]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_every_other_check_digit_pair[600000000-60]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_every_other_check_digit_pair[600000000-60]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_checks_checksum_after_removing_separators",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_checks_checksum_after_removing_separators",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_checks_checksum_after_removing_separators",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          }
+        ],
+        "collection_errors": [],
+        "focal": {
+          "executed": true,
+          "line_total": 8,
+          "line_covered": 8,
+          "line_rate": 1.0,
+          "branch_total": 6,
+          "branch_covered": 6,
+          "branch_rate": 1.0,
+          "executable_lines": [
+            69,
+            70,
+            71,
+            72,
+            73,
+            74,
+            75,
+            76
+          ],
+          "covered_lines": [
+            69,
+            70,
+            71,
+            72,
+            73,
+            74,
+            75,
+            76
+          ],
+          "branches": {
+            "72": {
+              "total": 2,
+              "covered": 2
+            },
+            "74": {
+              "total": 2,
+              "covered": 2
+            },
+            "70": {
+              "total": 2,
+              "covered": 2
+            }
+          }
+        }
+      }
+    },
+    "defects_eligible": null,
+    "defects_measured": null,
+    "defects_detected": null,
+    "detection_complete": null,
+    "total_seconds": 0.84690908389166
+  },
+  "preparation_seconds": 0.020391958998516202,
+  "submission_sha256": "ca164c99b1aff07797808cc9ea5425e8e33f410d368379f7e2fdb344c436f442",
+  "finished_at": "2026-11-22T04:25:06.119265+00:00"
+}

@@ -1,0 +1,5541 @@
+{
+  "schema_version": 1,
+  "order": 83,
+  "project": "python_stdnum",
+  "target": "isbn_validate",
+  "agent": "codex",
+  "condition": "R",
+  "repetition": 2,
+  "id": "python_stdnum__isbn_validate__codex__R__2",
+  "phase": "main",
+  "lock_hash": "49dd66a522994eb03001a67255ded0aa13cc696255859f45a924b43f05f5da33",
+  "started_at": "2026-11-22T04:27:09.568162+00:00",
+  "status": "finished",
+  "generation": {
+    "status": "completed",
+    "input_tokens": 33965,
+    "output_tokens": 1857,
+    "seconds": 44.68149079196155,
+    "version": "codex-cli 0.170.0",
+    "tool_log": [
+      {
+        "index": 1,
+        "tool": "search",
+        "arguments": {
+          "path": "stdnum/util.py",
+          "query": "def clean"
+        },
+        "delivered_chars": 44,
+        "chars_before": 7946,
+        "status": "ok",
+        "chars_after": 7990
+      },
+      {
+        "index": 2,
+        "tool": "list_files",
+        "arguments": {},
+        "delivered_chars": 81,
+        "chars_before": 7990,
+        "status": "ok",
+        "chars_after": 8071
+      },
+      {
+        "index": 3,
+        "tool": "read_file",
+        "arguments": {
+          "path": "stdnum/isbn.py",
+          "start_line": 38,
+          "end_line": 106
+        },
+        "delivered_chars": 1972,
+        "chars_before": 8071,
+        "status": "ok",
+        "chars_after": 10043
+      }
+    ],
+    "usage": {
+      "input_tokens": 33965,
+      "cached_input_tokens": 13824,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 1857,
+      "reasoning_output_tokens": 694
+    },
+    "details": [],
+    "capabilities": {
+      "tool_surface_verified": true,
+      "tools": [
+        "functions.list_mcp_resource_templates",
+        "functions.list_mcp_resources",
+        "functions.read_mcp_resource",
+        "mcp__contextlab.list_files",
+        "mcp__contextlab.read_file",
+        "mcp__contextlab.search"
+      ],
+      "catalog_sha256": "a61b50641627a2941fc8be4db823d1fbbfa4ae628add4d7ec443dbab559140fb",
+      "probe": "offline-localhost",
+      "model": "gpt-6.2-sol",
+      "command_rejected": true,
+      "outside_packet_rejected": true,
+      "allowed_read_verified": true
+    },
+    "returncode": 0,
+    "context_stats": {
+      "chars_used": 10043,
+      "initial_chars": 7946,
+      "response_chars": 2097,
+      "remaining_chars": 19957,
+      "tool_calls": 3,
+      "max_calls": 20,
+      "budget": 30000
+    },
+    "session_id": "01a20182-0f92-7242-a7fd-3375ec6c601c"
+  },
+  "evaluation": {
+    "target_id": "isbn_validate",
+    "test_kind": "unit",
+    "received": true,
+    "syntax_ok": true,
+    "collected": 54,
+    "active_started": true,
+    "reference_passed": true,
+    "approval": "pending_review",
+    "approved": false,
+    "coverage_raw": {
+      "executed": true,
+      "line_total": 14,
+      "line_covered": 14,
+      "line_rate": 1.0,
+      "branch_total": 12,
+      "branch_covered": 12,
+      "branch_rate": 1.0,
+      "executable_lines": [
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        107,
+        108,
+        109,
+        110
+      ],
+      "covered_lines": [
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        107,
+        108,
+        109,
+        110
+      ],
+      "branches": {
+        "99": {
+          "total": 2,
+          "covered": 2
+        },
+        "100": {
+          "total": 2,
+          "covered": 2
+        },
+        "108": {
+          "total": 2,
+          "covered": 2
+        },
+        "104": {
+          "total": 2,
+          "covered": 2
+        },
+        "97": {
+          "total": 2,
+          "covered": 2
+        },
+        "102": {
+          "total": 2,
+          "covered": 2
+        }
+      }
+    },
+    "coverage_main": null,
+    "defects": [],
+    "detection_rate": null,
+    "review": null,
+    "backend": "docker",
+    "submission_sha256": "93d93836d5dbd48c97e821dddac38223062e8c45d64e0827ce40e7f3e206c1d3",
+    "status": "completed",
+    "seconds": 0.6075897910632193,
+    "active_count": 54,
+    "passed_count": 54,
+    "skipped_count": 0,
+    "xfail_count": 0,
+    "failure_categories": [],
+    "original": {
+      "status": "completed",
+      "seconds": 0.6075897910632193,
+      "exit_code": 0,
+      "production_unchanged": true,
+      "collected": 54,
+      "active_started": true,
+      "active_count": 54,
+      "passed_count": 54,
+      "skipped_count": 0,
+      "xfail_count": 0,
+      "failure_categories": [],
+      "reference_passed": true,
+      "assertion_failure": false,
+      "focal": {
+        "executed": true,
+        "line_total": 14,
+        "line_covered": 14,
+        "line_rate": 1.0,
+        "branch_total": 12,
+        "branch_covered": 12,
+        "branch_rate": 1.0,
+        "executable_lines": [
+          96,
+          97,
+          98,
+          99,
+          100,
+          101,
+          102,
+          103,
+          104,
+          105,
+          107,
+          108,
+          109,
+          110
+        ],
+        "covered_lines": [
+          96,
+          97,
+          98,
+          99,
+          100,
+          101,
+          102,
+          103,
+          104,
+          105,
+          107,
+          108,
+          109,
+          110
+        ],
+        "branches": {
+          "99": {
+            "total": 2,
+            "covered": 2
+          },
+          "100": {
+            "total": 2,
+            "covered": 2
+          },
+          "108": {
+            "total": 2,
+            "covered": 2
+          },
+          "104": {
+            "total": 2,
+            "covered": 2
+          },
+          "97": {
+            "total": 2,
+            "covered": 2
+          },
+          "102": {
+            "total": 2,
+            "covered": 2
+          }
+        }
+      },
+      "raw": {
+        "exit_code": 0,
+        "collected": 54,
+        "reports": [
+          {
+            "nodeid": "::test_validate_returns_expected_representation[isbn10]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_expected_representation[isbn10]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_expected_representation[isbn10]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_expected_representation[isbn10-separators]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_expected_representation[isbn10-separators]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_expected_representation[isbn10-separators]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_expected_representation[lowercase-x]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_expected_representation[lowercase-x]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_expected_representation[lowercase-x]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_expected_representation[nonzero-leading-digit]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_expected_representation[nonzero-leading-digit]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_expected_representation[nonzero-leading-digit]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_expected_representation[missing-leading-zero]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_expected_representation[missing-leading-zero]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_expected_representation[missing-leading-zero]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_expected_representation[missing-zero-with-x]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_expected_representation[missing-zero-with-x]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_expected_representation[missing-zero-with-x]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_expected_representation[isbn13-978]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_expected_representation[isbn13-978]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_expected_representation[isbn13-978]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_expected_representation[isbn13-separators]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_expected_representation[isbn13-separators]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_expected_representation[isbn13-separators]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_expected_representation[isbn13-979]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_expected_representation[isbn13-979]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_expected_representation[isbn13-979]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_expected_representation[group-unchecked]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_expected_representation[group-unchecked]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_expected_representation[group-unchecked]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn10-wrong-check-digit-False]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn10-wrong-check-digit-False]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn10-wrong-check-digit-False]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn10-wrong-check-digit-True]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn10-wrong-check-digit-True]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn10-wrong-check-digit-True]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn10-changed-body-False]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn10-changed-body-False]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn10-changed-body-False]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn10-changed-body-True]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn10-changed-body-True]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn10-changed-body-True]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn10-x-required-False]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn10-x-required-False]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn10-x-required-False]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn10-x-required-True]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn10-x-required-True]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn10-x-required-True]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn10-unexpected-x-False]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn10-unexpected-x-False]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn10-unexpected-x-False]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn10-unexpected-x-True]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn10-unexpected-x-True]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn10-unexpected-x-True]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn10-letter-as-check-digit-False]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn10-letter-as-check-digit-False]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn10-letter-as-check-digit-False]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn10-letter-as-check-digit-True]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn10-letter-as-check-digit-True]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn10-letter-as-check-digit-True]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[missing-zero-wrong-check-digit-False]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[missing-zero-wrong-check-digit-False]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[missing-zero-wrong-check-digit-False]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[missing-zero-wrong-check-digit-True]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[missing-zero-wrong-check-digit-True]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[missing-zero-wrong-check-digit-True]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn13-wrong-check-digit-False]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn13-wrong-check-digit-False]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn13-wrong-check-digit-False]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn13-wrong-check-digit-True]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn13-wrong-check-digit-True]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn13-wrong-check-digit-True]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn13-979-wrong-check-digit-False]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn13-979-wrong-check-digit-False]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn13-979-wrong-check-digit-False]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn13-979-wrong-check-digit-True]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn13-979-wrong-check-digit-True]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn13-979-wrong-check-digit-True]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn13-x-as-check-digit-False]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn13-x-as-check-digit-False]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn13-x-as-check-digit-False]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn13-x-as-check-digit-True]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn13-x-as-check-digit-True]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn13-x-as-check-digit-True]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn10-x-in-body-False]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn10-x-in-body-False]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn10-x-in-body-False]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn10-x-in-body-True]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn10-x-in-body-True]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn10-x-in-body-True]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn13-letter-in-body-False]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn13-letter-in-body-False]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn13-letter-in-body-False]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn13-letter-in-body-True]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn13-letter-in-body-True]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn13-letter-in-body-True]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[slash-in-body-False]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[slash-in-body-False]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[slash-in-body-False]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[slash-in-body-True]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[slash-in-body-True]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[slash-in-body-True]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[format-before-length-False]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[format-before-length-False]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[format-before-length-False]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[format-before-length-True]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[format-before-length-True]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[format-before-length-True]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[ean8-length-False]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[ean8-length-False]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[ean8-length-False]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[ean8-length-True]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[ean8-length-True]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[ean8-length-True]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[eleven-digits-False]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[eleven-digits-False]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[eleven-digits-False]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[eleven-digits-True]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[eleven-digits-True]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[eleven-digits-True]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[ean12-length-False]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[ean12-length-False]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[ean12-length-False]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[ean12-length-True]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[ean12-length-True]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[ean12-length-True]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[ean14-length-False]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[ean14-length-False]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[ean14-length-False]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[ean14-length-True]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[ean14-length-True]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[ean14-length-True]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[ean13-non-bookland-prefix-False]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[ean13-non-bookland-prefix-False]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[ean13-non-bookland-prefix-False]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[ean13-non-bookland-prefix-True]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[ean13-non-bookland-prefix-True]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[ean13-non-bookland-prefix-True]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[prefix-below-bookland-False]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[prefix-below-bookland-False]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[prefix-below-bookland-False]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[prefix-below-bookland-True]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[prefix-below-bookland-True]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[prefix-below-bookland-True]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[prefix-above-bookland-False]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[prefix-above-bookland-False]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[prefix-above-bookland-False]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[prefix-above-bookland-True]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[prefix-above-bookland-True]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[prefix-above-bookland-True]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[checksum-before-prefix-False]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[checksum-before-prefix-False]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[checksum-before-prefix-False]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[checksum-before-prefix-True]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[checksum-before-prefix-True]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[checksum-before-prefix-True]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[format-before-prefix-False]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[format-before-prefix-False]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[format-before-prefix-False]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[format-before-prefix-True]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[format-before-prefix-True]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[format-before-prefix-True]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          }
+        ],
+        "collection_errors": [],
+        "focal": {
+          "executed": true,
+          "line_total": 14,
+          "line_covered": 14,
+          "line_rate": 1.0,
+          "branch_total": 12,
+          "branch_covered": 12,
+          "branch_rate": 1.0,
+          "executable_lines": [
+            96,
+            97,
+            98,
+            99,
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            107,
+            108,
+            109,
+            110
+          ],
+          "covered_lines": [
+            96,
+            97,
+            98,
+            99,
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            107,
+            108,
+            109,
+            110
+          ],
+          "branches": {
+            "99": {
+              "total": 2,
+              "covered": 2
+            },
+            "100": {
+              "total": 2,
+              "covered": 2
+            },
+            "108": {
+              "total": 2,
+              "covered": 2
+            },
+            "104": {
+              "total": 2,
+              "covered": 2
+            },
+            "97": {
+              "total": 2,
+              "covered": 2
+            },
+            "102": {
+              "total": 2,
+              "covered": 2
+            }
+          }
+        }
+      }
+    },
+    "defects_eligible": null,
+    "defects_measured": null,
+    "defects_detected": null,
+    "detection_complete": null,
+    "total_seconds": 0.7860524579882622
+  },
+  "preparation_seconds": 0.02087091701105237,
+  "submission_sha256": "93d93836d5dbd48c97e821dddac38223062e8c45d64e0827ce40e7f3e206c1d3",
+  "finished_at": "2026-11-22T04:27:55.062183+00:00",
+  "review": {
+    "behavioral_assertions": true,
+    "no_target_mock": true,
+    "no_production_changes": true,
+    "defect_attribution": {
+      "STD-02-ignora-conversao": true
+    },
+    "dependency_doubles": false,
+    "reviewer": "Gabriel Lopes Pereira",
+    "created_at": "2026-11-22T05:10:15.316963+00:00"
+  },
+  "reviewed_evaluation": {
+    "target_id": "isbn_validate",
+    "test_kind": "unit",
+    "received": true,
+    "syntax_ok": true,
+    "collected": 54,
+    "active_started": true,
+    "reference_passed": true,
+    "approval": "approved",
+    "approved": true,
+    "coverage_raw": {
+      "executed": true,
+      "line_total": 14,
+      "line_covered": 14,
+      "line_rate": 1.0,
+      "branch_total": 12,
+      "branch_covered": 12,
+      "branch_rate": 1.0,
+      "executable_lines": [
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        107,
+        108,
+        109,
+        110
+      ],
+      "covered_lines": [
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        107,
+        108,
+        109,
+        110
+      ],
+      "branches": {
+        "99": {
+          "total": 2,
+          "covered": 2
+        },
+        "100": {
+          "total": 2,
+          "covered": 2
+        },
+        "108": {
+          "total": 2,
+          "covered": 2
+        },
+        "104": {
+          "total": 2,
+          "covered": 2
+        },
+        "97": {
+          "total": 2,
+          "covered": 2
+        },
+        "102": {
+          "total": 2,
+          "covered": 2
+        }
+      }
+    },
+    "coverage_main": {
+      "executed": true,
+      "line_total": 14,
+      "line_covered": 14,
+      "line_rate": 1.0,
+      "branch_total": 12,
+      "branch_covered": 12,
+      "branch_rate": 1.0,
+      "executable_lines": [
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        107,
+        108,
+        109,
+        110
+      ],
+      "covered_lines": [
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        107,
+        108,
+        109,
+        110
+      ],
+      "branches": {
+        "99": {
+          "total": 2,
+          "covered": 2
+        },
+        "100": {
+          "total": 2,
+          "covered": 2
+        },
+        "108": {
+          "total": 2,
+          "covered": 2
+        },
+        "104": {
+          "total": 2,
+          "covered": 2
+        },
+        "97": {
+          "total": 2,
+          "covered": 2
+        },
+        "102": {
+          "total": 2,
+          "covered": 2
+        }
+      }
+    },
+    "defects": [
+      {
+        "id": "STD-02-ignora-conversao",
+        "eligible": true,
+        "validation": {
+          "id": "STD-02-ignora-conversao",
+          "eligible": true,
+          "project_sha256": "a152bcf69987030c3aa26d73fb672ed3655e37299626d6fcdf6e7d5fe42418a7",
+          "definition_sha256": "3c803fd59534ba4aa4d2da58f5e2ee84bb40b93853e272d43f303b44b9bb7a32",
+          "reason": null,
+          "baseline": {
+            "status": "completed",
+            "seconds": 0.5891600830946118,
+            "exit_code": 0,
+            "production_unchanged": true,
+            "collected": 1,
+            "active_started": true,
+            "active_count": 1,
+            "passed_count": 1,
+            "skipped_count": 0,
+            "xfail_count": 0,
+            "failure_categories": [],
+            "reference_passed": true,
+            "assertion_failure": false,
+            "focal": {
+              "executed": true,
+              "line_total": 14,
+              "line_covered": 7,
+              "line_rate": 0.5,
+              "branch_total": 12,
+              "branch_covered": 4,
+              "branch_rate": 0.3333333333333333,
+              "executable_lines": [
+                96,
+                97,
+                98,
+                99,
+                100,
+                101,
+                102,
+                103,
+                104,
+                105,
+                107,
+                108,
+                109,
+                110
+              ],
+              "covered_lines": [
+                96,
+                97,
+                99,
+                100,
+                108,
+                109,
+                110
+              ],
+              "branches": {
+                "99": {
+                  "total": 2,
+                  "covered": 1
+                },
+                "100": {
+                  "total": 2,
+                  "covered": 1
+                },
+                "108": {
+                  "total": 2,
+                  "covered": 1
+                },
+                "104": {
+                  "total": 2,
+                  "covered": 0
+                },
+                "97": {
+                  "total": 2,
+                  "covered": 1
+                },
+                "102": {
+                  "total": 2,
+                  "covered": 0
+                }
+              }
+            },
+            "raw": {
+              "exit_code": 0,
+              "collected": 1,
+              "reports": [
+                {
+                  "nodeid": "tcc_referencia/test_ref_isbn_validate.py::test_isbn10_com_conversao_vira_isbn13",
+                  "when": "setup",
+                  "outcome": "passed",
+                  "exception": null,
+                  "assertion_failure": false,
+                  "expected_failure": false,
+                  "message": null
+                },
+                {
+                  "nodeid": "tcc_referencia/test_ref_isbn_validate.py::test_isbn10_com_conversao_vira_isbn13",
+                  "when": "call",
+                  "outcome": "passed",
+                  "exception": null,
+                  "assertion_failure": false,
+                  "expected_failure": false,
+                  "message": null
+                },
+                {
+                  "nodeid": "tcc_referencia/test_ref_isbn_validate.py::test_isbn10_com_conversao_vira_isbn13",
+                  "when": "teardown",
+                  "outcome": "passed",
+                  "exception": null,
+                  "assertion_failure": false,
+                  "expected_failure": false,
+                  "message": null
+                }
+              ],
+              "collection_errors": [],
+              "focal": {
+                "executed": true,
+                "line_total": 14,
+                "line_covered": 7,
+                "line_rate": 0.5,
+                "branch_total": 12,
+                "branch_covered": 4,
+                "branch_rate": 0.3333333333333333,
+                "executable_lines": [
+                  96,
+                  97,
+                  98,
+                  99,
+                  100,
+                  101,
+                  102,
+                  103,
+                  104,
+                  105,
+                  107,
+                  108,
+                  109,
+                  110
+                ],
+                "covered_lines": [
+                  96,
+                  97,
+                  99,
+                  100,
+                  108,
+                  109,
+                  110
+                ],
+                "branches": {
+                  "99": {
+                    "total": 2,
+                    "covered": 1
+                  },
+                  "100": {
+                    "total": 2,
+                    "covered": 1
+                  },
+                  "108": {
+                    "total": 2,
+                    "covered": 1
+                  },
+                  "104": {
+                    "total": 2,
+                    "covered": 0
+                  },
+                  "97": {
+                    "total": 2,
+                    "covered": 1
+                  },
+                  "102": {
+                    "total": 2,
+                    "covered": 0
+                  }
+                }
+              }
+            }
+          },
+          "mutated": {
+            "status": "completed",
+            "seconds": 0.608054667012766,
+            "exit_code": 1,
+            "production_unchanged": true,
+            "collected": 1,
+            "active_started": true,
+            "active_count": 1,
+            "passed_count": 0,
+            "skipped_count": 0,
+            "xfail_count": 0,
+            "failure_categories": [
+              "assertion_failure"
+            ],
+            "reference_passed": false,
+            "assertion_failure": true,
+            "focal": {
+              "executed": true,
+              "line_total": 12,
+              "line_covered": 5,
+              "line_rate": 0.4166666666666667,
+              "branch_total": 10,
+              "branch_covered": 3,
+              "branch_rate": 0.3,
+              "executable_lines": [
+                96,
+                97,
+                98,
+                99,
+                100,
+                101,
+                102,
+                103,
+                104,
+                105,
+                107,
+                108
+              ],
+              "covered_lines": [
+                96,
+                97,
+                99,
+                100,
+                108
+              ],
+              "branches": {
+                "99": {
+                  "total": 2,
+                  "covered": 1
+                },
+                "100": {
+                  "total": 2,
+                  "covered": 1
+                },
+                "104": {
+                  "total": 2,
+                  "covered": 0
+                },
+                "97": {
+                  "total": 2,
+                  "covered": 1
+                },
+                "102": {
+                  "total": 2,
+                  "covered": 0
+                }
+              }
+            },
+            "raw": {
+              "exit_code": 1,
+              "collected": 1,
+              "reports": [
+                {
+                  "nodeid": "tcc_referencia/test_ref_isbn_validate.py::test_isbn10_com_conversao_vira_isbn13",
+                  "when": "setup",
+                  "outcome": "passed",
+                  "exception": null,
+                  "assertion_failure": false,
+                  "expected_failure": false,
+                  "message": null
+                },
+                {
+                  "nodeid": "tcc_referencia/test_ref_isbn_validate.py::test_isbn10_com_conversao_vira_isbn13",
+                  "when": "call",
+                  "outcome": "failed",
+                  "exception": "AssertionError",
+                  "assertion_failure": true,
+                  "expected_failure": false,
+                  "message": "tcc_referencia/test_ref_isbn_validate.py:17: in test_isbn10_com_conversao_vira_isbn13\n    assert isbn.validate(\"1 85798218 5\", convert=True) == \"9781857982183\"\nE   AssertionError: assert '1857982185' == '9781857982183'\nE     \nE     - 9781857982183\nE     ? ---         ^\nE     + 1857982185\nE     ?          ^"
+                },
+                {
+                  "nodeid": "tcc_referencia/test_ref_isbn_validate.py::test_isbn10_com_conversao_vira_isbn13",
+                  "when": "teardown",
+                  "outcome": "passed",
+                  "exception": null,
+                  "assertion_failure": false,
+                  "expected_failure": false,
+                  "message": null
+                }
+              ],
+              "collection_errors": [],
+              "focal": {
+                "executed": true,
+                "line_total": 12,
+                "line_covered": 5,
+                "line_rate": 0.4166666666666667,
+                "branch_total": 10,
+                "branch_covered": 3,
+                "branch_rate": 0.3,
+                "executable_lines": [
+                  96,
+                  97,
+                  98,
+                  99,
+                  100,
+                  101,
+                  102,
+                  103,
+                  104,
+                  105,
+                  107,
+                  108
+                ],
+                "covered_lines": [
+                  96,
+                  97,
+                  99,
+                  100,
+                  108
+                ],
+                "branches": {
+                  "99": {
+                    "total": 2,
+                    "covered": 1
+                  },
+                  "100": {
+                    "total": 2,
+                    "covered": 1
+                  },
+                  "104": {
+                    "total": 2,
+                    "covered": 0
+                  },
+                  "97": {
+                    "total": 2,
+                    "covered": 1
+                  },
+                  "102": {
+                    "total": 2,
+                    "covered": 0
+                  }
+                }
+              }
+            }
+          }
+        },
+        "detected": true,
+        "status": "detected",
+        "run": {
+          "status": "completed",
+          "seconds": 0.6723936670459807,
+          "exit_code": 1,
+          "production_unchanged": true,
+          "collected": 54,
+          "active_started": true,
+          "active_count": 54,
+          "passed_count": 48,
+          "skipped_count": 0,
+          "xfail_count": 0,
+          "failure_categories": [
+            "assertion_failure"
+          ],
+          "reference_passed": false,
+          "assertion_failure": true,
+          "focal": {
+            "executed": true,
+            "line_total": 12,
+            "line_covered": 12,
+            "line_rate": 1.0,
+            "branch_total": 10,
+            "branch_covered": 10,
+            "branch_rate": 1.0,
+            "executable_lines": [
+              96,
+              97,
+              98,
+              99,
+              100,
+              101,
+              102,
+              103,
+              104,
+              105,
+              107,
+              108
+            ],
+            "covered_lines": [
+              96,
+              97,
+              98,
+              99,
+              100,
+              101,
+              102,
+              103,
+              104,
+              105,
+              107,
+              108
+            ],
+            "branches": {
+              "99": {
+                "total": 2,
+                "covered": 2
+              },
+              "100": {
+                "total": 2,
+                "covered": 2
+              },
+              "104": {
+                "total": 2,
+                "covered": 2
+              },
+              "97": {
+                "total": 2,
+                "covered": 2
+              },
+              "102": {
+                "total": 2,
+                "covered": 2
+              }
+            }
+          },
+          "raw": {
+            "exit_code": 1,
+            "collected": 54,
+            "reports": [
+              {
+                "nodeid": "::test_validate_returns_expected_representation[isbn10]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_returns_expected_representation[isbn10]",
+                "when": "call",
+                "outcome": "failed",
+                "exception": "AssertionError",
+                "assertion_failure": true,
+                "expected_failure": false,
+                "message": "/submission/test_generated.py:30: in test_validate_returns_expected_representation\n    assert validate(number, convert=True) == isbn13\nE   AssertionError: assert '0306406152' == '9780306406157'\nE     \nE     - 9780306406157\nE     ? ---         ^\nE     + 0306406152\nE     ?          ^"
+              },
+              {
+                "nodeid": "::test_validate_returns_expected_representation[isbn10]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_returns_expected_representation[isbn10-separators]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_returns_expected_representation[isbn10-separators]",
+                "when": "call",
+                "outcome": "failed",
+                "exception": "AssertionError",
+                "assertion_failure": true,
+                "expected_failure": false,
+                "message": "/submission/test_generated.py:30: in test_validate_returns_expected_representation\n    assert validate(number, convert=True) == isbn13\nE   AssertionError: assert '0306406152' == '9780306406157'\nE     \nE     - 9780306406157\nE     ? ---         ^\nE     + 0306406152\nE     ?          ^"
+              },
+              {
+                "nodeid": "::test_validate_returns_expected_representation[isbn10-separators]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_returns_expected_representation[lowercase-x]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_returns_expected_representation[lowercase-x]",
+                "when": "call",
+                "outcome": "failed",
+                "exception": "AssertionError",
+                "assertion_failure": true,
+                "expected_failure": false,
+                "message": "/submission/test_generated.py:30: in test_validate_returns_expected_representation\n    assert validate(number, convert=True) == isbn13\nE   AssertionError: assert '080442957X' == '9780804429573'\nE     \nE     - 9780804429573\nE     ? ---         ^\nE     + 080442957X\nE     ?          ^"
+              },
+              {
+                "nodeid": "::test_validate_returns_expected_representation[lowercase-x]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_returns_expected_representation[nonzero-leading-digit]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_returns_expected_representation[nonzero-leading-digit]",
+                "when": "call",
+                "outcome": "failed",
+                "exception": "AssertionError",
+                "assertion_failure": true,
+                "expected_failure": false,
+                "message": "/submission/test_generated.py:30: in test_validate_returns_expected_representation\n    assert validate(number, convert=True) == isbn13\nE   AssertionError: assert '123456789X' == '9781234567897'\nE     \nE     - 9781234567897\nE     ? ---         ^\nE     + 123456789X\nE     ?          ^"
+              },
+              {
+                "nodeid": "::test_validate_returns_expected_representation[nonzero-leading-digit]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_returns_expected_representation[missing-leading-zero]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_returns_expected_representation[missing-leading-zero]",
+                "when": "call",
+                "outcome": "failed",
+                "exception": "AssertionError",
+                "assertion_failure": true,
+                "expected_failure": false,
+                "message": "/submission/test_generated.py:30: in test_validate_returns_expected_representation\n    assert validate(number, convert=True) == isbn13\nE   AssertionError: assert '0306406152' == '9780306406157'\nE     \nE     - 9780306406157\nE     ? ---         ^\nE     + 0306406152\nE     ?          ^"
+              },
+              {
+                "nodeid": "::test_validate_returns_expected_representation[missing-leading-zero]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_returns_expected_representation[missing-zero-with-x]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_returns_expected_representation[missing-zero-with-x]",
+                "when": "call",
+                "outcome": "failed",
+                "exception": "AssertionError",
+                "assertion_failure": true,
+                "expected_failure": false,
+                "message": "/submission/test_generated.py:30: in test_validate_returns_expected_representation\n    assert validate(number, convert=True) == isbn13\nE   AssertionError: assert '080442957X' == '9780804429573'\nE     \nE     - 9780804429573\nE     ? ---         ^\nE     + 080442957X\nE     ?          ^"
+              },
+              {
+                "nodeid": "::test_validate_returns_expected_representation[missing-zero-with-x]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_returns_expected_representation[isbn13-978]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_returns_expected_representation[isbn13-978]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_returns_expected_representation[isbn13-978]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_returns_expected_representation[isbn13-separators]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_returns_expected_representation[isbn13-separators]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_returns_expected_representation[isbn13-separators]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_returns_expected_representation[isbn13-979]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_returns_expected_representation[isbn13-979]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_returns_expected_representation[isbn13-979]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_returns_expected_representation[group-unchecked]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_returns_expected_representation[group-unchecked]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_returns_expected_representation[group-unchecked]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[isbn10-wrong-check-digit-False]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[isbn10-wrong-check-digit-False]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[isbn10-wrong-check-digit-False]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[isbn10-wrong-check-digit-True]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[isbn10-wrong-check-digit-True]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[isbn10-wrong-check-digit-True]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[isbn10-changed-body-False]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[isbn10-changed-body-False]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[isbn10-changed-body-False]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[isbn10-changed-body-True]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[isbn10-changed-body-True]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[isbn10-changed-body-True]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[isbn10-x-required-False]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[isbn10-x-required-False]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[isbn10-x-required-False]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[isbn10-x-required-True]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[isbn10-x-required-True]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[isbn10-x-required-True]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[isbn10-unexpected-x-False]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[isbn10-unexpected-x-False]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[isbn10-unexpected-x-False]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[isbn10-unexpected-x-True]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[isbn10-unexpected-x-True]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[isbn10-unexpected-x-True]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[isbn10-letter-as-check-digit-False]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[isbn10-letter-as-check-digit-False]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[isbn10-letter-as-check-digit-False]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[isbn10-letter-as-check-digit-True]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[isbn10-letter-as-check-digit-True]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[isbn10-letter-as-check-digit-True]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[missing-zero-wrong-check-digit-False]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[missing-zero-wrong-check-digit-False]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[missing-zero-wrong-check-digit-False]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[missing-zero-wrong-check-digit-True]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[missing-zero-wrong-check-digit-True]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[missing-zero-wrong-check-digit-True]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[isbn13-wrong-check-digit-False]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[isbn13-wrong-check-digit-False]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[isbn13-wrong-check-digit-False]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[isbn13-wrong-check-digit-True]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[isbn13-wrong-check-digit-True]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[isbn13-wrong-check-digit-True]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[isbn13-979-wrong-check-digit-False]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[isbn13-979-wrong-check-digit-False]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[isbn13-979-wrong-check-digit-False]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[isbn13-979-wrong-check-digit-True]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[isbn13-979-wrong-check-digit-True]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[isbn13-979-wrong-check-digit-True]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[isbn13-x-as-check-digit-False]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[isbn13-x-as-check-digit-False]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[isbn13-x-as-check-digit-False]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[isbn13-x-as-check-digit-True]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[isbn13-x-as-check-digit-True]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[isbn13-x-as-check-digit-True]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[isbn10-x-in-body-False]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[isbn10-x-in-body-False]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[isbn10-x-in-body-False]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[isbn10-x-in-body-True]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[isbn10-x-in-body-True]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[isbn10-x-in-body-True]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[isbn13-letter-in-body-False]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[isbn13-letter-in-body-False]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[isbn13-letter-in-body-False]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[isbn13-letter-in-body-True]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[isbn13-letter-in-body-True]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[isbn13-letter-in-body-True]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[slash-in-body-False]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[slash-in-body-False]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[slash-in-body-False]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[slash-in-body-True]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[slash-in-body-True]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[slash-in-body-True]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[format-before-length-False]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[format-before-length-False]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[format-before-length-False]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[format-before-length-True]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[format-before-length-True]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[format-before-length-True]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[ean8-length-False]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[ean8-length-False]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[ean8-length-False]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[ean8-length-True]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[ean8-length-True]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[ean8-length-True]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[eleven-digits-False]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[eleven-digits-False]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[eleven-digits-False]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[eleven-digits-True]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[eleven-digits-True]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[eleven-digits-True]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[ean12-length-False]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[ean12-length-False]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[ean12-length-False]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[ean12-length-True]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[ean12-length-True]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[ean12-length-True]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[ean14-length-False]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[ean14-length-False]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[ean14-length-False]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[ean14-length-True]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[ean14-length-True]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[ean14-length-True]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[ean13-non-bookland-prefix-False]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[ean13-non-bookland-prefix-False]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[ean13-non-bookland-prefix-False]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[ean13-non-bookland-prefix-True]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[ean13-non-bookland-prefix-True]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[ean13-non-bookland-prefix-True]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[prefix-below-bookland-False]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[prefix-below-bookland-False]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[prefix-below-bookland-False]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[prefix-below-bookland-True]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[prefix-below-bookland-True]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[prefix-below-bookland-True]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[prefix-above-bookland-False]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[prefix-above-bookland-False]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[prefix-above-bookland-False]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[prefix-above-bookland-True]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[prefix-above-bookland-True]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[prefix-above-bookland-True]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[checksum-before-prefix-False]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[checksum-before-prefix-False]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[checksum-before-prefix-False]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[checksum-before-prefix-True]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[checksum-before-prefix-True]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[checksum-before-prefix-True]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[format-before-prefix-False]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[format-before-prefix-False]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[format-before-prefix-False]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[format-before-prefix-True]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[format-before-prefix-True]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_validate_raises_expected_error[format-before-prefix-True]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              }
+            ],
+            "collection_errors": [],
+            "focal": {
+              "executed": true,
+              "line_total": 12,
+              "line_covered": 12,
+              "line_rate": 1.0,
+              "branch_total": 10,
+              "branch_covered": 10,
+              "branch_rate": 1.0,
+              "executable_lines": [
+                96,
+                97,
+                98,
+                99,
+                100,
+                101,
+                102,
+                103,
+                104,
+                105,
+                107,
+                108
+              ],
+              "covered_lines": [
+                96,
+                97,
+                98,
+                99,
+                100,
+                101,
+                102,
+                103,
+                104,
+                105,
+                107,
+                108
+              ],
+              "branches": {
+                "99": {
+                  "total": 2,
+                  "covered": 2
+                },
+                "100": {
+                  "total": 2,
+                  "covered": 2
+                },
+                "104": {
+                  "total": 2,
+                  "covered": 2
+                },
+                "97": {
+                  "total": 2,
+                  "covered": 2
+                },
+                "102": {
+                  "total": 2,
+                  "covered": 2
+                }
+              }
+            }
+          }
+        }
+      }
+    ],
+    "detection_rate": 1.0,
+    "review": {
+      "behavioral_assertions": true,
+      "no_target_mock": true,
+      "no_production_changes": true,
+      "defect_attribution": {
+        "STD-02-ignora-conversao": true
+      },
+      "dependency_doubles": false,
+      "reviewer": "Gabriel Lopes Pereira",
+      "created_at": "2026-11-22T05:10:15.316963+00:00"
+    },
+    "backend": "docker",
+    "submission_sha256": "93d93836d5dbd48c97e821dddac38223062e8c45d64e0827ce40e7f3e206c1d3",
+    "status": "completed",
+    "seconds": 0.627110791974701,
+    "active_count": 54,
+    "passed_count": 54,
+    "skipped_count": 0,
+    "xfail_count": 0,
+    "failure_categories": [],
+    "original": {
+      "status": "completed",
+      "seconds": 0.627110791974701,
+      "exit_code": 0,
+      "production_unchanged": true,
+      "collected": 54,
+      "active_started": true,
+      "active_count": 54,
+      "passed_count": 54,
+      "skipped_count": 0,
+      "xfail_count": 0,
+      "failure_categories": [],
+      "reference_passed": true,
+      "assertion_failure": false,
+      "focal": {
+        "executed": true,
+        "line_total": 14,
+        "line_covered": 14,
+        "line_rate": 1.0,
+        "branch_total": 12,
+        "branch_covered": 12,
+        "branch_rate": 1.0,
+        "executable_lines": [
+          96,
+          97,
+          98,
+          99,
+          100,
+          101,
+          102,
+          103,
+          104,
+          105,
+          107,
+          108,
+          109,
+          110
+        ],
+        "covered_lines": [
+          96,
+          97,
+          98,
+          99,
+          100,
+          101,
+          102,
+          103,
+          104,
+          105,
+          107,
+          108,
+          109,
+          110
+        ],
+        "branches": {
+          "99": {
+            "total": 2,
+            "covered": 2
+          },
+          "100": {
+            "total": 2,
+            "covered": 2
+          },
+          "108": {
+            "total": 2,
+            "covered": 2
+          },
+          "104": {
+            "total": 2,
+            "covered": 2
+          },
+          "97": {
+            "total": 2,
+            "covered": 2
+          },
+          "102": {
+            "total": 2,
+            "covered": 2
+          }
+        }
+      },
+      "raw": {
+        "exit_code": 0,
+        "collected": 54,
+        "reports": [
+          {
+            "nodeid": "::test_validate_returns_expected_representation[isbn10]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_expected_representation[isbn10]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_expected_representation[isbn10]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_expected_representation[isbn10-separators]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_expected_representation[isbn10-separators]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_expected_representation[isbn10-separators]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_expected_representation[lowercase-x]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_expected_representation[lowercase-x]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_expected_representation[lowercase-x]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_expected_representation[nonzero-leading-digit]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_expected_representation[nonzero-leading-digit]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_expected_representation[nonzero-leading-digit]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_expected_representation[missing-leading-zero]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_expected_representation[missing-leading-zero]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_expected_representation[missing-leading-zero]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_expected_representation[missing-zero-with-x]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_expected_representation[missing-zero-with-x]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_expected_representation[missing-zero-with-x]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_expected_representation[isbn13-978]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_expected_representation[isbn13-978]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_expected_representation[isbn13-978]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_expected_representation[isbn13-separators]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_expected_representation[isbn13-separators]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_expected_representation[isbn13-separators]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_expected_representation[isbn13-979]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_expected_representation[isbn13-979]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_expected_representation[isbn13-979]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_expected_representation[group-unchecked]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_expected_representation[group-unchecked]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_expected_representation[group-unchecked]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn10-wrong-check-digit-False]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn10-wrong-check-digit-False]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn10-wrong-check-digit-False]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn10-wrong-check-digit-True]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn10-wrong-check-digit-True]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn10-wrong-check-digit-True]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn10-changed-body-False]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn10-changed-body-False]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn10-changed-body-False]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn10-changed-body-True]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn10-changed-body-True]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn10-changed-body-True]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn10-x-required-False]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn10-x-required-False]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn10-x-required-False]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn10-x-required-True]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn10-x-required-True]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn10-x-required-True]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn10-unexpected-x-False]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn10-unexpected-x-False]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn10-unexpected-x-False]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn10-unexpected-x-True]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn10-unexpected-x-True]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn10-unexpected-x-True]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn10-letter-as-check-digit-False]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn10-letter-as-check-digit-False]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn10-letter-as-check-digit-False]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn10-letter-as-check-digit-True]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn10-letter-as-check-digit-True]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn10-letter-as-check-digit-True]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[missing-zero-wrong-check-digit-False]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[missing-zero-wrong-check-digit-False]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[missing-zero-wrong-check-digit-False]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[missing-zero-wrong-check-digit-True]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[missing-zero-wrong-check-digit-True]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[missing-zero-wrong-check-digit-True]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn13-wrong-check-digit-False]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn13-wrong-check-digit-False]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn13-wrong-check-digit-False]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn13-wrong-check-digit-True]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn13-wrong-check-digit-True]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn13-wrong-check-digit-True]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn13-979-wrong-check-digit-False]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn13-979-wrong-check-digit-False]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn13-979-wrong-check-digit-False]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn13-979-wrong-check-digit-True]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn13-979-wrong-check-digit-True]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn13-979-wrong-check-digit-True]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn13-x-as-check-digit-False]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn13-x-as-check-digit-False]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn13-x-as-check-digit-False]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn13-x-as-check-digit-True]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn13-x-as-check-digit-True]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn13-x-as-check-digit-True]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn10-x-in-body-False]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn10-x-in-body-False]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn10-x-in-body-False]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn10-x-in-body-True]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn10-x-in-body-True]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn10-x-in-body-True]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn13-letter-in-body-False]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn13-letter-in-body-False]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn13-letter-in-body-False]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn13-letter-in-body-True]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn13-letter-in-body-True]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[isbn13-letter-in-body-True]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[slash-in-body-False]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[slash-in-body-False]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[slash-in-body-False]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[slash-in-body-True]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[slash-in-body-True]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[slash-in-body-True]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[format-before-length-False]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[format-before-length-False]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[format-before-length-False]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[format-before-length-True]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[format-before-length-True]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[format-before-length-True]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[ean8-length-False]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[ean8-length-False]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[ean8-length-False]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[ean8-length-True]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[ean8-length-True]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[ean8-length-True]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[eleven-digits-False]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[eleven-digits-False]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[eleven-digits-False]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[eleven-digits-True]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[eleven-digits-True]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[eleven-digits-True]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[ean12-length-False]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[ean12-length-False]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[ean12-length-False]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[ean12-length-True]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[ean12-length-True]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[ean12-length-True]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[ean14-length-False]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[ean14-length-False]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[ean14-length-False]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[ean14-length-True]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[ean14-length-True]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[ean14-length-True]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[ean13-non-bookland-prefix-False]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[ean13-non-bookland-prefix-False]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[ean13-non-bookland-prefix-False]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[ean13-non-bookland-prefix-True]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[ean13-non-bookland-prefix-True]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[ean13-non-bookland-prefix-True]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[prefix-below-bookland-False]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[prefix-below-bookland-False]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[prefix-below-bookland-False]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[prefix-below-bookland-True]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[prefix-below-bookland-True]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[prefix-below-bookland-True]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[prefix-above-bookland-False]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[prefix-above-bookland-False]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[prefix-above-bookland-False]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[prefix-above-bookland-True]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[prefix-above-bookland-True]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[prefix-above-bookland-True]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[checksum-before-prefix-False]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[checksum-before-prefix-False]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[checksum-before-prefix-False]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[checksum-before-prefix-True]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[checksum-before-prefix-True]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[checksum-before-prefix-True]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[format-before-prefix-False]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[format-before-prefix-False]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[format-before-prefix-False]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[format-before-prefix-True]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[format-before-prefix-True]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_raises_expected_error[format-before-prefix-True]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          }
+        ],
+        "collection_errors": [],
+        "focal": {
+          "executed": true,
+          "line_total": 14,
+          "line_covered": 14,
+          "line_rate": 1.0,
+          "branch_total": 12,
+          "branch_covered": 12,
+          "branch_rate": 1.0,
+          "executable_lines": [
+            96,
+            97,
+            98,
+            99,
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            107,
+            108,
+            109,
+            110
+          ],
+          "covered_lines": [
+            96,
+            97,
+            98,
+            99,
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            107,
+            108,
+            109,
+            110
+          ],
+          "branches": {
+            "99": {
+              "total": 2,
+              "covered": 2
+            },
+            "100": {
+              "total": 2,
+              "covered": 2
+            },
+            "108": {
+              "total": 2,
+              "covered": 2
+            },
+            "104": {
+              "total": 2,
+              "covered": 2
+            },
+            "97": {
+              "total": 2,
+              "covered": 2
+            },
+            "102": {
+              "total": 2,
+              "covered": 2
+            }
+          }
+        }
+      }
+    },
+    "defects_eligible": 1,
+    "defects_measured": 1,
+    "defects_detected": 1,
+    "detection_complete": true,
+    "total_seconds": 3.1266184999840334
+  }
+}

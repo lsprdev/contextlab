@@ -1,0 +1,16 @@
+{
+  "pilot_run": "../piloto/lote-1",
+  "validation_dir": "../validacao/20261122-b",
+  "reviewer": "Gabriel Lopes Pereira",
+  "agent_versions": {"codex": "codex-cli 0.170.0"},
+  "isolation_verified": true,
+  "docs_sanitized": true,
+  "focal_mapping_verified": true,
+  "budget_calibrated": true,
+  "notes": {
+    "isolation": "Piloto de 22/11/2026: 12 gerações usaram só list_files, read_file e search; nenhum evento de comando, alteração de arquivo ou busca na web no native.jsonl.",
+    "docs": "Visão A só com código de produção e o README de cada projeto; nenhum teste nem tcc_referencia; exemplos executáveis do README do stdnum removidos (3).",
+    "focal": "Validação 20261122-b: cobertura focal executada nos 12 alvos, corpo completo de cada função.",
+    "budget": "Piloto: no máximo 14,7 mil de 30 mil caracteres, 11 de 20 consultas, 100 s de 300 s de geração, cerca de 1 s de 60 s de avaliação. Limites mantidos."
+  }
+}

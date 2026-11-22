@@ -1,0 +1,2389 @@
+{
+  "schema_version": 1,
+  "order": 20,
+  "project": "python_stdnum",
+  "target": "isbn_validate",
+  "agent": "codex",
+  "condition": "A",
+  "repetition": 1,
+  "id": "python_stdnum__isbn_validate__codex__A__1",
+  "phase": "main",
+  "lock_hash": "49dd66a522994eb03001a67255ded0aa13cc696255859f45a924b43f05f5da33",
+  "started_at": "2026-11-22T03:28:09.841210+00:00",
+  "status": "finished",
+  "generation": {
+    "status": "completed",
+    "input_tokens": 64576,
+    "output_tokens": 2459,
+    "seconds": 61.59256474999711,
+    "version": "codex-cli 0.170.0",
+    "tool_log": [
+      {
+        "index": 1,
+        "tool": "list_files",
+        "arguments": {},
+        "delivered_chars": 454,
+        "chars_before": 0,
+        "status": "ok",
+        "chars_after": 454
+      },
+      {
+        "index": 2,
+        "tool": "read_file",
+        "arguments": {
+          "path": "stdnum/isbn.py",
+          "start_line": 1,
+          "end_line": 230
+        },
+        "delivered_chars": 7340,
+        "chars_before": 454,
+        "status": "ok",
+        "chars_after": 7794
+      },
+      {
+        "index": 3,
+        "tool": "read_file",
+        "arguments": {
+          "path": "stdnum/ean.py",
+          "start_line": 35,
+          "end_line": 145
+        },
+        "delivered_chars": 1525,
+        "chars_before": 7794,
+        "status": "ok",
+        "chars_after": 9319
+      },
+      {
+        "index": 4,
+        "tool": "search",
+        "arguments": {
+          "path": "stdnum/util.py",
+          "query": "def "
+        },
+        "delivered_chars": 1629,
+        "chars_before": 9319,
+        "status": "ok",
+        "chars_after": 10948
+      },
+      {
+        "index": 5,
+        "tool": "read_file",
+        "arguments": {
+          "path": "stdnum/util.py",
+          "start_line": 68,
+          "end_line": 218
+        },
+        "delivered_chars": 7432,
+        "chars_before": 10948,
+        "status": "ok",
+        "chars_after": 18380
+      },
+      {
+        "index": 6,
+        "tool": "read_file",
+        "arguments": {
+          "path": "stdnum/exceptions.py",
+          "start_line": 15,
+          "end_line": 155
+        },
+        "delivered_chars": 2026,
+        "chars_before": 18380,
+        "status": "ok",
+        "chars_after": 20406
+      }
+    ],
+    "usage": {
+      "input_tokens": 64576,
+      "cached_input_tokens": 55680,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 2459,
+      "reasoning_output_tokens": 770
+    },
+    "details": [],
+    "capabilities": {
+      "tool_surface_verified": true,
+      "tools": [
+        "functions.list_mcp_resource_templates",
+        "functions.list_mcp_resources",
+        "functions.read_mcp_resource",
+        "mcp__contextlab.list_files",
+        "mcp__contextlab.read_file",
+        "mcp__contextlab.search"
+      ],
+      "catalog_sha256": "a61b50641627a2941fc8be4db823d1fbbfa4ae628add4d7ec443dbab559140fb",
+      "probe": "offline-localhost",
+      "model": "gpt-6.2-sol",
+      "command_rejected": true,
+      "outside_packet_rejected": true,
+      "allowed_read_verified": true
+    },
+    "returncode": 0,
+    "context_stats": {
+      "chars_used": 20406,
+      "initial_chars": 0,
+      "response_chars": 20406,
+      "remaining_chars": 9594,
+      "tool_calls": 6,
+      "max_calls": 20,
+      "budget": 30000
+    },
+    "session_id": "01a2014c-0c5f-7152-99eb-1392bebd6b62"
+  },
+  "evaluation": {
+    "target_id": "isbn_validate",
+    "test_kind": "unit",
+    "received": true,
+    "syntax_ok": true,
+    "collected": 74,
+    "active_started": true,
+    "reference_passed": false,
+    "approval": "rejected",
+    "approved": false,
+    "coverage_raw": {
+      "executed": true,
+      "line_total": 14,
+      "line_covered": 14,
+      "line_rate": 1.0,
+      "branch_total": 12,
+      "branch_covered": 12,
+      "branch_rate": 1.0,
+      "executable_lines": [
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        107,
+        108,
+        109,
+        110
+      ],
+      "covered_lines": [
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        107,
+        108,
+        109,
+        110
+      ],
+      "branches": {
+        "99": {
+          "total": 2,
+          "covered": 2
+        },
+        "100": {
+          "total": 2,
+          "covered": 2
+        },
+        "108": {
+          "total": 2,
+          "covered": 2
+        },
+        "104": {
+          "total": 2,
+          "covered": 2
+        },
+        "97": {
+          "total": 2,
+          "covered": 2
+        },
+        "102": {
+          "total": 2,
+          "covered": 2
+        }
+      }
+    },
+    "coverage_main": null,
+    "defects": [],
+    "detection_rate": null,
+    "review": null,
+    "backend": "docker",
+    "submission_sha256": "fca163ddb40970aba130d22245fe678215df821b7a2ce262991a1d30fd0e659c",
+    "status": "completed",
+    "seconds": 0.7102591250441037,
+    "active_count": 74,
+    "passed_count": 72,
+    "skipped_count": 0,
+    "xfail_count": 0,
+    "failure_categories": [
+      "assertion_failure"
+    ],
+    "original": {
+      "status": "completed",
+      "seconds": 0.7102591250441037,
+      "exit_code": 1,
+      "production_unchanged": true,
+      "collected": 74,
+      "active_started": true,
+      "active_count": 74,
+      "passed_count": 72,
+      "skipped_count": 0,
+      "xfail_count": 0,
+      "failure_categories": [
+        "assertion_failure"
+      ],
+      "reference_passed": false,
+      "assertion_failure": true,
+      "focal": {
+        "executed": true,
+        "line_total": 14,
+        "line_covered": 14,
+        "line_rate": 1.0,
+        "branch_total": 12,
+        "branch_covered": 12,
+        "branch_rate": 1.0,
+        "executable_lines": [
+          96,
+          97,
+          98,
+          99,
+          100,
+          101,
+          102,
+          103,
+          104,
+          105,
+          107,
+          108,
+          109,
+          110
+        ],
+        "covered_lines": [
+          96,
+          97,
+          98,
+          99,
+          100,
+          101,
+          102,
+          103,
+          104,
+          105,
+          107,
+          108,
+          109,
+          110
+        ],
+        "branches": {
+          "99": {
+            "total": 2,
+            "covered": 2
+          },
+          "100": {
+            "total": 2,
+            "covered": 2
+          },
+          "108": {
+            "total": 2,
+            "covered": 2
+          },
+          "104": {
+            "total": 2,
+            "covered": 2
+          },
+          "97": {
+            "total": 2,
+            "covered": 2
+          },
+          "102": {
+            "total": 2,
+            "covered": 2
+          }
+        }
+      },
+      "raw": {
+        "exit_code": 1,
+        "collected": 74,
+        "reports": [
+          {
+            "nodeid": "::test_validate_returns_compact_isbn[isbn10]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_compact_isbn[isbn10]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_compact_isbn[isbn10]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_compact_isbn[isbn10-separators]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_compact_isbn[isbn10-separators]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_compact_isbn[isbn10-separators]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_compact_isbn[isbn10-lowercase-x]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_compact_isbn[isbn10-lowercase-x]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_compact_isbn[isbn10-lowercase-x]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_compact_isbn[nine-character-numeric]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_compact_isbn[nine-character-numeric]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_compact_isbn[nine-character-numeric]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_compact_isbn[nine-character-x]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_compact_isbn[nine-character-x]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_compact_isbn[nine-character-x]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_compact_isbn[isbn10-zero-check-digit]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_compact_isbn[isbn10-zero-check-digit]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_compact_isbn[isbn10-zero-check-digit]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_compact_isbn[isbn10-all-zero]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_compact_isbn[isbn10-all-zero]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_compact_isbn[isbn10-all-zero]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_compact_isbn[isbn13-978]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_compact_isbn[isbn13-978]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_compact_isbn[isbn13-978]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_compact_isbn[isbn13-979]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_compact_isbn[isbn13-979]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_compact_isbn[isbn13-979]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_compact_isbn[isbn13-zero-check-digit]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_compact_isbn[isbn13-zero-check-digit]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_compact_isbn[isbn13-zero-check-digit]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_compact_isbn[isbn13-unchecked-group]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_compact_isbn[isbn13-unchecked-group]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_compact_isbn[isbn13-unchecked-group]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_compact_isbn[unicode-cleaning]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_compact_isbn[unicode-cleaning]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_returns_compact_isbn[unicode-cleaning]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_with_conversion_disabled[ 0-306-40615-2 -0306406152]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_with_conversion_disabled[ 0-306-40615-2 -0306406152]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_with_conversion_disabled[ 0-306-40615-2 -0306406152]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_with_conversion_disabled[8044 2957 x-080442957X]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_with_conversion_disabled[8044 2957 x-080442957X]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_with_conversion_disabled[8044 2957 x-080442957X]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_with_conversion_disabled[979-10-90636-07-1-9791090636071]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_with_conversion_disabled[979-10-90636-07-1-9791090636071]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_with_conversion_disabled[979-10-90636-07-1-9791090636071]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_with_conversion_enabled[isbn10-numeric]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_with_conversion_enabled[isbn10-numeric]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_with_conversion_enabled[isbn10-numeric]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_with_conversion_enabled[isbn10-x]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_with_conversion_enabled[isbn10-x]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_with_conversion_enabled[isbn10-x]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_with_conversion_enabled[nine-character-numeric]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_with_conversion_enabled[nine-character-numeric]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_with_conversion_enabled[nine-character-numeric]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_with_conversion_enabled[nine-character-x]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_with_conversion_enabled[nine-character-x]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_with_conversion_enabled[nine-character-x]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_with_conversion_enabled[isbn10-zero-check-digit]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_with_conversion_enabled[isbn10-zero-check-digit]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_with_conversion_enabled[isbn10-zero-check-digit]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_with_conversion_enabled[already-978]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_with_conversion_enabled[already-978]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_with_conversion_enabled[already-978]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_with_conversion_enabled[already-979]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_with_conversion_enabled[already-979]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_with_conversion_enabled[already-979]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[empty-keep]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[empty-keep]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[empty-keep]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[empty-convert]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[empty-convert]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[empty-convert]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[separators-only-keep]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[separators-only-keep]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[separators-only-keep]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[separators-only-convert]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[separators-only-convert]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[separators-only-convert]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[no-payload-keep]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[no-payload-keep]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[no-payload-keep]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[no-payload-convert]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[no-payload-convert]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[no-payload-convert]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[none-keep]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[none-keep]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[none-keep]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[none-convert]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[none-convert]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[none-convert]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[isbn10-x-in-payload-keep]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[isbn10-x-in-payload-keep]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[isbn10-x-in-payload-keep]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[isbn10-x-in-payload-convert]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[isbn10-x-in-payload-convert]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[isbn10-x-in-payload-convert]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[isbn13-letter-in-payload-keep]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[isbn13-letter-in-payload-keep]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[isbn13-letter-in-payload-keep]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[isbn13-letter-in-payload-convert]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[isbn13-letter-in-payload-convert]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[isbn13-letter-in-payload-convert]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[isbn13-x-as-check-digit-keep]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[isbn13-x-as-check-digit-keep]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[isbn13-x-as-check-digit-keep]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[isbn13-x-as-check-digit-convert]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[isbn13-x-as-check-digit-convert]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[isbn13-x-as-check-digit-convert]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[unmapped-unicode-check-digit-keep]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[unmapped-unicode-check-digit-keep]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[unmapped-unicode-check-digit-keep]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[unmapped-unicode-check-digit-convert]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[unmapped-unicode-check-digit-convert]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[unmapped-unicode-check-digit-convert]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[unsupported-separator-keep]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[unsupported-separator-keep]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[unsupported-separator-keep]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[unsupported-separator-convert]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[unsupported-separator-convert]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[unsupported-separator-convert]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[internal-tab-keep]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[internal-tab-keep]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[internal-tab-keep]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[internal-tab-convert]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[internal-tab-convert]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[internal-tab-convert]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[format-before-length-keep]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[format-before-length-keep]",
+            "when": "call",
+            "outcome": "failed",
+            "exception": "AssertionError",
+            "assertion_failure": true,
+            "expected_failure": false,
+            "message": "/submission/test_generated.py:96: in test_validate_rejects_invalid_isbn\n    assert exc_info.type is error\nE   AssertionError: assert <class 'stdnum.exceptions.InvalidLength'> is <class 'stdnum.exceptions.InvalidFormat'>\nE    +  where <class 'stdnum.exceptions.InvalidLength'> = <ExceptionInfo InvalidLength() tblen=2>.type"
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[format-before-length-keep]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[format-before-length-convert]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[format-before-length-convert]",
+            "when": "call",
+            "outcome": "failed",
+            "exception": "AssertionError",
+            "assertion_failure": true,
+            "expected_failure": false,
+            "message": "/submission/test_generated.py:96: in test_validate_rejects_invalid_isbn\n    assert exc_info.type is error\nE   AssertionError: assert <class 'stdnum.exceptions.InvalidLength'> is <class 'stdnum.exceptions.InvalidFormat'>\nE    +  where <class 'stdnum.exceptions.InvalidLength'> = <ExceptionInfo InvalidLength() tblen=2>.type"
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[format-before-length-convert]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[eight-digit-ean-keep]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[eight-digit-ean-keep]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[eight-digit-ean-keep]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[eight-digit-ean-convert]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[eight-digit-ean-convert]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[eight-digit-ean-convert]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[eleven-digits-keep]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[eleven-digits-keep]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[eleven-digits-keep]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[eleven-digits-convert]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[eleven-digits-convert]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[eleven-digits-convert]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[twelve-digit-ean-keep]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[twelve-digit-ean-keep]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[twelve-digit-ean-keep]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[twelve-digit-ean-convert]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[twelve-digit-ean-convert]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[twelve-digit-ean-convert]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[fourteen-digit-ean-keep]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[fourteen-digit-ean-keep]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[fourteen-digit-ean-keep]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[fourteen-digit-ean-convert]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[fourteen-digit-ean-convert]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[fourteen-digit-ean-convert]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[isbn10-wrong-check-digit-keep]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[isbn10-wrong-check-digit-keep]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[isbn10-wrong-check-digit-keep]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[isbn10-wrong-check-digit-convert]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[isbn10-wrong-check-digit-convert]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[isbn10-wrong-check-digit-convert]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[isbn10-unexpected-x-keep]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[isbn10-unexpected-x-keep]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[isbn10-unexpected-x-keep]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[isbn10-unexpected-x-convert]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[isbn10-unexpected-x-convert]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[isbn10-unexpected-x-convert]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[isbn10-letter-as-check-digit-keep]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[isbn10-letter-as-check-digit-keep]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[isbn10-letter-as-check-digit-keep]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[isbn10-letter-as-check-digit-convert]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[isbn10-letter-as-check-digit-convert]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[isbn10-letter-as-check-digit-convert]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[isbn10-missing-x-keep]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[isbn10-missing-x-keep]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[isbn10-missing-x-keep]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[isbn10-missing-x-convert]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[isbn10-missing-x-convert]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[isbn10-missing-x-convert]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[nine-character-wrong-check-digit-keep]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[nine-character-wrong-check-digit-keep]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[nine-character-wrong-check-digit-keep]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[nine-character-wrong-check-digit-convert]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[nine-character-wrong-check-digit-convert]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[nine-character-wrong-check-digit-convert]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[isbn13-978-wrong-check-digit-keep]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[isbn13-978-wrong-check-digit-keep]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[isbn13-978-wrong-check-digit-keep]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[isbn13-978-wrong-check-digit-convert]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[isbn13-978-wrong-check-digit-convert]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[isbn13-978-wrong-check-digit-convert]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[isbn13-979-wrong-check-digit-keep]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[isbn13-979-wrong-check-digit-keep]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[isbn13-979-wrong-check-digit-keep]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[isbn13-979-wrong-check-digit-convert]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[isbn13-979-wrong-check-digit-convert]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[isbn13-979-wrong-check-digit-convert]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[ean-prefix-977-keep]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[ean-prefix-977-keep]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[ean-prefix-977-keep]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[ean-prefix-977-convert]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[ean-prefix-977-convert]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[ean-prefix-977-convert]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[ean-prefix-980-keep]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[ean-prefix-980-keep]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[ean-prefix-980-keep]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[ean-prefix-980-convert]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[ean-prefix-980-convert]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[ean-prefix-980-convert]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[valid-non-bookland-ean-keep]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[valid-non-bookland-ean-keep]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[valid-non-bookland-ean-keep]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[valid-non-bookland-ean-convert]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[valid-non-bookland-ean-convert]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[valid-non-bookland-ean-convert]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[checksum-before-prefix-keep]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[checksum-before-prefix-keep]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[checksum-before-prefix-keep]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[checksum-before-prefix-convert]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[checksum-before-prefix-convert]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_validate_rejects_invalid_isbn[checksum-before-prefix-convert]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          }
+        ],
+        "collection_errors": [],
+        "focal": {
+          "executed": true,
+          "line_total": 14,
+          "line_covered": 14,
+          "line_rate": 1.0,
+          "branch_total": 12,
+          "branch_covered": 12,
+          "branch_rate": 1.0,
+          "executable_lines": [
+            96,
+            97,
+            98,
+            99,
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            107,
+            108,
+            109,
+            110
+          ],
+          "covered_lines": [
+            96,
+            97,
+            98,
+            99,
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            107,
+            108,
+            109,
+            110
+          ],
+          "branches": {
+            "99": {
+              "total": 2,
+              "covered": 2
+            },
+            "100": {
+              "total": 2,
+              "covered": 2
+            },
+            "108": {
+              "total": 2,
+              "covered": 2
+            },
+            "104": {
+              "total": 2,
+              "covered": 2
+            },
+            "97": {
+              "total": 2,
+              "covered": 2
+            },
+            "102": {
+              "total": 2,
+              "covered": 2
+            }
+          }
+        }
+      }
+    },
+    "defects_eligible": null,
+    "defects_measured": null,
+    "defects_detected": null,
+    "detection_complete": null,
+    "total_seconds": 0.8769137499621138
+  },
+  "preparation_seconds": 0.02010337496176362,
+  "submission_sha256": "fca163ddb40970aba130d22245fe678215df821b7a2ce262991a1d30fd0e659c",
+  "finished_at": "2026-11-22T03:29:12.337518+00:00"
+}

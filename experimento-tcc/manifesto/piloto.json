@@ -1,0 +1,166 @@
+{
+  "schema_version": 1,
+  "phase": "pilot",
+  "seed": 20261121,
+  "conditions": [
+    "L",
+    "R",
+    "A"
+  ],
+  "repetitions": 1,
+  "limits": {
+    "context_chars": 30000,
+    "tool_calls": 20,
+    "generation_seconds": 300,
+    "evaluation_seconds": 60
+  },
+  "agents": [
+    {
+      "id": "codex",
+      "kind": "codex",
+      "model": "gpt-6.2-sol",
+      "reasoning_effort": "medium",
+      "auth_file": "~/.codex/auth.json"
+    }
+  ],
+  "evaluation": {
+    "backend": "docker",
+    "image": "sha256:5fae9b0d2ee16d23a270dc3650f469a27384f205d9dc4fa5bbde576ab2894f9c"
+  },
+  "projects": [
+    {
+      "id": "fava",
+      "name": "Fava 1.30.16",
+      "root": "../projetos/fava",
+      "source_roots": [
+        "src"
+      ],
+      "include": [
+        "src/fava/__init__.py",
+        "src/fava/helpers.py",
+        "src/fava/core/**/*.py",
+        "src/fava/beans/**/*.py",
+        "src/fava/util/**/*.py",
+        "README.rst"
+      ],
+      "evaluation_include": [
+        "src/fava/**/*.py",
+        "tcc_referencia/piloto/test_piloto_parse_budgets.py"
+      ],
+      "targets": [
+        {
+          "id": "parse_budgets",
+          "path": "src/fava/core/budgets.py",
+          "symbol": "parse_budgets",
+          "import": "fava.core.budgets:parse_budgets",
+          "test_kind": "unit",
+          "reference_tests": [
+            "tcc_referencia/piloto/test_piloto_parse_budgets.py"
+          ],
+          "defects": []
+        }
+      ]
+    },
+    {
+      "id": "bump_my_version",
+      "name": "bump-my-version 1.8.1",
+      "root": "../projetos/bump-my-version",
+      "source_roots": [
+        "."
+      ],
+      "include": [
+        "bumpversion/__init__.py",
+        "bumpversion/exceptions.py",
+        "bumpversion/utils.py",
+        "bumpversion/ui.py",
+        "bumpversion/versioning/**/*.py",
+        "bumpversion/scm/**/*.py",
+        "README.md"
+      ],
+      "evaluation_include": [
+        "bumpversion/**/*.py",
+        "tcc_referencia/piloto/test_piloto_parse_version.py"
+      ],
+      "targets": [
+        {
+          "id": "parse_version",
+          "path": "bumpversion/versioning/serialization.py",
+          "symbol": "parse_version",
+          "import": "bumpversion.versioning.serialization:parse_version",
+          "test_kind": "unit",
+          "reference_tests": [
+            "tcc_referencia/piloto/test_piloto_parse_version.py"
+          ],
+          "defects": []
+        }
+      ]
+    },
+    {
+      "id": "python_dotenv",
+      "name": "python-dotenv 1.2.4",
+      "root": "../projetos/python-dotenv",
+      "source_roots": [
+        "src"
+      ],
+      "include": [
+        "src/dotenv/**/*.py",
+        "README.md"
+      ],
+      "evaluation_include": [
+        "src/dotenv/**/*.py",
+        "tcc_referencia/piloto/test_piloto_parse_stream.py"
+      ],
+      "targets": [
+        {
+          "id": "parse_stream",
+          "path": "src/dotenv/parser.py",
+          "symbol": "parse_stream",
+          "import": "dotenv.parser:parse_stream",
+          "test_kind": "unit",
+          "reference_tests": [
+            "tcc_referencia/piloto/test_piloto_parse_stream.py"
+          ],
+          "defects": []
+        }
+      ]
+    },
+    {
+      "id": "python_stdnum",
+      "name": "python-stdnum 2.2",
+      "root": "../projetos/python-stdnum",
+      "source_roots": [
+        "."
+      ],
+      "include": [
+        "stdnum/__init__.py",
+        "stdnum/exceptions.py",
+        "stdnum/util.py",
+        "stdnum/br/**/*.py",
+        "stdnum/es/**/*.py",
+        "stdnum/isbn.py",
+        "stdnum/ean.py",
+        "stdnum/issn.py",
+        "stdnum/ismn.py",
+        "README.md"
+      ],
+      "evaluation_include": [
+        "stdnum/**/*.py",
+        "stdnum/**/*.dat",
+        "tcc_referencia/piloto/test_piloto_cnpj_validate.py"
+      ],
+      "targets": [
+        {
+          "id": "br_cnpj_validate",
+          "path": "stdnum/br/cnpj.py",
+          "symbol": "validate",
+          "import": "stdnum.br.cnpj:validate",
+          "test_kind": "unit",
+          "reference_tests": [
+            "tcc_referencia/piloto/test_piloto_cnpj_validate.py"
+          ],
+          "defects": []
+        }
+      ]
+    }
+  ]
+}

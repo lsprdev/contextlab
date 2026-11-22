@@ -183,6 +183,7 @@ Todas as opções estão na [referência de comandos](docs/COMANDOS.md).
 | `tests/` | Testes automatizados; `tests/fixtures/` tem projetos e manifestos de teste. |
 | `docs/` | Guias de uso e verificação. |
 | `site/` | Dockerfile e nginx do site de documentação. |
+| `experimento-tcc/` | Manifesto, referências, defeitos e resultados do experimento do TCC. |
 | `projects/cambio/` | Projeto didático: CLI de câmbio. |
 | `projects/orcamentos/` | Projeto didático: OrçaAPI. |
 | `projects/*/runs/` | Lotes executados localmente, fora do Git. |
@@ -201,7 +202,8 @@ geração**.
 | python-stdnum 2.2 | Biblioteca | `br.cpf.validate`, `isbn.validate`, `es.nif.validate` |
 
 O manifesto, os testes de referência, os defeitos controlados e os resultados
-do experimento serão publicados neste repositório depois da coleta. O código
+estão em [`experimento-tcc/`](experimento-tcc/README.md), e os gráficos, na
+página **Experimento** de [contextlab.lspr.dev](https://contextlab.lspr.dev/#experimento). O código
 dos quatro projetos não é copiado: o manifesto aponta as revisões usadas. Os
 projetos didáticos ficam fora da amostra e não servem como evidência do
 experimento.
@@ -210,10 +212,11 @@ experimento.
 
 A documentação do visualizador também é publicada como site estático em
 [contextlab.lspr.dev](https://contextlab.lspr.dev). Ele é gerado a partir das
-mesmas páginas do `serve`, sem registros de execução:
+mesmas páginas do `serve`, sem registros de execução, mais a página
+**Experimento**, montada a partir de `experimento-tcc/`:
 
 ```bash
-python -m contextlab.viewer.site site-dist   # gera site-dist/index.html
+python -m contextlab.viewer.site site-dist experimento-tcc   # gera site-dist/index.html
 docker compose up --build                    # serve o site com nginx, porta 80 do serviço "site"
 ```
 

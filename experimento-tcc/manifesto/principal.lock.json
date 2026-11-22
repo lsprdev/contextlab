@@ -1,0 +1,1911 @@
+{
+  "schema_version": 1,
+  "artifact_version": "0.1.0",
+  "created_at": "2026-11-22T03:11:08.749481+00:00",
+  "config": {
+    "schema_version": 1,
+    "phase": "main",
+    "seed": 20261121,
+    "conditions": [
+      "L",
+      "R",
+      "A"
+    ],
+    "repetitions": 3,
+    "limits": {
+      "context_chars": 30000,
+      "tool_calls": 20,
+      "generation_seconds": 300,
+      "evaluation_seconds": 60
+    },
+    "agents": [
+      {
+        "id": "codex",
+        "kind": "codex",
+        "model": "gpt-6.2-sol",
+        "reasoning_effort": "medium",
+        "auth_file": "/Users/lsprdev/.codex/auth.json"
+      }
+    ],
+    "evaluation": {
+      "backend": "docker",
+      "image": "sha256:5fae9b0d2ee16d23a270dc3650f469a27384f205d9dc4fa5bbde576ab2894f9c"
+    },
+    "projects": [
+      {
+        "id": "fava",
+        "name": "Fava 1.30.16",
+        "root": "/Volumes/SANDISK I/experimento-tcc/projetos/fava",
+        "source_roots": [
+          "src"
+        ],
+        "include": [
+          "src/fava/__init__.py",
+          "src/fava/helpers.py",
+          "src/fava/core/**/*.py",
+          "src/fava/beans/**/*.py",
+          "src/fava/util/**/*.py",
+          "README.rst"
+        ],
+        "evaluation_include": [
+          "src/fava/**/*.py",
+          "tcc_referencia/test_ref_calculate_budget.py",
+          "tcc_referencia/test_ref_group_entries_by_account.py",
+          "tcc_referencia/test_ref_find_insert_position.py"
+        ],
+        "targets": [
+          {
+            "id": "calculate_budget",
+            "path": "src/fava/core/budgets.py",
+            "symbol": "calculate_budget",
+            "import": "fava.core.budgets:calculate_budget",
+            "test_kind": "unit",
+            "reference_tests": [
+              "tcc_referencia/test_ref_calculate_budget.py"
+            ],
+            "defects": [
+              {
+                "id": "FAV-01-sem-divisao",
+                "path": "src/fava/core/budgets.py",
+                "old": "currency_dict[budget.currency] += budget.number / days_in_period",
+                "new": "currency_dict[budget.currency] += budget.number",
+                "witness": "tcc_referencia/test_ref_calculate_budget.py::test_orcamento_mensal_de_um_dia_e_a_parcela_diaria"
+              }
+            ]
+          },
+          {
+            "id": "group_entries_by_account",
+            "path": "src/fava/core/group_entries.py",
+            "symbol": "group_entries_by_account",
+            "import": "fava.core.group_entries:group_entries_by_account",
+            "test_kind": "unit",
+            "reference_tests": [
+              "tcc_referencia/test_ref_group_entries_by_account.py"
+            ],
+            "defects": [
+              {
+                "id": "FAV-02-sem-ordenar",
+                "path": "src/fava/core/group_entries.py",
+                "old": "return dict(sorted(res.items()))",
+                "new": "return dict(res.items())",
+                "witness": "tcc_referencia/test_ref_group_entries_by_account.py::test_chaves_ficam_em_ordem_alfabetica"
+              },
+              {
+                "id": "FAV-02-transacao-no-lugar-do-par",
+                "path": "src/fava/core/group_entries.py",
+                "old": "res[posting.account].append(TransactionPosting(entry, posting))",
+                "new": "res[posting.account].append(entry)",
+                "witness": "tcc_referencia/test_ref_group_entries_by_account.py::test_transacao_aparece_em_cada_conta_como_par_transacao_lancamento"
+              }
+            ]
+          },
+          {
+            "id": "find_insert_position",
+            "path": "src/fava/core/file.py",
+            "symbol": "find_insert_position",
+            "import": "fava.core.file:find_insert_position",
+            "test_kind": "unit",
+            "reference_tests": [
+              "tcc_referencia/test_ref_find_insert_position.py"
+            ],
+            "defects": [
+              {
+                "id": "FAV-03-data-estrita",
+                "path": "src/fava/core/file.py",
+                "old": "if insert_option.date >= entry.date:",
+                "new": "if insert_option.date > entry.date:",
+                "witness": "tcc_referencia/test_ref_find_insert_position.py::test_opcao_com_mesma_data_da_diretiva_e_ignorada"
+              },
+              {
+                "id": "FAV-03-sem-menos-um",
+                "path": "src/fava/core/file.py",
+                "old": "return (insert_option.filename, insert_option.lineno - 1)",
+                "new": "return (insert_option.filename, insert_option.lineno)",
+                "witness": "tcc_referencia/test_ref_find_insert_position.py::test_opcao_anterior_que_casa_retorna_arquivo_e_linha_anterior"
+              },
+              {
+                "id": "FAV-03-ordem-crescente",
+                "path": "src/fava/core/file.py",
+                "old": "        key=attrgetter(\"date\"),\n        reverse=True,",
+                "new": "        key=attrgetter(\"date\"),\n        reverse=False,",
+                "witness": "tcc_referencia/test_ref_find_insert_position.py::test_entre_duas_opcoes_vale_a_mais_recente_em_qualquer_ordem"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "bump_my_version",
+        "name": "bump-my-version 1.8.1",
+        "root": "/Volumes/SANDISK I/experimento-tcc/projetos/bump-my-version",
+        "source_roots": [
+          "."
+        ],
+        "include": [
+          "bumpversion/__init__.py",
+          "bumpversion/exceptions.py",
+          "bumpversion/utils.py",
+          "bumpversion/ui.py",
+          "bumpversion/versioning/**/*.py",
+          "bumpversion/scm/**/*.py",
+          "README.md"
+        ],
+        "evaluation_include": [
+          "bumpversion/**/*.py",
+          "tcc_referencia/test_ref_version_config_parse.py",
+          "tcc_referencia/test_ref_serialize.py",
+          "tcc_referencia/test_ref_get_version_from_tag.py"
+        ],
+        "targets": [
+          {
+            "id": "version_config_parse",
+            "path": "bumpversion/versioning/version_config.py",
+            "symbol": "VersionConfig.parse",
+            "import": "bumpversion.versioning.version_config:VersionConfig.parse",
+            "test_kind": "unit",
+            "reference_tests": [
+              "tcc_referencia/test_ref_version_config_parse.py"
+            ],
+            "defects": [
+              {
+                "id": "BMV-01-erro-invertido",
+                "path": "bumpversion/versioning/version_config.py",
+                "old": "if not parsed and raise_error:",
+                "new": "if not parsed and not raise_error:",
+                "witness": "tcc_referencia/test_ref_version_config_parse.py::test_cadeia_que_nao_corresponde_retorna_none"
+              },
+              {
+                "id": "BMV-01-sem-original",
+                "path": "bumpversion/versioning/version_config.py",
+                "old": "version.original = version_string",
+                "new": "pass",
+                "witness": "tcc_referencia/test_ref_version_config_parse.py::test_guarda_a_cadeia_original"
+              }
+            ]
+          },
+          {
+            "id": "serialize",
+            "path": "bumpversion/versioning/serialization.py",
+            "symbol": "serialize",
+            "import": "bumpversion.versioning.serialization:serialize",
+            "test_kind": "unit",
+            "reference_tests": [
+              "tcc_referencia/test_ref_serialize.py"
+            ],
+            "defects": [
+              {
+                "id": "BMV-02-partes-decrescente",
+                "path": "bumpversion/versioning/serialization.py",
+                "old": "(\"num_labels\", False)",
+                "new": "(\"num_labels\", True)",
+                "witness": "tcc_referencia/test_ref_serialize.py::test_patch_zero_usa_o_formato_mais_curto"
+              },
+              {
+                "id": "BMV-02-sem-obrigatorias",
+                "path": "bumpversion/versioning/serialization.py",
+                "old": "((\"has_required_components\", True), (\"num_labels\", False), (\"order\", False))",
+                "new": "((\"num_labels\", False), (\"order\", False))",
+                "witness": "tcc_referencia/test_ref_serialize.py::test_patch_diferente_de_zero_exige_o_formato_completo"
+              },
+              {
+                "id": "BMV-02-sem-copia",
+                "path": "bumpversion/versioning/serialization.py",
+                "old": "local_context = copy(context)",
+                "new": "local_context = context",
+                "witness": "tcc_referencia/test_ref_serialize.py::test_contexto_do_chamador_nao_e_alterado"
+              }
+            ]
+          },
+          {
+            "id": "get_version_from_tag",
+            "path": "bumpversion/scm/models.py",
+            "symbol": "SCMConfig.get_version_from_tag",
+            "import": "bumpversion.scm.models:SCMConfig.get_version_from_tag",
+            "test_kind": "unit",
+            "reference_tests": [
+              "tcc_referencia/test_ref_get_version_from_tag.py"
+            ],
+            "defects": [
+              {
+                "id": "BMV-03-sem-escape",
+                "path": "bumpversion/scm/models.py",
+                "old": "{re.escape(prefix)}",
+                "new": "{prefix}",
+                "witness": "tcc_referencia/test_ref_get_version_from_tag.py::test_prefixo_e_tratado_como_texto_literal"
+              },
+              {
+                "id": "BMV-03-sem-flags",
+                "path": "bumpversion/scm/models.py",
+                "old": "rep = f\"{regex_flags}{",
+                "new": "rep = f\"{",
+                "witness": "tcc_referencia/test_ref_get_version_from_tag.py::test_marcacao_verbose_no_inicio_do_padrao_continua_valendo"
+              },
+              {
+                "id": "BMV-03-prefixo-errado",
+                "path": "bumpversion/scm/models.py",
+                "old": "prefix = parts[0]",
+                "new": "prefix = parts[-1]",
+                "witness": "tcc_referencia/test_ref_get_version_from_tag.py::test_modelo_com_sufixo_usa_so_o_prefixo"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "python_dotenv",
+        "name": "python-dotenv 1.2.4",
+        "root": "/Volumes/SANDISK I/experimento-tcc/projetos/python-dotenv",
+        "source_roots": [
+          "src"
+        ],
+        "include": [
+          "src/dotenv/**/*.py",
+          "README.md"
+        ],
+        "evaluation_include": [
+          "src/dotenv/**/*.py",
+          "tcc_referencia/test_ref_parse_value.py",
+          "tcc_referencia/test_ref_parse_variables.py",
+          "tcc_referencia/test_ref_resolve_variables.py"
+        ],
+        "targets": [
+          {
+            "id": "parse_value",
+            "path": "src/dotenv/parser.py",
+            "symbol": "parse_value",
+            "import": "dotenv.parser:parse_value",
+            "test_kind": "unit",
+            "reference_tests": [
+              "tcc_referencia/test_ref_parse_value.py"
+            ],
+            "defects": [
+              {
+                "id": "DOT-01-sem-escapes",
+                "path": "src/dotenv/parser.py",
+                "old": "return decode_escapes(_double_quote_escapes, value)",
+                "new": "return value",
+                "witness": "tcc_referencia/test_ref_parse_value.py::test_aspas_duplas_decodificam_quebra_de_linha"
+              }
+            ]
+          },
+          {
+            "id": "parse_variables",
+            "path": "src/dotenv/variables.py",
+            "symbol": "parse_variables",
+            "import": "dotenv.variables:parse_variables",
+            "test_kind": "unit",
+            "reference_tests": [
+              "tcc_referencia/test_ref_parse_variables.py"
+            ],
+            "defects": [
+              {
+                "id": "DOT-02-sem-literal-final",
+                "path": "src/dotenv/variables.py",
+                "old": "    if cursor < length:",
+                "new": "    if False:",
+                "witness": "tcc_referencia/test_ref_parse_variables.py::test_literais_nas_duas_extremidades_e_valor_padrao"
+              }
+            ]
+          },
+          {
+            "id": "resolve_variables",
+            "path": "src/dotenv/main.py",
+            "symbol": "resolve_variables",
+            "import": "dotenv.main:resolve_variables",
+            "test_kind": "unit",
+            "reference_tests": [
+              "tcc_referencia/test_ref_resolve_variables.py"
+            ],
+            "defects": [
+              {
+                "id": "DOT-03-override-invertido",
+                "path": "src/dotenv/main.py",
+                "old": "            if override:\n                env.update(os.environ)",
+                "new": "            if not override:\n                env.update(os.environ)",
+                "witness": "tcc_referencia/test_ref_resolve_variables.py::test_conflito_entre_ambiente_e_arquivo_com_override_verdadeiro"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "python_stdnum",
+        "name": "python-stdnum 2.2",
+        "root": "/Volumes/SANDISK I/experimento-tcc/projetos/python-stdnum",
+        "source_roots": [
+          "."
+        ],
+        "include": [
+          "stdnum/__init__.py",
+          "stdnum/exceptions.py",
+          "stdnum/util.py",
+          "stdnum/br/**/*.py",
+          "stdnum/es/**/*.py",
+          "stdnum/isbn.py",
+          "stdnum/ean.py",
+          "stdnum/issn.py",
+          "stdnum/ismn.py",
+          "README.md"
+        ],
+        "evaluation_include": [
+          "stdnum/**/*.py",
+          "stdnum/**/*.dat",
+          "tcc_referencia/test_ref_cpf_validate.py",
+          "tcc_referencia/test_ref_isbn_validate.py",
+          "tcc_referencia/test_ref_nif_validate.py"
+        ],
+        "targets": [
+          {
+            "id": "br_cpf_validate",
+            "path": "stdnum/br/cpf.py",
+            "symbol": "validate",
+            "import": "stdnum.br.cpf:validate",
+            "test_kind": "unit",
+            "reference_tests": [
+              "tcc_referencia/test_ref_cpf_validate.py"
+            ],
+            "defects": [
+              {
+                "id": "STD-01-sem-verificacao",
+                "path": "stdnum/br/cpf.py",
+                "old": "if _calc_check_digits(number) != number[-2:]:",
+                "new": "if False and _calc_check_digits(number) != number[-2:]:",
+                "witness": "tcc_referencia/test_ref_cpf_validate.py::test_digito_verificador_errado"
+              }
+            ]
+          },
+          {
+            "id": "isbn_validate",
+            "path": "stdnum/isbn.py",
+            "symbol": "validate",
+            "import": "stdnum.isbn:validate",
+            "test_kind": "unit",
+            "reference_tests": [
+              "tcc_referencia/test_ref_isbn_validate.py"
+            ],
+            "defects": [
+              {
+                "id": "STD-02-ignora-conversao",
+                "path": "stdnum/isbn.py",
+                "old": "    if convert:\n        number = to_isbn13(number)\n    return number",
+                "new": "    return number",
+                "witness": "tcc_referencia/test_ref_isbn_validate.py::test_isbn10_com_conversao_vira_isbn13"
+              }
+            ]
+          },
+          {
+            "id": "es_nif_validate",
+            "path": "stdnum/es/nif.py",
+            "symbol": "validate",
+            "import": "stdnum.es.nif:validate",
+            "test_kind": "unit",
+            "reference_tests": [
+              "tcc_referencia/test_ref_nif_validate.py"
+            ],
+            "defects": [
+              {
+                "id": "STD-03-sem-nie",
+                "path": "stdnum/es/nif.py",
+                "old": "        nie.validate(number)",
+                "new": "        pass",
+                "witness": "tcc_referencia/test_ref_nif_validate.py::test_nie_com_letra_errada_e_erro_de_verificacao"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "config_hash": "62f4500a45d1a2bf9e2763ffc8a0973eb82d90942d5869746266e6c8bcee47db",
+  "source_hashes": {
+    "fava": {
+      "README.rst": "c699bdf87dfd7d25813681d28c8982e91101ec954746dba0a87f2267adbf016c",
+      "src/fava/__init__.py": "fc24cefda4dead56d012a0f6c569749d75ed22ee1e6a33546f0969f12c3c4316",
+      "src/fava/_babel.py": "74c1f3ef9544dbdd3b802b643d8dab924b630d7ba3f1bc9f62ef119618571b85",
+      "src/fava/_ctx_globals_class.py": "f5cb65510d37e3109a427db327ac5009847f28003efcee318938e9ecb5e89bde",
+      "src/fava/application.py": "20ee5157ace4b542cd7665b2a88cce508dd0d706f0bd61bbc1b7cb01aadf8260",
+      "src/fava/beans/__init__.py": "d88b0edb565c5cd6ccbbaff4f8ef5937063ff8ce2c3ea43235b226de5cf06ba7",
+      "src/fava/beans/abc.py": "0604ceb49ba9aa0cb7b9dcb36eec0f1253ab94564d10d43f621ce488e79cf84b",
+      "src/fava/beans/account.py": "40aecda1d07e355b78f9c8202550b5548013f473d0f30f26c57ddede79381a1d",
+      "src/fava/beans/create.py": "f4cc04f5a99bcab354b63034e3bbf0c9f001687b3221518cf874e829e7ad97d3",
+      "src/fava/beans/flags.py": "617a852027702e35da66789566413fcac0b341d81fd4374debbdc55c59f699a5",
+      "src/fava/beans/funcs.py": "b9823a2c198a2fb1aab6ab216310b33c5b3cccdb4b3659c79b92819fce38e710",
+      "src/fava/beans/helpers.py": "f2e2aad1e8705780673f15f103eb4a893aa3da9c9170fa8e1ae108f1fd0a77b3",
+      "src/fava/beans/load.py": "244866cc0b0a84766c089910489941cef91dce54768b0b2279aac6fa9f96a95a",
+      "src/fava/beans/prices.py": "19d2512088ad64150900ec71ada4046bcbb4913beb26510cddc7c73a90e337f3",
+      "src/fava/beans/protocols.py": "832f1d949f3abbc017ed8ff02430ed0a05fcb0b31257b29575b8c3cd43f8a5c4",
+      "src/fava/beans/str.py": "121e92843660803423323aff4d7f7baa6f9411fe934fbb64e0a819ccd3151343",
+      "src/fava/beans/types.py": "79727caa255b5e91c74ec89e0dd2d9776cc1a3a877308e9ca61f2dc46f6f47df",
+      "src/fava/cli.py": "56be8af91a079928fc84fd15b454145e3e93616fd44b92052edc96f3e797abd4",
+      "src/fava/context.py": "e95a8cdb3fdacdcf4826b7b22f78d47525e6366af09a20e82fa63b4a95edc39a",
+      "src/fava/core/__init__.py": "502b40c3b371b5c580ab24ee4275fe66d2847f532fc409760dc179e40291cc50",
+      "src/fava/core/accounts.py": "60b733b3fc3620f996187ac41ebf8b8def74f1fcf292416819bfc6c0d676f562",
+      "src/fava/core/attributes.py": "6c4052a3e31b8ddc58fbcd83c7744199e212f671f97e0d9aca5c5b8348b4f80a",
+      "src/fava/core/budgets.py": "df49914db54dc25980e7c8bf95fcb4b7cc828eef194d6f1fa98a404e0e486643",
+      "src/fava/core/charts.py": "4602540d9e3705cef36bc1eb9849e8e33df2247a84048c8a22ab2da0a3ec7784",
+      "src/fava/core/commodities.py": "5b58994b1a7eb5426646b9f4194adb94bdde5549a2e48b8da3fc61d2d136bbe6",
+      "src/fava/core/conversion.py": "e976e4cc9c134edd37c776b2c2ba798d8f762a41b513dfa4e611f44e62baeaec",
+      "src/fava/core/documents.py": "bc97066b7fbf514acbc0d953e03a2977ed89d54aabf066910b8576ffea865e57",
+      "src/fava/core/extensions.py": "36ddc90a23bcf99b0bda3d647f7976a1ffa530aaad416ba8cc6bb38e51576244",
+      "src/fava/core/fava_options.py": "069ef21edeafef7caf8668f2a445081dc2071013c44245d544227effa7fa0c6d",
+      "src/fava/core/file.py": "b3b56938bcab3dfd1d88aeffbf874726d99a4584a021943af2bb6ec64977d5ce",
+      "src/fava/core/filters.py": "8abb33964f49d9cc995a673f669d2855645c5ea83572e3f4168c10d6e1ea3486",
+      "src/fava/core/group_entries.py": "9ffccf2a91bc8c886037abdb791d5009b407ab2fcd3be3dfa7733c0392f8c4f8",
+      "src/fava/core/ingest.py": "5a9425bf77896abfc40db6c1f44e06c33e5f22beebf191023f8b3e312a9582da",
+      "src/fava/core/inventory.py": "13ab75d64b6c040d15fe25667538a353ef95132bbb02cd20df711e197da0c380",
+      "src/fava/core/misc.py": "6c7e53d0c77ad63498aa33c106a9a5c13e6732ccfce3a41e486700187c9964f7",
+      "src/fava/core/module_base.py": "e0eade63da601a6f3f82dd4f1c74d38953c8ce705bfe99c6984d3b05570e3708",
+      "src/fava/core/number.py": "855c49c930463346ab01712811034d9d0dc0472e25e4c9b15af0dc5fdd3942a4",
+      "src/fava/core/query.py": "a6620eef4642b6c58f969a7aa0b29a27f1559321c86417145587e3fdc3b3af26",
+      "src/fava/core/query_shell.py": "0f204c87892da3028f2d1d3d263a36d72b7c4af622aee4bcbaba68945039c3b0",
+      "src/fava/core/tree.py": "6af32b95279d846a664d7573998f127c5f00d93d5c8a4dd6d26f6b1f069f9cda",
+      "src/fava/core/watcher.py": "22bf76a4b32eb8c87d8ffaf51335e6f86c618007505e504549e337dcdfbcd787",
+      "src/fava/ext/__init__.py": "7ef44a70b48a96dabaaf2ee70c3279e89ddf75c482f34b6d4bd1b1111c365dbf",
+      "src/fava/ext/auto_commit.py": "7c34683affa0f6b3c1d4aceeaca3bc940202008da5ac7d1e8db9d5be868522fd",
+      "src/fava/ext/fava_ext_test/__init__.py": "d764acbde1b8b8ae43e5f57f8d67aa24692a84ea5a46eadc995cdf71e5ca5c1d",
+      "src/fava/ext/portfolio_list/__init__.py": "b4059040bf7c1ad86c25a34cfefe3f10c18364d6ca853ecd9583f951de1ba7c8",
+      "src/fava/help/__init__.py": "3435dbe36912c95d8d16047728a0043f61903822a94aa929cb5fef0f954954b5",
+      "src/fava/helpers.py": "e388efbaa61feebb69c7a7e76441955180d40a168e4a6279617de732d1ddfab3",
+      "src/fava/internal_api.py": "4a310ef8b9946243a644f20a557cd930754326395997ea460104e1be62700f6a",
+      "src/fava/json_api.py": "f3fdd8e61ceaba193e77f8f1dec973b5b9ae63f346d51aa97c25db0fc14a61f5",
+      "src/fava/plugins/__init__.py": "d80d27ebabef30e73a5b785bd4daa3b94b0be782498e91f52da015df2ef9776c",
+      "src/fava/plugins/link_documents.py": "048be7d6b1ef8fcd0b555f82a8f93b1369eb2cb132cc39ba5d2f801571c18756",
+      "src/fava/plugins/tag_discovered_documents.py": "0320f308c887f813c38349611c7f21e174360e4d2d2cb3ec0019be6f14b69a66",
+      "src/fava/serialisation.py": "56cce8c050745ebb3c202350e66d9c8b6fc39c12105abd3fefdf11471ea3a52b",
+      "src/fava/template_filters.py": "5ddfe93ad63fb761c988cfecb94310b18c629917be314f73dc4b4a5e78bbbacb",
+      "src/fava/util/__init__.py": "cfb39f21d9250f2fc344dafc2c8c073bf62ea8396a5e4941b2c56b1a995e9e72",
+      "src/fava/util/date.py": "26a614f0fda818e855ed96b432592d130364224a92c2beafa0e0821108996bb5",
+      "src/fava/util/excel.py": "b9ad2816f3faf2161e11256af7c7f696750e7d944c718bc52d14e45bc915f040",
+      "src/fava/util/ranking.py": "5912ab491d40f2b21fe1fe9a4226fcda6b18086953edbb262d68d746b9dc0693",
+      "src/fava/util/sets.py": "0ad2a8cdf3c9736d464bc1d29e6d3cb037bae8a27099a7144ac7aec4443d50f5",
+      "tcc_referencia/test_ref_calculate_budget.py": "c70e4367f57a8cf28894ea1a0371d975da3a499160ca529583a7889ee097eed0",
+      "tcc_referencia/test_ref_find_insert_position.py": "664e0c1b2fcc375a2d9e4ecf6d1750427f252fb222d7b5489d3987b2055d9531",
+      "tcc_referencia/test_ref_group_entries_by_account.py": "aac1eb162578e1af04d4e5eaad847c331535f6876bcb02c09a81d46af04234b2"
+    },
+    "bump_my_version": {
+      "README.md": "769c808fc7060593f73c6f956882f29f6d47e7f7fb377248e2cd69c88cdc0b94",
+      "bumpversion/__init__.py": "3f998fb9a77ed57feccde157111097aad35730d863e84baf81c1491829ba4984",
+      "bumpversion/__main__.py": "5fbf159c7d0addb177dc232f1426eef8b5daff3cecd1532c7753eab0e4eff5ca",
+      "bumpversion/aliases.py": "c56ec08de5dc3a5c44c004f7ca9845c0c8c8453f3a083d0a7fdfbd51e5a965a8",
+      "bumpversion/autocast.py": "825f061a872864e5189ffb024ee515012fb2d88d723f3d63ca8da3e6a2fc24ee",
+      "bumpversion/bump.py": "76e5d9b3a111eb26d161ddae7680aab03feb7c1f436764647fbb45ced2f6609c",
+      "bumpversion/cli.py": "d1ff962c0b24836b35c082e8d9cf96e990b54fe3d0debb7f0751242392caae0a",
+      "bumpversion/cli_options.py": "c81223ad2036aa9a0eac53b876505767a9169677d65a4a27ff1d4e258465a2a3",
+      "bumpversion/click_config.py": "3e740c2137085e1858268b4a48d4fa03a5011b6ed7fee1c490e31ba00969cbd8",
+      "bumpversion/commands/__init__.py": "5bf9f02b9336d60dc30459a760140c14728350245e85937dd0f0bb87cf066b0c",
+      "bumpversion/commands/bump.py": "678882d912c1759374343573680fb61ee7c8bf0b55db8373a0ed5f2c2a6591f0",
+      "bumpversion/commands/replace.py": "5e25f67590e191a1bc6cbec918108933a24a4282e5184b6ef9050c4688eeafe8",
+      "bumpversion/commands/sample_config.py": "25b7e3a5c070b5935065a0fde12033f135ad572db4e634f6860b74071c67b639",
+      "bumpversion/commands/show.py": "7ce6ec1581e01e55b8ec756472f1692d7e5a5fe6296443ee99c743b7baa242ab",
+      "bumpversion/commands/show_bump.py": "32a3853c3f0c848d71b04f25ec6eeda9effefb3b970d347b1e19b16f11779cf6",
+      "bumpversion/config/__init__.py": "766f0069e4605467d63070fc651b759f5ece29211c29492526088946a7241673",
+      "bumpversion/config/create.py": "66a9711d2f5bc52974d0b2b4cdf59a3a6277da8a9adfafd296a43c98bc384f66",
+      "bumpversion/config/files.py": "81c4fbbd363154ba00351560c2d592684f9a92b29b73168ea8355a41154a0902",
+      "bumpversion/config/files_legacy.py": "1178e9aa1c297377dc620d3f4ea75cab6a9ab7089ac1721a554b63b7608d5401",
+      "bumpversion/config/models.py": "b8485a1452a060410adb1c9e4824fa59c38e32732bbce3ab7caac168b6a80e03",
+      "bumpversion/config/utils.py": "8e6ef98df632ae0c23b4900614e28f156f345f8b68174bc25437f13d915f1387",
+      "bumpversion/context.py": "d24543cde1e8894cd355612855ed23f4212e54f069e97905444195782cb72d9a",
+      "bumpversion/exceptions.py": "2d45e89dd3fc60cbb979a3cbc5ac2529de99c99fffc2325ad9251cb266d8e782",
+      "bumpversion/files.py": "07f3790c01f9e8c0a700ea53f31124cc8d87fe3df8fc0f0b7440629c9ae56a45",
+      "bumpversion/hooks.py": "22abd0ed9b96e4efaf71687578c9c6bcf1b27a82c5975c966af82b8ae76b6af5",
+      "bumpversion/indented_logger.py": "d905dc8ce67255f42bec9c0bf478dd0bae7492a1ceff179cc67c630fc87e421a",
+      "bumpversion/scm/__init__.py": "60afae9453e15292fc73ba30cde21fde01e45aae041c98892fa94af0a312c08e",
+      "bumpversion/scm/git.py": "585803b51154addb6870d37e5ae8c5270660699f1749c950b5bfd02570959573",
+      "bumpversion/scm/hg.py": "661d5f7c5958e282bb7eeae2ad50d30792094524a308e9eb4f81195138c115bc",
+      "bumpversion/scm/models.py": "9c3185ad692b2496c5d709d10b360f6e1ad8a64ed19871f7fdad55fc9abf0c53",
+      "bumpversion/show.py": "b90a037de81aa86c35e7863cdce933f2ee661ecd5f7890976300cbae9d57733d",
+      "bumpversion/ui.py": "4a7d9a913ecd860626ded1b3e3e3fb756f37204b33d4bcd1c2444966cedc2dbc",
+      "bumpversion/utils.py": "073f738e55a87d5c84c28dd7e5c4b6c8af5923e1b1a9413328e842c50da6e808",
+      "bumpversion/versioning/__init__.py": "f8b08d53eafe95416035581c2f88d8da442c5ce32d93cb70fe4ed8b9a1efc5a6",
+      "bumpversion/versioning/conventions.py": "3b01ef553cf3f2697fc73d673b7ae4b458b453885a7aea362d51058d662e83bb",
+      "bumpversion/versioning/functions.py": "80676342983acb605f21c35242894d910c356acbe7ebb8c82d8315d39e313ea8",
+      "bumpversion/versioning/models.py": "53f78843a5f54c0990de8332599d81ae893e6ebd7b8fcd8e5d7021fac3b8518b",
+      "bumpversion/versioning/serialization.py": "86ceda74a935610984ac2187646c4095181417d831fc101810c8e44314aa6334",
+      "bumpversion/versioning/version_config.py": "6e44171f5345a8ce2b0dd6ba334903f66d1dbb0d05dd214b0e8b53e44c102803",
+      "bumpversion/visualize.py": "5c1a6dd31d828bfa4d7b66098a48cde221353448c71e7fc5895b0d48ddbc458a",
+      "bumpversion/yaml_dump.py": "71258742fb1c672ac6b1d2f31c681fe5452d093a909b481fbd3189cd43bcbea9",
+      "tcc_referencia/test_ref_get_version_from_tag.py": "9b4fbfb7808a24f475d6f914a0a5c3d1f4a29c2938a0abc055c0d2804ebb846a",
+      "tcc_referencia/test_ref_serialize.py": "a7be6b9fdc60bab85802126c9f719c8e5e43ef7327145029bc4a10e9d98a5b9f",
+      "tcc_referencia/test_ref_version_config_parse.py": "dc5b7ef222204b70784c3441afa278c09c9c4b6819b58ce9eae021d4600a1ecd"
+    },
+    "python_dotenv": {
+      "README.md": "e24837acf59e35b4430f369354b56ff39837240529eed4bdccee97c50aee68d4",
+      "src/dotenv/__init__.py": "6e163e88aeb0c0765a996208e9e482b820165d435d9f64d016610eb97494ed23",
+      "src/dotenv/__main__.py": "3744612c6ee71c8aad9491f0c1ea48a3ecdb24f371f6c7b0082446639dbc87fe",
+      "src/dotenv/cli.py": "11f52f3c0cbbb3b7c59ab337281a120be9ccfb38f3546b41b16f49c290cf142c",
+      "src/dotenv/ipython.py": "74740177d3dc7425298466faed7c32dc6914a8c49d7fd5d4522358c53677b585",
+      "src/dotenv/main.py": "697eb33eee75d78b73db61eaf96bf9a6547548c1811c93501b67e056e5470dea",
+      "src/dotenv/parser.py": "0bc1350444eeff987f2c22924400ad0b7727563798118c641cd4c0de55bd30d0",
+      "src/dotenv/variables.py": "083d2a5cebefa41deae51a4140c0fda97eaf1d7ed2c96f92ba2c063054a5b74f",
+      "src/dotenv/version.py": "5c1287f04d4b983c6fd3a537f72a8c05b5d96a93844458080840d866cfe446ca",
+      "tcc_referencia/test_ref_parse_value.py": "f7b4e05c32d6cae31be20f00727d0e900282fcdcfda222724528f5f5bbe9d708",
+      "tcc_referencia/test_ref_parse_variables.py": "9068cf481c601b082e2316705b3ac30fb1ea26cf1109bf300f4660b3d2a198f6",
+      "tcc_referencia/test_ref_resolve_variables.py": "2a750c6a43fd6dc887b9200110b52b2d3ddbadd8c109d1057d7ed0e95f56273d"
+    },
+    "python_stdnum": {
+      "README.md": "b01b382e7c5640bd07a427ce330e13e439503379873cca82e850ce223786e515",
+      "stdnum/__init__.py": "5b295e2df6e22232411d2a0d10fa29d49a98e1427e56b856a637887885c23ac5",
+      "stdnum/ad/__init__.py": "55380ce9742075d998a2d316cfcd5ee589cc37273b2836cc2856a889dc7cae77",
+      "stdnum/ad/nrt.py": "ec32afcdf5e508cfffe0d694e5f0ae30380731756fd6e8470fde1cb639c9ef94",
+      "stdnum/al/__init__.py": "ebd4c048587ecf785cd8384de5526160036d0da39bfa044111b5e58285704db6",
+      "stdnum/al/nipt.py": "32068f806729de36f7fd0987038651a3a73d36eed0cadd1977f281799a063742",
+      "stdnum/ar/__init__.py": "1793ae0881e4fc7a3fe5888aef29089176b7e0046a415ab8be18903ec60c3db4",
+      "stdnum/ar/cbu.py": "bc9b9e9d6e9dbcdd458f2956c407e7f22e06dd1f5fa498d07d78857cc5fb92da",
+      "stdnum/ar/cuit.py": "816165723d2bd6e4f6dd3e51430449b7cd05fd78bcc7ccb0a620f0459dc7726d",
+      "stdnum/ar/dni.py": "9d756c21949763f3dc59a6bc5215514c2559a6afa45583faaad9d1c4f38e8211",
+      "stdnum/at/__init__.py": "4b88f70a87f1542dad8c00f9f06070e530e7dd6faa48cde66778a14109015ae0",
+      "stdnum/at/businessid.py": "8a292b9e2fb3f33dd890198aafa2719cb7f05be272dea2174fc078a6bf9ea8e9",
+      "stdnum/at/fa.dat": "f6c9f2e4a566aed64ac79a01406522a2e0f9ae68f284db240db8edafa268f520",
+      "stdnum/at/postleitzahl.dat": "6af2a6526044598a23e6e95ae8f8810f41bf877cbdd141640d1a6c428b5d4aa2",
+      "stdnum/at/postleitzahl.py": "8c2870660acf25005ef74c03a16ae03a281132a70bf212c802ac828ec88b6c32",
+      "stdnum/at/tin.py": "818e8f89b7ae619bc103c24f3d6065c23b084877e45a2daab08a8efd5a4b0fbe",
+      "stdnum/at/uid.py": "8c18544ff7a08b40a172f4417f546caaa2c0a6246443ee59b6c2b526d2721dd2",
+      "stdnum/at/vnr.py": "ee237033905317c975d98c071f91de1d67b52b0b546a6bb123fd9f3455987bfe",
+      "stdnum/au/__init__.py": "451cb1e80f11b2609806ec96088cc6d890c877fbd1d10ebd5c75c275aa21ba00",
+      "stdnum/au/abn.py": "8fe04119eb57f2171e3256a48f23612e0a02c912f4d90fa265de3dd7e9ffa7e8",
+      "stdnum/au/acn.py": "5222a2275756118ba926e49203e4377a08d03a4c57019d9dffca4dbadce19d29",
+      "stdnum/au/tfn.py": "c800ae56ea2afb521965a2551aaaa28313f4eef128aedae7d9461b5f96242ea7",
+      "stdnum/az/__init__.py": "a0b5a71d63a8d1d418b6b9fca91d18a397f6e6eb6af3d93b4a9904d73e839a74",
+      "stdnum/az/voen.py": "33812c7ad57fcf0a1de72a32c77c5410aed3cd5df31a727159ca77f4c8761321",
+      "stdnum/be/__init__.py": "1549eaf775d72e5607fd0a6d2df5c3aff95166c5b76daf1023881e55bc94db4b",
+      "stdnum/be/banks.dat": "845256b02623b37dc05636194b68c2279b542c7c6df6d2774d37f90037d057bf",
+      "stdnum/be/bis.py": "bf7debc2052cdd636b1a70b51875168ee304dfe35948d95e56ce6ef3bf805bac",
+      "stdnum/be/eid.py": "dcff5f4bc57857d0a070cca96c96c935d6b9cf052569f819831d14c58b14b31e",
+      "stdnum/be/iban.py": "48dac9cabeb4557302f2e208de12648431e02e11b44a69a79fdf3e37ff704b02",
+      "stdnum/be/nn.py": "9a84e31184733f0672a3038f54abfb305a56edb961eefa5579add64bee1575a7",
+      "stdnum/be/ogm_vcs.py": "7364ca5a5a92abf0c9da3405090098c13c2881b9c25a2d248a7855b47e5505df",
+      "stdnum/be/ssn.py": "035aaa3ccf88689220feaacd08e2328ea227bd8a9dd36ef0af7f1b681d93dcea",
+      "stdnum/be/vat.py": "901d95330e426448b8b7c3de5e6ed5ff0b0047a25af1f5c54b77efe7d37e3ce4",
+      "stdnum/bg/__init__.py": "6f15edb70790202e4885bdfe7dff3e0aa0e7e11e42a864f716fdac1361683fa0",
+      "stdnum/bg/egn.py": "73b7598247292c0d3c59c4a27f406a7739f3a9699b23d43ed5470450f3d517d6",
+      "stdnum/bg/pnf.py": "615032f1338c3891d4559c6e7d7c3d39d964319c573ec53b6f54068e53dda189",
+      "stdnum/bg/vat.py": "cfa9e4b83ae5de641e8dd666f894fd591a63336415d7ccf820d6410df5e5c82f",
+      "stdnum/bic.py": "853973f9a6367b97b72ef36bb6edb6656266f8717ff7887357f151cca2f5f340",
+      "stdnum/bitcoin.py": "9eb716ad8bc52a4bf55e93108f4cc475bd8ce00d743a422c414b2c17d31e2ea0",
+      "stdnum/br/__init__.py": "0c691377179730a198032104ba35576dffcaf167379cd6239b03ee0a379a4dc4",
+      "stdnum/br/cnpj.py": "82b4dc2219a86082f1e1bf99d7e7b3e3a78f2e8a626aae9be024196310746c87",
+      "stdnum/br/cpf.py": "e1b029eac7c3b86f59a8e0273a569d909152479bb0a7ca4619e2a9d0ffd93762",
+      "stdnum/by/__init__.py": "c69a7ba02dc0a8be7ca9dee458341ae5a7857d3436e9e5099720a8a8467bb78a",
+      "stdnum/by/unp.py": "70816f00bfac39e0ece50cb7d2bc5663bcb66ecee8444370a1d3111e63f4fb3e",
+      "stdnum/ca/__init__.py": "09f2fee9ee093116bc0f8995f135bdefdea448270437aaed00706bcc9c771f27",
+      "stdnum/ca/bc_phn.py": "5532ce1fe75ee0d59b1772fe9cba5d50ab111e4068c99cbcdfb66fef8e90b5d3",
+      "stdnum/ca/bn.py": "d274601202ef0e57bdaff1b87b24aa9746cc62c37e557d427bec2ac6a53dee98",
+      "stdnum/ca/sin.py": "9a0bcc2acbac8df46067f8b4b20ac2b3f52a3841abf1dc32784a54970fe39293",
+      "stdnum/casrn.py": "93e7d04204b741c7f62c62e90554404dede1b124de0bee6ba05b9e1b1303a7df",
+      "stdnum/cfi.dat": "fe0429bc0f22429749db2bad5b2d69642ad9d2f3a0071250a37493b6e9d112f6",
+      "stdnum/cfi.py": "bf115e67b87f8bebf6e1f11f6cabcc086c3580bb111b5c3553404117b284ef0d",
+      "stdnum/ch/__init__.py": "6a3cd4ac5f9b50aeadfe7cf2fa96b76d5a62470b177f3177672e608c1a8ec15e",
+      "stdnum/ch/esr.py": "6b3e689ab890b0f5a552c35c0b2632bf132c58032ee53bf4184c75f96503f4cf",
+      "stdnum/ch/ssn.py": "d15b8f58d8383a44094e0bcc4ec89089bc89604fb243e040a81fb7d8962219a7",
+      "stdnum/ch/uid.py": "dcbb6360a56359166084a3feb35ea42cf14cf06b3369db28e73bb5161d9bba8d",
+      "stdnum/ch/vat.py": "5b9fc7089bbc30d0bfcacf60d056940bd6c081d151b67e36adc8968282ef6c55",
+      "stdnum/cl/__init__.py": "271b52ac4a4dd02042139fbb59e05222f88e03e58151f60abb6efbc5c5f1b6d9",
+      "stdnum/cl/rut.py": "14e31df5c78d1aa74f5e16cc95b366fd3c394cca7a0cce7671e777b4d7e75914",
+      "stdnum/cn/__init__.py": "9a170b043590b111f06187f5e8c248f41f55f0b53a6485a19fdd2367021b7b40",
+      "stdnum/cn/loc.dat": "2245716b825f9ce17ad50bc0fdc9176d7b8d356f927937afcf103efc1305fcf6",
+      "stdnum/cn/ric.py": "05c7f5a2908624b2fed43e4c7d2bf1b89379fc007878e60fcea26c03b4ed8249",
+      "stdnum/cn/uscc.py": "c065bc7b8523ae557c2355d335e7ae6f80aafb2315c0f74546fa6cdb48c1a162",
+      "stdnum/co/__init__.py": "5e9ff3940f04025a5420a4d3a8f19d09faf8a71dd3aee19ae03e5232756602e2",
+      "stdnum/co/nit.py": "18d95188cba975e4eec49de410eb6bb509dbf59e4c034070efc6c125a49612a0",
+      "stdnum/cr/__init__.py": "64d5b32b64ade91e5490e253430069ea89013087b25e074c0e21008808742ff8",
+      "stdnum/cr/cpf.py": "a8028c2ee5a2705b650959d3c3bce7b4e92c3471caf6140ca635813ca66d5dc4",
+      "stdnum/cr/cpj.py": "06f993588fa6598275a0ecb8f60fb6ec8bbd35d812ce0009e5e8d1a64da47c9d",
+      "stdnum/cr/cr.py": "0782a86ce707bc7380023224a505695233e2c666ead1323a7afe3ffb09a21443",
+      "stdnum/cu/__init__.py": "82974f85db22267016d9314f89f4f4473b7e32b2ded7f5bf3321144ecc5f061a",
+      "stdnum/cu/ni.py": "77fbc58e586da743e602193494e7561cbd4a8ea9acd1f47b9b96fcfb776d6cde",
+      "stdnum/cusip.py": "a1e1ebbb93e58e7f987ed2b4cb086a4004faeabe8f2794832bb00cdcd563d963",
+      "stdnum/cy/__init__.py": "69a3485cacaba3ad1d9a620df0c97b2c728c54d58d1b3e9e67d4c52374f0c312",
+      "stdnum/cy/vat.py": "cd632168273e3feb660486555d6c95197479415e428a3d7cf749066a087948d7",
+      "stdnum/cz/__init__.py": "d9331800d776790a3cd61f86ea6f9dfd1135bfe0fdbcf9c4920886b83c63bf5c",
+      "stdnum/cz/bankaccount.py": "471d9630a1c4c670e465f8339d447f402d94435ce9acd05a1828d977e754e1a1",
+      "stdnum/cz/banks.dat": "31e79f12a2fd2563447fc9978adc52230305c21fe526388bd35e6dcb8ff4433e",
+      "stdnum/cz/dic.py": "d36d0227ee07cff0269ea09f9db6b8cdcffd32f0be5082d671c030781380bb21",
+      "stdnum/cz/rc.py": "a737739bec8ed28fcdc6f599126ce01dec4007f32a76be1028b9df4b573b2282",
+      "stdnum/damm.py": "bf14d552328c471c7f887881e3b9a348808a1eb7412c46494425d543f31c8d80",
+      "stdnum/de/__init__.py": "170fabd591188b828b92ffc0de0cd1b6650c6808a3dd3736bceafb7a957f5318",
+      "stdnum/de/handelsregisternummer.py": "6ee5c34ee3b946aaeb48af8ce71cb9702431c5db43bc45de9d1ff10fdd5017aa",
+      "stdnum/de/idnr.py": "406499181359159d39185b2703e32764c13be54c30834a7b0f172e68af76aa77",
+      "stdnum/de/leitweg.py": "0872cae4f32a884a168403d45c5db56336af20fade0eae2a53f4f43272b29090",
+      "stdnum/de/stnr.py": "204d3791a61f364a33e9c68f76d3136321e467f347b5bb731b9835786993736d",
+      "stdnum/de/vat.py": "5832bcecc8afcbce2224114fa8cdef30525f9b198ad9878b25c0647a80d9228b",
+      "stdnum/de/wkn.py": "25dce6feffaac5086f329ee2eb89c5f3a640a4a70d2912551075d2b7b3be0f07",
+      "stdnum/dk/__init__.py": "6366afa686ab0e2258296ac19e7bc15ace022f07dc789a3d3157c5d5673b2151",
+      "stdnum/dk/cpr.py": "02131d21b0baba49fae874624e572dfa7e6e4804bee973d4a3b71c407bcdd0ee",
+      "stdnum/dk/cvr.py": "bb4392f6cce606681da469406ced352daff4f3b4e1ffdda0c89dd8ae595b8957",
+      "stdnum/do/__init__.py": "1e8eb11abc3f0c4d286d68fa7a060d26e5c4c4e75fddf1bfd5796e8d039b46f4",
+      "stdnum/do/cedula.py": "ea058daa4650f52b57d1aa72bb8fed004f4528c49370865822d5677029b6b60e",
+      "stdnum/do/ncf.py": "acd3a307330100b34b4f53c9233d403653bafc3404b18eb23c6c890af1193004",
+      "stdnum/do/rnc.py": "45a567d2e1a7000578ec54eb2ec6423ca4b67a22f3295736690ccd0d49478905",
+      "stdnum/dz/__init__.py": "cc6791e15448c55c824545c06ce65048a4a96c9e457b32a1bc10d0c6294de6e0",
+      "stdnum/dz/nif.py": "d8fb9bdd40f90cff851b51b1259b540b51809f29c6193d48fb32ff0b37e86f34",
+      "stdnum/ean.py": "a234bf7fe8e7be5c4cb38adbefe0ec56fb499c6714c3f696834f386f2f072b83",
+      "stdnum/ec/__init__.py": "abfd34f36e5e160a6803963fdf9c98c2819aee4a687ddecd8bb039bd51cefad9",
+      "stdnum/ec/ci.py": "a74118f4b7df8088c0345b3a5062550e612a06898d1023af78306becb1fe9eeb",
+      "stdnum/ec/ruc.py": "b4bb3717a3884f10280ef2093946991f2cda6eaf6aa870874d8cee425769bbc6",
+      "stdnum/ee/__init__.py": "9521a54f8e70a6af92da53899b1ca4b933f8b6bcf10e5a814fefd7d2b3faa645",
+      "stdnum/ee/ik.py": "1472efa5d8f7bc9ab9509785d0972d6fc858808868decba14e9f935e27893ee3",
+      "stdnum/ee/kmkr.py": "4be262381db4b7d0a053bf2ec28535e41989f95c908d48a7eda8297d81dd209c",
+      "stdnum/ee/registrikood.py": "d275714443623806150ff623d04003a76fff02602c2b6fe7573b185682d56d9f",
+      "stdnum/eg/__init__.py": "60ad73d3dcc5a36aad8ccc4f0855b15aefc0b6db0a6e2568b565c8fbc8d829ca",
+      "stdnum/eg/tn.py": "4b8729b9520e2ea70bc9e7b25456d85702a1a28cad9d4b7ac2279a96c2e5b7c5",
+      "stdnum/es/__init__.py": "59cc3cdee960db5fc86586ebc5c08acd045cc019c1ca8d71e095c90beb3c627d",
+      "stdnum/es/cae.py": "dce401261b9b282e713ba6dbf63c3de7d5a3f3de2ce1bef6c1be6b185cab1659",
+      "stdnum/es/ccc.py": "907ec1c39e914b83380d4e46a71022bfeec839b0034bfe76971c411de08f4a8a",
+      "stdnum/es/cif.py": "978da7fd6cf6dac4c77ddf8128bc68ea3477f9bebe87e20a67f9927e9ee3997c",
+      "stdnum/es/cups.py": "9e5f2aa4be9588f9303ffcf631a308861b1995af45320756ff0e190d21c1827d",
+      "stdnum/es/dni.py": "d1fc9a757a5467dad759cacb4dfadb7a9ee4d36af24b005ecb0b40c3f0bf9d97",
+      "stdnum/es/iban.py": "695b1fe8dad6d539b64330f87fda0dfa1f80affab2a93a571a1c91babde360f4",
+      "stdnum/es/nie.py": "5486a30adfd6d275b316fb1a110c5b0a95dd7bc9ec03fa2e1d04ac0e12790179",
+      "stdnum/es/nif.py": "55be9dd77f2e560218980dc5d03ac40a1b499554d695b37bbcfea617538abf9c",
+      "stdnum/es/postal_code.py": "ec647d2334047b5aedaaf75261bee978990c154d07a9dcd712a1b2f9ea6bb0ab",
+      "stdnum/es/referenciacatastral.py": "6d9b68306c063d261f861f65a936db4fcbb7c0422ee820d99f73187f7a6c3488",
+      "stdnum/eu/__init__.py": "13297b4e49de7594182a4e20a7174ca5953ccc6d8ecf73b458a06107a2bb23db",
+      "stdnum/eu/at_02.py": "59a18f73bb381e708d28db5e789413cceb0541c0c9ac3d44410072dc9ad2bc55",
+      "stdnum/eu/banknote.py": "85a540d6cfacf5506960bf3a211584c97170d62e22a82fb37fce6a9510f62df1",
+      "stdnum/eu/ecnumber.py": "4b3864199090bc199f8d4c9f50653aafda5e651e545f90b10b13114501bfa14b",
+      "stdnum/eu/eic.py": "9cfd1bb28381baed8658b16ac7678987929fd0437323890ddbd23aa6967afc18",
+      "stdnum/eu/excise.py": "df0f337b1fe1f600d253cea62d59e56843122c87b21125a920925399bcd66dc1",
+      "stdnum/eu/nace.py": "bdeb6eb6d60275e29299d5374f5dd71ebacd2a28e73a5323fd74a66127d1ac9e",
+      "stdnum/eu/nace20.dat": "dec270227902e93dec2b142ca734e6007d15df0caad8454db799f05e84a0da2d",
+      "stdnum/eu/nace21.dat": "29ac396b514bd5deb106fd42ff5cda5ea220157ceecf1daf5f9d2d0a274b6907",
+      "stdnum/eu/oss.py": "a2295cfcea0b189a0f8999412381af9d05cfbf06aa77f6984b54a01b79d82a41",
+      "stdnum/eu/vat.py": "c9612b23df1f078383836fcf24be914868eca6cfe408f9902791f4adb465405f",
+      "stdnum/exceptions.py": "71594d958be1349292dcd5f6d55a4cd93c016e5b8aed872bc9a47234c7fc3f64",
+      "stdnum/fi/__init__.py": "6070bebd5bdc7bb1f355b19da744d43afe3afcae6b9f747f6fa97f6b5207be87",
+      "stdnum/fi/alv.py": "91e525137dcead132bf14a916866eca7fc99715da4310b59ea1aeeed78bca3b4",
+      "stdnum/fi/associationid.py": "92851c10629f384ddebd3b4a086df52a542b37bc7527963d0aa9f57f0e1bb79c",
+      "stdnum/fi/hetu.py": "c457bc7f20d07bdaf1ea5eb2ad393fc7c4a06e37596a643cb7a7ec05cd464a82",
+      "stdnum/fi/veronumero.py": "a4e0694566c2d643cbe1d931cccc70fd21fc222d76f4c67d6e2b3a81f45f2f4f",
+      "stdnum/fi/ytunnus.py": "f51116c3889d84b8921796faed4feac8eef653c15e71d3dc8cdb449eff244323",
+      "stdnum/figi.py": "644d3adff6aa12af78d985027530ebb999ccf306522f2c563d7b3cd6667ab00b",
+      "stdnum/fo/__init__.py": "d55decb3b083339932754b217b2c7bda86a235cc50102a534967d19655a77dca",
+      "stdnum/fo/vn.py": "b80e86a5f38e0cc7760fea8baf509666b900cb5fc8baced18ab77144ed020a4f",
+      "stdnum/fr/__init__.py": "1ff9084b98a0ba862c13db1d57f9709ff6004d38f4af2169c7e03c751aa58215",
+      "stdnum/fr/accise.py": "336dfcdf108d97be7770711a43438379408fc27b4a22986158045ae29c2cc237",
+      "stdnum/fr/nif.py": "e8e76a60a401c9e9a98d305047b7a616b49676516a6e5e834dfd1e00c26a49c3",
+      "stdnum/fr/nir.py": "7c145cab0692ae822bda22a5672676a0527e49857b1bd2ae85f8e929985ac7e1",
+      "stdnum/fr/rcs.py": "2b733e2478523af0d416fb6c55208722ebe1ef95dfe277cef6d023c7c7263c1f",
+      "stdnum/fr/siren.py": "e47ebdf031c57816fb70e4b26a0e3f99771a84ceb14c39fc53d92801f4aac711",
+      "stdnum/fr/siret.py": "24504e3f02d9906020d7d53a7814358b2e03c8c65a28b4841aa65307eefff45a",
+      "stdnum/fr/tva.py": "6897f0f349357818bb1a1d527a4e6d2686d24bde1b045402193bd74a5ceb990a",
+      "stdnum/gb/__init__.py": "649e821a227c1564ef82378ef99c9241f750bc9e880c8db1f8d21e47c65b8c1d",
+      "stdnum/gb/nhs.py": "97a371ae5b67f4809b3c5b98c1473ab02dca47db73384ffa110aef33a15e7820",
+      "stdnum/gb/sedol.py": "7c33e6d599ee1ba3c3691fa444efaa71944b8c0a43424f7ba185787344aacf0b",
+      "stdnum/gb/upn.py": "6b107e2758105b8ebcc4ebb5e6ab15cc42a76c9ce0d03b482a17541381af8b2b",
+      "stdnum/gb/utr.py": "3e16bb3c12c80f0c5e27d5372ac79ef95986d30d3e5cdd0cb5436890db29d819",
+      "stdnum/gb/vat.py": "2c151df59ba3fe947a40da5f62f8f1627c0f2ec3caf841b95751138cf24820f0",
+      "stdnum/gh/__init__.py": "ccd5452a4fdf73de908051ceaebf996d5aa76ffee62f27c119fe94dc9d95ccea",
+      "stdnum/gh/tin.py": "b603f8a52651bfceb795eeb302df941253f258b6a112c500647016d5a2f80ee0",
+      "stdnum/gn/__init__.py": "0427ffda1b29d919983fc116940f336110e1ac043e811680028d18b78d0509e9",
+      "stdnum/gn/nifp.py": "49216248347109cf5dc0250d463acbe449888cf81debbc2cdef0353a927fd60b",
+      "stdnum/gr/__init__.py": "37ed9fea91aded0d30792c9bea1cc65b082a5148d865f3f19c23b9b032677aee",
+      "stdnum/gr/amka.py": "1c7b314c510e9229f49e4d541e566ebaff399f5a8d1ce2450a3586c66896afed",
+      "stdnum/gr/vat.py": "8ea2a3ed59667e84b7e84ae142d08159438c697eeed34ccc3188dd8cca4d0d22",
+      "stdnum/grid.py": "01237e5ca308a57038a8294c1b7f4182b0b9e367c3c6e476a28cfc38edeb0807",
+      "stdnum/gs1_128.py": "dc29a0d8e95902d5ebc90b4890949c658101b2c19d7c3e641e4944fe941aec84",
+      "stdnum/gs1_ai.dat": "b8319438ce18d8fe69783e4df4a1db2813112e01eac23db5377a64ab72feaaec",
+      "stdnum/gt/__init__.py": "f0fb6091c48f3cce1b849b175f6c7519a668bf1dd445dd271878feee2b2b6eea",
+      "stdnum/gt/nit.py": "93cbb1bb4df09d3c893eebeba3a872ef7d2aaec9dd90da3dd0d357eac666b4fe",
+      "stdnum/hr/__init__.py": "fbd9180638ba9d432012ebe6bd3c92bf8439fa896bf6a61141e523a9ba4fc453",
+      "stdnum/hr/oib.py": "bd53a0c80f48a1ac66ec892e22344ec7bb8606a7f744ba928cca5ed611444a01",
+      "stdnum/hu/__init__.py": "ca7e33d234f98caef1c816122cf79e13cb9a59b8fa686e2b5c33340c19e21581",
+      "stdnum/hu/anum.py": "31f16d14f8c696f3469ece233e960ffbc1b5d36f85d2638484011c750d05d699",
+      "stdnum/iban.dat": "26eb81bd1be33d376133277bc71723f2b720b4b2054875e52723149acab503e6",
+      "stdnum/iban.py": "78819141b479104758ef833ef3c4dec5a146bf32a971d458a2432c7eef5331d7",
+      "stdnum/id/__init__.py": "217d587b92cf996d3c79d2c84286b99f6c3a0dbbb6370de99242a9b7eb49a40f",
+      "stdnum/id/loc.dat": "59815b1e9e6bde15f647f6eb5260c1f817badfa72832c8003195936bae6e6b73",
+      "stdnum/id/nik.py": "9724576131a511144349f1c884f38083ad0c9c4089e9b1c4f25e03ee24cb7265",
+      "stdnum/id/npwp.py": "25b98198fa2fdf6949576dbe1999984566324e9d58c3f3d8b70b1e8961b9279c",
+      "stdnum/ie/__init__.py": "a9166469330e97d3f1cdca5d7a04bb400f68b0efc9d47b3e353333d554dc10fb",
+      "stdnum/ie/pps.py": "b294360fd2ede454d1937581455533f5622466dd7ae9e70c32542f39fd99caf2",
+      "stdnum/ie/vat.py": "099100b68fa48b53dadbd1a692685c08ae561eb4bec15d95d1c8d7f24f363884",
+      "stdnum/il/__init__.py": "5a81b0b6d871077c032aedc8dc458dea12ad6df9ff958bbd952f951319c320e4",
+      "stdnum/il/hp.py": "5ecb5db22ddaed877134bc0565d99a2daa246ac424f259a330fad2f1acf7cb1b",
+      "stdnum/il/idnr.py": "e641707205d36e94f51445e82d0e035e0d081c651b95890dbb27aa5fa4fffe8c",
+      "stdnum/imei.py": "a7f962479e89626de63f66b0556de00d1849639b854d1712c4175d3936e73dd5",
+      "stdnum/imo.py": "0d298db04121ed4fcdd61ec05419670be31f6942004863578cf791b33937d6bb",
+      "stdnum/imsi.dat": "ca5d5db8e3a33e14fa281e5dd7bc50af73ed254d5a250fb455e6f6a7bbf3d01d",
+      "stdnum/imsi.py": "2c58edd843cbb7e715538a70cc0bbb212171998fb81556f75aaf1b613f233d9e",
+      "stdnum/in_/__init__.py": "8be159c551b656bcbec9c3b37868fbc5ebd8d8e64ef8d99f52a81a57cf7b1823",
+      "stdnum/in_/aadhaar.py": "b579dd0b19d8d2c5a2e3ec74d18ccfeb58c50e60134d3927a37e5bf64493d733",
+      "stdnum/in_/epic.py": "47e6b240550bb7b0a90879c5750d5dbf568a7d17921f1d95064231027126699c",
+      "stdnum/in_/gstin.py": "440ea578bf5144a2e33ac74f01e640240ff74963604de4e95e0e002844158b15",
+      "stdnum/in_/pan.py": "bd2cc724d6bc686d47ee9b25ba2bcd782ff455f90cbd1d8e3973e65df1716559",
+      "stdnum/in_/vid.py": "0987ac402b2ca92c6b9bd272e2eafbdb8360d3c02749ef316f1c95b61ebb1571",
+      "stdnum/is_/__init__.py": "aebaec3374a481eddfd5320b0c5473429f88e4fc996ad2a0d4ea838755455933",
+      "stdnum/is_/kennitala.py": "5d45263bd052c6a73f20f002e6f651a3e8b11be56c9348f385669f49c1cfbf48",
+      "stdnum/is_/vsk.py": "12ecd38993e2dce8984458e56cb32f2654212f327a504b95af1a1998cbb6a497",
+      "stdnum/isan.py": "670c9ee498d57ec1f43e3c090778396a2dbd595cf09fc4242b7b11b31387b7e6",
+      "stdnum/isbn.dat": "fecc486966838d27fee3fe2ffcc5983dd0ff6e3f4ba4abbf8e4844d9b7038e59",
+      "stdnum/isbn.py": "dd9f5825cb4171e5d2e806210d4ddf0139d72c3668a55188f11638ebc2069764",
+      "stdnum/isil.dat": "36bb114f44c04e5e6148035fbfb2fe72c0cca8e970a1fe752472036f156d54dc",
+      "stdnum/isil.py": "95f0379b6fd89df4c6b19e0ae7b9a223e6ae862068e15bc1d1d60040a79e8294",
+      "stdnum/isin.py": "1256dec885d1431fde22decad7245b0b1337d65b4d4585ab06ba85b75ccb2267",
+      "stdnum/ismn.py": "91d40d418e555a64649eabbdfd43afc9ab7f1edb8bdf898cf88070aa95cc91dd",
+      "stdnum/isni.py": "a9935cdefed0e7435e7a279bd8c80a8f4c1d1cd775b2ca8f9bfc267e2e6999dc",
+      "stdnum/iso11649.py": "5811e452353ec66b5c2a3b03da9dd1bb7a54e9c23f43b97eebd8df15ee36d0ea",
+      "stdnum/iso6346.py": "4f5e2e1212e94ec27dbe3ec46cb6ea6768dadc9c6e75e2a61abc6c32384ead52",
+      "stdnum/iso7064/__init__.py": "484c8195844ca7438d1672adc19ba70c97c2321ee605631fba59e6403738e401",
+      "stdnum/iso7064/mod_11_10.py": "9b87a6c1b1a2606e74ea4aded7824f2306e645d267bc18a462737b531091bac7",
+      "stdnum/iso7064/mod_11_2.py": "e23a4687a2843d0b179d7b77cc793aef30c64e32e9a6a4e9b76af6f10d0111a6",
+      "stdnum/iso7064/mod_37_2.py": "24a7ce50f27a45224aa539e270b1458499d35c3f4cc1b5ce2b209c3b23c610ff",
+      "stdnum/iso7064/mod_37_36.py": "4831c8dbc2b104a1678631b02349a59fe91c29e5e45d0cb436498c929e129016",
+      "stdnum/iso7064/mod_97_10.py": "ffd72642a9e1a80adfc0d13ba10a827152567be0f166b117cef7da286a58ed3c",
+      "stdnum/iso9362.py": "2762850da9c62b72a236675c0b007ddbc6560a025ccb62d234fa2ba8880731f3",
+      "stdnum/isrc.py": "acf1a50a63cd93f505dffd65036f9e3a07573ec1b51cc6d3d738d1120c83abe0",
+      "stdnum/issn.py": "dd2c1101ddab4f758d519af0ada9b727ff33ed87a97e732193a35e240322724a",
+      "stdnum/it/__init__.py": "750c288d1f662a23195129a5a1872f2f5b91b741e3dccc7f00ea0c6cb0e0f83b",
+      "stdnum/it/aic.py": "d29781c38ff3171f53f1e2d35343beacc5d20b021119c104d1a3c421ae301994",
+      "stdnum/it/codicefiscale.py": "5df843a498d7c3e851938d1979844b6086089576889a4efd9ffa1b148c3206e8",
+      "stdnum/it/iva.py": "187d22f87a70b7f482e8e1c6146b55ec45f7e79331fcc9e3252ae4d94b1a20d7",
+      "stdnum/jp/__init__.py": "4347b97e16e6cd8ce750aec9e39d0091c18ccc477f2e36bea0af2bb9e98bebbf",
+      "stdnum/jp/cn.py": "cf00f2c61e29c02edff193e51726b49ae8922142ef786951c3ea5cd94eab5d26",
+      "stdnum/jp/in_.py": "6c1658d32c083800a5e7309f9c6638b9359530d4c11bb4c4f5cd7a8eef133bce",
+      "stdnum/ke/__init__.py": "3a69c16239954dd2cda847155b82fe17de573fa5b392a7cd525eb7e4f38d4ba0",
+      "stdnum/ke/pin.py": "c6c9829052dbbf41b832bedf6819a408faef10c00431511b256f3ea755326269",
+      "stdnum/kr/__init__.py": "e52fe4ac379ecf826fea429276ba2039fdfd964a4d7990f4de23a263d409c6af",
+      "stdnum/kr/brn.py": "a4146a8ded8df873dc39508185e7907123f3c00fb8ec16b658efd93b47211dc8",
+      "stdnum/kr/rrn.py": "4acc16ae4f41e1e9ccacc371a27df459f6dc8d3e87dd92a9ff05a22df87af84d",
+      "stdnum/lei.py": "301fc857543f62d52503e831b5612655689aae027bcd8bd45a23a8c1fefabbef",
+      "stdnum/li/__init__.py": "4408f0e312b8a8a1fb1e3507852140bcc8000ec12d535b852a6af5f3a81fc6d3",
+      "stdnum/li/peid.py": "15c465dfba96f93a9d61dafcd89acd1dad5c9849d68a11309234509d0ad7df1d",
+      "stdnum/lt/__init__.py": "13687a1b8279787047811cf5bdd30e41732f9fa6232cca5050edb5fc28e1be92",
+      "stdnum/lt/asmens.py": "79c08c37c617784afb261e604e19104c8d586d0b5611d419c9cff29509b7c822",
+      "stdnum/lt/pvm.py": "e0deca480c14e43cc5638384331ce76338a355e6ebc1c2129f145239fabd2203",
+      "stdnum/lu/__init__.py": "4f03ff928a47e09c28010d3c8a4750eef7f6905c166b53da17f4e75b2e77285f",
+      "stdnum/lu/tva.py": "1f8605f47e027d60a51e4a5801445400cccaa9a97c6999e62f8e13b659532926",
+      "stdnum/luhn.py": "ac87edae3e770d11a508c9a15bb4c80abb34772cc3044c34aa4ca85e647594d8",
+      "stdnum/lv/__init__.py": "c74a13a7c7dc36edf8f3725c4655300c5ecbfd2f87345ea5ba4dfc48da8e7875",
+      "stdnum/lv/pvn.py": "6d67ae8493169a8be8b3f8582c998e0d8d5ed0c0ec365efeb1b5e5fa3e174aaa",
+      "stdnum/ma/__init__.py": "ddcfa72324c492d13f6770912cfeb1f64231138ce6217efe40e0e7b6a6a2f66d",
+      "stdnum/ma/ice.py": "728c642213002c6a34f205fc518b1768e0eab7f7e66be11032b55e6750aa1645",
+      "stdnum/mac.py": "e1690babe73a95035b1564958276514b1c84628cf6938200bb1321b9ff6c2001",
+      "stdnum/mc/__init__.py": "aa598c938749526b2a60b9f2072d25afa42e2cf1323bf76ab1af9f73c7f6991d",
+      "stdnum/mc/tva.py": "59efbead8228c465c2829eb182409678a541910b9248fa31b0a311cdd1a85a7c",
+      "stdnum/md/__init__.py": "89cee7d7b60732527a2072d9c1937cd2812610388d58e5a7ed31bbb7c6d5ca47",
+      "stdnum/md/idno.py": "6f719df38f83d054ad638168e80d580d2173b7b77ef799117f952348b268f473",
+      "stdnum/me/__init__.py": "69f8e10bd9eee0ca3c6b8f908864aa19a7da62367c59fd9e9dbce74e7b92e089",
+      "stdnum/me/iban.py": "1a56dbd7e7b714c09c9e7eff9641c433084f7741510c653727838605b8e25b7d",
+      "stdnum/me/pib.py": "6aed207e289787ddffc2243c5a0844b5f531202429e8ade8eb93e114ef866f37",
+      "stdnum/meid.py": "edc7a29e3a254411ddea5b75dccb6c5d7edf09dba80768a41d73e24cfbff4a0c",
+      "stdnum/mk/__init__.py": "a77e06830dade584c9d096f2d3939a5ba5ebaf6802908ecf38f8abfb7f1a3a41",
+      "stdnum/mk/edb.py": "5004a0a3e1593b229bc85e0fc1ae262212e5ab7c7e2e8a2a62be8975ae3b8065",
+      "stdnum/mt/__init__.py": "acb5708d4eb8a5138850e7c7bcd5af578b0b4ab7cbb985e6ad007e1e1649f8c1",
+      "stdnum/mt/vat.py": "4edc9fef972d8e1d8623ba2b42478116b9517a11058cc6a7676973dd5d991574",
+      "stdnum/mu/__init__.py": "e991ef0937834622536ab4bc0188b229a8fffc81a220f778f0e96534b96c4373",
+      "stdnum/mu/nid.py": "dd909ec93baae9cc1c29a9696ee40befb2ae0d5c48e10f2a2ba1ed99b593d01b",
+      "stdnum/mx/__init__.py": "d41644e124661b6dfd88ba0fae534a6549b9de1f17305b7ac04bd5971ade3e50",
+      "stdnum/mx/curp.py": "616e37bdf7c75167189fbe5f3ca3e0c8dc3d7c8435eb8375153cfd59148ec903",
+      "stdnum/mx/rfc.py": "3be24a2b4eb8a98bbd04b398df9fae3a899dc09c13bdc749244bb208e2f9486d",
+      "stdnum/my/__init__.py": "f08ed43d7b530e06f27733ad4e77c53a47b39c165eb5f8d3e13d6b79a57b5c89",
+      "stdnum/my/bp.dat": "ef73b4c0491f829a62cfebd3487b5887a070f3331ccec284fa3c71b56ecdb7e6",
+      "stdnum/my/nric.py": "5286f878b9f9a3bcff68f7a6b6bf9e7f402aed2f7c26287bf77dc3a175881b36",
+      "stdnum/mz/__init__.py": "c7de05ecb09c80c9eb6d225cf3e79a062dc7785113ea764fe0b1ff83a0870880",
+      "stdnum/mz/nuit.py": "a15370d72bc039b5f5f2ebb1bf0a8d9d44a3aa0c0961a6e87e98c4a93a5af425",
+      "stdnum/nl/__init__.py": "88f99a75c10f74617cd6cda32a841a62bacc7d7840efb891fc2af81e0180280c",
+      "stdnum/nl/brin.py": "34c257a0d1e8c49a2d7b8392bf2170879e6199724d00aedf9d39bbe3b89e5b4b",
+      "stdnum/nl/bsn.py": "721f3a7b9c08ddc1d5bf439238903ade74ce64694c494533ee9d9a4849f1d2a2",
+      "stdnum/nl/btw.py": "f57804b4a133ccaa17ed60d2570dce79bd475057229f3325931fee03d163d07b",
+      "stdnum/nl/identiteitskaartnummer.py": "e0ea50b9520985078f860eb726a75915ac04c4f9b017e0780299bec017746927",
+      "stdnum/nl/onderwijsnummer.py": "663c797701de98f46ed76c4118a7e9f24403fac9556e6c6d3616b10975d8d9cb",
+      "stdnum/nl/postcode.py": "cfcaa695c16a992c6f1641e47451a68f8a2fdbcbe842e42fa8346dc9f24cb3fe",
+      "stdnum/no/__init__.py": "e27f8e4c7c23f3b14edb7417d0082aefb27d36cbf895c90d4f972223813ee500",
+      "stdnum/no/fodselsnummer.py": "c39dbe90382f02c1e08c8c0448dedc6e5d5c659d8a6de02493ccd880d2479d46",
+      "stdnum/no/iban.py": "32285c2c443a74bb105d3165bc1aea0d6dae908f798b2654ce494449b63ac2e6",
+      "stdnum/no/kontonr.py": "03262fbb2d19fb262afd3af530a8b16ca13c7783266ce2112790d7920cf03a6e",
+      "stdnum/no/mva.py": "9a709c162834f89676e559d66cc8ed45e7f0cf35587b660fd9fdf5bf4a1b8d0d",
+      "stdnum/no/orgnr.py": "9ef99dc8fd896b385188fac8170205b62e2311d38980291d9f2874441dd2e19a",
+      "stdnum/numdb.py": "0c26c2fe2ee1e745589ca2e3e70a601039530dfba8b600f76c75832889563481",
+      "stdnum/nz/__init__.py": "ad3a87b1a0bf609bba60d2279ef90a144e35c590c3fc56a10010a8969daccc73",
+      "stdnum/nz/bankaccount.py": "e36a9113140137e493582bd7bc5bad4a0d9e3e8d1005cad1ca11ac6aa065e099",
+      "stdnum/nz/banks.dat": "60c227e3b7de9e75637b7846470c824aa56fdc4e4d2ec24dded3f4158d9b3011",
+      "stdnum/nz/ird.py": "c772b4670df4ef54b055b158cb1d4e29eb9b7e7788d0cc68f1051c4976cbdb41",
+      "stdnum/oui.dat": "44c654e71abef85b5ac0e9451127bff6d42d3b3cd9f3c3443e531cf5c1b8f28e",
+      "stdnum/pe/__init__.py": "012f8d9ade22a7c064a81ac953a285a026fdb94d0c9aa416f30ed3d5906b8f16",
+      "stdnum/pe/cui.py": "fb0d9b052eb01fe122243741b140087ddfd1a0c5dba31b81e11f08b55a4b9a3a",
+      "stdnum/pe/ruc.py": "15231faf2b03a8215d60f393f92dc5ef199eb7634868be887083f3e22149fb38",
+      "stdnum/pk/__init__.py": "0dc5a29b717a2efcf1f329049bb200b606785c590e8020e4306fffbfffe2c725",
+      "stdnum/pk/cnic.py": "3476ecc3a8062a33f779ee1a1fe39a2ad790bc8b5f327df7d4553c6e556facf3",
+      "stdnum/pl/__init__.py": "88a5d5d80aed48a9af9137694716893278e3d153fc96ed37859aa995b396df1b",
+      "stdnum/pl/nip.py": "8955907dc37dc8230e2c08c533b2e3170c367939a302718997f0b1a3a3e3b600",
+      "stdnum/pl/pesel.py": "eafda9bd4f82c22bb812b8a789763cc137cf11fdee3e1fed72a8ff9f7b4e1f4c",
+      "stdnum/pl/regon.py": "b45864caa5e51bd25fd70f1b72d0b132ce09df218858d268e3b217185df2f810",
+      "stdnum/pt/__init__.py": "37bbac4dc434c190e197f8010a682390aff791c31a74b0cc5c51fe7f62891e50",
+      "stdnum/pt/cc.py": "15094a1991f1330cfdaf4fe653d15d6b93cfbdc9c9bb1d05e287659c5d7c4394",
+      "stdnum/pt/nif.py": "d493c1b7b21ebf1e5a15f272b681b2b144931a25fd630ddb37292007f93254ee",
+      "stdnum/py/__init__.py": "698a1dec378ad14d9621f63d2dd98b48256017d77f6431b371609d10b432b45f",
+      "stdnum/py/ruc.py": "fe902e4c2041f493ac1576139b81bc20a4e52218ff22d0c315c41a2d11ea0616",
+      "stdnum/ro/__init__.py": "b910ff05e6bece2bd2dc679038118d69cc23d0927bea34b9e3c7d01c7f08b10e",
+      "stdnum/ro/cf.py": "be144f1d4e7b4cc0c7fb90fefeb51bf09926396ee076a5970eda629f57ab4cfc",
+      "stdnum/ro/cnp.py": "4d6afde82b42d105bd00ca5f2fee1b527a9c0bb023bd80aa58fe9b05daf04faf",
+      "stdnum/ro/cui.py": "5842830e5f6bb628d81c21539a071b5eb62e516ed081cff95ae3d199a34df36e",
+      "stdnum/ro/onrc.py": "818b87a91aa0fa10b516eba1f4b8df55d16c5df4151d366d63b5b13828ebf91b",
+      "stdnum/rs/__init__.py": "7248a976c07ed591b6c579a3a691e3067dae1c6a786bb4a38ccba615f7debb7a",
+      "stdnum/rs/pib.py": "3ea5266780f1de595c2524ab57d94637921ccbfb477f9841bd016b5185ca2c83",
+      "stdnum/ru/__init__.py": "e452b6cb3d2fe61deedb91d870e1e48b3a023ba21c9584d17cdc25418f11bd88",
+      "stdnum/ru/inn.py": "37b8bd68d3caa334777314f43a6ec3f6c60eff753e2bfed7fee6473aecf3af83",
+      "stdnum/ru/ogrn.py": "ee9bb45fbb70d46c8043ef81a37156a7712f4551d252446ce2f3978cec987d10",
+      "stdnum/se/__init__.py": "116a2432216abfb1fcf8916650681876003868eaa4af38e3f7feb40812b823e9",
+      "stdnum/se/orgnr.py": "45f4c601e69076437e309bc329aabf0e8417e37ad6f1947ac6ce5f6019ca2403",
+      "stdnum/se/personnummer.py": "097faf507e0b0f1cf740b68433733503f49bf0dceb7fe446082f0c85a2a090cc",
+      "stdnum/se/postnummer.py": "ad4fa253dbf126132a45a0985796788a5c86362813e7cd8062e877e73f8bdd07",
+      "stdnum/se/vat.py": "f0f3dc106c0e982d4433f98b14ea45ab1690c031eb40ea8de2bd1419e201b4e1",
+      "stdnum/sg/__init__.py": "4df8afafef5ce641ae519307f7d5f95d5ca46e6795d7bb012b785234f575ce29",
+      "stdnum/sg/uen.py": "5aa6cd785210a99946ae95ec71ab0087fd2e2f59c1f4ed9a6ddfbc438afecb79",
+      "stdnum/si/__init__.py": "79fc441e355c1551859c3dee3a1caf0b66eb18b342ba29c60523eee0c9aa140d",
+      "stdnum/si/ddv.py": "b7d62d13fae2bb2b92e31e19f5f675146ec63cf51142ed50bc60ae21207b3173",
+      "stdnum/si/emso.py": "f8ac6e0ac5f39a2ebdd441546c8c2786a3b6658d2ffaee439180f398f97d535e",
+      "stdnum/si/maticna.py": "59e7fbc177a16d56ea55c25f1668eee98d8490405cd30c615f4517e85ee9b9dd",
+      "stdnum/sk/__init__.py": "608ce6666bc90b0b9ea0c81589b6ff2fc4743c68fa967a1e337e5847a0fbb0e0",
+      "stdnum/sk/dph.py": "9c7d1c8f66be1977b2cbfb5ee1a3210237b8a4f2ded20cfe66daaf92c55647da",
+      "stdnum/sk/rc.py": "3dffa00f281065110466b273d9ee44fb214cd793b0ea142cf79b441345f1625a",
+      "stdnum/sm/__init__.py": "731594446d02c7b541e3268aa2eb5a69c0a86d050685b23b90e9960104b0680a",
+      "stdnum/sm/coe.py": "b64720af278fcd5e4ccb69be2f05bd258a51b312aebb3d46b2861e52eb78e772",
+      "stdnum/sn/__init__.py": "6a9420c28c01f312ef1075e8e798e722a3f76e417226f9880ba9fc3a81ed2239",
+      "stdnum/sn/ninea.py": "7b4c2aa4f0e6aad20fb54b0a09eb2c76041d8ff25b1af352f6852d81e9b85fa7",
+      "stdnum/sv/__init__.py": "68e3430045a19bdab21d4650c4a21df3f73f3394210a50b80f7716b3a0888293",
+      "stdnum/sv/nit.py": "87412c98a9abfd662de849a44b35add0a59d9c44fa6a8b2ca10efae2bd93f28d",
+      "stdnum/th/__init__.py": "7b1ebf72f107561e10809ff90976b2f4088a3cbeda4c855bfc2609a5d26a4e14",
+      "stdnum/th/moa.py": "ba002667b8f22e2aa41db04a4af361d79205e9d1b38ce4f28b79a6402630c6b1",
+      "stdnum/th/pin.py": "469b7e973e20d4144c3b1a92a193615baaf076e1529805f435fe60298e86638b",
+      "stdnum/th/tin.py": "a444b48b4f44499f645c978eb7ffad32ab0c3864b506642dbbf1ea800f3cfdde",
+      "stdnum/tn/__init__.py": "c7589f0b531645b92e150c881355cc8a87ac9efeba55a46feadf2ead7f261fd7",
+      "stdnum/tn/mf.py": "7451ff12e3b1d7e98946831942601371cf29caef644ad85d009e3ab012223ca7",
+      "stdnum/tr/__init__.py": "a01f8455344a779f9f25d17b8018459ed3a9af1c20663010190c9d4469855d4c",
+      "stdnum/tr/tckimlik.py": "d36c5ea69abac4f0329659209756450517e6e084ac24b54547cf1953183db860",
+      "stdnum/tr/vkn.py": "81f21d4a0a9c9fff351087ccb158b4541c00fa0e465c6fdb9d21d24e539b0884",
+      "stdnum/tw/__init__.py": "136ea887ccdf181edb17ef26b793529dbc5f0fb5a28653745b01039170ba75c3",
+      "stdnum/tw/ubn.py": "6b60381fdd66659e6ef4dada1f67533aebcac12e27721fdb15a3c0da28bb3416",
+      "stdnum/ua/__init__.py": "29f5a57b78968959ea983dec4e9730f552714068b53d826b632c8a731f186910",
+      "stdnum/ua/edrpou.py": "733aaea3e96ae41852b938102368caac4b71b7bc989ee6bf6df70795ba61d025",
+      "stdnum/ua/rntrc.py": "8d227edb69c4e5b160b27df45c9ce32759497eafa1cb41540a731ac561b0cdb0",
+      "stdnum/us/__init__.py": "3e9400d9957be4f6da7d4631355edf9d9be04b896499f65d7b5fcd2079dd29af",
+      "stdnum/us/atin.py": "68e765634828867ce69f58baa82747f6052effd89d4cad3cc3e4155e89fb12b1",
+      "stdnum/us/ein.dat": "525ef83394dfc707118481583403fd8407424e0e6a69691fa78febf4c7450371",
+      "stdnum/us/ein.py": "dd6eb8029048684726f2c4d79747a40cdf4698b29bde30a4ba2cf597850e920d",
+      "stdnum/us/itin.py": "884ba7c9b825fe294548ef48c35caf682df6cfc58e02f3ebe82b0c0691f20b3f",
+      "stdnum/us/ptin.py": "fb82bbb784d039b81051a8dcdabc76e8b57c6713ab809a86c31be85e8b7ba1f2",
+      "stdnum/us/rtn.py": "43b3571ea22e17200098d893cab9040ae5e6b28478a937338a91f017fb8079b7",
+      "stdnum/us/ssn.py": "9aa8c8cfa897b5d43871eee1aa20f384a4b81b94a39d77857b92975666789788",
+      "stdnum/us/tin.py": "4149ca33c854a146a7a5b32a6a0975d2f77ce749d2ca87a64f03b1e3c581d906",
+      "stdnum/util.py": "db256669d74825dda9a915ac210eb7a43e684dc056d5e110e4b694347df84306",
+      "stdnum/uy/__init__.py": "7ff6b6967647eeee57b4c9ccf8e5cff2e0369328cc931e9baee048fb555f27d6",
+      "stdnum/uy/rut.py": "324a342e2d599da8d82989a3bd1c96a7c162883e3ff294d507712cfb55f217b5",
+      "stdnum/vatin.py": "282c39609555f68afe40bf5b5d32fbac9e88fee3ebd8a588912ff7a632444de8",
+      "stdnum/ve/__init__.py": "42d254dfdbc025e5e15ba91fcddf4f9cd7ab0a9e643653df99e9a040d9ca7e99",
+      "stdnum/ve/rif.py": "eef0e0da75ec7343a78e8585fa78bc8a896e91a861b2ea8d11a981cde96b4f5a",
+      "stdnum/verhoeff.py": "0611e5cb25043d20f23ec6e58a530e12d0a5f7e12b74963435fb546b07527e3f",
+      "stdnum/vn/__init__.py": "92f6c2f1748178f15bd6c003daf37da923ab91cd13aaf644c3d2fd40b2843634",
+      "stdnum/vn/mst.py": "22ca127472190d642d5a0afd5c557aed2de9516954241bdc6f12542192d7ebd3",
+      "stdnum/za/__init__.py": "1ae8cc11bd50df194ffb6d2ea4e94ca175897751eb698324684f4d140b04c190",
+      "stdnum/za/idnr.py": "b27037e7c2566b58f5a27a5b1b5910fa1c8a289a725c99c9d0be5031c25d0774",
+      "stdnum/za/tin.py": "bb0ffeabdbd8cfaac9fee379b16517ff4d720f80ff6a1b587b643376c8e422d2",
+      "tcc_referencia/test_ref_cpf_validate.py": "53544f99fa995bd8f7a45ac082122de1e9a0a090baf0b93ca533bbc82b5b35d5",
+      "tcc_referencia/test_ref_isbn_validate.py": "cf74aadfc255465a3112837a7da71a5c632ab1a95c770639f62440d009935aa3",
+      "tcc_referencia/test_ref_nif_validate.py": "d089fa1cfbf75ed70af1dbd503fed7fffb1fde7bf4df315583f73be192fbbdb1"
+    }
+  },
+  "implementation_hash": "30108efc9ff0997acb26378ee1d2c21656816ade08788593ebe87731bc4eaa3e",
+  "plan": [
+    {
+      "order": 1,
+      "project": "python_dotenv",
+      "target": "parse_variables",
+      "agent": "codex",
+      "condition": "R",
+      "repetition": 1,
+      "id": "python_dotenv__parse_variables__codex__R__1"
+    },
+    {
+      "order": 2,
+      "project": "python_dotenv",
+      "target": "parse_variables",
+      "agent": "codex",
+      "condition": "A",
+      "repetition": 1,
+      "id": "python_dotenv__parse_variables__codex__A__1"
+    },
+    {
+      "order": 3,
+      "project": "python_dotenv",
+      "target": "parse_variables",
+      "agent": "codex",
+      "condition": "L",
+      "repetition": 1,
+      "id": "python_dotenv__parse_variables__codex__L__1"
+    },
+    {
+      "order": 4,
+      "project": "fava",
+      "target": "group_entries_by_account",
+      "agent": "codex",
+      "condition": "R",
+      "repetition": 2,
+      "id": "fava__group_entries_by_account__codex__R__2"
+    },
+    {
+      "order": 5,
+      "project": "fava",
+      "target": "group_entries_by_account",
+      "agent": "codex",
+      "condition": "A",
+      "repetition": 2,
+      "id": "fava__group_entries_by_account__codex__A__2"
+    },
+    {
+      "order": 6,
+      "project": "fava",
+      "target": "group_entries_by_account",
+      "agent": "codex",
+      "condition": "L",
+      "repetition": 2,
+      "id": "fava__group_entries_by_account__codex__L__2"
+    },
+    {
+      "order": 7,
+      "project": "bump_my_version",
+      "target": "serialize",
+      "agent": "codex",
+      "condition": "A",
+      "repetition": 3,
+      "id": "bump_my_version__serialize__codex__A__3"
+    },
+    {
+      "order": 8,
+      "project": "bump_my_version",
+      "target": "serialize",
+      "agent": "codex",
+      "condition": "R",
+      "repetition": 3,
+      "id": "bump_my_version__serialize__codex__R__3"
+    },
+    {
+      "order": 9,
+      "project": "bump_my_version",
+      "target": "serialize",
+      "agent": "codex",
+      "condition": "L",
+      "repetition": 3,
+      "id": "bump_my_version__serialize__codex__L__3"
+    },
+    {
+      "order": 10,
+      "project": "python_stdnum",
+      "target": "br_cpf_validate",
+      "agent": "codex",
+      "condition": "L",
+      "repetition": 2,
+      "id": "python_stdnum__br_cpf_validate__codex__L__2"
+    },
+    {
+      "order": 11,
+      "project": "python_stdnum",
+      "target": "br_cpf_validate",
+      "agent": "codex",
+      "condition": "R",
+      "repetition": 2,
+      "id": "python_stdnum__br_cpf_validate__codex__R__2"
+    },
+    {
+      "order": 12,
+      "project": "python_stdnum",
+      "target": "br_cpf_validate",
+      "agent": "codex",
+      "condition": "A",
+      "repetition": 2,
+      "id": "python_stdnum__br_cpf_validate__codex__A__2"
+    },
+    {
+      "order": 13,
+      "project": "bump_my_version",
+      "target": "version_config_parse",
+      "agent": "codex",
+      "condition": "L",
+      "repetition": 1,
+      "id": "bump_my_version__version_config_parse__codex__L__1"
+    },
+    {
+      "order": 14,
+      "project": "bump_my_version",
+      "target": "version_config_parse",
+      "agent": "codex",
+      "condition": "A",
+      "repetition": 1,
+      "id": "bump_my_version__version_config_parse__codex__A__1"
+    },
+    {
+      "order": 15,
+      "project": "bump_my_version",
+      "target": "version_config_parse",
+      "agent": "codex",
+      "condition": "R",
+      "repetition": 1,
+      "id": "bump_my_version__version_config_parse__codex__R__1"
+    },
+    {
+      "order": 16,
+      "project": "fava",
+      "target": "find_insert_position",
+      "agent": "codex",
+      "condition": "L",
+      "repetition": 3,
+      "id": "fava__find_insert_position__codex__L__3"
+    },
+    {
+      "order": 17,
+      "project": "fava",
+      "target": "find_insert_position",
+      "agent": "codex",
+      "condition": "A",
+      "repetition": 3,
+      "id": "fava__find_insert_position__codex__A__3"
+    },
+    {
+      "order": 18,
+      "project": "fava",
+      "target": "find_insert_position",
+      "agent": "codex",
+      "condition": "R",
+      "repetition": 3,
+      "id": "fava__find_insert_position__codex__R__3"
+    },
+    {
+      "order": 19,
+      "project": "python_stdnum",
+      "target": "isbn_validate",
+      "agent": "codex",
+      "condition": "L",
+      "repetition": 1,
+      "id": "python_stdnum__isbn_validate__codex__L__1"
+    },
+    {
+      "order": 20,
+      "project": "python_stdnum",
+      "target": "isbn_validate",
+      "agent": "codex",
+      "condition": "A",
+      "repetition": 1,
+      "id": "python_stdnum__isbn_validate__codex__A__1"
+    },
+    {
+      "order": 21,
+      "project": "python_stdnum",
+      "target": "isbn_validate",
+      "agent": "codex",
+      "condition": "R",
+      "repetition": 1,
+      "id": "python_stdnum__isbn_validate__codex__R__1"
+    },
+    {
+      "order": 22,
+      "project": "bump_my_version",
+      "target": "get_version_from_tag",
+      "agent": "codex",
+      "condition": "R",
+      "repetition": 2,
+      "id": "bump_my_version__get_version_from_tag__codex__R__2"
+    },
+    {
+      "order": 23,
+      "project": "bump_my_version",
+      "target": "get_version_from_tag",
+      "agent": "codex",
+      "condition": "L",
+      "repetition": 2,
+      "id": "bump_my_version__get_version_from_tag__codex__L__2"
+    },
+    {
+      "order": 24,
+      "project": "bump_my_version",
+      "target": "get_version_from_tag",
+      "agent": "codex",
+      "condition": "A",
+      "repetition": 2,
+      "id": "bump_my_version__get_version_from_tag__codex__A__2"
+    },
+    {
+      "order": 25,
+      "project": "python_stdnum",
+      "target": "es_nif_validate",
+      "agent": "codex",
+      "condition": "R",
+      "repetition": 3,
+      "id": "python_stdnum__es_nif_validate__codex__R__3"
+    },
+    {
+      "order": 26,
+      "project": "python_stdnum",
+      "target": "es_nif_validate",
+      "agent": "codex",
+      "condition": "A",
+      "repetition": 3,
+      "id": "python_stdnum__es_nif_validate__codex__A__3"
+    },
+    {
+      "order": 27,
+      "project": "python_stdnum",
+      "target": "es_nif_validate",
+      "agent": "codex",
+      "condition": "L",
+      "repetition": 3,
+      "id": "python_stdnum__es_nif_validate__codex__L__3"
+    },
+    {
+      "order": 28,
+      "project": "python_stdnum",
+      "target": "br_cpf_validate",
+      "agent": "codex",
+      "condition": "L",
+      "repetition": 3,
+      "id": "python_stdnum__br_cpf_validate__codex__L__3"
+    },
+    {
+      "order": 29,
+      "project": "python_stdnum",
+      "target": "br_cpf_validate",
+      "agent": "codex",
+      "condition": "A",
+      "repetition": 3,
+      "id": "python_stdnum__br_cpf_validate__codex__A__3"
+    },
+    {
+      "order": 30,
+      "project": "python_stdnum",
+      "target": "br_cpf_validate",
+      "agent": "codex",
+      "condition": "R",
+      "repetition": 3,
+      "id": "python_stdnum__br_cpf_validate__codex__R__3"
+    },
+    {
+      "order": 31,
+      "project": "python_stdnum",
+      "target": "isbn_validate",
+      "agent": "codex",
+      "condition": "L",
+      "repetition": 3,
+      "id": "python_stdnum__isbn_validate__codex__L__3"
+    },
+    {
+      "order": 32,
+      "project": "python_stdnum",
+      "target": "isbn_validate",
+      "agent": "codex",
+      "condition": "A",
+      "repetition": 3,
+      "id": "python_stdnum__isbn_validate__codex__A__3"
+    },
+    {
+      "order": 33,
+      "project": "python_stdnum",
+      "target": "isbn_validate",
+      "agent": "codex",
+      "condition": "R",
+      "repetition": 3,
+      "id": "python_stdnum__isbn_validate__codex__R__3"
+    },
+    {
+      "order": 34,
+      "project": "bump_my_version",
+      "target": "serialize",
+      "agent": "codex",
+      "condition": "A",
+      "repetition": 2,
+      "id": "bump_my_version__serialize__codex__A__2"
+    },
+    {
+      "order": 35,
+      "project": "bump_my_version",
+      "target": "serialize",
+      "agent": "codex",
+      "condition": "L",
+      "repetition": 2,
+      "id": "bump_my_version__serialize__codex__L__2"
+    },
+    {
+      "order": 36,
+      "project": "bump_my_version",
+      "target": "serialize",
+      "agent": "codex",
+      "condition": "R",
+      "repetition": 2,
+      "id": "bump_my_version__serialize__codex__R__2"
+    },
+    {
+      "order": 37,
+      "project": "bump_my_version",
+      "target": "get_version_from_tag",
+      "agent": "codex",
+      "condition": "L",
+      "repetition": 1,
+      "id": "bump_my_version__get_version_from_tag__codex__L__1"
+    },
+    {
+      "order": 38,
+      "project": "bump_my_version",
+      "target": "get_version_from_tag",
+      "agent": "codex",
+      "condition": "R",
+      "repetition": 1,
+      "id": "bump_my_version__get_version_from_tag__codex__R__1"
+    },
+    {
+      "order": 39,
+      "project": "bump_my_version",
+      "target": "get_version_from_tag",
+      "agent": "codex",
+      "condition": "A",
+      "repetition": 1,
+      "id": "bump_my_version__get_version_from_tag__codex__A__1"
+    },
+    {
+      "order": 40,
+      "project": "fava",
+      "target": "calculate_budget",
+      "agent": "codex",
+      "condition": "L",
+      "repetition": 2,
+      "id": "fava__calculate_budget__codex__L__2"
+    },
+    {
+      "order": 41,
+      "project": "fava",
+      "target": "calculate_budget",
+      "agent": "codex",
+      "condition": "R",
+      "repetition": 2,
+      "id": "fava__calculate_budget__codex__R__2"
+    },
+    {
+      "order": 42,
+      "project": "fava",
+      "target": "calculate_budget",
+      "agent": "codex",
+      "condition": "A",
+      "repetition": 2,
+      "id": "fava__calculate_budget__codex__A__2"
+    },
+    {
+      "order": 43,
+      "project": "fava",
+      "target": "find_insert_position",
+      "agent": "codex",
+      "condition": "R",
+      "repetition": 1,
+      "id": "fava__find_insert_position__codex__R__1"
+    },
+    {
+      "order": 44,
+      "project": "fava",
+      "target": "find_insert_position",
+      "agent": "codex",
+      "condition": "L",
+      "repetition": 1,
+      "id": "fava__find_insert_position__codex__L__1"
+    },
+    {
+      "order": 45,
+      "project": "fava",
+      "target": "find_insert_position",
+      "agent": "codex",
+      "condition": "A",
+      "repetition": 1,
+      "id": "fava__find_insert_position__codex__A__1"
+    },
+    {
+      "order": 46,
+      "project": "fava",
+      "target": "find_insert_position",
+      "agent": "codex",
+      "condition": "A",
+      "repetition": 2,
+      "id": "fava__find_insert_position__codex__A__2"
+    },
+    {
+      "order": 47,
+      "project": "fava",
+      "target": "find_insert_position",
+      "agent": "codex",
+      "condition": "L",
+      "repetition": 2,
+      "id": "fava__find_insert_position__codex__L__2"
+    },
+    {
+      "order": 48,
+      "project": "fava",
+      "target": "find_insert_position",
+      "agent": "codex",
+      "condition": "R",
+      "repetition": 2,
+      "id": "fava__find_insert_position__codex__R__2"
+    },
+    {
+      "order": 49,
+      "project": "fava",
+      "target": "group_entries_by_account",
+      "agent": "codex",
+      "condition": "L",
+      "repetition": 1,
+      "id": "fava__group_entries_by_account__codex__L__1"
+    },
+    {
+      "order": 50,
+      "project": "fava",
+      "target": "group_entries_by_account",
+      "agent": "codex",
+      "condition": "A",
+      "repetition": 1,
+      "id": "fava__group_entries_by_account__codex__A__1"
+    },
+    {
+      "order": 51,
+      "project": "fava",
+      "target": "group_entries_by_account",
+      "agent": "codex",
+      "condition": "R",
+      "repetition": 1,
+      "id": "fava__group_entries_by_account__codex__R__1"
+    },
+    {
+      "order": 52,
+      "project": "python_dotenv",
+      "target": "parse_value",
+      "agent": "codex",
+      "condition": "A",
+      "repetition": 1,
+      "id": "python_dotenv__parse_value__codex__A__1"
+    },
+    {
+      "order": 53,
+      "project": "python_dotenv",
+      "target": "parse_value",
+      "agent": "codex",
+      "condition": "L",
+      "repetition": 1,
+      "id": "python_dotenv__parse_value__codex__L__1"
+    },
+    {
+      "order": 54,
+      "project": "python_dotenv",
+      "target": "parse_value",
+      "agent": "codex",
+      "condition": "R",
+      "repetition": 1,
+      "id": "python_dotenv__parse_value__codex__R__1"
+    },
+    {
+      "order": 55,
+      "project": "python_dotenv",
+      "target": "parse_value",
+      "agent": "codex",
+      "condition": "A",
+      "repetition": 3,
+      "id": "python_dotenv__parse_value__codex__A__3"
+    },
+    {
+      "order": 56,
+      "project": "python_dotenv",
+      "target": "parse_value",
+      "agent": "codex",
+      "condition": "R",
+      "repetition": 3,
+      "id": "python_dotenv__parse_value__codex__R__3"
+    },
+    {
+      "order": 57,
+      "project": "python_dotenv",
+      "target": "parse_value",
+      "agent": "codex",
+      "condition": "L",
+      "repetition": 3,
+      "id": "python_dotenv__parse_value__codex__L__3"
+    },
+    {
+      "order": 58,
+      "project": "bump_my_version",
+      "target": "serialize",
+      "agent": "codex",
+      "condition": "A",
+      "repetition": 1,
+      "id": "bump_my_version__serialize__codex__A__1"
+    },
+    {
+      "order": 59,
+      "project": "bump_my_version",
+      "target": "serialize",
+      "agent": "codex",
+      "condition": "R",
+      "repetition": 1,
+      "id": "bump_my_version__serialize__codex__R__1"
+    },
+    {
+      "order": 60,
+      "project": "bump_my_version",
+      "target": "serialize",
+      "agent": "codex",
+      "condition": "L",
+      "repetition": 1,
+      "id": "bump_my_version__serialize__codex__L__1"
+    },
+    {
+      "order": 61,
+      "project": "python_dotenv",
+      "target": "resolve_variables",
+      "agent": "codex",
+      "condition": "A",
+      "repetition": 1,
+      "id": "python_dotenv__resolve_variables__codex__A__1"
+    },
+    {
+      "order": 62,
+      "project": "python_dotenv",
+      "target": "resolve_variables",
+      "agent": "codex",
+      "condition": "R",
+      "repetition": 1,
+      "id": "python_dotenv__resolve_variables__codex__R__1"
+    },
+    {
+      "order": 63,
+      "project": "python_dotenv",
+      "target": "resolve_variables",
+      "agent": "codex",
+      "condition": "L",
+      "repetition": 1,
+      "id": "python_dotenv__resolve_variables__codex__L__1"
+    },
+    {
+      "order": 64,
+      "project": "python_dotenv",
+      "target": "parse_value",
+      "agent": "codex",
+      "condition": "L",
+      "repetition": 2,
+      "id": "python_dotenv__parse_value__codex__L__2"
+    },
+    {
+      "order": 65,
+      "project": "python_dotenv",
+      "target": "parse_value",
+      "agent": "codex",
+      "condition": "A",
+      "repetition": 2,
+      "id": "python_dotenv__parse_value__codex__A__2"
+    },
+    {
+      "order": 66,
+      "project": "python_dotenv",
+      "target": "parse_value",
+      "agent": "codex",
+      "condition": "R",
+      "repetition": 2,
+      "id": "python_dotenv__parse_value__codex__R__2"
+    },
+    {
+      "order": 67,
+      "project": "python_dotenv",
+      "target": "parse_variables",
+      "agent": "codex",
+      "condition": "L",
+      "repetition": 3,
+      "id": "python_dotenv__parse_variables__codex__L__3"
+    },
+    {
+      "order": 68,
+      "project": "python_dotenv",
+      "target": "parse_variables",
+      "agent": "codex",
+      "condition": "R",
+      "repetition": 3,
+      "id": "python_dotenv__parse_variables__codex__R__3"
+    },
+    {
+      "order": 69,
+      "project": "python_dotenv",
+      "target": "parse_variables",
+      "agent": "codex",
+      "condition": "A",
+      "repetition": 3,
+      "id": "python_dotenv__parse_variables__codex__A__3"
+    },
+    {
+      "order": 70,
+      "project": "python_dotenv",
+      "target": "resolve_variables",
+      "agent": "codex",
+      "condition": "A",
+      "repetition": 3,
+      "id": "python_dotenv__resolve_variables__codex__A__3"
+    },
+    {
+      "order": 71,
+      "project": "python_dotenv",
+      "target": "resolve_variables",
+      "agent": "codex",
+      "condition": "L",
+      "repetition": 3,
+      "id": "python_dotenv__resolve_variables__codex__L__3"
+    },
+    {
+      "order": 72,
+      "project": "python_dotenv",
+      "target": "resolve_variables",
+      "agent": "codex",
+      "condition": "R",
+      "repetition": 3,
+      "id": "python_dotenv__resolve_variables__codex__R__3"
+    },
+    {
+      "order": 73,
+      "project": "python_dotenv",
+      "target": "resolve_variables",
+      "agent": "codex",
+      "condition": "A",
+      "repetition": 2,
+      "id": "python_dotenv__resolve_variables__codex__A__2"
+    },
+    {
+      "order": 74,
+      "project": "python_dotenv",
+      "target": "resolve_variables",
+      "agent": "codex",
+      "condition": "L",
+      "repetition": 2,
+      "id": "python_dotenv__resolve_variables__codex__L__2"
+    },
+    {
+      "order": 75,
+      "project": "python_dotenv",
+      "target": "resolve_variables",
+      "agent": "codex",
+      "condition": "R",
+      "repetition": 2,
+      "id": "python_dotenv__resolve_variables__codex__R__2"
+    },
+    {
+      "order": 76,
+      "project": "python_stdnum",
+      "target": "es_nif_validate",
+      "agent": "codex",
+      "condition": "A",
+      "repetition": 2,
+      "id": "python_stdnum__es_nif_validate__codex__A__2"
+    },
+    {
+      "order": 77,
+      "project": "python_stdnum",
+      "target": "es_nif_validate",
+      "agent": "codex",
+      "condition": "L",
+      "repetition": 2,
+      "id": "python_stdnum__es_nif_validate__codex__L__2"
+    },
+    {
+      "order": 78,
+      "project": "python_stdnum",
+      "target": "es_nif_validate",
+      "agent": "codex",
+      "condition": "R",
+      "repetition": 2,
+      "id": "python_stdnum__es_nif_validate__codex__R__2"
+    },
+    {
+      "order": 79,
+      "project": "python_stdnum",
+      "target": "br_cpf_validate",
+      "agent": "codex",
+      "condition": "L",
+      "repetition": 1,
+      "id": "python_stdnum__br_cpf_validate__codex__L__1"
+    },
+    {
+      "order": 80,
+      "project": "python_stdnum",
+      "target": "br_cpf_validate",
+      "agent": "codex",
+      "condition": "R",
+      "repetition": 1,
+      "id": "python_stdnum__br_cpf_validate__codex__R__1"
+    },
+    {
+      "order": 81,
+      "project": "python_stdnum",
+      "target": "br_cpf_validate",
+      "agent": "codex",
+      "condition": "A",
+      "repetition": 1,
+      "id": "python_stdnum__br_cpf_validate__codex__A__1"
+    },
+    {
+      "order": 82,
+      "project": "python_stdnum",
+      "target": "isbn_validate",
+      "agent": "codex",
+      "condition": "A",
+      "repetition": 2,
+      "id": "python_stdnum__isbn_validate__codex__A__2"
+    },
+    {
+      "order": 83,
+      "project": "python_stdnum",
+      "target": "isbn_validate",
+      "agent": "codex",
+      "condition": "R",
+      "repetition": 2,
+      "id": "python_stdnum__isbn_validate__codex__R__2"
+    },
+    {
+      "order": 84,
+      "project": "python_stdnum",
+      "target": "isbn_validate",
+      "agent": "codex",
+      "condition": "L",
+      "repetition": 2,
+      "id": "python_stdnum__isbn_validate__codex__L__2"
+    },
+    {
+      "order": 85,
+      "project": "fava",
+      "target": "calculate_budget",
+      "agent": "codex",
+      "condition": "A",
+      "repetition": 1,
+      "id": "fava__calculate_budget__codex__A__1"
+    },
+    {
+      "order": 86,
+      "project": "fava",
+      "target": "calculate_budget",
+      "agent": "codex",
+      "condition": "R",
+      "repetition": 1,
+      "id": "fava__calculate_budget__codex__R__1"
+    },
+    {
+      "order": 87,
+      "project": "fava",
+      "target": "calculate_budget",
+      "agent": "codex",
+      "condition": "L",
+      "repetition": 1,
+      "id": "fava__calculate_budget__codex__L__1"
+    },
+    {
+      "order": 88,
+      "project": "fava",
+      "target": "calculate_budget",
+      "agent": "codex",
+      "condition": "A",
+      "repetition": 3,
+      "id": "fava__calculate_budget__codex__A__3"
+    },
+    {
+      "order": 89,
+      "project": "fava",
+      "target": "calculate_budget",
+      "agent": "codex",
+      "condition": "R",
+      "repetition": 3,
+      "id": "fava__calculate_budget__codex__R__3"
+    },
+    {
+      "order": 90,
+      "project": "fava",
+      "target": "calculate_budget",
+      "agent": "codex",
+      "condition": "L",
+      "repetition": 3,
+      "id": "fava__calculate_budget__codex__L__3"
+    },
+    {
+      "order": 91,
+      "project": "bump_my_version",
+      "target": "version_config_parse",
+      "agent": "codex",
+      "condition": "A",
+      "repetition": 2,
+      "id": "bump_my_version__version_config_parse__codex__A__2"
+    },
+    {
+      "order": 92,
+      "project": "bump_my_version",
+      "target": "version_config_parse",
+      "agent": "codex",
+      "condition": "L",
+      "repetition": 2,
+      "id": "bump_my_version__version_config_parse__codex__L__2"
+    },
+    {
+      "order": 93,
+      "project": "bump_my_version",
+      "target": "version_config_parse",
+      "agent": "codex",
+      "condition": "R",
+      "repetition": 2,
+      "id": "bump_my_version__version_config_parse__codex__R__2"
+    },
+    {
+      "order": 94,
+      "project": "fava",
+      "target": "group_entries_by_account",
+      "agent": "codex",
+      "condition": "L",
+      "repetition": 3,
+      "id": "fava__group_entries_by_account__codex__L__3"
+    },
+    {
+      "order": 95,
+      "project": "fava",
+      "target": "group_entries_by_account",
+      "agent": "codex",
+      "condition": "R",
+      "repetition": 3,
+      "id": "fava__group_entries_by_account__codex__R__3"
+    },
+    {
+      "order": 96,
+      "project": "fava",
+      "target": "group_entries_by_account",
+      "agent": "codex",
+      "condition": "A",
+      "repetition": 3,
+      "id": "fava__group_entries_by_account__codex__A__3"
+    },
+    {
+      "order": 97,
+      "project": "python_dotenv",
+      "target": "parse_variables",
+      "agent": "codex",
+      "condition": "R",
+      "repetition": 2,
+      "id": "python_dotenv__parse_variables__codex__R__2"
+    },
+    {
+      "order": 98,
+      "project": "python_dotenv",
+      "target": "parse_variables",
+      "agent": "codex",
+      "condition": "L",
+      "repetition": 2,
+      "id": "python_dotenv__parse_variables__codex__L__2"
+    },
+    {
+      "order": 99,
+      "project": "python_dotenv",
+      "target": "parse_variables",
+      "agent": "codex",
+      "condition": "A",
+      "repetition": 2,
+      "id": "python_dotenv__parse_variables__codex__A__2"
+    },
+    {
+      "order": 100,
+      "project": "bump_my_version",
+      "target": "get_version_from_tag",
+      "agent": "codex",
+      "condition": "R",
+      "repetition": 3,
+      "id": "bump_my_version__get_version_from_tag__codex__R__3"
+    },
+    {
+      "order": 101,
+      "project": "bump_my_version",
+      "target": "get_version_from_tag",
+      "agent": "codex",
+      "condition": "A",
+      "repetition": 3,
+      "id": "bump_my_version__get_version_from_tag__codex__A__3"
+    },
+    {
+      "order": 102,
+      "project": "bump_my_version",
+      "target": "get_version_from_tag",
+      "agent": "codex",
+      "condition": "L",
+      "repetition": 3,
+      "id": "bump_my_version__get_version_from_tag__codex__L__3"
+    },
+    {
+      "order": 103,
+      "project": "bump_my_version",
+      "target": "version_config_parse",
+      "agent": "codex",
+      "condition": "A",
+      "repetition": 3,
+      "id": "bump_my_version__version_config_parse__codex__A__3"
+    },
+    {
+      "order": 104,
+      "project": "bump_my_version",
+      "target": "version_config_parse",
+      "agent": "codex",
+      "condition": "R",
+      "repetition": 3,
+      "id": "bump_my_version__version_config_parse__codex__R__3"
+    },
+    {
+      "order": 105,
+      "project": "bump_my_version",
+      "target": "version_config_parse",
+      "agent": "codex",
+      "condition": "L",
+      "repetition": 3,
+      "id": "bump_my_version__version_config_parse__codex__L__3"
+    },
+    {
+      "order": 106,
+      "project": "python_stdnum",
+      "target": "es_nif_validate",
+      "agent": "codex",
+      "condition": "R",
+      "repetition": 1,
+      "id": "python_stdnum__es_nif_validate__codex__R__1"
+    },
+    {
+      "order": 107,
+      "project": "python_stdnum",
+      "target": "es_nif_validate",
+      "agent": "codex",
+      "condition": "L",
+      "repetition": 1,
+      "id": "python_stdnum__es_nif_validate__codex__L__1"
+    },
+    {
+      "order": 108,
+      "project": "python_stdnum",
+      "target": "es_nif_validate",
+      "agent": "codex",
+      "condition": "A",
+      "repetition": 1,
+      "id": "python_stdnum__es_nif_validate__codex__A__1"
+    }
+  ],
+  "evidence": {
+    "pilot_run": "/Volumes/SANDISK I/experimento-tcc/piloto/lote-1",
+    "validation_dir": "/Volumes/SANDISK I/experimento-tcc/validacao/20261122-b",
+    "reviewer": "Gabriel Lopes Pereira",
+    "agent_versions": {
+      "codex": "codex-cli 0.170.0"
+    },
+    "isolation_verified": true,
+    "docs_sanitized": true,
+    "focal_mapping_verified": true,
+    "budget_calibrated": true,
+    "notes": {
+      "isolation": "Piloto de 22/11/2026: 12 gerações usaram só list_files, read_file e search; nenhum evento de comando, alteração de arquivo ou busca na web no native.jsonl.",
+      "docs": "Visão A só com código de produção e o README de cada projeto; nenhum teste nem tcc_referencia; exemplos executáveis do README do stdnum removidos (3).",
+      "focal": "Validação 20261122-b: cobertura focal executada nos 12 alvos, corpo completo de cada função.",
+      "budget": "Piloto: no máximo 14,7 mil de 30 mil caracteres, 11 de 20 consultas, 100 s de 300 s de geração, cerca de 1 s de 60 s de avaliação. Limites mantidos."
+    },
+    "pilot_record_hash": "3c9e2d2ea8eb0556326eab410d8ab7f58fa7608560bd4c10b4ab1e26c9ff67c4",
+    "validation_hash": "116a227c9d15376c0dae0d472d9ca278d50c40ad850efab0b19b8c6ada0b8369"
+  },
+  "runtime": {
+    "python": "3.15.2",
+    "system": "Darwin",
+    "pytest": "8.4.2",
+    "coverage": "7.10.7",
+    "evaluation_image_id": "sha256:5fae9b0d2ee16d23a270dc3650f469a27384f205d9dc4fa5bbde576ab2894f9c"
+  },
+  "lock_hash": "49dd66a522994eb03001a67255ded0aa13cc696255859f45a924b43f05f5da33"
+}

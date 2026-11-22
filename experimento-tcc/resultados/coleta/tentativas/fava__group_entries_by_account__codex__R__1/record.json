@@ -1,0 +1,399 @@
+{
+  "schema_version": 1,
+  "order": 51,
+  "project": "fava",
+  "target": "group_entries_by_account",
+  "agent": "codex",
+  "condition": "R",
+  "repetition": 1,
+  "id": "fava__group_entries_by_account__codex__R__1",
+  "phase": "main",
+  "lock_hash": "49dd66a522994eb03001a67255ded0aa13cc696255859f45a924b43f05f5da33",
+  "started_at": "2026-11-22T03:59:10.193215+00:00",
+  "status": "finished",
+  "generation": {
+    "status": "completed",
+    "input_tokens": 30301,
+    "output_tokens": 2774,
+    "seconds": 65.6651082499884,
+    "version": "codex-cli 0.170.0",
+    "tool_log": [
+      {
+        "index": 1,
+        "tool": "list_files",
+        "arguments": {
+          "path": "src/fava/beans"
+        },
+        "delivered_chars": 115,
+        "chars_before": 4214,
+        "status": "ok",
+        "chars_after": 4329
+      },
+      {
+        "index": 2,
+        "tool": "list_files",
+        "arguments": {},
+        "delivered_chars": 148,
+        "chars_before": 4329,
+        "status": "ok",
+        "chars_after": 4477
+      },
+      {
+        "index": 3,
+        "tool": "read_file",
+        "arguments": {
+          "path": "src/fava/beans/account.py::L60-L79",
+          "start_line": 1,
+          "end_line": 23
+        },
+        "delivered_chars": 819,
+        "chars_before": 4477,
+        "status": "ok",
+        "chars_after": 5296
+      }
+    ],
+    "usage": {
+      "input_tokens": 30301,
+      "cached_input_tokens": 27136,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 2774,
+      "reasoning_output_tokens": 1382
+    },
+    "details": [],
+    "capabilities": {
+      "tool_surface_verified": true,
+      "tools": [
+        "functions.list_mcp_resource_templates",
+        "functions.list_mcp_resources",
+        "functions.read_mcp_resource",
+        "mcp__contextlab.list_files",
+        "mcp__contextlab.read_file",
+        "mcp__contextlab.search"
+      ],
+      "catalog_sha256": "a61b50641627a2941fc8be4db823d1fbbfa4ae628add4d7ec443dbab559140fb",
+      "probe": "offline-localhost",
+      "model": "gpt-6.2-sol",
+      "command_rejected": true,
+      "outside_packet_rejected": true,
+      "allowed_read_verified": true
+    },
+    "returncode": 0,
+    "context_stats": {
+      "chars_used": 5296,
+      "initial_chars": 4214,
+      "response_chars": 1082,
+      "remaining_chars": 24704,
+      "tool_calls": 3,
+      "max_calls": 20,
+      "budget": 30000
+    },
+    "session_id": "01a20168-6fdd-7860-8779-977d00567df1"
+  },
+  "evaluation": {
+    "target_id": "group_entries_by_account",
+    "test_kind": "unit",
+    "received": true,
+    "syntax_ok": true,
+    "collected": 4,
+    "active_started": true,
+    "reference_passed": false,
+    "approval": "rejected",
+    "approved": false,
+    "coverage_raw": {
+      "executed": true,
+      "line_total": 8,
+      "line_covered": 8,
+      "line_rate": 1.0,
+      "branch_total": 8,
+      "branch_covered": 8,
+      "branch_rate": 1.0,
+      "executable_lines": [
+        80,
+        84,
+        85,
+        86,
+        87,
+        89,
+        90,
+        92
+      ],
+      "covered_lines": [
+        80,
+        84,
+        85,
+        86,
+        87,
+        89,
+        90,
+        92
+      ],
+      "branches": {
+        "86": {
+          "total": 2,
+          "covered": 2
+        },
+        "84": {
+          "total": 2,
+          "covered": 2
+        },
+        "89": {
+          "total": 2,
+          "covered": 2
+        },
+        "85": {
+          "total": 2,
+          "covered": 2
+        }
+      }
+    },
+    "coverage_main": null,
+    "defects": [],
+    "detection_rate": null,
+    "review": null,
+    "backend": "docker",
+    "submission_sha256": "e07b639ae84ee79a6ec7e0fe0e3f6a7833293bb12931fae8a52642dbb3c5543c",
+    "status": "completed",
+    "seconds": 0.9959605420008302,
+    "active_count": 4,
+    "passed_count": 3,
+    "skipped_count": 0,
+    "xfail_count": 0,
+    "failure_categories": [
+      "assertion_failure"
+    ],
+    "original": {
+      "status": "completed",
+      "seconds": 0.9959605420008302,
+      "exit_code": 1,
+      "production_unchanged": true,
+      "collected": 4,
+      "active_started": true,
+      "active_count": 4,
+      "passed_count": 3,
+      "skipped_count": 0,
+      "xfail_count": 0,
+      "failure_categories": [
+        "assertion_failure"
+      ],
+      "reference_passed": false,
+      "assertion_failure": true,
+      "focal": {
+        "executed": true,
+        "line_total": 8,
+        "line_covered": 8,
+        "line_rate": 1.0,
+        "branch_total": 8,
+        "branch_covered": 8,
+        "branch_rate": 1.0,
+        "executable_lines": [
+          80,
+          84,
+          85,
+          86,
+          87,
+          89,
+          90,
+          92
+        ],
+        "covered_lines": [
+          80,
+          84,
+          85,
+          86,
+          87,
+          89,
+          90,
+          92
+        ],
+        "branches": {
+          "86": {
+            "total": 2,
+            "covered": 2
+          },
+          "84": {
+            "total": 2,
+            "covered": 2
+          },
+          "89": {
+            "total": 2,
+            "covered": 2
+          },
+          "85": {
+            "total": 2,
+            "covered": 2
+          }
+        }
+      },
+      "raw": {
+        "exit_code": 1,
+        "collected": 4,
+        "reports": [
+          {
+            "nodeid": "::test_groups_mixed_entries_in_input_and_posting_order",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_groups_mixed_entries_in_input_and_posting_order",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_groups_mixed_entries_in_input_and_posting_order",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_groups_pad_and_custom_under_each_account_occurrence",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_groups_pad_and_custom_under_each_account_occurrence",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_groups_pad_and_custom_under_each_account_occurrence",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_empty_input_and_entries_without_accounts_produce_no_groups",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_empty_input_and_entries_without_accounts_produce_no_groups",
+            "when": "call",
+            "outcome": "failed",
+            "exception": "AssertionError",
+            "assertion_failure": true,
+            "expected_failure": false,
+            "message": "/submission/test_generated.py:120: in test_empty_input_and_entries_without_accounts_produce_no_groups\n    assert group_entries_by_account([event, LedgerTransaction(), custom]) == {}\nE   AssertionError: assert {<Mock name='...3197650432'>]} == {}\nE     \nE     Left contains 1 more item:\nE     {<Mock name='mock.account' id='281473208641312'>: [<Mock spec='Event' id='281473197650432'>]}\nE     Use -v to get more diff"
+          },
+          {
+            "nodeid": "::test_empty_input_and_entries_without_accounts_produce_no_groups",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_missing_account_raises_and_calls_have_independent_groups",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_missing_account_raises_and_calls_have_independent_groups",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_missing_account_raises_and_calls_have_independent_groups",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          }
+        ],
+        "collection_errors": [],
+        "focal": {
+          "executed": true,
+          "line_total": 8,
+          "line_covered": 8,
+          "line_rate": 1.0,
+          "branch_total": 8,
+          "branch_covered": 8,
+          "branch_rate": 1.0,
+          "executable_lines": [
+            80,
+            84,
+            85,
+            86,
+            87,
+            89,
+            90,
+            92
+          ],
+          "covered_lines": [
+            80,
+            84,
+            85,
+            86,
+            87,
+            89,
+            90,
+            92
+          ],
+          "branches": {
+            "86": {
+              "total": 2,
+              "covered": 2
+            },
+            "84": {
+              "total": 2,
+              "covered": 2
+            },
+            "89": {
+              "total": 2,
+              "covered": 2
+            },
+            "85": {
+              "total": 2,
+              "covered": 2
+            }
+          }
+        }
+      }
+    },
+    "defects_eligible": null,
+    "defects_measured": null,
+    "defects_detected": null,
+    "detection_complete": null,
+    "total_seconds": 1.0356606249697506
+  },
+  "preparation_seconds": 0.06296795804519206,
+  "submission_sha256": "e07b639ae84ee79a6ec7e0fe0e3f6a7833293bb12931fae8a52642dbb3c5543c",
+  "finished_at": "2026-11-22T04:00:16.961598+00:00"
+}

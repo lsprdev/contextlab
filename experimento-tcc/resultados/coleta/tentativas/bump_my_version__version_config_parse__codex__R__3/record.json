@@ -1,0 +1,555 @@
+{
+  "schema_version": 1,
+  "order": 104,
+  "project": "bump_my_version",
+  "target": "version_config_parse",
+  "agent": "codex",
+  "condition": "R",
+  "repetition": 3,
+  "id": "bump_my_version__version_config_parse__codex__R__3",
+  "phase": "main",
+  "lock_hash": "49dd66a522994eb03001a67255ded0aa13cc696255859f45a924b43f05f5da33",
+  "started_at": "2026-11-22T04:44:15.776749+00:00",
+  "status": "finished",
+  "generation": {
+    "status": "completed",
+    "input_tokens": 24839,
+    "output_tokens": 1986,
+    "seconds": 46.20579733303748,
+    "version": "codex-cli 0.170.0",
+    "tool_log": [
+      {
+        "index": 1,
+        "tool": "read_file",
+        "arguments": {
+          "path": "bumpversion/versioning/models.py",
+          "start_line": 1,
+          "end_line": 216
+        },
+        "delivered_chars": 49,
+        "chars_before": 9256,
+        "status": "denied",
+        "chars_after": 9305
+      },
+      {
+        "index": 2,
+        "tool": "list_files",
+        "arguments": {},
+        "delivered_chars": 187,
+        "chars_before": 9305,
+        "status": "ok",
+        "chars_after": 9492
+      }
+    ],
+    "usage": {
+      "input_tokens": 24839,
+      "cached_input_tokens": 8064,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 1986,
+      "reasoning_output_tokens": 854
+    },
+    "details": [],
+    "capabilities": {
+      "tool_surface_verified": true,
+      "tools": [
+        "functions.list_mcp_resource_templates",
+        "functions.list_mcp_resources",
+        "functions.read_mcp_resource",
+        "mcp__contextlab.list_files",
+        "mcp__contextlab.read_file",
+        "mcp__contextlab.search"
+      ],
+      "catalog_sha256": "a61b50641627a2941fc8be4db823d1fbbfa4ae628add4d7ec443dbab559140fb",
+      "probe": "offline-localhost",
+      "model": "gpt-6.2-sol",
+      "command_rejected": true,
+      "outside_packet_rejected": true,
+      "allowed_read_verified": true
+    },
+    "returncode": 0,
+    "context_stats": {
+      "chars_used": 9492,
+      "initial_chars": 9256,
+      "response_chars": 236,
+      "remaining_chars": 20508,
+      "tool_calls": 2,
+      "max_calls": 20,
+      "budget": 30000
+    },
+    "session_id": "01a20191-b828-7b01-a029-577e5dbc7237"
+  },
+  "evaluation": {
+    "target_id": "version_config_parse",
+    "test_kind": "unit",
+    "received": true,
+    "syntax_ok": true,
+    "collected": 16,
+    "active_started": true,
+    "reference_passed": false,
+    "approval": "rejected",
+    "approved": false,
+    "coverage_raw": {
+      "executed": false,
+      "line_total": 8,
+      "line_covered": 0,
+      "line_rate": 0.0,
+      "branch_total": 4,
+      "branch_covered": 0,
+      "branch_rate": 0.0,
+      "executable_lines": [
+        81,
+        83,
+        84,
+        85,
+        86,
+        88,
+        89,
+        90
+      ],
+      "covered_lines": [],
+      "branches": {
+        "83": {
+          "total": 2,
+          "covered": 0
+        },
+        "85": {
+          "total": 2,
+          "covered": 0
+        }
+      }
+    },
+    "coverage_main": null,
+    "defects": [],
+    "detection_rate": null,
+    "review": null,
+    "backend": "docker",
+    "submission_sha256": "88a8f5f2e06aea3e6758ac6c0e09deb219d42b428c81f08697148fdb1fe996ad",
+    "status": "completed",
+    "seconds": 0.8367063750047237,
+    "active_count": 4,
+    "passed_count": 0,
+    "skipped_count": 0,
+    "xfail_count": 0,
+    "failure_categories": [
+      "setup_error",
+      "execution_error"
+    ],
+    "original": {
+      "status": "completed",
+      "seconds": 0.8367063750047237,
+      "exit_code": 1,
+      "production_unchanged": true,
+      "collected": 16,
+      "active_started": true,
+      "active_count": 4,
+      "passed_count": 0,
+      "skipped_count": 0,
+      "xfail_count": 0,
+      "failure_categories": [
+        "setup_error",
+        "execution_error"
+      ],
+      "reference_passed": false,
+      "assertion_failure": false,
+      "focal": {
+        "executed": false,
+        "line_total": 8,
+        "line_covered": 0,
+        "line_rate": 0.0,
+        "branch_total": 4,
+        "branch_covered": 0,
+        "branch_rate": 0.0,
+        "executable_lines": [
+          81,
+          83,
+          84,
+          85,
+          86,
+          88,
+          89,
+          90
+        ],
+        "covered_lines": [],
+        "branches": {
+          "83": {
+            "total": 2,
+            "covered": 0
+          },
+          "85": {
+            "total": 2,
+            "covered": 0
+          }
+        }
+      },
+      "raw": {
+        "exit_code": 1,
+        "collected": 16,
+        "reports": [
+          {
+            "nodeid": "::test_parse_builds_a_version_from_named_captures[False]",
+            "when": "setup",
+            "outcome": "failed",
+            "exception": "ValueError",
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": "/submission/test_generated.py:22: in version_config\n    return make_config(VERSION_PATTERN)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n/submission/test_generated.py:12: in make_config\n    return VersionConfig(\nbumpversion/versioning/version_config.py:37: in __init__\n    self.version_spec = VersionSpec(self.part_configs)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nbumpversion/versioning/models.py:175: in __init__\n    raise ValueError(\"A VersionSpec must have at least one component.\")\nE   ValueError: A VersionSpec must have at least one component."
+          },
+          {
+            "nodeid": "::test_parse_builds_a_version_from_named_captures[False]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_builds_a_version_from_named_captures[True]",
+            "when": "setup",
+            "outcome": "failed",
+            "exception": "ValueError",
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": "/submission/test_generated.py:22: in version_config\n    return make_config(VERSION_PATTERN)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n/submission/test_generated.py:12: in make_config\n    return VersionConfig(\nbumpversion/versioning/version_config.py:37: in __init__\n    self.version_spec = VersionSpec(self.part_configs)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nbumpversion/versioning/models.py:175: in __init__\n    raise ValueError(\"A VersionSpec must have at least one component.\")\nE   ValueError: A VersionSpec must have at least one component."
+          },
+          {
+            "nodeid": "::test_parse_builds_a_version_from_named_captures[True]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_searches_with_verbose_regex_and_preserves_the_full_input",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_searches_with_verbose_regex_and_preserves_the_full_input",
+            "when": "call",
+            "outcome": "failed",
+            "exception": "ValueError",
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": "/submission/test_generated.py:40: in test_parse_searches_with_verbose_regex_and_preserves_the_full_input\n    config = make_config(\n/submission/test_generated.py:12: in make_config\n    return VersionConfig(\nbumpversion/versioning/version_config.py:37: in __init__\n    self.version_spec = VersionSpec(self.part_configs)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nbumpversion/versioning/models.py:175: in __init__\n    raise ValueError(\"A VersionSpec must have at least one component.\")\nE   ValueError: A VersionSpec must have at least one component."
+          },
+          {
+            "nodeid": "::test_parse_searches_with_verbose_regex_and_preserves_the_full_input",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_creates_components_for_an_unmatched_optional_group",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_creates_components_for_an_unmatched_optional_group",
+            "when": "call",
+            "outcome": "failed",
+            "exception": "ValueError",
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": "/submission/test_generated.py:61: in test_parse_creates_components_for_an_unmatched_optional_group\n    config = make_config(r\"^(?P<major>[0-9]+)\\.(?P<minor>[0-9]+)(?:\\.(?P<patch>[0-9]+))?$\")\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n/submission/test_generated.py:12: in make_config\n    return VersionConfig(\nbumpversion/versioning/version_config.py:37: in __init__\n    self.version_spec = VersionSpec(self.part_configs)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nbumpversion/versioning/models.py:175: in __init__\n    raise ValueError(\"A VersionSpec must have at least one component.\")\nE   ValueError: A VersionSpec must have at least one component."
+          },
+          {
+            "nodeid": "::test_parse_creates_components_for_an_unmatched_optional_group",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_returns_none_for_invalid_input_by_default[None]",
+            "when": "setup",
+            "outcome": "failed",
+            "exception": "ValueError",
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": "/submission/test_generated.py:22: in version_config\n    return make_config(VERSION_PATTERN)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n/submission/test_generated.py:12: in make_config\n    return VersionConfig(\nbumpversion/versioning/version_config.py:37: in __init__\n    self.version_spec = VersionSpec(self.part_configs)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nbumpversion/versioning/models.py:175: in __init__\n    raise ValueError(\"A VersionSpec must have at least one component.\")\nE   ValueError: A VersionSpec must have at least one component."
+          },
+          {
+            "nodeid": "::test_parse_returns_none_for_invalid_input_by_default[None]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_returns_none_for_invalid_input_by_default[]",
+            "when": "setup",
+            "outcome": "failed",
+            "exception": "ValueError",
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": "/submission/test_generated.py:22: in version_config\n    return make_config(VERSION_PATTERN)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n/submission/test_generated.py:12: in make_config\n    return VersionConfig(\nbumpversion/versioning/version_config.py:37: in __init__\n    self.version_spec = VersionSpec(self.part_configs)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nbumpversion/versioning/models.py:175: in __init__\n    raise ValueError(\"A VersionSpec must have at least one component.\")\nE   ValueError: A VersionSpec must have at least one component."
+          },
+          {
+            "nodeid": "::test_parse_returns_none_for_invalid_input_by_default[]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_returns_none_for_invalid_input_by_default[   ]",
+            "when": "setup",
+            "outcome": "failed",
+            "exception": "ValueError",
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": "/submission/test_generated.py:22: in version_config\n    return make_config(VERSION_PATTERN)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n/submission/test_generated.py:12: in make_config\n    return VersionConfig(\nbumpversion/versioning/version_config.py:37: in __init__\n    self.version_spec = VersionSpec(self.part_configs)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nbumpversion/versioning/models.py:175: in __init__\n    raise ValueError(\"A VersionSpec must have at least one component.\")\nE   ValueError: A VersionSpec must have at least one component."
+          },
+          {
+            "nodeid": "::test_parse_returns_none_for_invalid_input_by_default[   ]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_returns_none_for_invalid_input_by_default[1.2]",
+            "when": "setup",
+            "outcome": "failed",
+            "exception": "ValueError",
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": "/submission/test_generated.py:22: in version_config\n    return make_config(VERSION_PATTERN)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n/submission/test_generated.py:12: in make_config\n    return VersionConfig(\nbumpversion/versioning/version_config.py:37: in __init__\n    self.version_spec = VersionSpec(self.part_configs)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nbumpversion/versioning/models.py:175: in __init__\n    raise ValueError(\"A VersionSpec must have at least one component.\")\nE   ValueError: A VersionSpec must have at least one component."
+          },
+          {
+            "nodeid": "::test_parse_returns_none_for_invalid_input_by_default[1.2]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_returns_none_for_invalid_input_by_default[1.2.3-rc1]",
+            "when": "setup",
+            "outcome": "failed",
+            "exception": "ValueError",
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": "/submission/test_generated.py:22: in version_config\n    return make_config(VERSION_PATTERN)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n/submission/test_generated.py:12: in make_config\n    return VersionConfig(\nbumpversion/versioning/version_config.py:37: in __init__\n    self.version_spec = VersionSpec(self.part_configs)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nbumpversion/versioning/models.py:175: in __init__\n    raise ValueError(\"A VersionSpec must have at least one component.\")\nE   ValueError: A VersionSpec must have at least one component."
+          },
+          {
+            "nodeid": "::test_parse_returns_none_for_invalid_input_by_default[1.2.3-rc1]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_returns_none_for_invalid_input_by_default[release 1.2.3]",
+            "when": "setup",
+            "outcome": "failed",
+            "exception": "ValueError",
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": "/submission/test_generated.py:22: in version_config\n    return make_config(VERSION_PATTERN)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n/submission/test_generated.py:12: in make_config\n    return VersionConfig(\nbumpversion/versioning/version_config.py:37: in __init__\n    self.version_spec = VersionSpec(self.part_configs)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nbumpversion/versioning/models.py:175: in __init__\n    raise ValueError(\"A VersionSpec must have at least one component.\")\nE   ValueError: A VersionSpec must have at least one component."
+          },
+          {
+            "nodeid": "::test_parse_returns_none_for_invalid_input_by_default[release 1.2.3]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_defaults_to_no_version_string",
+            "when": "setup",
+            "outcome": "failed",
+            "exception": "ValueError",
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": "/submission/test_generated.py:22: in version_config\n    return make_config(VERSION_PATTERN)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n/submission/test_generated.py:12: in make_config\n    return VersionConfig(\nbumpversion/versioning/version_config.py:37: in __init__\n    self.version_spec = VersionSpec(self.part_configs)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nbumpversion/versioning/models.py:175: in __init__\n    raise ValueError(\"A VersionSpec must have at least one component.\")\nE   ValueError: A VersionSpec must have at least one component."
+          },
+          {
+            "nodeid": "::test_parse_defaults_to_no_version_string",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_raises_with_the_original_input_and_pattern[None]",
+            "when": "setup",
+            "outcome": "failed",
+            "exception": "ValueError",
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": "/submission/test_generated.py:22: in version_config\n    return make_config(VERSION_PATTERN)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n/submission/test_generated.py:12: in make_config\n    return VersionConfig(\nbumpversion/versioning/version_config.py:37: in __init__\n    self.version_spec = VersionSpec(self.part_configs)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nbumpversion/versioning/models.py:175: in __init__\n    raise ValueError(\"A VersionSpec must have at least one component.\")\nE   ValueError: A VersionSpec must have at least one component."
+          },
+          {
+            "nodeid": "::test_parse_raises_with_the_original_input_and_pattern[None]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_raises_with_the_original_input_and_pattern[]",
+            "when": "setup",
+            "outcome": "failed",
+            "exception": "ValueError",
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": "/submission/test_generated.py:22: in version_config\n    return make_config(VERSION_PATTERN)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n/submission/test_generated.py:12: in make_config\n    return VersionConfig(\nbumpversion/versioning/version_config.py:37: in __init__\n    self.version_spec = VersionSpec(self.part_configs)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nbumpversion/versioning/models.py:175: in __init__\n    raise ValueError(\"A VersionSpec must have at least one component.\")\nE   ValueError: A VersionSpec must have at least one component."
+          },
+          {
+            "nodeid": "::test_parse_raises_with_the_original_input_and_pattern[]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_raises_with_the_original_input_and_pattern[bad version]",
+            "when": "setup",
+            "outcome": "failed",
+            "exception": "ValueError",
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": "/submission/test_generated.py:22: in version_config\n    return make_config(VERSION_PATTERN)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n/submission/test_generated.py:12: in make_config\n    return VersionConfig(\nbumpversion/versioning/version_config.py:37: in __init__\n    self.version_spec = VersionSpec(self.part_configs)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nbumpversion/versioning/models.py:175: in __init__\n    raise ValueError(\"A VersionSpec must have at least one component.\")\nE   ValueError: A VersionSpec must have at least one component."
+          },
+          {
+            "nodeid": "::test_parse_raises_with_the_original_input_and_pattern[bad version]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_treats_a_pattern_without_named_captures_as_a_failure[]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_treats_a_pattern_without_named_captures_as_a_failure[]",
+            "when": "call",
+            "outcome": "failed",
+            "exception": "ValueError",
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": "/submission/test_generated.py:92: in test_parse_treats_a_pattern_without_named_captures_as_a_failure\n    config = make_config(pattern)\n             ^^^^^^^^^^^^^^^^^^^^\n/submission/test_generated.py:12: in make_config\n    return VersionConfig(\nbumpversion/versioning/version_config.py:37: in __init__\n    self.version_spec = VersionSpec(self.part_configs)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nbumpversion/versioning/models.py:175: in __init__\n    raise ValueError(\"A VersionSpec must have at least one component.\")\nE   ValueError: A VersionSpec must have at least one component."
+          },
+          {
+            "nodeid": "::test_parse_treats_a_pattern_without_named_captures_as_a_failure[]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_treats_a_pattern_without_named_captures_as_a_failure[^([0-9]+)\\\\.([0-9]+)\\\\.([0-9]+)$]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_treats_a_pattern_without_named_captures_as_a_failure[^([0-9]+)\\\\.([0-9]+)\\\\.([0-9]+)$]",
+            "when": "call",
+            "outcome": "failed",
+            "exception": "ValueError",
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": "/submission/test_generated.py:92: in test_parse_treats_a_pattern_without_named_captures_as_a_failure\n    config = make_config(pattern)\n             ^^^^^^^^^^^^^^^^^^^^\n/submission/test_generated.py:12: in make_config\n    return VersionConfig(\nbumpversion/versioning/version_config.py:37: in __init__\n    self.version_spec = VersionSpec(self.part_configs)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nbumpversion/versioning/models.py:175: in __init__\n    raise ValueError(\"A VersionSpec must have at least one component.\")\nE   ValueError: A VersionSpec must have at least one component."
+          },
+          {
+            "nodeid": "::test_parse_treats_a_pattern_without_named_captures_as_a_failure[^([0-9]+)\\\\.([0-9]+)\\\\.([0-9]+)$]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          }
+        ],
+        "collection_errors": [],
+        "focal": {
+          "executed": false,
+          "line_total": 8,
+          "line_covered": 0,
+          "line_rate": 0.0,
+          "branch_total": 4,
+          "branch_covered": 0,
+          "branch_rate": 0.0,
+          "executable_lines": [
+            81,
+            83,
+            84,
+            85,
+            86,
+            88,
+            89,
+            90
+          ],
+          "covered_lines": [],
+          "branches": {
+            "83": {
+              "total": 2,
+              "covered": 0
+            },
+            "85": {
+              "total": 2,
+              "covered": 0
+            }
+          }
+        }
+      }
+    },
+    "defects_eligible": null,
+    "defects_measured": null,
+    "defects_detected": null,
+    "detection_complete": null,
+    "total_seconds": 0.8691479169065133
+  },
+  "preparation_seconds": 0.019567625015042722,
+  "submission_sha256": "88a8f5f2e06aea3e6758ac6c0e09deb219d42b428c81f08697148fdb1fe996ad",
+  "finished_at": "2026-11-22T04:45:02.876557+00:00"
+}

@@ -1,0 +1,1465 @@
+{
+  "schema_version": 1,
+  "order": 11,
+  "project": "fava",
+  "target": "parse_budgets",
+  "agent": "codex",
+  "condition": "A",
+  "repetition": 1,
+  "id": "fava__parse_budgets__codex__A__1",
+  "phase": "pilot",
+  "lock_hash": "2b51427488191c72d3dc09fe1d643427e7f0eade28c46106ef7fb3cce021d33a",
+  "started_at": "2026-11-22T03:02:56.899887+00:00",
+  "status": "finished",
+  "generation": {
+    "status": "completed",
+    "input_tokens": 107214,
+    "output_tokens": 1870,
+    "seconds": 56.17698637500871,
+    "version": "codex-cli 0.170.0",
+    "tool_log": [
+      {
+        "index": 1,
+        "tool": "read_file",
+        "arguments": {
+          "path": "src/fava/core/budgets.py",
+          "start_line": 1,
+          "end_line": 180
+        },
+        "delivered_chars": 5296,
+        "chars_before": 0,
+        "status": "ok",
+        "chars_after": 5296
+      },
+      {
+        "index": 2,
+        "tool": "list_files",
+        "arguments": {
+          "path": "tests"
+        },
+        "delivered_chars": 12,
+        "chars_before": 5296,
+        "status": "ok",
+        "chars_after": 5308
+      },
+      {
+        "index": 3,
+        "tool": "list_files",
+        "arguments": {
+          "path": "src/fava/core"
+        },
+        "delivered_chars": 629,
+        "chars_before": 5308,
+        "status": "ok",
+        "chars_after": 5937
+      },
+      {
+        "index": 4,
+        "tool": "search",
+        "arguments": {
+          "query": "parse_budgets"
+        },
+        "delivered_chars": 231,
+        "chars_before": 5937,
+        "status": "ok",
+        "chars_after": 6168
+      },
+      {
+        "index": 5,
+        "tool": "search",
+        "arguments": {
+          "path": "src/fava/util/date.py",
+          "query": "INTERVALS"
+        },
+        "delivered_chars": 110,
+        "chars_before": 6168,
+        "status": "ok",
+        "chars_after": 6278
+      },
+      {
+        "index": 6,
+        "tool": "read_file",
+        "arguments": {
+          "path": "src/fava/util/date.py",
+          "start_line": 70,
+          "end_line": 258
+        },
+        "delivered_chars": 5513,
+        "chars_before": 6278,
+        "status": "ok",
+        "chars_after": 11791
+      },
+      {
+        "index": 7,
+        "tool": "list_files",
+        "arguments": {
+          "path": "src/fava/beans"
+        },
+        "delivered_chars": 331,
+        "chars_before": 11791,
+        "status": "ok",
+        "chars_after": 12122
+      },
+      {
+        "index": 8,
+        "tool": "search",
+        "arguments": {
+          "path": "src/fava/beans",
+          "query": "Custom"
+        },
+        "delivered_chars": 569,
+        "chars_before": 12122,
+        "status": "ok",
+        "chars_after": 12691
+      },
+      {
+        "index": 9,
+        "tool": "search",
+        "arguments": {
+          "path": "src/fava/helpers.py",
+          "query": "BeancountError"
+        },
+        "delivered_chars": 127,
+        "chars_before": 12691,
+        "status": "ok",
+        "chars_after": 12818
+      },
+      {
+        "index": 10,
+        "tool": "read_file",
+        "arguments": {
+          "path": "src/fava/helpers.py",
+          "start_line": 1,
+          "end_line": 35
+        },
+        "delivered_chars": 842,
+        "chars_before": 12818,
+        "status": "ok",
+        "chars_after": 13660
+      },
+      {
+        "index": 11,
+        "tool": "read_file",
+        "arguments": {
+          "path": "src/fava/beans/abc.py",
+          "start_line": 140,
+          "end_line": 182
+        },
+        "delivered_chars": 1003,
+        "chars_before": 13660,
+        "status": "ok",
+        "chars_after": 14663
+      }
+    ],
+    "usage": {
+      "input_tokens": 107214,
+      "cached_input_tokens": 95360,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 1870,
+      "reasoning_output_tokens": 181
+    },
+    "details": [],
+    "capabilities": {
+      "tool_surface_verified": true,
+      "tools": [
+        "functions.list_mcp_resource_templates",
+        "functions.list_mcp_resources",
+        "functions.read_mcp_resource",
+        "mcp__contextlab.list_files",
+        "mcp__contextlab.read_file",
+        "mcp__contextlab.search"
+      ],
+      "catalog_sha256": "a61b50641627a2941fc8be4db823d1fbbfa4ae628add4d7ec443dbab559140fb",
+      "probe": "offline-localhost",
+      "model": "gpt-6.2-sol",
+      "command_rejected": true,
+      "outside_packet_rejected": true,
+      "allowed_read_verified": true
+    },
+    "returncode": 0,
+    "context_stats": {
+      "chars_used": 14663,
+      "initial_chars": 0,
+      "response_chars": 14663,
+      "remaining_chars": 15337,
+      "tool_calls": 11,
+      "max_calls": 20,
+      "budget": 30000
+    },
+    "session_id": "01a20134-f87d-74c3-acc5-0b43fd18d750"
+  },
+  "evaluation": {
+    "target_id": "parse_budgets",
+    "test_kind": "unit",
+    "received": true,
+    "syntax_ok": true,
+    "collected": 15,
+    "active_started": true,
+    "reference_passed": true,
+    "approval": "pending_review",
+    "approved": false,
+    "coverage_raw": {
+      "executed": true,
+      "line_total": 13,
+      "line_covered": 13,
+      "line_rate": 1.0,
+      "branch_total": 4,
+      "branch_covered": 4,
+      "branch_rate": 1.0,
+      "executable_lines": [
+        100,
+        101,
+        103,
+        104,
+        105,
+        106,
+        107,
+        114,
+        115,
+        122,
+        123,
+        124,
+        128
+      ],
+      "covered_lines": [
+        100,
+        101,
+        103,
+        104,
+        105,
+        106,
+        107,
+        114,
+        115,
+        122,
+        123,
+        124,
+        128
+      ],
+      "branches": {
+        "106": {
+          "total": 2,
+          "covered": 2
+        },
+        "103": {
+          "total": 2,
+          "covered": 2
+        }
+      }
+    },
+    "coverage_main": null,
+    "defects": [],
+    "detection_rate": null,
+    "review": null,
+    "backend": "docker",
+    "submission_sha256": "7a6a1f589bc9c7f4e32ec7e9ca8431162120e85215b845cf1743ee532e8cdc9c",
+    "status": "completed",
+    "seconds": 0.911611334013287,
+    "active_count": 15,
+    "passed_count": 15,
+    "skipped_count": 0,
+    "xfail_count": 0,
+    "failure_categories": [],
+    "original": {
+      "status": "completed",
+      "seconds": 0.911611334013287,
+      "exit_code": 0,
+      "production_unchanged": true,
+      "collected": 15,
+      "active_started": true,
+      "active_count": 15,
+      "passed_count": 15,
+      "skipped_count": 0,
+      "xfail_count": 0,
+      "failure_categories": [],
+      "reference_passed": true,
+      "assertion_failure": false,
+      "focal": {
+        "executed": true,
+        "line_total": 13,
+        "line_covered": 13,
+        "line_rate": 1.0,
+        "branch_total": 4,
+        "branch_covered": 4,
+        "branch_rate": 1.0,
+        "executable_lines": [
+          100,
+          101,
+          103,
+          104,
+          105,
+          106,
+          107,
+          114,
+          115,
+          122,
+          123,
+          124,
+          128
+        ],
+        "covered_lines": [
+          100,
+          101,
+          103,
+          104,
+          105,
+          106,
+          107,
+          114,
+          115,
+          122,
+          123,
+          124,
+          128
+        ],
+        "branches": {
+          "106": {
+            "total": 2,
+            "covered": 2
+          },
+          "103": {
+            "total": 2,
+            "covered": 2
+          }
+        }
+      },
+      "raw": {
+        "exit_code": 0,
+        "collected": 15,
+        "reports": [
+          {
+            "nodeid": "::test_parse_budgets_resolves_intervals_and_preserves_fields[day-expected_period0]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_budgets_resolves_intervals_and_preserves_fields[day-expected_period0]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_budgets_resolves_intervals_and_preserves_fields[day-expected_period0]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_budgets_resolves_intervals_and_preserves_fields[DAILY-expected_period1]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_budgets_resolves_intervals_and_preserves_fields[DAILY-expected_period1]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_budgets_resolves_intervals_and_preserves_fields[DAILY-expected_period1]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_budgets_resolves_intervals_and_preserves_fields[week-expected_period2]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_budgets_resolves_intervals_and_preserves_fields[week-expected_period2]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_budgets_resolves_intervals_and_preserves_fields[week-expected_period2]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_budgets_resolves_intervals_and_preserves_fields[Weekly-expected_period3]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_budgets_resolves_intervals_and_preserves_fields[Weekly-expected_period3]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_budgets_resolves_intervals_and_preserves_fields[Weekly-expected_period3]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_budgets_resolves_intervals_and_preserves_fields[month-expected_period4]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_budgets_resolves_intervals_and_preserves_fields[month-expected_period4]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_budgets_resolves_intervals_and_preserves_fields[month-expected_period4]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_budgets_resolves_intervals_and_preserves_fields[mOnThLy-expected_period5]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_budgets_resolves_intervals_and_preserves_fields[mOnThLy-expected_period5]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_budgets_resolves_intervals_and_preserves_fields[mOnThLy-expected_period5]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_budgets_resolves_intervals_and_preserves_fields[quarter-expected_period6]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_budgets_resolves_intervals_and_preserves_fields[quarter-expected_period6]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_budgets_resolves_intervals_and_preserves_fields[quarter-expected_period6]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_budgets_resolves_intervals_and_preserves_fields[QUARTERLY-expected_period7]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_budgets_resolves_intervals_and_preserves_fields[QUARTERLY-expected_period7]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_budgets_resolves_intervals_and_preserves_fields[QUARTERLY-expected_period7]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_budgets_resolves_intervals_and_preserves_fields[year-expected_period8]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_budgets_resolves_intervals_and_preserves_fields[year-expected_period8]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_budgets_resolves_intervals_and_preserves_fields[year-expected_period8]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_budgets_resolves_intervals_and_preserves_fields[YeArLy-expected_period9]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_budgets_resolves_intervals_and_preserves_fields[YeArLy-expected_period9]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_budgets_resolves_intervals_and_preserves_fields[YeArLy-expected_period9]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_budgets_resolves_intervals_and_preserves_fields[interval10-expected_period10]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_budgets_resolves_intervals_and_preserves_fields[interval10-expected_period10]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_budgets_resolves_intervals_and_preserves_fields[interval10-expected_period10]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_budgets_groups_entries_in_input_order_and_keeps_repeats",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_budgets_groups_entries_in_input_order_and_keeps_repeats",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_budgets_groups_entries_in_input_order_and_keeps_repeats",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_budgets_ignores_other_custom_types",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_budgets_ignores_other_custom_types",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_budgets_ignores_other_custom_types",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_budgets_accepts_empty_input",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_budgets_accepts_empty_input",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_budgets_accepts_empty_input",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_budgets_reports_errors_in_order_and_continues_parsing",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_budgets_reports_errors_in_order_and_continues_parsing",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_budgets_reports_errors_in_order_and_continues_parsing",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          }
+        ],
+        "collection_errors": [],
+        "focal": {
+          "executed": true,
+          "line_total": 13,
+          "line_covered": 13,
+          "line_rate": 1.0,
+          "branch_total": 4,
+          "branch_covered": 4,
+          "branch_rate": 1.0,
+          "executable_lines": [
+            100,
+            101,
+            103,
+            104,
+            105,
+            106,
+            107,
+            114,
+            115,
+            122,
+            123,
+            124,
+            128
+          ],
+          "covered_lines": [
+            100,
+            101,
+            103,
+            104,
+            105,
+            106,
+            107,
+            114,
+            115,
+            122,
+            123,
+            124,
+            128
+          ],
+          "branches": {
+            "106": {
+              "total": 2,
+              "covered": 2
+            },
+            "103": {
+              "total": 2,
+              "covered": 2
+            }
+          }
+        }
+      }
+    },
+    "defects_eligible": null,
+    "defects_measured": null,
+    "defects_detected": null,
+    "detection_complete": null,
+    "total_seconds": 0.9485027909977362
+  },
+  "preparation_seconds": 0.055717041017487645,
+  "submission_sha256": "7a6a1f589bc9c7f4e32ec7e9ca8431162120e85215b845cf1743ee532e8cdc9c",
+  "finished_at": "2026-11-22T03:03:54.088942+00:00",
+  "review": {
+    "behavioral_assertions": true,
+    "no_target_mock": true,
+    "no_production_changes": true,
+    "defect_attribution": {},
+    "dependency_doubles": false,
+    "reviewer": "Gabriel Lopes Pereira",
+    "created_at": "2026-11-22T03:08:02.386360+00:00"
+  },
+  "reviewed_evaluation": {
+    "target_id": "parse_budgets",
+    "test_kind": "unit",
+    "received": true,
+    "syntax_ok": true,
+    "collected": 15,
+    "active_started": true,
+    "reference_passed": true,
+    "approval": "approved",
+    "approved": true,
+    "coverage_raw": {
+      "executed": true,
+      "line_total": 13,
+      "line_covered": 13,
+      "line_rate": 1.0,
+      "branch_total": 4,
+      "branch_covered": 4,
+      "branch_rate": 1.0,
+      "executable_lines": [
+        100,
+        101,
+        103,
+        104,
+        105,
+        106,
+        107,
+        114,
+        115,
+        122,
+        123,
+        124,
+        128
+      ],
+      "covered_lines": [
+        100,
+        101,
+        103,
+        104,
+        105,
+        106,
+        107,
+        114,
+        115,
+        122,
+        123,
+        124,
+        128
+      ],
+      "branches": {
+        "106": {
+          "total": 2,
+          "covered": 2
+        },
+        "103": {
+          "total": 2,
+          "covered": 2
+        }
+      }
+    },
+    "coverage_main": {
+      "executed": true,
+      "line_total": 13,
+      "line_covered": 13,
+      "line_rate": 1.0,
+      "branch_total": 4,
+      "branch_covered": 4,
+      "branch_rate": 1.0,
+      "executable_lines": [
+        100,
+        101,
+        103,
+        104,
+        105,
+        106,
+        107,
+        114,
+        115,
+        122,
+        123,
+        124,
+        128
+      ],
+      "covered_lines": [
+        100,
+        101,
+        103,
+        104,
+        105,
+        106,
+        107,
+        114,
+        115,
+        122,
+        123,
+        124,
+        128
+      ],
+      "branches": {
+        "106": {
+          "total": 2,
+          "covered": 2
+        },
+        "103": {
+          "total": 2,
+          "covered": 2
+        }
+      }
+    },
+    "defects": [],
+    "detection_rate": null,
+    "review": {
+      "behavioral_assertions": true,
+      "no_target_mock": true,
+      "no_production_changes": true,
+      "defect_attribution": {},
+      "dependency_doubles": false,
+      "reviewer": "Gabriel Lopes Pereira",
+      "created_at": "2026-11-22T03:08:02.386360+00:00"
+    },
+    "backend": "docker",
+    "submission_sha256": "7a6a1f589bc9c7f4e32ec7e9ca8431162120e85215b845cf1743ee532e8cdc9c",
+    "status": "completed",
+    "seconds": 0.7001261669793166,
+    "active_count": 15,
+    "passed_count": 15,
+    "skipped_count": 0,
+    "xfail_count": 0,
+    "failure_categories": [],
+    "original": {
+      "status": "completed",
+      "seconds": 0.7001261669793166,
+      "exit_code": 0,
+      "production_unchanged": true,
+      "collected": 15,
+      "active_started": true,
+      "active_count": 15,
+      "passed_count": 15,
+      "skipped_count": 0,
+      "xfail_count": 0,
+      "failure_categories": [],
+      "reference_passed": true,
+      "assertion_failure": false,
+      "focal": {
+        "executed": true,
+        "line_total": 13,
+        "line_covered": 13,
+        "line_rate": 1.0,
+        "branch_total": 4,
+        "branch_covered": 4,
+        "branch_rate": 1.0,
+        "executable_lines": [
+          100,
+          101,
+          103,
+          104,
+          105,
+          106,
+          107,
+          114,
+          115,
+          122,
+          123,
+          124,
+          128
+        ],
+        "covered_lines": [
+          100,
+          101,
+          103,
+          104,
+          105,
+          106,
+          107,
+          114,
+          115,
+          122,
+          123,
+          124,
+          128
+        ],
+        "branches": {
+          "106": {
+            "total": 2,
+            "covered": 2
+          },
+          "103": {
+            "total": 2,
+            "covered": 2
+          }
+        }
+      },
+      "raw": {
+        "exit_code": 0,
+        "collected": 15,
+        "reports": [
+          {
+            "nodeid": "::test_parse_budgets_resolves_intervals_and_preserves_fields[day-expected_period0]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_budgets_resolves_intervals_and_preserves_fields[day-expected_period0]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_budgets_resolves_intervals_and_preserves_fields[day-expected_period0]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_budgets_resolves_intervals_and_preserves_fields[DAILY-expected_period1]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_budgets_resolves_intervals_and_preserves_fields[DAILY-expected_period1]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_budgets_resolves_intervals_and_preserves_fields[DAILY-expected_period1]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_budgets_resolves_intervals_and_preserves_fields[week-expected_period2]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_budgets_resolves_intervals_and_preserves_fields[week-expected_period2]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_budgets_resolves_intervals_and_preserves_fields[week-expected_period2]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_budgets_resolves_intervals_and_preserves_fields[Weekly-expected_period3]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_budgets_resolves_intervals_and_preserves_fields[Weekly-expected_period3]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_budgets_resolves_intervals_and_preserves_fields[Weekly-expected_period3]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_budgets_resolves_intervals_and_preserves_fields[month-expected_period4]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_budgets_resolves_intervals_and_preserves_fields[month-expected_period4]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_budgets_resolves_intervals_and_preserves_fields[month-expected_period4]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_budgets_resolves_intervals_and_preserves_fields[mOnThLy-expected_period5]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_budgets_resolves_intervals_and_preserves_fields[mOnThLy-expected_period5]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_budgets_resolves_intervals_and_preserves_fields[mOnThLy-expected_period5]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_budgets_resolves_intervals_and_preserves_fields[quarter-expected_period6]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_budgets_resolves_intervals_and_preserves_fields[quarter-expected_period6]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_budgets_resolves_intervals_and_preserves_fields[quarter-expected_period6]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_budgets_resolves_intervals_and_preserves_fields[QUARTERLY-expected_period7]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_budgets_resolves_intervals_and_preserves_fields[QUARTERLY-expected_period7]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_budgets_resolves_intervals_and_preserves_fields[QUARTERLY-expected_period7]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_budgets_resolves_intervals_and_preserves_fields[year-expected_period8]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_budgets_resolves_intervals_and_preserves_fields[year-expected_period8]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_budgets_resolves_intervals_and_preserves_fields[year-expected_period8]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_budgets_resolves_intervals_and_preserves_fields[YeArLy-expected_period9]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_budgets_resolves_intervals_and_preserves_fields[YeArLy-expected_period9]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_budgets_resolves_intervals_and_preserves_fields[YeArLy-expected_period9]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_budgets_resolves_intervals_and_preserves_fields[interval10-expected_period10]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_budgets_resolves_intervals_and_preserves_fields[interval10-expected_period10]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_budgets_resolves_intervals_and_preserves_fields[interval10-expected_period10]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_budgets_groups_entries_in_input_order_and_keeps_repeats",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_budgets_groups_entries_in_input_order_and_keeps_repeats",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_budgets_groups_entries_in_input_order_and_keeps_repeats",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_budgets_ignores_other_custom_types",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_budgets_ignores_other_custom_types",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_budgets_ignores_other_custom_types",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_budgets_accepts_empty_input",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_budgets_accepts_empty_input",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_budgets_accepts_empty_input",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_budgets_reports_errors_in_order_and_continues_parsing",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_budgets_reports_errors_in_order_and_continues_parsing",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_budgets_reports_errors_in_order_and_continues_parsing",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          }
+        ],
+        "collection_errors": [],
+        "focal": {
+          "executed": true,
+          "line_total": 13,
+          "line_covered": 13,
+          "line_rate": 1.0,
+          "branch_total": 4,
+          "branch_covered": 4,
+          "branch_rate": 1.0,
+          "executable_lines": [
+            100,
+            101,
+            103,
+            104,
+            105,
+            106,
+            107,
+            114,
+            115,
+            122,
+            123,
+            124,
+            128
+          ],
+          "covered_lines": [
+            100,
+            101,
+            103,
+            104,
+            105,
+            106,
+            107,
+            114,
+            115,
+            122,
+            123,
+            124,
+            128
+          ],
+          "branches": {
+            "106": {
+              "total": 2,
+              "covered": 2
+            },
+            "103": {
+              "total": 2,
+              "covered": 2
+            }
+          }
+        }
+      }
+    },
+    "defects_eligible": 0,
+    "defects_measured": 0,
+    "defects_detected": null,
+    "detection_complete": false,
+    "total_seconds": 0.7216623749700375
+  }
+}

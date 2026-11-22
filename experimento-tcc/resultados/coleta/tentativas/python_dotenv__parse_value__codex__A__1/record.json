@@ -1,0 +1,130 @@
+{
+  "schema_version": 1,
+  "order": 52,
+  "project": "python_dotenv",
+  "target": "parse_value",
+  "agent": "codex",
+  "condition": "A",
+  "repetition": 1,
+  "id": "python_dotenv__parse_value__codex__A__1",
+  "phase": "main",
+  "lock_hash": "49dd66a522994eb03001a67255ded0aa13cc696255859f45a924b43f05f5da33",
+  "started_at": "2026-11-22T04:00:17.116865+00:00",
+  "status": "finished",
+  "generation": {
+    "status": "completed",
+    "input_tokens": 38251,
+    "output_tokens": 2254,
+    "seconds": 54.20355662505608,
+    "version": "codex-cli 0.170.0",
+    "tool_log": [
+      {
+        "index": 1,
+        "tool": "list_files",
+        "arguments": {},
+        "delivered_chars": 211,
+        "chars_before": 0,
+        "status": "ok",
+        "chars_after": 211
+      },
+      {
+        "index": 2,
+        "tool": "read_file",
+        "arguments": {
+          "path": "src/dotenv/parser.py",
+          "start_line": 1,
+          "end_line": 250
+        },
+        "delivered_chars": 6199,
+        "chars_before": 211,
+        "status": "ok",
+        "chars_after": 6410
+      },
+      {
+        "index": 3,
+        "tool": "search",
+        "arguments": {
+          "path": "README.md",
+          "query": "quoted"
+        },
+        "delivered_chars": 613,
+        "chars_before": 6410,
+        "status": "ok",
+        "chars_after": 7023
+      },
+      {
+        "index": 4,
+        "tool": "read_file",
+        "arguments": {
+          "path": "README.md",
+          "start_line": 167,
+          "end_line": 213
+        },
+        "delivered_chars": 1441,
+        "chars_before": 7023,
+        "status": "ok",
+        "chars_after": 8464
+      }
+    ],
+    "usage": {
+      "input_tokens": 38251,
+      "cached_input_tokens": 26112,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 2254,
+      "reasoning_output_tokens": 658
+    },
+    "details": [],
+    "capabilities": {
+      "tool_surface_verified": true,
+      "tools": [
+        "functions.list_mcp_resource_templates",
+        "functions.list_mcp_resources",
+        "functions.read_mcp_resource",
+        "mcp__contextlab.list_files",
+        "mcp__contextlab.read_file",
+        "mcp__contextlab.search"
+      ],
+      "catalog_sha256": "a61b50641627a2941fc8be4db823d1fbbfa4ae628add4d7ec443dbab559140fb",
+      "probe": "offline-localhost",
+      "model": "gpt-6.2-sol",
+      "command_rejected": true,
+      "outside_packet_rejected": true,
+      "allowed_read_verified": true
+    },
+    "returncode": 0,
+    "context_stats": {
+      "chars_used": 8464,
+      "initial_chars": 0,
+      "response_chars": 8464,
+      "remaining_chars": 21536,
+      "tool_calls": 4,
+      "max_calls": 20,
+      "budget": 30000
+    },
+    "session_id": "01a20169-76e1-7e81-8a7f-83d37f622864"
+  },
+  "evaluation": {
+    "target_id": "parse_value",
+    "test_kind": "unit",
+    "received": true,
+    "syntax_ok": false,
+    "collected": 0,
+    "active_started": false,
+    "reference_passed": false,
+    "approval": "rejected",
+    "approved": false,
+    "coverage_raw": null,
+    "coverage_main": null,
+    "defects": [],
+    "detection_rate": null,
+    "review": null,
+    "backend": "docker",
+    "submission_sha256": "86bf89bd9a076e06c6ab56d028cdf28701c12e6c63d920bad95381ef5d50f534",
+    "status": "syntax_error",
+    "error": "SyntaxError: unterminated string literal (detected at line 45) (test_generated.py, line 45)",
+    "total_seconds": 0.001267958083190024
+  },
+  "preparation_seconds": 0.012017417000606656,
+  "submission_sha256": "86bf89bd9a076e06c6ab56d028cdf28701c12e6c63d920bad95381ef5d50f534",
+  "finished_at": "2026-11-22T04:01:11.337772+00:00"
+}

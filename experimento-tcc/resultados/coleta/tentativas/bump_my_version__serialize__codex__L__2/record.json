@@ -1,0 +1,4074 @@
+{
+  "schema_version": 1,
+  "order": 35,
+  "project": "bump_my_version",
+  "target": "serialize",
+  "agent": "codex",
+  "condition": "L",
+  "repetition": 2,
+  "id": "bump_my_version__serialize__codex__L__2",
+  "phase": "main",
+  "lock_hash": "49dd66a522994eb03001a67255ded0aa13cc696255859f45a924b43f05f5da33",
+  "started_at": "2026-11-22T03:42:33.683035+00:00",
+  "status": "finished",
+  "generation": {
+    "status": "completed",
+    "input_tokens": 24322,
+    "output_tokens": 2632,
+    "seconds": 69.43848879204597,
+    "version": "codex-cli 0.170.0",
+    "tool_log": [
+      {
+        "index": 1,
+        "tool": "search",
+        "arguments": {
+          "query": "def labels_for_format",
+          "path": "bumpversion"
+        },
+        "delivered_chars": 44,
+        "chars_before": 8499,
+        "status": "ok",
+        "chars_after": 8543
+      },
+      {
+        "index": 2,
+        "tool": "list_files",
+        "arguments": {},
+        "delivered_chars": 99,
+        "chars_before": 8543,
+        "status": "ok",
+        "chars_after": 8642
+      }
+    ],
+    "usage": {
+      "input_tokens": 24322,
+      "cached_input_tokens": 15872,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 2632,
+      "reasoning_output_tokens": 1421
+    },
+    "details": [],
+    "capabilities": {
+      "tool_surface_verified": true,
+      "tools": [
+        "functions.list_mcp_resource_templates",
+        "functions.list_mcp_resources",
+        "functions.read_mcp_resource",
+        "mcp__contextlab.list_files",
+        "mcp__contextlab.read_file",
+        "mcp__contextlab.search"
+      ],
+      "catalog_sha256": "a61b50641627a2941fc8be4db823d1fbbfa4ae628add4d7ec443dbab559140fb",
+      "probe": "offline-localhost",
+      "model": "gpt-6.2-sol",
+      "command_rejected": true,
+      "outside_packet_rejected": true,
+      "allowed_read_verified": true
+    },
+    "returncode": 0,
+    "context_stats": {
+      "chars_used": 8642,
+      "initial_chars": 8499,
+      "response_chars": 143,
+      "remaining_chars": 21358,
+      "tool_calls": 2,
+      "max_calls": 20,
+      "budget": 30000
+    },
+    "session_id": "01a20159-3abb-7061-9403-c050b15581a8"
+  },
+  "evaluation": {
+    "target_id": "serialize",
+    "test_kind": "unit",
+    "received": true,
+    "syntax_ok": true,
+    "collected": 14,
+    "active_started": true,
+    "reference_passed": true,
+    "approval": "pending_review",
+    "approved": false,
+    "coverage_raw": {
+      "executed": true,
+      "line_total": 20,
+      "line_covered": 20,
+      "line_rate": 1.0,
+      "branch_total": 4,
+      "branch_covered": 4,
+      "branch_rate": 1.0,
+      "executable_lines": [
+        102,
+        103,
+        105,
+        106,
+        107,
+        108,
+        110,
+        111,
+        112,
+        113,
+        124,
+        125,
+        130,
+        131,
+        133,
+        134,
+        135,
+        136,
+        137,
+        139
+      ],
+      "covered_lines": [
+        102,
+        103,
+        105,
+        106,
+        107,
+        108,
+        110,
+        111,
+        112,
+        113,
+        124,
+        125,
+        130,
+        131,
+        133,
+        134,
+        135,
+        136,
+        137,
+        139
+      ],
+      "branches": {
+        "130": {
+          "total": 2,
+          "covered": 2
+        },
+        "111": {
+          "total": 2,
+          "covered": 2
+        }
+      }
+    },
+    "coverage_main": null,
+    "defects": [],
+    "detection_rate": null,
+    "review": null,
+    "backend": "docker",
+    "submission_sha256": "cfdc5df0488d8448a1af5c3966c9b520e872731ccad8239a651c0c19906a9345",
+    "status": "completed",
+    "seconds": 0.832199458964169,
+    "active_count": 14,
+    "passed_count": 14,
+    "skipped_count": 0,
+    "xfail_count": 0,
+    "failure_categories": [],
+    "original": {
+      "status": "completed",
+      "seconds": 0.832199458964169,
+      "exit_code": 0,
+      "production_unchanged": true,
+      "collected": 14,
+      "active_started": true,
+      "active_count": 14,
+      "passed_count": 14,
+      "skipped_count": 0,
+      "xfail_count": 0,
+      "failure_categories": [],
+      "reference_passed": true,
+      "assertion_failure": false,
+      "focal": {
+        "executed": true,
+        "line_total": 20,
+        "line_covered": 20,
+        "line_rate": 1.0,
+        "branch_total": 4,
+        "branch_covered": 4,
+        "branch_rate": 1.0,
+        "executable_lines": [
+          102,
+          103,
+          105,
+          106,
+          107,
+          108,
+          110,
+          111,
+          112,
+          113,
+          124,
+          125,
+          130,
+          131,
+          133,
+          134,
+          135,
+          136,
+          137,
+          139
+        ],
+        "covered_lines": [
+          102,
+          103,
+          105,
+          106,
+          107,
+          108,
+          110,
+          111,
+          112,
+          113,
+          124,
+          125,
+          130,
+          131,
+          133,
+          134,
+          135,
+          136,
+          137,
+          139
+        ],
+        "branches": {
+          "130": {
+            "total": 2,
+            "covered": 2
+          },
+          "111": {
+            "total": 2,
+            "covered": 2
+          }
+        }
+      },
+      "raw": {
+        "exit_code": 0,
+        "collected": 14,
+        "reports": [
+          {
+            "nodeid": "::test_serialize_selects_format[all-required-fields-outrank-fewer-fields]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_serialize_selects_format[all-required-fields-outrank-fewer-fields]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_serialize_selects_format[all-required-fields-outrank-fewer-fields]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_serialize_selects_format[all-required-fields-break-a-tie-in-field-count]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_serialize_selects_format[all-required-fields-break-a-tie-in-field-count]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_serialize_selects_format[all-required-fields-break-a-tie-in-field-count]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_serialize_selects_format[count-distinct-fields-rather-than-occurrences-or-length]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_serialize_selects_format[count-distinct-fields-rather-than-occurrences-or-length]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_serialize_selects_format[count-distinct-fields-rather-than-occurrences-or-length]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_serialize_selects_format[context-fields-count-toward-format-size]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_serialize_selects_format[context-fields-count-toward-format-size]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_serialize_selects_format[context-fields-count-toward-format-size]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_serialize_selects_format[equal-field-count-keeps-input-order]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_serialize_selects_format[equal-field-count-keeps-input-order]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_serialize_selects_format[equal-field-count-keeps-input-order]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_serialize_selects_format[reversing-equally-ranked-formats-changes-the-winner]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_serialize_selects_format[reversing-equally-ranked-formats-changes-the-winner]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_serialize_selects_format[reversing-equally-ranked-formats-changes-the-winner]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_serialize_selects_format[missing-field-disqualifies-an-otherwise-preferred-format]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_serialize_selects_format[missing-field-disqualifies-an-otherwise-preferred-format]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_serialize_selects_format[missing-field-disqualifies-an-otherwise-preferred-format]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_serialize_selects_format[fallback-uses-field-count-and-order-without-partial-coverage-bonus]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_serialize_selects_format[fallback-uses-field-count-and-order-without-partial-coverage-bonus]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_serialize_selects_format[fallback-uses-field-count-and-order-without-partial-coverage-bonus]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_serialize_selects_format[literal-is-a-renderable-fallback]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_serialize_selects_format[literal-is-a-renderable-fallback]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_serialize_selects_format[literal-is-a-renderable-fallback]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_serialize_merges_context_without_mutating_it",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_serialize_merges_context_without_mutating_it",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_serialize_merges_context_without_mutating_it",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_serialize_can_omit_all_optional_components",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_serialize_can_omit_all_optional_components",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_serialize_can_omit_all_optional_components",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_serialize_formats_only_the_selected_pattern",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_serialize_formats_only_the_selected_pattern",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_serialize_formats_only_the_selected_pattern",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_serialize_raises_formatting_error_when_no_pattern_can_render[no-patterns]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_serialize_raises_formatting_error_when_no_pattern_can_render[no-patterns]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_serialize_raises_formatting_error_when_no_pattern_can_render[no-patterns]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_serialize_raises_formatting_error_when_no_pattern_can_render[no-renderable-patterns]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_serialize_raises_formatting_error_when_no_pattern_can_render[no-renderable-patterns]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_serialize_raises_formatting_error_when_no_pattern_can_render[no-renderable-patterns]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          }
+        ],
+        "collection_errors": [],
+        "focal": {
+          "executed": true,
+          "line_total": 20,
+          "line_covered": 20,
+          "line_rate": 1.0,
+          "branch_total": 4,
+          "branch_covered": 4,
+          "branch_rate": 1.0,
+          "executable_lines": [
+            102,
+            103,
+            105,
+            106,
+            107,
+            108,
+            110,
+            111,
+            112,
+            113,
+            124,
+            125,
+            130,
+            131,
+            133,
+            134,
+            135,
+            136,
+            137,
+            139
+          ],
+          "covered_lines": [
+            102,
+            103,
+            105,
+            106,
+            107,
+            108,
+            110,
+            111,
+            112,
+            113,
+            124,
+            125,
+            130,
+            131,
+            133,
+            134,
+            135,
+            136,
+            137,
+            139
+          ],
+          "branches": {
+            "130": {
+              "total": 2,
+              "covered": 2
+            },
+            "111": {
+              "total": 2,
+              "covered": 2
+            }
+          }
+        }
+      }
+    },
+    "defects_eligible": null,
+    "defects_measured": null,
+    "defects_detected": null,
+    "detection_complete": null,
+    "total_seconds": 0.8660606249468401
+  },
+  "preparation_seconds": 0.01847925002221018,
+  "submission_sha256": "cfdc5df0488d8448a1af5c3966c9b520e872731ccad8239a651c0c19906a9345",
+  "finished_at": "2026-11-22T03:43:44.011832+00:00",
+  "review": {
+    "behavioral_assertions": true,
+    "no_target_mock": true,
+    "no_production_changes": true,
+    "defect_attribution": {
+      "BMV-02-partes-decrescente": true,
+      "BMV-02-sem-obrigatorias": true,
+      "BMV-02-sem-copia": true
+    },
+    "dependency_doubles": false,
+    "reviewer": "Gabriel Lopes Pereira",
+    "created_at": "2026-11-22T05:04:54.306973+00:00"
+  },
+  "reviewed_evaluation": {
+    "target_id": "serialize",
+    "test_kind": "unit",
+    "received": true,
+    "syntax_ok": true,
+    "collected": 14,
+    "active_started": true,
+    "reference_passed": true,
+    "approval": "approved",
+    "approved": true,
+    "coverage_raw": {
+      "executed": true,
+      "line_total": 20,
+      "line_covered": 20,
+      "line_rate": 1.0,
+      "branch_total": 4,
+      "branch_covered": 4,
+      "branch_rate": 1.0,
+      "executable_lines": [
+        102,
+        103,
+        105,
+        106,
+        107,
+        108,
+        110,
+        111,
+        112,
+        113,
+        124,
+        125,
+        130,
+        131,
+        133,
+        134,
+        135,
+        136,
+        137,
+        139
+      ],
+      "covered_lines": [
+        102,
+        103,
+        105,
+        106,
+        107,
+        108,
+        110,
+        111,
+        112,
+        113,
+        124,
+        125,
+        130,
+        131,
+        133,
+        134,
+        135,
+        136,
+        137,
+        139
+      ],
+      "branches": {
+        "130": {
+          "total": 2,
+          "covered": 2
+        },
+        "111": {
+          "total": 2,
+          "covered": 2
+        }
+      }
+    },
+    "coverage_main": {
+      "executed": true,
+      "line_total": 20,
+      "line_covered": 20,
+      "line_rate": 1.0,
+      "branch_total": 4,
+      "branch_covered": 4,
+      "branch_rate": 1.0,
+      "executable_lines": [
+        102,
+        103,
+        105,
+        106,
+        107,
+        108,
+        110,
+        111,
+        112,
+        113,
+        124,
+        125,
+        130,
+        131,
+        133,
+        134,
+        135,
+        136,
+        137,
+        139
+      ],
+      "covered_lines": [
+        102,
+        103,
+        105,
+        106,
+        107,
+        108,
+        110,
+        111,
+        112,
+        113,
+        124,
+        125,
+        130,
+        131,
+        133,
+        134,
+        135,
+        136,
+        137,
+        139
+      ],
+      "branches": {
+        "130": {
+          "total": 2,
+          "covered": 2
+        },
+        "111": {
+          "total": 2,
+          "covered": 2
+        }
+      }
+    },
+    "defects": [
+      {
+        "id": "BMV-02-partes-decrescente",
+        "eligible": true,
+        "validation": {
+          "id": "BMV-02-partes-decrescente",
+          "eligible": true,
+          "project_sha256": "ed0530cb8db810554ce8a8d8bc5d2ac9f33c732970f9186134c05a46b3d0036c",
+          "definition_sha256": "11c5efe622e1bce0450c3feb53610de0ad073ad5f06546a4287eb86de49c885b",
+          "reason": null,
+          "baseline": {
+            "status": "completed",
+            "seconds": 0.6196058329660445,
+            "exit_code": 0,
+            "production_unchanged": true,
+            "collected": 1,
+            "active_started": true,
+            "active_count": 1,
+            "passed_count": 1,
+            "skipped_count": 0,
+            "xfail_count": 0,
+            "failure_categories": [],
+            "reference_passed": true,
+            "assertion_failure": false,
+            "focal": {
+              "executed": true,
+              "line_total": 20,
+              "line_covered": 19,
+              "line_rate": 0.95,
+              "branch_total": 4,
+              "branch_covered": 3,
+              "branch_rate": 0.75,
+              "executable_lines": [
+                102,
+                103,
+                105,
+                106,
+                107,
+                108,
+                110,
+                111,
+                112,
+                113,
+                124,
+                125,
+                130,
+                131,
+                133,
+                134,
+                135,
+                136,
+                137,
+                139
+              ],
+              "covered_lines": [
+                102,
+                103,
+                105,
+                106,
+                107,
+                108,
+                110,
+                111,
+                112,
+                113,
+                124,
+                125,
+                130,
+                133,
+                134,
+                135,
+                136,
+                137,
+                139
+              ],
+              "branches": {
+                "130": {
+                  "total": 2,
+                  "covered": 1
+                },
+                "111": {
+                  "total": 2,
+                  "covered": 2
+                }
+              }
+            },
+            "raw": {
+              "exit_code": 0,
+              "collected": 1,
+              "reports": [
+                {
+                  "nodeid": "tcc_referencia/test_ref_serialize.py::test_patch_zero_usa_o_formato_mais_curto",
+                  "when": "setup",
+                  "outcome": "passed",
+                  "exception": null,
+                  "assertion_failure": false,
+                  "expected_failure": false,
+                  "message": null
+                },
+                {
+                  "nodeid": "tcc_referencia/test_ref_serialize.py::test_patch_zero_usa_o_formato_mais_curto",
+                  "when": "call",
+                  "outcome": "passed",
+                  "exception": null,
+                  "assertion_failure": false,
+                  "expected_failure": false,
+                  "message": null
+                },
+                {
+                  "nodeid": "tcc_referencia/test_ref_serialize.py::test_patch_zero_usa_o_formato_mais_curto",
+                  "when": "teardown",
+                  "outcome": "passed",
+                  "exception": null,
+                  "assertion_failure": false,
+                  "expected_failure": false,
+                  "message": null
+                }
+              ],
+              "collection_errors": [],
+              "focal": {
+                "executed": true,
+                "line_total": 20,
+                "line_covered": 19,
+                "line_rate": 0.95,
+                "branch_total": 4,
+                "branch_covered": 3,
+                "branch_rate": 0.75,
+                "executable_lines": [
+                  102,
+                  103,
+                  105,
+                  106,
+                  107,
+                  108,
+                  110,
+                  111,
+                  112,
+                  113,
+                  124,
+                  125,
+                  130,
+                  131,
+                  133,
+                  134,
+                  135,
+                  136,
+                  137,
+                  139
+                ],
+                "covered_lines": [
+                  102,
+                  103,
+                  105,
+                  106,
+                  107,
+                  108,
+                  110,
+                  111,
+                  112,
+                  113,
+                  124,
+                  125,
+                  130,
+                  133,
+                  134,
+                  135,
+                  136,
+                  137,
+                  139
+                ],
+                "branches": {
+                  "130": {
+                    "total": 2,
+                    "covered": 1
+                  },
+                  "111": {
+                    "total": 2,
+                    "covered": 2
+                  }
+                }
+              }
+            }
+          },
+          "mutated": {
+            "status": "completed",
+            "seconds": 0.7181380410911515,
+            "exit_code": 1,
+            "production_unchanged": true,
+            "collected": 1,
+            "active_started": true,
+            "active_count": 1,
+            "passed_count": 0,
+            "skipped_count": 0,
+            "xfail_count": 0,
+            "failure_categories": [
+              "assertion_failure"
+            ],
+            "reference_passed": false,
+            "assertion_failure": true,
+            "focal": {
+              "executed": true,
+              "line_total": 20,
+              "line_covered": 19,
+              "line_rate": 0.95,
+              "branch_total": 4,
+              "branch_covered": 3,
+              "branch_rate": 0.75,
+              "executable_lines": [
+                102,
+                103,
+                105,
+                106,
+                107,
+                108,
+                110,
+                111,
+                112,
+                113,
+                124,
+                125,
+                130,
+                131,
+                133,
+                134,
+                135,
+                136,
+                137,
+                139
+              ],
+              "covered_lines": [
+                102,
+                103,
+                105,
+                106,
+                107,
+                108,
+                110,
+                111,
+                112,
+                113,
+                124,
+                125,
+                130,
+                133,
+                134,
+                135,
+                136,
+                137,
+                139
+              ],
+              "branches": {
+                "130": {
+                  "total": 2,
+                  "covered": 1
+                },
+                "111": {
+                  "total": 2,
+                  "covered": 2
+                }
+              }
+            },
+            "raw": {
+              "exit_code": 1,
+              "collected": 1,
+              "reports": [
+                {
+                  "nodeid": "tcc_referencia/test_ref_serialize.py::test_patch_zero_usa_o_formato_mais_curto",
+                  "when": "setup",
+                  "outcome": "passed",
+                  "exception": null,
+                  "assertion_failure": false,
+                  "expected_failure": false,
+                  "message": null
+                },
+                {
+                  "nodeid": "tcc_referencia/test_ref_serialize.py::test_patch_zero_usa_o_formato_mais_curto",
+                  "when": "call",
+                  "outcome": "failed",
+                  "exception": "AssertionError",
+                  "assertion_failure": true,
+                  "expected_failure": false,
+                  "message": "tcc_referencia/test_ref_serialize.py:23: in test_patch_zero_usa_o_formato_mais_curto\n    assert serialize(_versao(\"1\", \"2\", \"0\"), FORMATOS, {}) == \"1.2\"\nE   AssertionError: assert '1.2.0' == '1.2'\nE     \nE     - 1.2\nE     + 1.2.0\nE     ?    ++"
+                },
+                {
+                  "nodeid": "tcc_referencia/test_ref_serialize.py::test_patch_zero_usa_o_formato_mais_curto",
+                  "when": "teardown",
+                  "outcome": "passed",
+                  "exception": null,
+                  "assertion_failure": false,
+                  "expected_failure": false,
+                  "message": null
+                }
+              ],
+              "collection_errors": [],
+              "focal": {
+                "executed": true,
+                "line_total": 20,
+                "line_covered": 19,
+                "line_rate": 0.95,
+                "branch_total": 4,
+                "branch_covered": 3,
+                "branch_rate": 0.75,
+                "executable_lines": [
+                  102,
+                  103,
+                  105,
+                  106,
+                  107,
+                  108,
+                  110,
+                  111,
+                  112,
+                  113,
+                  124,
+                  125,
+                  130,
+                  131,
+                  133,
+                  134,
+                  135,
+                  136,
+                  137,
+                  139
+                ],
+                "covered_lines": [
+                  102,
+                  103,
+                  105,
+                  106,
+                  107,
+                  108,
+                  110,
+                  111,
+                  112,
+                  113,
+                  124,
+                  125,
+                  130,
+                  133,
+                  134,
+                  135,
+                  136,
+                  137,
+                  139
+                ],
+                "branches": {
+                  "130": {
+                    "total": 2,
+                    "covered": 1
+                  },
+                  "111": {
+                    "total": 2,
+                    "covered": 2
+                  }
+                }
+              }
+            }
+          }
+        },
+        "detected": true,
+        "status": "detected",
+        "run": {
+          "status": "completed",
+          "seconds": 0.6601213330868632,
+          "exit_code": 1,
+          "production_unchanged": true,
+          "collected": 14,
+          "active_started": true,
+          "active_count": 14,
+          "passed_count": 9,
+          "skipped_count": 0,
+          "xfail_count": 0,
+          "failure_categories": [
+            "assertion_failure"
+          ],
+          "reference_passed": false,
+          "assertion_failure": true,
+          "focal": {
+            "executed": true,
+            "line_total": 20,
+            "line_covered": 20,
+            "line_rate": 1.0,
+            "branch_total": 4,
+            "branch_covered": 4,
+            "branch_rate": 1.0,
+            "executable_lines": [
+              102,
+              103,
+              105,
+              106,
+              107,
+              108,
+              110,
+              111,
+              112,
+              113,
+              124,
+              125,
+              130,
+              131,
+              133,
+              134,
+              135,
+              136,
+              137,
+              139
+            ],
+            "covered_lines": [
+              102,
+              103,
+              105,
+              106,
+              107,
+              108,
+              110,
+              111,
+              112,
+              113,
+              124,
+              125,
+              130,
+              131,
+              133,
+              134,
+              135,
+              136,
+              137,
+              139
+            ],
+            "branches": {
+              "130": {
+                "total": 2,
+                "covered": 2
+              },
+              "111": {
+                "total": 2,
+                "covered": 2
+              }
+            }
+          },
+          "raw": {
+            "exit_code": 1,
+            "collected": 14,
+            "reports": [
+              {
+                "nodeid": "::test_serialize_selects_format[all-required-fields-outrank-fewer-fields]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_selects_format[all-required-fields-outrank-fewer-fields]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_selects_format[all-required-fields-outrank-fewer-fields]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_selects_format[all-required-fields-break-a-tie-in-field-count]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_selects_format[all-required-fields-break-a-tie-in-field-count]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_selects_format[all-required-fields-break-a-tie-in-field-count]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_selects_format[count-distinct-fields-rather-than-occurrences-or-length]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_selects_format[count-distinct-fields-rather-than-occurrences-or-length]",
+                "when": "call",
+                "outcome": "failed",
+                "exception": "AssertionError",
+                "assertion_failure": true,
+                "expected_failure": false,
+                "message": "/submission/test_generated.py:82: in test_serialize_selects_format\n    assert serialize(version, patterns, {\"tag\": \"final\"}) == expected\nE   AssertionError: assert '2.7.0' == 'release-2.7.2.2'\nE     \nE     - release-2.7.2.2\nE     + 2.7.0"
+              },
+              {
+                "nodeid": "::test_serialize_selects_format[count-distinct-fields-rather-than-occurrences-or-length]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_selects_format[context-fields-count-toward-format-size]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_selects_format[context-fields-count-toward-format-size]",
+                "when": "call",
+                "outcome": "failed",
+                "exception": "AssertionError",
+                "assertion_failure": true,
+                "expected_failure": false,
+                "message": "/submission/test_generated.py:82: in test_serialize_selects_format\n    assert serialize(version, patterns, {\"tag\": \"final\"}) == expected\nE   AssertionError: assert '2.7-final' == '2.7'\nE     \nE     - 2.7\nE     + 2.7-final"
+              },
+              {
+                "nodeid": "::test_serialize_selects_format[context-fields-count-toward-format-size]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_selects_format[equal-field-count-keeps-input-order]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_selects_format[equal-field-count-keeps-input-order]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_selects_format[equal-field-count-keeps-input-order]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_selects_format[reversing-equally-ranked-formats-changes-the-winner]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_selects_format[reversing-equally-ranked-formats-changes-the-winner]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_selects_format[reversing-equally-ranked-formats-changes-the-winner]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_selects_format[missing-field-disqualifies-an-otherwise-preferred-format]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_selects_format[missing-field-disqualifies-an-otherwise-preferred-format]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_selects_format[missing-field-disqualifies-an-otherwise-preferred-format]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_selects_format[fallback-uses-field-count-and-order-without-partial-coverage-bonus]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_selects_format[fallback-uses-field-count-and-order-without-partial-coverage-bonus]",
+                "when": "call",
+                "outcome": "failed",
+                "exception": "AssertionError",
+                "assertion_failure": true,
+                "expected_failure": false,
+                "message": "/submission/test_generated.py:82: in test_serialize_selects_format\n    assert serialize(version, patterns, {\"tag\": \"final\"}) == expected\nE   AssertionError: assert '2.0' == 'final'\nE     \nE     - final\nE     + 2.0"
+              },
+              {
+                "nodeid": "::test_serialize_selects_format[fallback-uses-field-count-and-order-without-partial-coverage-bonus]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_selects_format[literal-is-a-renderable-fallback]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_selects_format[literal-is-a-renderable-fallback]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_selects_format[literal-is-a-renderable-fallback]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_merges_context_without_mutating_it",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_merges_context_without_mutating_it",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_merges_context_without_mutating_it",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_can_omit_all_optional_components",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_can_omit_all_optional_components",
+                "when": "call",
+                "outcome": "failed",
+                "exception": "AssertionError",
+                "assertion_failure": true,
+                "expected_failure": false,
+                "message": "/submission/test_generated.py:105: in test_serialize_can_omit_all_optional_components\n    assert serialize(version, [\"{patch}\", \"\"], {}) == \"\"\nE   AssertionError: assert '0' == ''\nE     \nE     + 0"
+              },
+              {
+                "nodeid": "::test_serialize_can_omit_all_optional_components",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_formats_only_the_selected_pattern",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_formats_only_the_selected_pattern",
+                "when": "call",
+                "outcome": "failed",
+                "exception": "AssertionError",
+                "assertion_failure": true,
+                "expected_failure": false,
+                "message": "/submission/test_generated.py:113: in test_serialize_formats_only_the_selected_pattern\n    result = serialize(\nbumpversion/versioning/serialization.py:135: in serialize\n    serialized = chosen_pattern.format(**local_context)\n                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n/submission/test_generated.py:111: in __format__\n    raise AssertionError(\"An unselected field was formatted\")\nE   AssertionError: An unselected field was formatted"
+              },
+              {
+                "nodeid": "::test_serialize_formats_only_the_selected_pattern",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_raises_formatting_error_when_no_pattern_can_render[no-patterns]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_raises_formatting_error_when_no_pattern_can_render[no-patterns]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_raises_formatting_error_when_no_pattern_can_render[no-patterns]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_raises_formatting_error_when_no_pattern_can_render[no-renderable-patterns]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_raises_formatting_error_when_no_pattern_can_render[no-renderable-patterns]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_raises_formatting_error_when_no_pattern_can_render[no-renderable-patterns]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              }
+            ],
+            "collection_errors": [],
+            "focal": {
+              "executed": true,
+              "line_total": 20,
+              "line_covered": 20,
+              "line_rate": 1.0,
+              "branch_total": 4,
+              "branch_covered": 4,
+              "branch_rate": 1.0,
+              "executable_lines": [
+                102,
+                103,
+                105,
+                106,
+                107,
+                108,
+                110,
+                111,
+                112,
+                113,
+                124,
+                125,
+                130,
+                131,
+                133,
+                134,
+                135,
+                136,
+                137,
+                139
+              ],
+              "covered_lines": [
+                102,
+                103,
+                105,
+                106,
+                107,
+                108,
+                110,
+                111,
+                112,
+                113,
+                124,
+                125,
+                130,
+                131,
+                133,
+                134,
+                135,
+                136,
+                137,
+                139
+              ],
+              "branches": {
+                "130": {
+                  "total": 2,
+                  "covered": 2
+                },
+                "111": {
+                  "total": 2,
+                  "covered": 2
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "id": "BMV-02-sem-obrigatorias",
+        "eligible": true,
+        "validation": {
+          "id": "BMV-02-sem-obrigatorias",
+          "eligible": true,
+          "project_sha256": "ed0530cb8db810554ce8a8d8bc5d2ac9f33c732970f9186134c05a46b3d0036c",
+          "definition_sha256": "b0a9315b22aa391bdb9784c878d171b5a1b3b1b32a6674d382abc5a1e71f1b77",
+          "reason": null,
+          "baseline": {
+            "status": "completed",
+            "seconds": 0.723700208007358,
+            "exit_code": 0,
+            "production_unchanged": true,
+            "collected": 1,
+            "active_started": true,
+            "active_count": 1,
+            "passed_count": 1,
+            "skipped_count": 0,
+            "xfail_count": 0,
+            "failure_categories": [],
+            "reference_passed": true,
+            "assertion_failure": false,
+            "focal": {
+              "executed": true,
+              "line_total": 20,
+              "line_covered": 19,
+              "line_rate": 0.95,
+              "branch_total": 4,
+              "branch_covered": 3,
+              "branch_rate": 0.75,
+              "executable_lines": [
+                102,
+                103,
+                105,
+                106,
+                107,
+                108,
+                110,
+                111,
+                112,
+                113,
+                124,
+                125,
+                130,
+                131,
+                133,
+                134,
+                135,
+                136,
+                137,
+                139
+              ],
+              "covered_lines": [
+                102,
+                103,
+                105,
+                106,
+                107,
+                108,
+                110,
+                111,
+                112,
+                113,
+                124,
+                125,
+                130,
+                133,
+                134,
+                135,
+                136,
+                137,
+                139
+              ],
+              "branches": {
+                "130": {
+                  "total": 2,
+                  "covered": 1
+                },
+                "111": {
+                  "total": 2,
+                  "covered": 2
+                }
+              }
+            },
+            "raw": {
+              "exit_code": 0,
+              "collected": 1,
+              "reports": [
+                {
+                  "nodeid": "tcc_referencia/test_ref_serialize.py::test_patch_diferente_de_zero_exige_o_formato_completo",
+                  "when": "setup",
+                  "outcome": "passed",
+                  "exception": null,
+                  "assertion_failure": false,
+                  "expected_failure": false,
+                  "message": null
+                },
+                {
+                  "nodeid": "tcc_referencia/test_ref_serialize.py::test_patch_diferente_de_zero_exige_o_formato_completo",
+                  "when": "call",
+                  "outcome": "passed",
+                  "exception": null,
+                  "assertion_failure": false,
+                  "expected_failure": false,
+                  "message": null
+                },
+                {
+                  "nodeid": "tcc_referencia/test_ref_serialize.py::test_patch_diferente_de_zero_exige_o_formato_completo",
+                  "when": "teardown",
+                  "outcome": "passed",
+                  "exception": null,
+                  "assertion_failure": false,
+                  "expected_failure": false,
+                  "message": null
+                }
+              ],
+              "collection_errors": [],
+              "focal": {
+                "executed": true,
+                "line_total": 20,
+                "line_covered": 19,
+                "line_rate": 0.95,
+                "branch_total": 4,
+                "branch_covered": 3,
+                "branch_rate": 0.75,
+                "executable_lines": [
+                  102,
+                  103,
+                  105,
+                  106,
+                  107,
+                  108,
+                  110,
+                  111,
+                  112,
+                  113,
+                  124,
+                  125,
+                  130,
+                  131,
+                  133,
+                  134,
+                  135,
+                  136,
+                  137,
+                  139
+                ],
+                "covered_lines": [
+                  102,
+                  103,
+                  105,
+                  106,
+                  107,
+                  108,
+                  110,
+                  111,
+                  112,
+                  113,
+                  124,
+                  125,
+                  130,
+                  133,
+                  134,
+                  135,
+                  136,
+                  137,
+                  139
+                ],
+                "branches": {
+                  "130": {
+                    "total": 2,
+                    "covered": 1
+                  },
+                  "111": {
+                    "total": 2,
+                    "covered": 2
+                  }
+                }
+              }
+            }
+          },
+          "mutated": {
+            "status": "completed",
+            "seconds": 0.6510577920125797,
+            "exit_code": 1,
+            "production_unchanged": true,
+            "collected": 1,
+            "active_started": true,
+            "active_count": 1,
+            "passed_count": 0,
+            "skipped_count": 0,
+            "xfail_count": 0,
+            "failure_categories": [
+              "assertion_failure"
+            ],
+            "reference_passed": false,
+            "assertion_failure": true,
+            "focal": {
+              "executed": true,
+              "line_total": 20,
+              "line_covered": 19,
+              "line_rate": 0.95,
+              "branch_total": 4,
+              "branch_covered": 3,
+              "branch_rate": 0.75,
+              "executable_lines": [
+                102,
+                103,
+                105,
+                106,
+                107,
+                108,
+                110,
+                111,
+                112,
+                113,
+                124,
+                125,
+                130,
+                131,
+                133,
+                134,
+                135,
+                136,
+                137,
+                139
+              ],
+              "covered_lines": [
+                102,
+                103,
+                105,
+                106,
+                107,
+                108,
+                110,
+                111,
+                112,
+                113,
+                124,
+                125,
+                130,
+                133,
+                134,
+                135,
+                136,
+                137,
+                139
+              ],
+              "branches": {
+                "130": {
+                  "total": 2,
+                  "covered": 1
+                },
+                "111": {
+                  "total": 2,
+                  "covered": 2
+                }
+              }
+            },
+            "raw": {
+              "exit_code": 1,
+              "collected": 1,
+              "reports": [
+                {
+                  "nodeid": "tcc_referencia/test_ref_serialize.py::test_patch_diferente_de_zero_exige_o_formato_completo",
+                  "when": "setup",
+                  "outcome": "passed",
+                  "exception": null,
+                  "assertion_failure": false,
+                  "expected_failure": false,
+                  "message": null
+                },
+                {
+                  "nodeid": "tcc_referencia/test_ref_serialize.py::test_patch_diferente_de_zero_exige_o_formato_completo",
+                  "when": "call",
+                  "outcome": "failed",
+                  "exception": "AssertionError",
+                  "assertion_failure": true,
+                  "expected_failure": false,
+                  "message": "tcc_referencia/test_ref_serialize.py:27: in test_patch_diferente_de_zero_exige_o_formato_completo\n    assert serialize(_versao(\"1\", \"2\", \"3\"), FORMATOS, {}) == \"1.2.3\"\nE   AssertionError: assert '1.2' == '1.2.3'\nE     \nE     - 1.2.3\nE     ?    --\nE     + 1.2"
+                },
+                {
+                  "nodeid": "tcc_referencia/test_ref_serialize.py::test_patch_diferente_de_zero_exige_o_formato_completo",
+                  "when": "teardown",
+                  "outcome": "passed",
+                  "exception": null,
+                  "assertion_failure": false,
+                  "expected_failure": false,
+                  "message": null
+                }
+              ],
+              "collection_errors": [],
+              "focal": {
+                "executed": true,
+                "line_total": 20,
+                "line_covered": 19,
+                "line_rate": 0.95,
+                "branch_total": 4,
+                "branch_covered": 3,
+                "branch_rate": 0.75,
+                "executable_lines": [
+                  102,
+                  103,
+                  105,
+                  106,
+                  107,
+                  108,
+                  110,
+                  111,
+                  112,
+                  113,
+                  124,
+                  125,
+                  130,
+                  131,
+                  133,
+                  134,
+                  135,
+                  136,
+                  137,
+                  139
+                ],
+                "covered_lines": [
+                  102,
+                  103,
+                  105,
+                  106,
+                  107,
+                  108,
+                  110,
+                  111,
+                  112,
+                  113,
+                  124,
+                  125,
+                  130,
+                  133,
+                  134,
+                  135,
+                  136,
+                  137,
+                  139
+                ],
+                "branches": {
+                  "130": {
+                    "total": 2,
+                    "covered": 1
+                  },
+                  "111": {
+                    "total": 2,
+                    "covered": 2
+                  }
+                }
+              }
+            }
+          }
+        },
+        "detected": true,
+        "status": "detected",
+        "run": {
+          "status": "completed",
+          "seconds": 0.6443119579926133,
+          "exit_code": 1,
+          "production_unchanged": true,
+          "collected": 14,
+          "active_started": true,
+          "active_count": 14,
+          "passed_count": 12,
+          "skipped_count": 0,
+          "xfail_count": 0,
+          "failure_categories": [
+            "assertion_failure"
+          ],
+          "reference_passed": false,
+          "assertion_failure": true,
+          "focal": {
+            "executed": true,
+            "line_total": 20,
+            "line_covered": 20,
+            "line_rate": 1.0,
+            "branch_total": 4,
+            "branch_covered": 4,
+            "branch_rate": 1.0,
+            "executable_lines": [
+              102,
+              103,
+              105,
+              106,
+              107,
+              108,
+              110,
+              111,
+              112,
+              113,
+              124,
+              125,
+              130,
+              131,
+              133,
+              134,
+              135,
+              136,
+              137,
+              139
+            ],
+            "covered_lines": [
+              102,
+              103,
+              105,
+              106,
+              107,
+              108,
+              110,
+              111,
+              112,
+              113,
+              124,
+              125,
+              130,
+              131,
+              133,
+              134,
+              135,
+              136,
+              137,
+              139
+            ],
+            "branches": {
+              "130": {
+                "total": 2,
+                "covered": 2
+              },
+              "111": {
+                "total": 2,
+                "covered": 2
+              }
+            }
+          },
+          "raw": {
+            "exit_code": 1,
+            "collected": 14,
+            "reports": [
+              {
+                "nodeid": "::test_serialize_selects_format[all-required-fields-outrank-fewer-fields]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_selects_format[all-required-fields-outrank-fewer-fields]",
+                "when": "call",
+                "outcome": "failed",
+                "exception": "AssertionError",
+                "assertion_failure": true,
+                "expected_failure": false,
+                "message": "/submission/test_generated.py:82: in test_serialize_selects_format\n    assert serialize(version, patterns, {\"tag\": \"final\"}) == expected\nE   AssertionError: assert '2' == '2.7.0'\nE     \nE     - 2.7.0\nE     + 2"
+              },
+              {
+                "nodeid": "::test_serialize_selects_format[all-required-fields-outrank-fewer-fields]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_selects_format[all-required-fields-break-a-tie-in-field-count]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_selects_format[all-required-fields-break-a-tie-in-field-count]",
+                "when": "call",
+                "outcome": "failed",
+                "exception": "AssertionError",
+                "assertion_failure": true,
+                "expected_failure": false,
+                "message": "/submission/test_generated.py:82: in test_serialize_selects_format\n    assert serialize(version, patterns, {\"tag\": \"final\"}) == expected\nE   AssertionError: assert '2.0' == '7.2'\nE     \nE     - 7.2\nE     + 2.0"
+              },
+              {
+                "nodeid": "::test_serialize_selects_format[all-required-fields-break-a-tie-in-field-count]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_selects_format[count-distinct-fields-rather-than-occurrences-or-length]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_selects_format[count-distinct-fields-rather-than-occurrences-or-length]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_selects_format[count-distinct-fields-rather-than-occurrences-or-length]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_selects_format[context-fields-count-toward-format-size]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_selects_format[context-fields-count-toward-format-size]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_selects_format[context-fields-count-toward-format-size]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_selects_format[equal-field-count-keeps-input-order]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_selects_format[equal-field-count-keeps-input-order]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_selects_format[equal-field-count-keeps-input-order]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_selects_format[reversing-equally-ranked-formats-changes-the-winner]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_selects_format[reversing-equally-ranked-formats-changes-the-winner]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_selects_format[reversing-equally-ranked-formats-changes-the-winner]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_selects_format[missing-field-disqualifies-an-otherwise-preferred-format]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_selects_format[missing-field-disqualifies-an-otherwise-preferred-format]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_selects_format[missing-field-disqualifies-an-otherwise-preferred-format]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_selects_format[fallback-uses-field-count-and-order-without-partial-coverage-bonus]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_selects_format[fallback-uses-field-count-and-order-without-partial-coverage-bonus]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_selects_format[fallback-uses-field-count-and-order-without-partial-coverage-bonus]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_selects_format[literal-is-a-renderable-fallback]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_selects_format[literal-is-a-renderable-fallback]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_selects_format[literal-is-a-renderable-fallback]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_merges_context_without_mutating_it",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_merges_context_without_mutating_it",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_merges_context_without_mutating_it",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_can_omit_all_optional_components",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_can_omit_all_optional_components",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_can_omit_all_optional_components",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_formats_only_the_selected_pattern",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_formats_only_the_selected_pattern",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_formats_only_the_selected_pattern",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_raises_formatting_error_when_no_pattern_can_render[no-patterns]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_raises_formatting_error_when_no_pattern_can_render[no-patterns]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_raises_formatting_error_when_no_pattern_can_render[no-patterns]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_raises_formatting_error_when_no_pattern_can_render[no-renderable-patterns]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_raises_formatting_error_when_no_pattern_can_render[no-renderable-patterns]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_raises_formatting_error_when_no_pattern_can_render[no-renderable-patterns]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              }
+            ],
+            "collection_errors": [],
+            "focal": {
+              "executed": true,
+              "line_total": 20,
+              "line_covered": 20,
+              "line_rate": 1.0,
+              "branch_total": 4,
+              "branch_covered": 4,
+              "branch_rate": 1.0,
+              "executable_lines": [
+                102,
+                103,
+                105,
+                106,
+                107,
+                108,
+                110,
+                111,
+                112,
+                113,
+                124,
+                125,
+                130,
+                131,
+                133,
+                134,
+                135,
+                136,
+                137,
+                139
+              ],
+              "covered_lines": [
+                102,
+                103,
+                105,
+                106,
+                107,
+                108,
+                110,
+                111,
+                112,
+                113,
+                124,
+                125,
+                130,
+                131,
+                133,
+                134,
+                135,
+                136,
+                137,
+                139
+              ],
+              "branches": {
+                "130": {
+                  "total": 2,
+                  "covered": 2
+                },
+                "111": {
+                  "total": 2,
+                  "covered": 2
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "id": "BMV-02-sem-copia",
+        "eligible": true,
+        "validation": {
+          "id": "BMV-02-sem-copia",
+          "eligible": true,
+          "project_sha256": "ed0530cb8db810554ce8a8d8bc5d2ac9f33c732970f9186134c05a46b3d0036c",
+          "definition_sha256": "39dfadb7ac5f60bcb0ec0a6f06fbd6db85acb736dff91091970ac80ab54bd1ac",
+          "reason": null,
+          "baseline": {
+            "status": "completed",
+            "seconds": 0.6202916250331327,
+            "exit_code": 0,
+            "production_unchanged": true,
+            "collected": 1,
+            "active_started": true,
+            "active_count": 1,
+            "passed_count": 1,
+            "skipped_count": 0,
+            "xfail_count": 0,
+            "failure_categories": [],
+            "reference_passed": true,
+            "assertion_failure": false,
+            "focal": {
+              "executed": true,
+              "line_total": 20,
+              "line_covered": 19,
+              "line_rate": 0.95,
+              "branch_total": 4,
+              "branch_covered": 3,
+              "branch_rate": 0.75,
+              "executable_lines": [
+                102,
+                103,
+                105,
+                106,
+                107,
+                108,
+                110,
+                111,
+                112,
+                113,
+                124,
+                125,
+                130,
+                131,
+                133,
+                134,
+                135,
+                136,
+                137,
+                139
+              ],
+              "covered_lines": [
+                102,
+                103,
+                105,
+                106,
+                107,
+                108,
+                110,
+                111,
+                112,
+                113,
+                124,
+                125,
+                130,
+                133,
+                134,
+                135,
+                136,
+                137,
+                139
+              ],
+              "branches": {
+                "130": {
+                  "total": 2,
+                  "covered": 1
+                },
+                "111": {
+                  "total": 2,
+                  "covered": 2
+                }
+              }
+            },
+            "raw": {
+              "exit_code": 0,
+              "collected": 1,
+              "reports": [
+                {
+                  "nodeid": "tcc_referencia/test_ref_serialize.py::test_contexto_do_chamador_nao_e_alterado",
+                  "when": "setup",
+                  "outcome": "passed",
+                  "exception": null,
+                  "assertion_failure": false,
+                  "expected_failure": false,
+                  "message": null
+                },
+                {
+                  "nodeid": "tcc_referencia/test_ref_serialize.py::test_contexto_do_chamador_nao_e_alterado",
+                  "when": "call",
+                  "outcome": "passed",
+                  "exception": null,
+                  "assertion_failure": false,
+                  "expected_failure": false,
+                  "message": null
+                },
+                {
+                  "nodeid": "tcc_referencia/test_ref_serialize.py::test_contexto_do_chamador_nao_e_alterado",
+                  "when": "teardown",
+                  "outcome": "passed",
+                  "exception": null,
+                  "assertion_failure": false,
+                  "expected_failure": false,
+                  "message": null
+                }
+              ],
+              "collection_errors": [],
+              "focal": {
+                "executed": true,
+                "line_total": 20,
+                "line_covered": 19,
+                "line_rate": 0.95,
+                "branch_total": 4,
+                "branch_covered": 3,
+                "branch_rate": 0.75,
+                "executable_lines": [
+                  102,
+                  103,
+                  105,
+                  106,
+                  107,
+                  108,
+                  110,
+                  111,
+                  112,
+                  113,
+                  124,
+                  125,
+                  130,
+                  131,
+                  133,
+                  134,
+                  135,
+                  136,
+                  137,
+                  139
+                ],
+                "covered_lines": [
+                  102,
+                  103,
+                  105,
+                  106,
+                  107,
+                  108,
+                  110,
+                  111,
+                  112,
+                  113,
+                  124,
+                  125,
+                  130,
+                  133,
+                  134,
+                  135,
+                  136,
+                  137,
+                  139
+                ],
+                "branches": {
+                  "130": {
+                    "total": 2,
+                    "covered": 1
+                  },
+                  "111": {
+                    "total": 2,
+                    "covered": 2
+                  }
+                }
+              }
+            }
+          },
+          "mutated": {
+            "status": "completed",
+            "seconds": 0.6415147919906303,
+            "exit_code": 1,
+            "production_unchanged": true,
+            "collected": 1,
+            "active_started": true,
+            "active_count": 1,
+            "passed_count": 0,
+            "skipped_count": 0,
+            "xfail_count": 0,
+            "failure_categories": [
+              "assertion_failure"
+            ],
+            "reference_passed": false,
+            "assertion_failure": true,
+            "focal": {
+              "executed": true,
+              "line_total": 20,
+              "line_covered": 19,
+              "line_rate": 0.95,
+              "branch_total": 4,
+              "branch_covered": 3,
+              "branch_rate": 0.75,
+              "executable_lines": [
+                102,
+                103,
+                105,
+                106,
+                107,
+                108,
+                110,
+                111,
+                112,
+                113,
+                124,
+                125,
+                130,
+                131,
+                133,
+                134,
+                135,
+                136,
+                137,
+                139
+              ],
+              "covered_lines": [
+                102,
+                103,
+                105,
+                106,
+                107,
+                108,
+                110,
+                111,
+                112,
+                113,
+                124,
+                125,
+                130,
+                133,
+                134,
+                135,
+                136,
+                137,
+                139
+              ],
+              "branches": {
+                "130": {
+                  "total": 2,
+                  "covered": 1
+                },
+                "111": {
+                  "total": 2,
+                  "covered": 2
+                }
+              }
+            },
+            "raw": {
+              "exit_code": 1,
+              "collected": 1,
+              "reports": [
+                {
+                  "nodeid": "tcc_referencia/test_ref_serialize.py::test_contexto_do_chamador_nao_e_alterado",
+                  "when": "setup",
+                  "outcome": "passed",
+                  "exception": null,
+                  "assertion_failure": false,
+                  "expected_failure": false,
+                  "message": null
+                },
+                {
+                  "nodeid": "tcc_referencia/test_ref_serialize.py::test_contexto_do_chamador_nao_e_alterado",
+                  "when": "call",
+                  "outcome": "failed",
+                  "exception": "AssertionError",
+                  "assertion_failure": true,
+                  "expected_failure": false,
+                  "message": "tcc_referencia/test_ref_serialize.py:53: in test_contexto_do_chamador_nao_e_alterado\n    assert contexto == {\"build\": \"b7\"}\nE   AssertionError: assert {'build': 'b7...icFunction:3>} == {'build': 'b7'}\nE     \nE     Omitting 1 identical items, use -vv to show\nE     Left contains 3 more items:\nE     {'major': <bumpversion.VersionPart:NumericFunction:1>,\nE      'minor': <bumpversion.VersionPart:NumericFunction:2>,\nE      'patch': <bumpversion.VersionPart:NumericFunction:3>}\nE     Use -v to get more diff"
+                },
+                {
+                  "nodeid": "tcc_referencia/test_ref_serialize.py::test_contexto_do_chamador_nao_e_alterado",
+                  "when": "teardown",
+                  "outcome": "passed",
+                  "exception": null,
+                  "assertion_failure": false,
+                  "expected_failure": false,
+                  "message": null
+                }
+              ],
+              "collection_errors": [],
+              "focal": {
+                "executed": true,
+                "line_total": 20,
+                "line_covered": 19,
+                "line_rate": 0.95,
+                "branch_total": 4,
+                "branch_covered": 3,
+                "branch_rate": 0.75,
+                "executable_lines": [
+                  102,
+                  103,
+                  105,
+                  106,
+                  107,
+                  108,
+                  110,
+                  111,
+                  112,
+                  113,
+                  124,
+                  125,
+                  130,
+                  131,
+                  133,
+                  134,
+                  135,
+                  136,
+                  137,
+                  139
+                ],
+                "covered_lines": [
+                  102,
+                  103,
+                  105,
+                  106,
+                  107,
+                  108,
+                  110,
+                  111,
+                  112,
+                  113,
+                  124,
+                  125,
+                  130,
+                  133,
+                  134,
+                  135,
+                  136,
+                  137,
+                  139
+                ],
+                "branches": {
+                  "130": {
+                    "total": 2,
+                    "covered": 1
+                  },
+                  "111": {
+                    "total": 2,
+                    "covered": 2
+                  }
+                }
+              }
+            }
+          }
+        },
+        "detected": true,
+        "status": "detected",
+        "run": {
+          "status": "completed",
+          "seconds": 0.7163075839634985,
+          "exit_code": 1,
+          "production_unchanged": true,
+          "collected": 14,
+          "active_started": true,
+          "active_count": 14,
+          "passed_count": 13,
+          "skipped_count": 0,
+          "xfail_count": 0,
+          "failure_categories": [
+            "assertion_failure"
+          ],
+          "reference_passed": false,
+          "assertion_failure": true,
+          "focal": {
+            "executed": true,
+            "line_total": 20,
+            "line_covered": 20,
+            "line_rate": 1.0,
+            "branch_total": 4,
+            "branch_covered": 4,
+            "branch_rate": 1.0,
+            "executable_lines": [
+              102,
+              103,
+              105,
+              106,
+              107,
+              108,
+              110,
+              111,
+              112,
+              113,
+              124,
+              125,
+              130,
+              131,
+              133,
+              134,
+              135,
+              136,
+              137,
+              139
+            ],
+            "covered_lines": [
+              102,
+              103,
+              105,
+              106,
+              107,
+              108,
+              110,
+              111,
+              112,
+              113,
+              124,
+              125,
+              130,
+              131,
+              133,
+              134,
+              135,
+              136,
+              137,
+              139
+            ],
+            "branches": {
+              "130": {
+                "total": 2,
+                "covered": 2
+              },
+              "111": {
+                "total": 2,
+                "covered": 2
+              }
+            }
+          },
+          "raw": {
+            "exit_code": 1,
+            "collected": 14,
+            "reports": [
+              {
+                "nodeid": "::test_serialize_selects_format[all-required-fields-outrank-fewer-fields]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_selects_format[all-required-fields-outrank-fewer-fields]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_selects_format[all-required-fields-outrank-fewer-fields]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_selects_format[all-required-fields-break-a-tie-in-field-count]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_selects_format[all-required-fields-break-a-tie-in-field-count]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_selects_format[all-required-fields-break-a-tie-in-field-count]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_selects_format[count-distinct-fields-rather-than-occurrences-or-length]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_selects_format[count-distinct-fields-rather-than-occurrences-or-length]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_selects_format[count-distinct-fields-rather-than-occurrences-or-length]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_selects_format[context-fields-count-toward-format-size]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_selects_format[context-fields-count-toward-format-size]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_selects_format[context-fields-count-toward-format-size]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_selects_format[equal-field-count-keeps-input-order]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_selects_format[equal-field-count-keeps-input-order]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_selects_format[equal-field-count-keeps-input-order]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_selects_format[reversing-equally-ranked-formats-changes-the-winner]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_selects_format[reversing-equally-ranked-formats-changes-the-winner]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_selects_format[reversing-equally-ranked-formats-changes-the-winner]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_selects_format[missing-field-disqualifies-an-otherwise-preferred-format]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_selects_format[missing-field-disqualifies-an-otherwise-preferred-format]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_selects_format[missing-field-disqualifies-an-otherwise-preferred-format]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_selects_format[fallback-uses-field-count-and-order-without-partial-coverage-bonus]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_selects_format[fallback-uses-field-count-and-order-without-partial-coverage-bonus]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_selects_format[fallback-uses-field-count-and-order-without-partial-coverage-bonus]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_selects_format[literal-is-a-renderable-fallback]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_selects_format[literal-is-a-renderable-fallback]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_selects_format[literal-is-a-renderable-fallback]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_merges_context_without_mutating_it",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_merges_context_without_mutating_it",
+                "when": "call",
+                "outcome": "failed",
+                "exception": "AssertionError",
+                "assertion_failure": true,
+                "expected_failure": false,
+                "message": "/submission/test_generated.py:96: in test_serialize_merges_context_without_mutating_it\n    assert context == original_context\nE   AssertionError: assert {'major': 2, ...', 'minor': 7} == {'major': 91,...'prefix': 'v'}\nE     \nE     Use -v to get more diff"
+              },
+              {
+                "nodeid": "::test_serialize_merges_context_without_mutating_it",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_can_omit_all_optional_components",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_can_omit_all_optional_components",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_can_omit_all_optional_components",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_formats_only_the_selected_pattern",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_formats_only_the_selected_pattern",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_formats_only_the_selected_pattern",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_raises_formatting_error_when_no_pattern_can_render[no-patterns]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_raises_formatting_error_when_no_pattern_can_render[no-patterns]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_raises_formatting_error_when_no_pattern_can_render[no-patterns]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_raises_formatting_error_when_no_pattern_can_render[no-renderable-patterns]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_raises_formatting_error_when_no_pattern_can_render[no-renderable-patterns]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_serialize_raises_formatting_error_when_no_pattern_can_render[no-renderable-patterns]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              }
+            ],
+            "collection_errors": [],
+            "focal": {
+              "executed": true,
+              "line_total": 20,
+              "line_covered": 20,
+              "line_rate": 1.0,
+              "branch_total": 4,
+              "branch_covered": 4,
+              "branch_rate": 1.0,
+              "executable_lines": [
+                102,
+                103,
+                105,
+                106,
+                107,
+                108,
+                110,
+                111,
+                112,
+                113,
+                124,
+                125,
+                130,
+                131,
+                133,
+                134,
+                135,
+                136,
+                137,
+                139
+              ],
+              "covered_lines": [
+                102,
+                103,
+                105,
+                106,
+                107,
+                108,
+                110,
+                111,
+                112,
+                113,
+                124,
+                125,
+                130,
+                131,
+                133,
+                134,
+                135,
+                136,
+                137,
+                139
+              ],
+              "branches": {
+                "130": {
+                  "total": 2,
+                  "covered": 2
+                },
+                "111": {
+                  "total": 2,
+                  "covered": 2
+                }
+              }
+            }
+          }
+        }
+      }
+    ],
+    "detection_rate": 1.0,
+    "review": {
+      "behavioral_assertions": true,
+      "no_target_mock": true,
+      "no_production_changes": true,
+      "defect_attribution": {
+        "BMV-02-partes-decrescente": true,
+        "BMV-02-sem-obrigatorias": true,
+        "BMV-02-sem-copia": true
+      },
+      "dependency_doubles": false,
+      "reviewer": "Gabriel Lopes Pereira",
+      "created_at": "2026-11-22T05:04:54.306973+00:00"
+    },
+    "backend": "docker",
+    "submission_sha256": "cfdc5df0488d8448a1af5c3966c9b520e872731ccad8239a651c0c19906a9345",
+    "status": "completed",
+    "seconds": 0.6371963339624926,
+    "active_count": 14,
+    "passed_count": 14,
+    "skipped_count": 0,
+    "xfail_count": 0,
+    "failure_categories": [],
+    "original": {
+      "status": "completed",
+      "seconds": 0.6371963339624926,
+      "exit_code": 0,
+      "production_unchanged": true,
+      "collected": 14,
+      "active_started": true,
+      "active_count": 14,
+      "passed_count": 14,
+      "skipped_count": 0,
+      "xfail_count": 0,
+      "failure_categories": [],
+      "reference_passed": true,
+      "assertion_failure": false,
+      "focal": {
+        "executed": true,
+        "line_total": 20,
+        "line_covered": 20,
+        "line_rate": 1.0,
+        "branch_total": 4,
+        "branch_covered": 4,
+        "branch_rate": 1.0,
+        "executable_lines": [
+          102,
+          103,
+          105,
+          106,
+          107,
+          108,
+          110,
+          111,
+          112,
+          113,
+          124,
+          125,
+          130,
+          131,
+          133,
+          134,
+          135,
+          136,
+          137,
+          139
+        ],
+        "covered_lines": [
+          102,
+          103,
+          105,
+          106,
+          107,
+          108,
+          110,
+          111,
+          112,
+          113,
+          124,
+          125,
+          130,
+          131,
+          133,
+          134,
+          135,
+          136,
+          137,
+          139
+        ],
+        "branches": {
+          "130": {
+            "total": 2,
+            "covered": 2
+          },
+          "111": {
+            "total": 2,
+            "covered": 2
+          }
+        }
+      },
+      "raw": {
+        "exit_code": 0,
+        "collected": 14,
+        "reports": [
+          {
+            "nodeid": "::test_serialize_selects_format[all-required-fields-outrank-fewer-fields]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_serialize_selects_format[all-required-fields-outrank-fewer-fields]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_serialize_selects_format[all-required-fields-outrank-fewer-fields]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_serialize_selects_format[all-required-fields-break-a-tie-in-field-count]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_serialize_selects_format[all-required-fields-break-a-tie-in-field-count]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_serialize_selects_format[all-required-fields-break-a-tie-in-field-count]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_serialize_selects_format[count-distinct-fields-rather-than-occurrences-or-length]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_serialize_selects_format[count-distinct-fields-rather-than-occurrences-or-length]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_serialize_selects_format[count-distinct-fields-rather-than-occurrences-or-length]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_serialize_selects_format[context-fields-count-toward-format-size]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_serialize_selects_format[context-fields-count-toward-format-size]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_serialize_selects_format[context-fields-count-toward-format-size]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_serialize_selects_format[equal-field-count-keeps-input-order]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_serialize_selects_format[equal-field-count-keeps-input-order]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_serialize_selects_format[equal-field-count-keeps-input-order]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_serialize_selects_format[reversing-equally-ranked-formats-changes-the-winner]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_serialize_selects_format[reversing-equally-ranked-formats-changes-the-winner]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_serialize_selects_format[reversing-equally-ranked-formats-changes-the-winner]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_serialize_selects_format[missing-field-disqualifies-an-otherwise-preferred-format]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_serialize_selects_format[missing-field-disqualifies-an-otherwise-preferred-format]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_serialize_selects_format[missing-field-disqualifies-an-otherwise-preferred-format]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_serialize_selects_format[fallback-uses-field-count-and-order-without-partial-coverage-bonus]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_serialize_selects_format[fallback-uses-field-count-and-order-without-partial-coverage-bonus]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_serialize_selects_format[fallback-uses-field-count-and-order-without-partial-coverage-bonus]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_serialize_selects_format[literal-is-a-renderable-fallback]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_serialize_selects_format[literal-is-a-renderable-fallback]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_serialize_selects_format[literal-is-a-renderable-fallback]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_serialize_merges_context_without_mutating_it",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_serialize_merges_context_without_mutating_it",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_serialize_merges_context_without_mutating_it",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_serialize_can_omit_all_optional_components",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_serialize_can_omit_all_optional_components",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_serialize_can_omit_all_optional_components",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_serialize_formats_only_the_selected_pattern",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_serialize_formats_only_the_selected_pattern",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_serialize_formats_only_the_selected_pattern",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_serialize_raises_formatting_error_when_no_pattern_can_render[no-patterns]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_serialize_raises_formatting_error_when_no_pattern_can_render[no-patterns]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_serialize_raises_formatting_error_when_no_pattern_can_render[no-patterns]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_serialize_raises_formatting_error_when_no_pattern_can_render[no-renderable-patterns]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_serialize_raises_formatting_error_when_no_pattern_can_render[no-renderable-patterns]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_serialize_raises_formatting_error_when_no_pattern_can_render[no-renderable-patterns]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          }
+        ],
+        "collection_errors": [],
+        "focal": {
+          "executed": true,
+          "line_total": 20,
+          "line_covered": 20,
+          "line_rate": 1.0,
+          "branch_total": 4,
+          "branch_covered": 4,
+          "branch_rate": 1.0,
+          "executable_lines": [
+            102,
+            103,
+            105,
+            106,
+            107,
+            108,
+            110,
+            111,
+            112,
+            113,
+            124,
+            125,
+            130,
+            131,
+            133,
+            134,
+            135,
+            136,
+            137,
+            139
+          ],
+          "covered_lines": [
+            102,
+            103,
+            105,
+            106,
+            107,
+            108,
+            110,
+            111,
+            112,
+            113,
+            124,
+            125,
+            130,
+            131,
+            133,
+            134,
+            135,
+            136,
+            137,
+            139
+          ],
+          "branches": {
+            "130": {
+              "total": 2,
+              "covered": 2
+            },
+            "111": {
+              "total": 2,
+              "covered": 2
+            }
+          }
+        }
+      }
+    },
+    "defects_eligible": 3,
+    "defects_measured": 3,
+    "defects_detected": 3,
+    "detection_complete": true,
+    "total_seconds": 6.8714862919878215
+  }
+}

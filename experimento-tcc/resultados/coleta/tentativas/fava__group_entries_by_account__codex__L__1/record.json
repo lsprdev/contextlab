@@ -1,0 +1,1693 @@
+{
+  "schema_version": 1,
+  "order": 49,
+  "project": "fava",
+  "target": "group_entries_by_account",
+  "agent": "codex",
+  "condition": "L",
+  "repetition": 1,
+  "id": "fava__group_entries_by_account__codex__L__1",
+  "phase": "main",
+  "lock_hash": "49dd66a522994eb03001a67255ded0aa13cc696255859f45a924b43f05f5da33",
+  "started_at": "2026-11-22T03:56:48.303244+00:00",
+  "status": "finished",
+  "generation": {
+    "status": "completed",
+    "input_tokens": 28199,
+    "output_tokens": 2043,
+    "seconds": 49.36267295794096,
+    "version": "codex-cli 0.170.0",
+    "tool_log": [
+      {
+        "index": 1,
+        "tool": "list_files",
+        "arguments": {
+          "path": "src/fava/beans"
+        },
+        "delivered_chars": 44,
+        "chars_before": 2674,
+        "status": "ok",
+        "chars_after": 2718
+      },
+      {
+        "index": 2,
+        "tool": "list_files",
+        "arguments": {},
+        "delivered_chars": 77,
+        "chars_before": 2718,
+        "status": "ok",
+        "chars_after": 2795
+      },
+      {
+        "index": 3,
+        "tool": "search",
+        "arguments": {
+          "query": "get_entry_accounts"
+        },
+        "delivered_chars": 269,
+        "chars_before": 2795,
+        "status": "ok",
+        "chars_after": 3064
+      }
+    ],
+    "usage": {
+      "input_tokens": 28199,
+      "cached_input_tokens": 24576,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 2043,
+      "reasoning_output_tokens": 1063
+    },
+    "details": [],
+    "capabilities": {
+      "tool_surface_verified": true,
+      "tools": [
+        "functions.list_mcp_resource_templates",
+        "functions.list_mcp_resources",
+        "functions.read_mcp_resource",
+        "mcp__contextlab.list_files",
+        "mcp__contextlab.read_file",
+        "mcp__contextlab.search"
+      ],
+      "catalog_sha256": "a61b50641627a2941fc8be4db823d1fbbfa4ae628add4d7ec443dbab559140fb",
+      "probe": "offline-localhost",
+      "model": "gpt-6.2-sol",
+      "command_rejected": true,
+      "outside_packet_rejected": true,
+      "allowed_read_verified": true
+    },
+    "returncode": 0,
+    "context_stats": {
+      "chars_used": 3064,
+      "initial_chars": 2674,
+      "response_chars": 390,
+      "remaining_chars": 26936,
+      "tool_calls": 3,
+      "max_calls": 20,
+      "budget": 30000
+    },
+    "session_id": "01a20166-474c-73b1-bf23-7241f9458c23"
+  },
+  "evaluation": {
+    "target_id": "group_entries_by_account",
+    "test_kind": "unit",
+    "received": true,
+    "syntax_ok": true,
+    "collected": 3,
+    "active_started": true,
+    "reference_passed": true,
+    "approval": "pending_review",
+    "approved": false,
+    "coverage_raw": {
+      "executed": true,
+      "line_total": 8,
+      "line_covered": 8,
+      "line_rate": 1.0,
+      "branch_total": 8,
+      "branch_covered": 8,
+      "branch_rate": 1.0,
+      "executable_lines": [
+        80,
+        84,
+        85,
+        86,
+        87,
+        89,
+        90,
+        92
+      ],
+      "covered_lines": [
+        80,
+        84,
+        85,
+        86,
+        87,
+        89,
+        90,
+        92
+      ],
+      "branches": {
+        "86": {
+          "total": 2,
+          "covered": 2
+        },
+        "84": {
+          "total": 2,
+          "covered": 2
+        },
+        "89": {
+          "total": 2,
+          "covered": 2
+        },
+        "85": {
+          "total": 2,
+          "covered": 2
+        }
+      }
+    },
+    "coverage_main": null,
+    "defects": [],
+    "detection_rate": null,
+    "review": null,
+    "backend": "docker",
+    "submission_sha256": "ccb7e9ed317af091e3dde2257e12043870ea60835b6e06c5858fe016dde4ea0f",
+    "status": "completed",
+    "seconds": 0.9396844169823453,
+    "active_count": 3,
+    "passed_count": 3,
+    "skipped_count": 0,
+    "xfail_count": 0,
+    "failure_categories": [],
+    "original": {
+      "status": "completed",
+      "seconds": 0.9396844169823453,
+      "exit_code": 0,
+      "production_unchanged": true,
+      "collected": 3,
+      "active_started": true,
+      "active_count": 3,
+      "passed_count": 3,
+      "skipped_count": 0,
+      "xfail_count": 0,
+      "failure_categories": [],
+      "reference_passed": true,
+      "assertion_failure": false,
+      "focal": {
+        "executed": true,
+        "line_total": 8,
+        "line_covered": 8,
+        "line_rate": 1.0,
+        "branch_total": 8,
+        "branch_covered": 8,
+        "branch_rate": 1.0,
+        "executable_lines": [
+          80,
+          84,
+          85,
+          86,
+          87,
+          89,
+          90,
+          92
+        ],
+        "covered_lines": [
+          80,
+          84,
+          85,
+          86,
+          87,
+          89,
+          90,
+          92
+        ],
+        "branches": {
+          "86": {
+            "total": 2,
+            "covered": 2
+          },
+          "84": {
+            "total": 2,
+            "covered": 2
+          },
+          "89": {
+            "total": 2,
+            "covered": 2
+          },
+          "85": {
+            "total": 2,
+            "covered": 2
+          }
+        }
+      },
+      "raw": {
+        "exit_code": 0,
+        "collected": 3,
+        "reports": [
+          {
+            "nodeid": "::test_empty_entries_return_an_empty_dict",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_empty_entries_return_an_empty_dict",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_empty_entries_return_an_empty_dict",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_entries_without_accounts_leave_no_groups",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_entries_without_accounts_leave_no_groups",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_entries_without_accounts_leave_no_groups",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_groups_directives_and_each_posting_in_input_order",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_groups_directives_and_each_posting_in_input_order",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_groups_directives_and_each_posting_in_input_order",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          }
+        ],
+        "collection_errors": [],
+        "focal": {
+          "executed": true,
+          "line_total": 8,
+          "line_covered": 8,
+          "line_rate": 1.0,
+          "branch_total": 8,
+          "branch_covered": 8,
+          "branch_rate": 1.0,
+          "executable_lines": [
+            80,
+            84,
+            85,
+            86,
+            87,
+            89,
+            90,
+            92
+          ],
+          "covered_lines": [
+            80,
+            84,
+            85,
+            86,
+            87,
+            89,
+            90,
+            92
+          ],
+          "branches": {
+            "86": {
+              "total": 2,
+              "covered": 2
+            },
+            "84": {
+              "total": 2,
+              "covered": 2
+            },
+            "89": {
+              "total": 2,
+              "covered": 2
+            },
+            "85": {
+              "total": 2,
+              "covered": 2
+            }
+          }
+        }
+      }
+    },
+    "defects_eligible": null,
+    "defects_measured": null,
+    "defects_detected": null,
+    "detection_complete": null,
+    "total_seconds": 0.9799137089867145
+  },
+  "preparation_seconds": 0.058194292010739446,
+  "submission_sha256": "ccb7e9ed317af091e3dde2257e12043870ea60835b6e06c5858fe016dde4ea0f",
+  "finished_at": "2026-11-22T03:57:38.707721+00:00",
+  "review": {
+    "behavioral_assertions": true,
+    "no_target_mock": true,
+    "no_production_changes": true,
+    "defect_attribution": {
+      "FAV-02-sem-ordenar": true,
+      "FAV-02-transacao-no-lugar-do-par": true
+    },
+    "dependency_doubles": true,
+    "reviewer": "Gabriel Lopes Pereira",
+    "created_at": "2026-11-22T05:07:21.957227+00:00"
+  },
+  "reviewed_evaluation": {
+    "target_id": "group_entries_by_account",
+    "test_kind": "unit",
+    "received": true,
+    "syntax_ok": true,
+    "collected": 3,
+    "active_started": true,
+    "reference_passed": true,
+    "approval": "approved",
+    "approved": true,
+    "coverage_raw": {
+      "executed": true,
+      "line_total": 8,
+      "line_covered": 8,
+      "line_rate": 1.0,
+      "branch_total": 8,
+      "branch_covered": 8,
+      "branch_rate": 1.0,
+      "executable_lines": [
+        80,
+        84,
+        85,
+        86,
+        87,
+        89,
+        90,
+        92
+      ],
+      "covered_lines": [
+        80,
+        84,
+        85,
+        86,
+        87,
+        89,
+        90,
+        92
+      ],
+      "branches": {
+        "86": {
+          "total": 2,
+          "covered": 2
+        },
+        "84": {
+          "total": 2,
+          "covered": 2
+        },
+        "89": {
+          "total": 2,
+          "covered": 2
+        },
+        "85": {
+          "total": 2,
+          "covered": 2
+        }
+      }
+    },
+    "coverage_main": {
+      "executed": true,
+      "line_total": 8,
+      "line_covered": 8,
+      "line_rate": 1.0,
+      "branch_total": 8,
+      "branch_covered": 8,
+      "branch_rate": 1.0,
+      "executable_lines": [
+        80,
+        84,
+        85,
+        86,
+        87,
+        89,
+        90,
+        92
+      ],
+      "covered_lines": [
+        80,
+        84,
+        85,
+        86,
+        87,
+        89,
+        90,
+        92
+      ],
+      "branches": {
+        "86": {
+          "total": 2,
+          "covered": 2
+        },
+        "84": {
+          "total": 2,
+          "covered": 2
+        },
+        "89": {
+          "total": 2,
+          "covered": 2
+        },
+        "85": {
+          "total": 2,
+          "covered": 2
+        }
+      }
+    },
+    "defects": [
+      {
+        "id": "FAV-02-sem-ordenar",
+        "eligible": true,
+        "validation": {
+          "id": "FAV-02-sem-ordenar",
+          "eligible": true,
+          "project_sha256": "4d796c64d4bd57dbddb09da8fb81982862d1d16df42389e2b3585f1b5dd011b7",
+          "definition_sha256": "4d91d068f0afa24b3b13728feaeff6a8b621e9bb2c971acd0a79b2ba45e6e953",
+          "reason": null,
+          "baseline": {
+            "status": "completed",
+            "seconds": 0.9399833329953253,
+            "exit_code": 0,
+            "production_unchanged": true,
+            "collected": 1,
+            "active_started": true,
+            "active_count": 1,
+            "passed_count": 1,
+            "skipped_count": 0,
+            "xfail_count": 0,
+            "failure_categories": [],
+            "reference_passed": true,
+            "assertion_failure": false,
+            "focal": {
+              "executed": true,
+              "line_total": 8,
+              "line_covered": 6,
+              "line_rate": 0.75,
+              "branch_total": 8,
+              "branch_covered": 5,
+              "branch_rate": 0.625,
+              "executable_lines": [
+                80,
+                84,
+                85,
+                86,
+                87,
+                89,
+                90,
+                92
+              ],
+              "covered_lines": [
+                80,
+                84,
+                85,
+                89,
+                90,
+                92
+              ],
+              "branches": {
+                "86": {
+                  "total": 2,
+                  "covered": 0
+                },
+                "84": {
+                  "total": 2,
+                  "covered": 2
+                },
+                "89": {
+                  "total": 2,
+                  "covered": 2
+                },
+                "85": {
+                  "total": 2,
+                  "covered": 1
+                }
+              }
+            },
+            "raw": {
+              "exit_code": 0,
+              "collected": 1,
+              "reports": [
+                {
+                  "nodeid": "tcc_referencia/test_ref_group_entries_by_account.py::test_chaves_ficam_em_ordem_alfabetica",
+                  "when": "setup",
+                  "outcome": "passed",
+                  "exception": null,
+                  "assertion_failure": false,
+                  "expected_failure": false,
+                  "message": null
+                },
+                {
+                  "nodeid": "tcc_referencia/test_ref_group_entries_by_account.py::test_chaves_ficam_em_ordem_alfabetica",
+                  "when": "call",
+                  "outcome": "passed",
+                  "exception": null,
+                  "assertion_failure": false,
+                  "expected_failure": false,
+                  "message": null
+                },
+                {
+                  "nodeid": "tcc_referencia/test_ref_group_entries_by_account.py::test_chaves_ficam_em_ordem_alfabetica",
+                  "when": "teardown",
+                  "outcome": "passed",
+                  "exception": null,
+                  "assertion_failure": false,
+                  "expected_failure": false,
+                  "message": null
+                }
+              ],
+              "collection_errors": [],
+              "focal": {
+                "executed": true,
+                "line_total": 8,
+                "line_covered": 6,
+                "line_rate": 0.75,
+                "branch_total": 8,
+                "branch_covered": 5,
+                "branch_rate": 0.625,
+                "executable_lines": [
+                  80,
+                  84,
+                  85,
+                  86,
+                  87,
+                  89,
+                  90,
+                  92
+                ],
+                "covered_lines": [
+                  80,
+                  84,
+                  85,
+                  89,
+                  90,
+                  92
+                ],
+                "branches": {
+                  "86": {
+                    "total": 2,
+                    "covered": 0
+                  },
+                  "84": {
+                    "total": 2,
+                    "covered": 2
+                  },
+                  "89": {
+                    "total": 2,
+                    "covered": 2
+                  },
+                  "85": {
+                    "total": 2,
+                    "covered": 1
+                  }
+                }
+              }
+            }
+          },
+          "mutated": {
+            "status": "completed",
+            "seconds": 0.9101454999763519,
+            "exit_code": 1,
+            "production_unchanged": true,
+            "collected": 1,
+            "active_started": true,
+            "active_count": 1,
+            "passed_count": 0,
+            "skipped_count": 0,
+            "xfail_count": 0,
+            "failure_categories": [
+              "assertion_failure"
+            ],
+            "reference_passed": false,
+            "assertion_failure": true,
+            "focal": {
+              "executed": true,
+              "line_total": 8,
+              "line_covered": 6,
+              "line_rate": 0.75,
+              "branch_total": 8,
+              "branch_covered": 5,
+              "branch_rate": 0.625,
+              "executable_lines": [
+                80,
+                84,
+                85,
+                86,
+                87,
+                89,
+                90,
+                92
+              ],
+              "covered_lines": [
+                80,
+                84,
+                85,
+                89,
+                90,
+                92
+              ],
+              "branches": {
+                "86": {
+                  "total": 2,
+                  "covered": 0
+                },
+                "84": {
+                  "total": 2,
+                  "covered": 2
+                },
+                "89": {
+                  "total": 2,
+                  "covered": 2
+                },
+                "85": {
+                  "total": 2,
+                  "covered": 1
+                }
+              }
+            },
+            "raw": {
+              "exit_code": 1,
+              "collected": 1,
+              "reports": [
+                {
+                  "nodeid": "tcc_referencia/test_ref_group_entries_by_account.py::test_chaves_ficam_em_ordem_alfabetica",
+                  "when": "setup",
+                  "outcome": "passed",
+                  "exception": null,
+                  "assertion_failure": false,
+                  "expected_failure": false,
+                  "message": null
+                },
+                {
+                  "nodeid": "tcc_referencia/test_ref_group_entries_by_account.py::test_chaves_ficam_em_ordem_alfabetica",
+                  "when": "call",
+                  "outcome": "failed",
+                  "exception": "AssertionError",
+                  "assertion_failure": true,
+                  "expected_failure": false,
+                  "message": "tcc_referencia/test_ref_group_entries_by_account.py:63: in test_chaves_ficam_em_ordem_alfabetica\n    assert list(group_entries_by_account(entradas)) == [\"Assets:Bank\", \"Expenses:Food\", \"Income:Salary\"]\nE   AssertionError: assert ['Income:Sala...xpenses:Food'] == ['Assets:Bank...ncome:Salary']\nE     \nE     At index 0 diff: 'Income:Salary' != 'Assets:Bank'\nE     Use -v to get more diff"
+                },
+                {
+                  "nodeid": "tcc_referencia/test_ref_group_entries_by_account.py::test_chaves_ficam_em_ordem_alfabetica",
+                  "when": "teardown",
+                  "outcome": "passed",
+                  "exception": null,
+                  "assertion_failure": false,
+                  "expected_failure": false,
+                  "message": null
+                }
+              ],
+              "collection_errors": [],
+              "focal": {
+                "executed": true,
+                "line_total": 8,
+                "line_covered": 6,
+                "line_rate": 0.75,
+                "branch_total": 8,
+                "branch_covered": 5,
+                "branch_rate": 0.625,
+                "executable_lines": [
+                  80,
+                  84,
+                  85,
+                  86,
+                  87,
+                  89,
+                  90,
+                  92
+                ],
+                "covered_lines": [
+                  80,
+                  84,
+                  85,
+                  89,
+                  90,
+                  92
+                ],
+                "branches": {
+                  "86": {
+                    "total": 2,
+                    "covered": 0
+                  },
+                  "84": {
+                    "total": 2,
+                    "covered": 2
+                  },
+                  "89": {
+                    "total": 2,
+                    "covered": 2
+                  },
+                  "85": {
+                    "total": 2,
+                    "covered": 1
+                  }
+                }
+              }
+            }
+          }
+        },
+        "detected": true,
+        "status": "detected",
+        "run": {
+          "status": "completed",
+          "seconds": 0.961367541924119,
+          "exit_code": 1,
+          "production_unchanged": true,
+          "collected": 3,
+          "active_started": true,
+          "active_count": 3,
+          "passed_count": 2,
+          "skipped_count": 0,
+          "xfail_count": 0,
+          "failure_categories": [
+            "assertion_failure"
+          ],
+          "reference_passed": false,
+          "assertion_failure": true,
+          "focal": {
+            "executed": true,
+            "line_total": 8,
+            "line_covered": 8,
+            "line_rate": 1.0,
+            "branch_total": 8,
+            "branch_covered": 8,
+            "branch_rate": 1.0,
+            "executable_lines": [
+              80,
+              84,
+              85,
+              86,
+              87,
+              89,
+              90,
+              92
+            ],
+            "covered_lines": [
+              80,
+              84,
+              85,
+              86,
+              87,
+              89,
+              90,
+              92
+            ],
+            "branches": {
+              "86": {
+                "total": 2,
+                "covered": 2
+              },
+              "84": {
+                "total": 2,
+                "covered": 2
+              },
+              "89": {
+                "total": 2,
+                "covered": 2
+              },
+              "85": {
+                "total": 2,
+                "covered": 2
+              }
+            }
+          },
+          "raw": {
+            "exit_code": 1,
+            "collected": 3,
+            "reports": [
+              {
+                "nodeid": "::test_empty_entries_return_an_empty_dict",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_empty_entries_return_an_empty_dict",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_empty_entries_return_an_empty_dict",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_entries_without_accounts_leave_no_groups",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_entries_without_accounts_leave_no_groups",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_entries_without_accounts_leave_no_groups",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_groups_directives_and_each_posting_in_input_order",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_groups_directives_and_each_posting_in_input_order",
+                "when": "call",
+                "outcome": "failed",
+                "exception": "AssertionError",
+                "assertion_failure": true,
+                "expected_failure": false,
+                "message": "/submission/test_generated.py:57: in test_groups_directives_and_each_posting_in_input_order\n    assert list(result) == [cash, wallet, expenses]\nE   AssertionError: assert ['Expenses:Fo...:Cash:Wallet'] == ['Assets:Cash...xpenses:Food']\nE     \nE     At index 0 diff: 'Expenses:Food' != 'Assets:Cash'\nE     Use -v to get more diff"
+              },
+              {
+                "nodeid": "::test_groups_directives_and_each_posting_in_input_order",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              }
+            ],
+            "collection_errors": [],
+            "focal": {
+              "executed": true,
+              "line_total": 8,
+              "line_covered": 8,
+              "line_rate": 1.0,
+              "branch_total": 8,
+              "branch_covered": 8,
+              "branch_rate": 1.0,
+              "executable_lines": [
+                80,
+                84,
+                85,
+                86,
+                87,
+                89,
+                90,
+                92
+              ],
+              "covered_lines": [
+                80,
+                84,
+                85,
+                86,
+                87,
+                89,
+                90,
+                92
+              ],
+              "branches": {
+                "86": {
+                  "total": 2,
+                  "covered": 2
+                },
+                "84": {
+                  "total": 2,
+                  "covered": 2
+                },
+                "89": {
+                  "total": 2,
+                  "covered": 2
+                },
+                "85": {
+                  "total": 2,
+                  "covered": 2
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "id": "FAV-02-transacao-no-lugar-do-par",
+        "eligible": true,
+        "validation": {
+          "id": "FAV-02-transacao-no-lugar-do-par",
+          "eligible": true,
+          "project_sha256": "4d796c64d4bd57dbddb09da8fb81982862d1d16df42389e2b3585f1b5dd011b7",
+          "definition_sha256": "47a7157dfaf5cc5bfa08fc812fea1cda7ecd95169f8fa8359861c4e6fd2f877a",
+          "reason": null,
+          "baseline": {
+            "status": "completed",
+            "seconds": 0.9496397079201415,
+            "exit_code": 0,
+            "production_unchanged": true,
+            "collected": 1,
+            "active_started": true,
+            "active_count": 1,
+            "passed_count": 1,
+            "skipped_count": 0,
+            "xfail_count": 0,
+            "failure_categories": [],
+            "reference_passed": true,
+            "assertion_failure": false,
+            "focal": {
+              "executed": true,
+              "line_total": 8,
+              "line_covered": 6,
+              "line_rate": 0.75,
+              "branch_total": 8,
+              "branch_covered": 5,
+              "branch_rate": 0.625,
+              "executable_lines": [
+                80,
+                84,
+                85,
+                86,
+                87,
+                89,
+                90,
+                92
+              ],
+              "covered_lines": [
+                80,
+                84,
+                85,
+                86,
+                87,
+                92
+              ],
+              "branches": {
+                "86": {
+                  "total": 2,
+                  "covered": 2
+                },
+                "84": {
+                  "total": 2,
+                  "covered": 2
+                },
+                "89": {
+                  "total": 2,
+                  "covered": 0
+                },
+                "85": {
+                  "total": 2,
+                  "covered": 1
+                }
+              }
+            },
+            "raw": {
+              "exit_code": 0,
+              "collected": 1,
+              "reports": [
+                {
+                  "nodeid": "tcc_referencia/test_ref_group_entries_by_account.py::test_transacao_aparece_em_cada_conta_como_par_transacao_lancamento",
+                  "when": "setup",
+                  "outcome": "passed",
+                  "exception": null,
+                  "assertion_failure": false,
+                  "expected_failure": false,
+                  "message": null
+                },
+                {
+                  "nodeid": "tcc_referencia/test_ref_group_entries_by_account.py::test_transacao_aparece_em_cada_conta_como_par_transacao_lancamento",
+                  "when": "call",
+                  "outcome": "passed",
+                  "exception": null,
+                  "assertion_failure": false,
+                  "expected_failure": false,
+                  "message": null
+                },
+                {
+                  "nodeid": "tcc_referencia/test_ref_group_entries_by_account.py::test_transacao_aparece_em_cada_conta_como_par_transacao_lancamento",
+                  "when": "teardown",
+                  "outcome": "passed",
+                  "exception": null,
+                  "assertion_failure": false,
+                  "expected_failure": false,
+                  "message": null
+                }
+              ],
+              "collection_errors": [],
+              "focal": {
+                "executed": true,
+                "line_total": 8,
+                "line_covered": 6,
+                "line_rate": 0.75,
+                "branch_total": 8,
+                "branch_covered": 5,
+                "branch_rate": 0.625,
+                "executable_lines": [
+                  80,
+                  84,
+                  85,
+                  86,
+                  87,
+                  89,
+                  90,
+                  92
+                ],
+                "covered_lines": [
+                  80,
+                  84,
+                  85,
+                  86,
+                  87,
+                  92
+                ],
+                "branches": {
+                  "86": {
+                    "total": 2,
+                    "covered": 2
+                  },
+                  "84": {
+                    "total": 2,
+                    "covered": 2
+                  },
+                  "89": {
+                    "total": 2,
+                    "covered": 0
+                  },
+                  "85": {
+                    "total": 2,
+                    "covered": 1
+                  }
+                }
+              }
+            }
+          },
+          "mutated": {
+            "status": "completed",
+            "seconds": 0.9228167079854757,
+            "exit_code": 1,
+            "production_unchanged": true,
+            "collected": 1,
+            "active_started": true,
+            "active_count": 1,
+            "passed_count": 0,
+            "skipped_count": 0,
+            "xfail_count": 0,
+            "failure_categories": [
+              "assertion_failure"
+            ],
+            "reference_passed": false,
+            "assertion_failure": true,
+            "focal": {
+              "executed": true,
+              "line_total": 8,
+              "line_covered": 6,
+              "line_rate": 0.75,
+              "branch_total": 8,
+              "branch_covered": 5,
+              "branch_rate": 0.625,
+              "executable_lines": [
+                80,
+                84,
+                85,
+                86,
+                87,
+                89,
+                90,
+                92
+              ],
+              "covered_lines": [
+                80,
+                84,
+                85,
+                86,
+                87,
+                92
+              ],
+              "branches": {
+                "86": {
+                  "total": 2,
+                  "covered": 2
+                },
+                "84": {
+                  "total": 2,
+                  "covered": 2
+                },
+                "89": {
+                  "total": 2,
+                  "covered": 0
+                },
+                "85": {
+                  "total": 2,
+                  "covered": 1
+                }
+              }
+            },
+            "raw": {
+              "exit_code": 1,
+              "collected": 1,
+              "reports": [
+                {
+                  "nodeid": "tcc_referencia/test_ref_group_entries_by_account.py::test_transacao_aparece_em_cada_conta_como_par_transacao_lancamento",
+                  "when": "setup",
+                  "outcome": "passed",
+                  "exception": null,
+                  "assertion_failure": false,
+                  "expected_failure": false,
+                  "message": null
+                },
+                {
+                  "nodeid": "tcc_referencia/test_ref_group_entries_by_account.py::test_transacao_aparece_em_cada_conta_como_par_transacao_lancamento",
+                  "when": "call",
+                  "outcome": "failed",
+                  "exception": "AssertionError",
+                  "assertion_failure": true,
+                  "expected_failure": false,
+                  "message": "tcc_referencia/test_ref_group_entries_by_account.py:28: in test_transacao_aparece_em_cada_conta_como_par_transacao_lancamento\n    assert result == {\nE   AssertionError: assert {'Assets:Cash...meta=None)])]} == {'Assets:Cash... meta=None))]}\nE     \nE     Differing items:\nE     {'Expenses:Food': [Transaction(meta={}, date=datetime.date(2024, 3, 1), flag='*', payee='loja', narration='compra', ta... flag=None, meta=None), Posting(account='Expenses:Food', units=10 EUR, cost=None, price=None, flag=None, meta=None)])]} != {'Expenses:Food': [TransactionPosting(transaction=Transaction(meta={}, date=datetime.date(2024, 3, 1), flag='*', payee...e, meta=None)]), posting=Posting(account='Expenses:Food', units=10 EUR, cost=None, price=None, flag=None, meta=None))]}\nE     {'Assets:Cash': [Transaction(meta={}, date=datetime.date(2024, 3, 1), flag='...\nE     \nE     ...Full output truncated (2 lines hidden), use '-vv' to show"
+                },
+                {
+                  "nodeid": "tcc_referencia/test_ref_group_entries_by_account.py::test_transacao_aparece_em_cada_conta_como_par_transacao_lancamento",
+                  "when": "teardown",
+                  "outcome": "passed",
+                  "exception": null,
+                  "assertion_failure": false,
+                  "expected_failure": false,
+                  "message": null
+                }
+              ],
+              "collection_errors": [],
+              "focal": {
+                "executed": true,
+                "line_total": 8,
+                "line_covered": 6,
+                "line_rate": 0.75,
+                "branch_total": 8,
+                "branch_covered": 5,
+                "branch_rate": 0.625,
+                "executable_lines": [
+                  80,
+                  84,
+                  85,
+                  86,
+                  87,
+                  89,
+                  90,
+                  92
+                ],
+                "covered_lines": [
+                  80,
+                  84,
+                  85,
+                  86,
+                  87,
+                  92
+                ],
+                "branches": {
+                  "86": {
+                    "total": 2,
+                    "covered": 2
+                  },
+                  "84": {
+                    "total": 2,
+                    "covered": 2
+                  },
+                  "89": {
+                    "total": 2,
+                    "covered": 0
+                  },
+                  "85": {
+                    "total": 2,
+                    "covered": 1
+                  }
+                }
+              }
+            }
+          }
+        },
+        "detected": true,
+        "status": "detected",
+        "run": {
+          "status": "completed",
+          "seconds": 0.9670467081014067,
+          "exit_code": 1,
+          "production_unchanged": true,
+          "collected": 3,
+          "active_started": true,
+          "active_count": 3,
+          "passed_count": 2,
+          "skipped_count": 0,
+          "xfail_count": 0,
+          "failure_categories": [
+            "assertion_failure"
+          ],
+          "reference_passed": false,
+          "assertion_failure": true,
+          "focal": {
+            "executed": true,
+            "line_total": 8,
+            "line_covered": 8,
+            "line_rate": 1.0,
+            "branch_total": 8,
+            "branch_covered": 8,
+            "branch_rate": 1.0,
+            "executable_lines": [
+              80,
+              84,
+              85,
+              86,
+              87,
+              89,
+              90,
+              92
+            ],
+            "covered_lines": [
+              80,
+              84,
+              85,
+              86,
+              87,
+              89,
+              90,
+              92
+            ],
+            "branches": {
+              "86": {
+                "total": 2,
+                "covered": 2
+              },
+              "84": {
+                "total": 2,
+                "covered": 2
+              },
+              "89": {
+                "total": 2,
+                "covered": 2
+              },
+              "85": {
+                "total": 2,
+                "covered": 2
+              }
+            }
+          },
+          "raw": {
+            "exit_code": 1,
+            "collected": 3,
+            "reports": [
+              {
+                "nodeid": "::test_empty_entries_return_an_empty_dict",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_empty_entries_return_an_empty_dict",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_empty_entries_return_an_empty_dict",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_entries_without_accounts_leave_no_groups",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_entries_without_accounts_leave_no_groups",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_entries_without_accounts_leave_no_groups",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_groups_directives_and_each_posting_in_input_order",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_groups_directives_and_each_posting_in_input_order",
+                "when": "call",
+                "outcome": "failed",
+                "exception": "AssertionError",
+                "assertion_failure": true,
+                "expected_failure": false,
+                "message": "/submission/test_generated.py:58: in test_groups_directives_and_each_posting_in_input_order\n    assert result == {\nE   AssertionError: assert {'Assets:Cash...3765236736'>]} == {'Assets:Cash...765235536'>)]}\nE     \nE     Differing items:\nE     {'Assets:Cash': [<Mock spec='Transaction' id='281473765236400'>, <Mock spec='Note' id='281473772980656'>, <Mock spec='Note' id='281473772980656'>]} != {'Assets:Cash': [TransactionPosting(transaction=<Mock spec='Transaction' id='281473765236400'>, posting=<Mock spec='Posting' id='281473770989104'>), <Mock spec='Note' id='281473772980656'>, <Mock spec='Note' id='281473772980656'>]}\nE     {'Assets:Cash:Wallet': [<Mock spec='Pad' id='281473783348304'>, <Mock spec='Transaction' id='281473765236736'>]} != {'Assets:Cash:Wallet': [<Mock spec='Pad' id='281473783348304'>...\nE     \nE     ...Full output truncated (3 lines hidden), use '-vv' to show"
+              },
+              {
+                "nodeid": "::test_groups_directives_and_each_posting_in_input_order",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              }
+            ],
+            "collection_errors": [],
+            "focal": {
+              "executed": true,
+              "line_total": 8,
+              "line_covered": 8,
+              "line_rate": 1.0,
+              "branch_total": 8,
+              "branch_covered": 8,
+              "branch_rate": 1.0,
+              "executable_lines": [
+                80,
+                84,
+                85,
+                86,
+                87,
+                89,
+                90,
+                92
+              ],
+              "covered_lines": [
+                80,
+                84,
+                85,
+                86,
+                87,
+                89,
+                90,
+                92
+              ],
+              "branches": {
+                "86": {
+                  "total": 2,
+                  "covered": 2
+                },
+                "84": {
+                  "total": 2,
+                  "covered": 2
+                },
+                "89": {
+                  "total": 2,
+                  "covered": 2
+                },
+                "85": {
+                  "total": 2,
+                  "covered": 2
+                }
+              }
+            }
+          }
+        }
+      }
+    ],
+    "detection_rate": 1.0,
+    "review": {
+      "behavioral_assertions": true,
+      "no_target_mock": true,
+      "no_production_changes": true,
+      "defect_attribution": {
+        "FAV-02-sem-ordenar": true,
+        "FAV-02-transacao-no-lugar-do-par": true
+      },
+      "dependency_doubles": true,
+      "reviewer": "Gabriel Lopes Pereira",
+      "created_at": "2026-11-22T05:07:21.957227+00:00"
+    },
+    "backend": "docker",
+    "submission_sha256": "ccb7e9ed317af091e3dde2257e12043870ea60835b6e06c5858fe016dde4ea0f",
+    "status": "completed",
+    "seconds": 0.8995247089769691,
+    "active_count": 3,
+    "passed_count": 3,
+    "skipped_count": 0,
+    "xfail_count": 0,
+    "failure_categories": [],
+    "original": {
+      "status": "completed",
+      "seconds": 0.8995247089769691,
+      "exit_code": 0,
+      "production_unchanged": true,
+      "collected": 3,
+      "active_started": true,
+      "active_count": 3,
+      "passed_count": 3,
+      "skipped_count": 0,
+      "xfail_count": 0,
+      "failure_categories": [],
+      "reference_passed": true,
+      "assertion_failure": false,
+      "focal": {
+        "executed": true,
+        "line_total": 8,
+        "line_covered": 8,
+        "line_rate": 1.0,
+        "branch_total": 8,
+        "branch_covered": 8,
+        "branch_rate": 1.0,
+        "executable_lines": [
+          80,
+          84,
+          85,
+          86,
+          87,
+          89,
+          90,
+          92
+        ],
+        "covered_lines": [
+          80,
+          84,
+          85,
+          86,
+          87,
+          89,
+          90,
+          92
+        ],
+        "branches": {
+          "86": {
+            "total": 2,
+            "covered": 2
+          },
+          "84": {
+            "total": 2,
+            "covered": 2
+          },
+          "89": {
+            "total": 2,
+            "covered": 2
+          },
+          "85": {
+            "total": 2,
+            "covered": 2
+          }
+        }
+      },
+      "raw": {
+        "exit_code": 0,
+        "collected": 3,
+        "reports": [
+          {
+            "nodeid": "::test_empty_entries_return_an_empty_dict",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_empty_entries_return_an_empty_dict",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_empty_entries_return_an_empty_dict",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_entries_without_accounts_leave_no_groups",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_entries_without_accounts_leave_no_groups",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_entries_without_accounts_leave_no_groups",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_groups_directives_and_each_posting_in_input_order",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_groups_directives_and_each_posting_in_input_order",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_groups_directives_and_each_posting_in_input_order",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          }
+        ],
+        "collection_errors": [],
+        "focal": {
+          "executed": true,
+          "line_total": 8,
+          "line_covered": 8,
+          "line_rate": 1.0,
+          "branch_total": 8,
+          "branch_covered": 8,
+          "branch_rate": 1.0,
+          "executable_lines": [
+            80,
+            84,
+            85,
+            86,
+            87,
+            89,
+            90,
+            92
+          ],
+          "covered_lines": [
+            80,
+            84,
+            85,
+            86,
+            87,
+            89,
+            90,
+            92
+          ],
+          "branches": {
+            "86": {
+              "total": 2,
+              "covered": 2
+            },
+            "84": {
+              "total": 2,
+              "covered": 2
+            },
+            "89": {
+              "total": 2,
+              "covered": 2
+            },
+            "85": {
+              "total": 2,
+              "covered": 2
+            }
+          }
+        }
+      }
+    },
+    "defects_eligible": 2,
+    "defects_measured": 2,
+    "defects_detected": 2,
+    "detection_complete": true,
+    "total_seconds": 6.745914792059921
+  }
+}

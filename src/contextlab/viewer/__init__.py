@@ -298,7 +298,7 @@ def render(data: dict, inline_assets: bool = True) -> str:
 REPOSITORY = "https://github.com/lsprdev/contextlab"
 
 
-def build_site(destination: Path, repository: str = REPOSITORY) -> Path:
+def build_site(destination: Path, repository: str = REPOSITORY, experiment: Path | None = None) -> Path:
     """Site estático só com a documentação, para publicação.
 
     Usa o mesmo modelo do visualizador, sem registros de execução. A biblioteca
@@ -308,6 +308,9 @@ def build_site(destination: Path, repository: str = REPOSITORY) -> Path:
     (destination / "assets").mkdir(parents=True, exist_ok=True)
     data = {"title": "ContextLab", "site": {"repository": repository},
             "sources": [], "attempts": [], "pricing": None}
+    if experiment is not None:
+        from .experiment import experiment_summary
+        data["experiment"] = experiment_summary(Path(experiment))
     page = render(data, inline_assets=False)
     # A página já sai na forma final: sem a tela de execuções, que apareceria
     # por um instante antes do script rodar.
@@ -322,6 +325,18 @@ def build_site(destination: Path, repository: str = REPOSITORY) -> Path:
         if page.count(old) != 1:
             raise ViewerError("Modelo da página inválido para o site")
         page = page.replace(old, new)
+    if experiment is not None:
+        # Página Experimento: botão na barra, marcação antes dos dados e script depois do principal.
+        here = Path(__file__).parent
+        for old, new in (('<button id="nav-docs" aria-current="page">Documentação</button>',
+                          '<button id="nav-docs" aria-current="page">Documentação</button>\n    <button id="nav-exp">Experimento</button>'),
+                         ('<script type="application/json" id="data">',
+                          (here / "experimento.html").read_text(encoding="utf-8") + '\n<script type="application/json" id="data">'),
+                         ("</body>", "<script>\n" + (here / "experimento.js").read_text(encoding="utf-8")
+                          .replace("</script", "<\\/script") + "</script>\n</body>")):
+            if page.count(old) != 1:
+                raise ViewerError("Modelo da página inválido para a página Experimento")
+            page = page.replace(old, new)
     (destination / "index.html").write_text(page, encoding="utf-8")
     if _MERMAID.is_file():
         (destination / "assets" / "mermaid.min.js").write_bytes(_MERMAID.read_bytes())

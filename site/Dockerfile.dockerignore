@@ -1,5 +1,8 @@
-# O site precisa só do código do visualizador e da configuração do nginx.
+# O site precisa do código do visualizador, da configuração do nginx e dos registros do experimento.
 *
 !src/
 !site/nginx.conf
+!experimento-tcc/manifesto/principal.json
+!experimento-tcc/precos.json
+!experimento-tcc/resultados/coleta/tentativas/
 **/__pycache__

@@ -1,0 +1,2756 @@
+{
+  "schema_version": 1,
+  "order": 103,
+  "project": "bump_my_version",
+  "target": "version_config_parse",
+  "agent": "codex",
+  "condition": "A",
+  "repetition": 3,
+  "id": "bump_my_version__version_config_parse__codex__A__3",
+  "phase": "main",
+  "lock_hash": "49dd66a522994eb03001a67255ded0aa13cc696255859f45a924b43f05f5da33",
+  "started_at": "2026-11-22T04:43:27.835421+00:00",
+  "status": "finished",
+  "generation": {
+    "status": "completed",
+    "input_tokens": 66669,
+    "output_tokens": 1770,
+    "seconds": 47.00539295806084,
+    "version": "codex-cli 0.170.0",
+    "tool_log": [
+      {
+        "index": 1,
+        "tool": "list_files",
+        "arguments": {},
+        "delivered_chars": 462,
+        "chars_before": 0,
+        "status": "ok",
+        "chars_after": 462
+      },
+      {
+        "index": 2,
+        "tool": "read_file",
+        "arguments": {
+          "path": "bumpversion/versioning/version_config.py"
+        },
+        "delivered_chars": 3775,
+        "chars_before": 462,
+        "status": "ok",
+        "chars_after": 4237
+      },
+      {
+        "index": 3,
+        "tool": "read_file",
+        "arguments": {
+          "path": "bumpversion/versioning/serialization.py"
+        },
+        "delivered_chars": 4925,
+        "chars_before": 4237,
+        "status": "ok",
+        "chars_after": 9162
+      },
+      {
+        "index": 4,
+        "tool": "read_file",
+        "arguments": {
+          "path": "bumpversion/versioning/models.py",
+          "start_line": 1,
+          "end_line": 310
+        },
+        "delivered_chars": 12533,
+        "chars_before": 9162,
+        "status": "ok",
+        "chars_after": 21695
+      },
+      {
+        "index": 5,
+        "tool": "read_file",
+        "arguments": {
+          "path": "bumpversion/versioning/functions.py",
+          "start_line": 1,
+          "end_line": 155
+        },
+        "delivered_chars": 5760,
+        "chars_before": 21695,
+        "status": "ok",
+        "chars_after": 27455
+      },
+      {
+        "index": 6,
+        "tool": "read_file",
+        "arguments": {
+          "path": "bumpversion/exceptions.py",
+          "start_line": 1,
+          "end_line": 70
+        },
+        "delivered_chars": 1527,
+        "chars_before": 27455,
+        "status": "ok",
+        "chars_after": 28982
+      }
+    ],
+    "usage": {
+      "input_tokens": 66669,
+      "cached_input_tokens": 57216,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 1770,
+      "reasoning_output_tokens": 190
+    },
+    "details": [],
+    "capabilities": {
+      "tool_surface_verified": true,
+      "tools": [
+        "functions.list_mcp_resource_templates",
+        "functions.list_mcp_resources",
+        "functions.read_mcp_resource",
+        "mcp__contextlab.list_files",
+        "mcp__contextlab.read_file",
+        "mcp__contextlab.search"
+      ],
+      "catalog_sha256": "a61b50641627a2941fc8be4db823d1fbbfa4ae628add4d7ec443dbab559140fb",
+      "probe": "offline-localhost",
+      "model": "gpt-6.2-sol",
+      "command_rejected": true,
+      "outside_packet_rejected": true,
+      "allowed_read_verified": true
+    },
+    "returncode": 0,
+    "context_stats": {
+      "chars_used": 28982,
+      "initial_chars": 0,
+      "response_chars": 28982,
+      "remaining_chars": 1018,
+      "tool_calls": 6,
+      "max_calls": 20,
+      "budget": 30000
+    },
+    "session_id": "01a20190-fec5-7640-a739-64c1b8fa257c"
+  },
+  "evaluation": {
+    "target_id": "version_config_parse",
+    "test_kind": "unit",
+    "received": true,
+    "syntax_ok": true,
+    "collected": 14,
+    "active_started": true,
+    "reference_passed": true,
+    "approval": "pending_review",
+    "approved": false,
+    "coverage_raw": {
+      "executed": true,
+      "line_total": 8,
+      "line_covered": 8,
+      "line_rate": 1.0,
+      "branch_total": 4,
+      "branch_covered": 4,
+      "branch_rate": 1.0,
+      "executable_lines": [
+        81,
+        83,
+        84,
+        85,
+        86,
+        88,
+        89,
+        90
+      ],
+      "covered_lines": [
+        81,
+        83,
+        84,
+        85,
+        86,
+        88,
+        89,
+        90
+      ],
+      "branches": {
+        "83": {
+          "total": 2,
+          "covered": 2
+        },
+        "85": {
+          "total": 2,
+          "covered": 2
+        }
+      }
+    },
+    "coverage_main": null,
+    "defects": [],
+    "detection_rate": null,
+    "review": null,
+    "backend": "docker",
+    "submission_sha256": "d9ec3608ef6d191a8d8b9b5279099f9389847a6a5c61f09e61e5d3e51da0b3b3",
+    "status": "completed",
+    "seconds": 0.7192304590716958,
+    "active_count": 14,
+    "passed_count": 14,
+    "skipped_count": 0,
+    "xfail_count": 0,
+    "failure_categories": [],
+    "original": {
+      "status": "completed",
+      "seconds": 0.7192304590716958,
+      "exit_code": 0,
+      "production_unchanged": true,
+      "collected": 14,
+      "active_started": true,
+      "active_count": 14,
+      "passed_count": 14,
+      "skipped_count": 0,
+      "xfail_count": 0,
+      "failure_categories": [],
+      "reference_passed": true,
+      "assertion_failure": false,
+      "focal": {
+        "executed": true,
+        "line_total": 8,
+        "line_covered": 8,
+        "line_rate": 1.0,
+        "branch_total": 4,
+        "branch_covered": 4,
+        "branch_rate": 1.0,
+        "executable_lines": [
+          81,
+          83,
+          84,
+          85,
+          86,
+          88,
+          89,
+          90
+        ],
+        "covered_lines": [
+          81,
+          83,
+          84,
+          85,
+          86,
+          88,
+          89,
+          90
+        ],
+        "branches": {
+          "83": {
+            "total": 2,
+            "covered": 2
+          },
+          "85": {
+            "total": 2,
+            "covered": 2
+          }
+        }
+      },
+      "raw": {
+        "exit_code": 0,
+        "collected": 14,
+        "reports": [
+          {
+            "nodeid": "::test_parse_returns_configured_version_and_preserves_input[release v01.2.003-beta; next v9.8.7-alpha-False-expected0]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_returns_configured_version_and_preserves_input[release v01.2.003-beta; next v9.8.7-alpha-False-expected0]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_returns_configured_version_and_preserves_input[release v01.2.003-beta; next v9.8.7-alpha-False-expected0]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_returns_configured_version_and_preserves_input[v0.12.4-True-expected1]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_returns_configured_version_and_preserves_input[v0.12.4-True-expected1]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_returns_configured_version_and_preserves_input[v0.12.4-True-expected1]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_returns_configured_version_and_preserves_input[v7.0.5-alpha-True-expected2]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_returns_configured_version_and_preserves_input[v7.0.5-alpha-True-expected2]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_returns_configured_version_and_preserves_input[v7.0.5-alpha-True-expected2]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_failure_returns_none_or_raises_according_to_flag[None]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_failure_returns_none_or_raises_according_to_flag[None]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_failure_returns_none_or_raises_according_to_flag[None]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_failure_returns_none_or_raises_according_to_flag[]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_failure_returns_none_or_raises_according_to_flag[]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_failure_returns_none_or_raises_according_to_flag[]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_failure_returns_none_or_raises_according_to_flag[not a version]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_failure_returns_none_or_raises_according_to_flag[not a version]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_failure_returns_none_or_raises_according_to_flag[not a version]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_failure_returns_none_or_raises_according_to_flag[v1.2]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_failure_returns_none_or_raises_according_to_flag[v1.2]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_failure_returns_none_or_raises_according_to_flag[v1.2]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_without_arguments_treats_input_as_missing",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_without_arguments_treats_input_as_missing",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_without_arguments_treats_input_as_missing",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_requires_named_captures[\\\\A([0-9]+)\\\\Z]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_requires_named_captures[\\\\A([0-9]+)\\\\Z]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_requires_named_captures[\\\\A([0-9]+)\\\\Z]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_requires_named_captures[]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_requires_named_captures[]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_requires_named_captures[]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_applies_spec_to_empty_and_missing_captures",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_applies_spec_to_empty_and_missing_captures",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_applies_spec_to_empty_and_missing_captures",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_creates_independent_results",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_creates_independent_results",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_creates_independent_results",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_propagates_component_construction_errors[False]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_propagates_component_construction_errors[False]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_propagates_component_construction_errors[False]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_propagates_component_construction_errors[True]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_propagates_component_construction_errors[True]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_propagates_component_construction_errors[True]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          }
+        ],
+        "collection_errors": [],
+        "focal": {
+          "executed": true,
+          "line_total": 8,
+          "line_covered": 8,
+          "line_rate": 1.0,
+          "branch_total": 4,
+          "branch_covered": 4,
+          "branch_rate": 1.0,
+          "executable_lines": [
+            81,
+            83,
+            84,
+            85,
+            86,
+            88,
+            89,
+            90
+          ],
+          "covered_lines": [
+            81,
+            83,
+            84,
+            85,
+            86,
+            88,
+            89,
+            90
+          ],
+          "branches": {
+            "83": {
+              "total": 2,
+              "covered": 2
+            },
+            "85": {
+              "total": 2,
+              "covered": 2
+            }
+          }
+        }
+      }
+    },
+    "defects_eligible": null,
+    "defects_measured": null,
+    "defects_detected": null,
+    "detection_complete": null,
+    "total_seconds": 0.7526260409504175
+  },
+  "preparation_seconds": 0.019022707943804562,
+  "submission_sha256": "d9ec3608ef6d191a8d8b9b5279099f9389847a6a5c61f09e61e5d3e51da0b3b3",
+  "finished_at": "2026-11-22T04:44:15.617974+00:00",
+  "review": {
+    "behavioral_assertions": true,
+    "no_target_mock": true,
+    "no_production_changes": true,
+    "defect_attribution": {
+      "BMV-01-erro-invertido": true,
+      "BMV-01-sem-original": true
+    },
+    "dependency_doubles": false,
+    "reviewer": "Gabriel Lopes Pereira",
+    "created_at": "2026-11-22T05:05:31.637600+00:00"
+  },
+  "reviewed_evaluation": {
+    "target_id": "version_config_parse",
+    "test_kind": "unit",
+    "received": true,
+    "syntax_ok": true,
+    "collected": 14,
+    "active_started": true,
+    "reference_passed": true,
+    "approval": "approved",
+    "approved": true,
+    "coverage_raw": {
+      "executed": true,
+      "line_total": 8,
+      "line_covered": 8,
+      "line_rate": 1.0,
+      "branch_total": 4,
+      "branch_covered": 4,
+      "branch_rate": 1.0,
+      "executable_lines": [
+        81,
+        83,
+        84,
+        85,
+        86,
+        88,
+        89,
+        90
+      ],
+      "covered_lines": [
+        81,
+        83,
+        84,
+        85,
+        86,
+        88,
+        89,
+        90
+      ],
+      "branches": {
+        "83": {
+          "total": 2,
+          "covered": 2
+        },
+        "85": {
+          "total": 2,
+          "covered": 2
+        }
+      }
+    },
+    "coverage_main": {
+      "executed": true,
+      "line_total": 8,
+      "line_covered": 8,
+      "line_rate": 1.0,
+      "branch_total": 4,
+      "branch_covered": 4,
+      "branch_rate": 1.0,
+      "executable_lines": [
+        81,
+        83,
+        84,
+        85,
+        86,
+        88,
+        89,
+        90
+      ],
+      "covered_lines": [
+        81,
+        83,
+        84,
+        85,
+        86,
+        88,
+        89,
+        90
+      ],
+      "branches": {
+        "83": {
+          "total": 2,
+          "covered": 2
+        },
+        "85": {
+          "total": 2,
+          "covered": 2
+        }
+      }
+    },
+    "defects": [
+      {
+        "id": "BMV-01-erro-invertido",
+        "eligible": true,
+        "validation": {
+          "id": "BMV-01-erro-invertido",
+          "eligible": true,
+          "project_sha256": "ed0530cb8db810554ce8a8d8bc5d2ac9f33c732970f9186134c05a46b3d0036c",
+          "definition_sha256": "e8fbbaafc411fe4fe8e35a320a255c8fc8a19a64da53a1253abb1c7731f95f49",
+          "reason": null,
+          "baseline": {
+            "status": "completed",
+            "seconds": 0.9052144169108942,
+            "exit_code": 0,
+            "production_unchanged": true,
+            "collected": 1,
+            "active_started": true,
+            "active_count": 1,
+            "passed_count": 1,
+            "skipped_count": 0,
+            "xfail_count": 0,
+            "failure_categories": [],
+            "reference_passed": true,
+            "assertion_failure": false,
+            "focal": {
+              "executed": true,
+              "line_total": 8,
+              "line_covered": 4,
+              "line_rate": 0.5,
+              "branch_total": 4,
+              "branch_covered": 2,
+              "branch_rate": 0.5,
+              "executable_lines": [
+                81,
+                83,
+                84,
+                85,
+                86,
+                88,
+                89,
+                90
+              ],
+              "covered_lines": [
+                81,
+                83,
+                85,
+                86
+              ],
+              "branches": {
+                "83": {
+                  "total": 2,
+                  "covered": 1
+                },
+                "85": {
+                  "total": 2,
+                  "covered": 1
+                }
+              }
+            },
+            "raw": {
+              "exit_code": 0,
+              "collected": 1,
+              "reports": [
+                {
+                  "nodeid": "tcc_referencia/test_ref_version_config_parse.py::test_cadeia_que_nao_corresponde_retorna_none",
+                  "when": "setup",
+                  "outcome": "passed",
+                  "exception": null,
+                  "assertion_failure": false,
+                  "expected_failure": false,
+                  "message": null
+                },
+                {
+                  "nodeid": "tcc_referencia/test_ref_version_config_parse.py::test_cadeia_que_nao_corresponde_retorna_none",
+                  "when": "call",
+                  "outcome": "passed",
+                  "exception": null,
+                  "assertion_failure": false,
+                  "expected_failure": false,
+                  "message": null
+                },
+                {
+                  "nodeid": "tcc_referencia/test_ref_version_config_parse.py::test_cadeia_que_nao_corresponde_retorna_none",
+                  "when": "teardown",
+                  "outcome": "passed",
+                  "exception": null,
+                  "assertion_failure": false,
+                  "expected_failure": false,
+                  "message": null
+                }
+              ],
+              "collection_errors": [],
+              "focal": {
+                "executed": true,
+                "line_total": 8,
+                "line_covered": 4,
+                "line_rate": 0.5,
+                "branch_total": 4,
+                "branch_covered": 2,
+                "branch_rate": 0.5,
+                "executable_lines": [
+                  81,
+                  83,
+                  84,
+                  85,
+                  86,
+                  88,
+                  89,
+                  90
+                ],
+                "covered_lines": [
+                  81,
+                  83,
+                  85,
+                  86
+                ],
+                "branches": {
+                  "83": {
+                    "total": 2,
+                    "covered": 1
+                  },
+                  "85": {
+                    "total": 2,
+                    "covered": 1
+                  }
+                }
+              }
+            }
+          },
+          "mutated": {
+            "status": "completed",
+            "seconds": 0.7959895409876481,
+            "exit_code": 1,
+            "production_unchanged": true,
+            "collected": 1,
+            "active_started": true,
+            "active_count": 1,
+            "passed_count": 0,
+            "skipped_count": 0,
+            "xfail_count": 0,
+            "failure_categories": [
+              "execution_error"
+            ],
+            "reference_passed": false,
+            "assertion_failure": false,
+            "focal": {
+              "executed": true,
+              "line_total": 8,
+              "line_covered": 3,
+              "line_rate": 0.375,
+              "branch_total": 4,
+              "branch_covered": 1,
+              "branch_rate": 0.25,
+              "executable_lines": [
+                81,
+                83,
+                84,
+                85,
+                86,
+                88,
+                89,
+                90
+              ],
+              "covered_lines": [
+                81,
+                83,
+                84
+              ],
+              "branches": {
+                "83": {
+                  "total": 2,
+                  "covered": 1
+                },
+                "85": {
+                  "total": 2,
+                  "covered": 0
+                }
+              }
+            },
+            "raw": {
+              "exit_code": 1,
+              "collected": 1,
+              "reports": [
+                {
+                  "nodeid": "tcc_referencia/test_ref_version_config_parse.py::test_cadeia_que_nao_corresponde_retorna_none",
+                  "when": "setup",
+                  "outcome": "passed",
+                  "exception": null,
+                  "assertion_failure": false,
+                  "expected_failure": false,
+                  "message": null
+                },
+                {
+                  "nodeid": "tcc_referencia/test_ref_version_config_parse.py::test_cadeia_que_nao_corresponde_retorna_none",
+                  "when": "call",
+                  "outcome": "failed",
+                  "exception": "BumpVersionError",
+                  "assertion_failure": false,
+                  "expected_failure": false,
+                  "message": "tcc_referencia/test_ref_version_config_parse.py:50: in test_cadeia_que_nao_corresponde_retorna_none\n    assert _config().parse(\"abc\") is None\n           ^^^^^^^^^^^^^^^^^^^^^^\nbumpversion/versioning/version_config.py:84: in parse\n    raise BumpVersionError(f\"Unable to parse version {version_string} using {self.parse_regex.pattern}\")\nE   bumpversion.exceptions.BumpVersionError: Unable to parse version abc using (?P<major>\\d+)\\.(?P<minor>\\d+)\\.(?P<patch>\\d+)"
+                },
+                {
+                  "nodeid": "tcc_referencia/test_ref_version_config_parse.py::test_cadeia_que_nao_corresponde_retorna_none",
+                  "when": "teardown",
+                  "outcome": "passed",
+                  "exception": null,
+                  "assertion_failure": false,
+                  "expected_failure": false,
+                  "message": null
+                }
+              ],
+              "collection_errors": [],
+              "focal": {
+                "executed": true,
+                "line_total": 8,
+                "line_covered": 3,
+                "line_rate": 0.375,
+                "branch_total": 4,
+                "branch_covered": 1,
+                "branch_rate": 0.25,
+                "executable_lines": [
+                  81,
+                  83,
+                  84,
+                  85,
+                  86,
+                  88,
+                  89,
+                  90
+                ],
+                "covered_lines": [
+                  81,
+                  83,
+                  84
+                ],
+                "branches": {
+                  "83": {
+                    "total": 2,
+                    "covered": 1
+                  },
+                  "85": {
+                    "total": 2,
+                    "covered": 0
+                  }
+                }
+              }
+            }
+          }
+        },
+        "detected": true,
+        "status": "detected",
+        "run": {
+          "status": "completed",
+          "seconds": 0.7960316250100732,
+          "exit_code": 1,
+          "production_unchanged": true,
+          "collected": 14,
+          "active_started": true,
+          "active_count": 14,
+          "passed_count": 7,
+          "skipped_count": 0,
+          "xfail_count": 0,
+          "failure_categories": [
+            "execution_error"
+          ],
+          "reference_passed": false,
+          "assertion_failure": false,
+          "focal": {
+            "executed": true,
+            "line_total": 8,
+            "line_covered": 7,
+            "line_rate": 0.875,
+            "branch_total": 4,
+            "branch_covered": 3,
+            "branch_rate": 0.75,
+            "executable_lines": [
+              81,
+              83,
+              84,
+              85,
+              86,
+              88,
+              89,
+              90
+            ],
+            "covered_lines": [
+              81,
+              83,
+              84,
+              85,
+              88,
+              89,
+              90
+            ],
+            "branches": {
+              "83": {
+                "total": 2,
+                "covered": 2
+              },
+              "85": {
+                "total": 2,
+                "covered": 1
+              }
+            }
+          },
+          "raw": {
+            "exit_code": 1,
+            "collected": 14,
+            "reports": [
+              {
+                "nodeid": "::test_parse_returns_configured_version_and_preserves_input[release v01.2.003-beta; next v9.8.7-alpha-False-expected0]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_returns_configured_version_and_preserves_input[release v01.2.003-beta; next v9.8.7-alpha-False-expected0]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_returns_configured_version_and_preserves_input[release v01.2.003-beta; next v9.8.7-alpha-False-expected0]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_returns_configured_version_and_preserves_input[v0.12.4-True-expected1]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_returns_configured_version_and_preserves_input[v0.12.4-True-expected1]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_returns_configured_version_and_preserves_input[v0.12.4-True-expected1]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_returns_configured_version_and_preserves_input[v7.0.5-alpha-True-expected2]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_returns_configured_version_and_preserves_input[v7.0.5-alpha-True-expected2]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_returns_configured_version_and_preserves_input[v7.0.5-alpha-True-expected2]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_failure_returns_none_or_raises_according_to_flag[None]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_failure_returns_none_or_raises_according_to_flag[None]",
+                "when": "call",
+                "outcome": "failed",
+                "exception": "BumpVersionError",
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": "/submission/test_generated.py:64: in test_parse_failure_returns_none_or_raises_according_to_flag\n    assert release_config.parse(text) is None\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^\nbumpversion/versioning/version_config.py:84: in parse\n    raise BumpVersionError(f\"Unable to parse version {version_string} using {self.parse_regex.pattern}\")\nE   bumpversion.exceptions.BumpVersionError: Unable to parse version None using \nE       v(?P<major>[0-9]+) \\. (?P<minor>[0-9]+) \\. (?P<patch>[0-9]+)\nE       # The release stage is optional.\nE       (?: - (?P<stage>alpha|beta|final) )?"
+              },
+              {
+                "nodeid": "::test_parse_failure_returns_none_or_raises_according_to_flag[None]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_failure_returns_none_or_raises_according_to_flag[]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_failure_returns_none_or_raises_according_to_flag[]",
+                "when": "call",
+                "outcome": "failed",
+                "exception": "BumpVersionError",
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": "/submission/test_generated.py:64: in test_parse_failure_returns_none_or_raises_according_to_flag\n    assert release_config.parse(text) is None\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^\nbumpversion/versioning/version_config.py:84: in parse\n    raise BumpVersionError(f\"Unable to parse version {version_string} using {self.parse_regex.pattern}\")\nE   bumpversion.exceptions.BumpVersionError: Unable to parse version  using \nE       v(?P<major>[0-9]+) \\. (?P<minor>[0-9]+) \\. (?P<patch>[0-9]+)\nE       # The release stage is optional.\nE       (?: - (?P<stage>alpha|beta|final) )?"
+              },
+              {
+                "nodeid": "::test_parse_failure_returns_none_or_raises_according_to_flag[]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_failure_returns_none_or_raises_according_to_flag[not a version]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_failure_returns_none_or_raises_according_to_flag[not a version]",
+                "when": "call",
+                "outcome": "failed",
+                "exception": "BumpVersionError",
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": "/submission/test_generated.py:64: in test_parse_failure_returns_none_or_raises_according_to_flag\n    assert release_config.parse(text) is None\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^\nbumpversion/versioning/version_config.py:84: in parse\n    raise BumpVersionError(f\"Unable to parse version {version_string} using {self.parse_regex.pattern}\")\nE   bumpversion.exceptions.BumpVersionError: Unable to parse version not a version using \nE       v(?P<major>[0-9]+) \\. (?P<minor>[0-9]+) \\. (?P<patch>[0-9]+)\nE       # The release stage is optional.\nE       (?: - (?P<stage>alpha|beta|final) )?"
+              },
+              {
+                "nodeid": "::test_parse_failure_returns_none_or_raises_according_to_flag[not a version]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_failure_returns_none_or_raises_according_to_flag[v1.2]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_failure_returns_none_or_raises_according_to_flag[v1.2]",
+                "when": "call",
+                "outcome": "failed",
+                "exception": "BumpVersionError",
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": "/submission/test_generated.py:64: in test_parse_failure_returns_none_or_raises_according_to_flag\n    assert release_config.parse(text) is None\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^\nbumpversion/versioning/version_config.py:84: in parse\n    raise BumpVersionError(f\"Unable to parse version {version_string} using {self.parse_regex.pattern}\")\nE   bumpversion.exceptions.BumpVersionError: Unable to parse version v1.2 using \nE       v(?P<major>[0-9]+) \\. (?P<minor>[0-9]+) \\. (?P<patch>[0-9]+)\nE       # The release stage is optional.\nE       (?: - (?P<stage>alpha|beta|final) )?"
+              },
+              {
+                "nodeid": "::test_parse_failure_returns_none_or_raises_according_to_flag[v1.2]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_without_arguments_treats_input_as_missing",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_without_arguments_treats_input_as_missing",
+                "when": "call",
+                "outcome": "failed",
+                "exception": "BumpVersionError",
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": "/submission/test_generated.py:74: in test_parse_without_arguments_treats_input_as_missing\n    assert release_config.parse() is None\n           ^^^^^^^^^^^^^^^^^^^^^^\nbumpversion/versioning/version_config.py:84: in parse\n    raise BumpVersionError(f\"Unable to parse version {version_string} using {self.parse_regex.pattern}\")\nE   bumpversion.exceptions.BumpVersionError: Unable to parse version None using \nE       v(?P<major>[0-9]+) \\. (?P<minor>[0-9]+) \\. (?P<patch>[0-9]+)\nE       # The release stage is optional.\nE       (?: - (?P<stage>alpha|beta|final) )?"
+              },
+              {
+                "nodeid": "::test_parse_without_arguments_treats_input_as_missing",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_requires_named_captures[\\\\A([0-9]+)\\\\Z]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_requires_named_captures[\\\\A([0-9]+)\\\\Z]",
+                "when": "call",
+                "outcome": "failed",
+                "exception": "BumpVersionError",
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": "/submission/test_generated.py:83: in test_parse_requires_named_captures\n    assert config.parse(\"42\") is None\n           ^^^^^^^^^^^^^^^^^^\nbumpversion/versioning/version_config.py:84: in parse\n    raise BumpVersionError(f\"Unable to parse version {version_string} using {self.parse_regex.pattern}\")\nE   bumpversion.exceptions.BumpVersionError: Unable to parse version 42 using \\A([0-9]+)\\Z"
+              },
+              {
+                "nodeid": "::test_parse_requires_named_captures[\\\\A([0-9]+)\\\\Z]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_requires_named_captures[]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_requires_named_captures[]",
+                "when": "call",
+                "outcome": "failed",
+                "exception": "BumpVersionError",
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": "/submission/test_generated.py:83: in test_parse_requires_named_captures\n    assert config.parse(\"42\") is None\n           ^^^^^^^^^^^^^^^^^^\nbumpversion/versioning/version_config.py:84: in parse\n    raise BumpVersionError(f\"Unable to parse version {version_string} using {self.parse_regex.pattern}\")\nE   bumpversion.exceptions.BumpVersionError: Unable to parse version 42 using"
+              },
+              {
+                "nodeid": "::test_parse_requires_named_captures[]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_applies_spec_to_empty_and_missing_captures",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_applies_spec_to_empty_and_missing_captures",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_applies_spec_to_empty_and_missing_captures",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_creates_independent_results",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_creates_independent_results",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_creates_independent_results",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_propagates_component_construction_errors[False]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_propagates_component_construction_errors[False]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_propagates_component_construction_errors[False]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_propagates_component_construction_errors[True]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_propagates_component_construction_errors[True]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_propagates_component_construction_errors[True]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              }
+            ],
+            "collection_errors": [],
+            "focal": {
+              "executed": true,
+              "line_total": 8,
+              "line_covered": 7,
+              "line_rate": 0.875,
+              "branch_total": 4,
+              "branch_covered": 3,
+              "branch_rate": 0.75,
+              "executable_lines": [
+                81,
+                83,
+                84,
+                85,
+                86,
+                88,
+                89,
+                90
+              ],
+              "covered_lines": [
+                81,
+                83,
+                84,
+                85,
+                88,
+                89,
+                90
+              ],
+              "branches": {
+                "83": {
+                  "total": 2,
+                  "covered": 2
+                },
+                "85": {
+                  "total": 2,
+                  "covered": 1
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "id": "BMV-01-sem-original",
+        "eligible": true,
+        "validation": {
+          "id": "BMV-01-sem-original",
+          "eligible": true,
+          "project_sha256": "ed0530cb8db810554ce8a8d8bc5d2ac9f33c732970f9186134c05a46b3d0036c",
+          "definition_sha256": "35b18c0dc16f5a53908bd226bed81cde28d3531b448e09e4d7bdc91bc7a051bf",
+          "reason": null,
+          "baseline": {
+            "status": "completed",
+            "seconds": 0.737854165956378,
+            "exit_code": 0,
+            "production_unchanged": true,
+            "collected": 1,
+            "active_started": true,
+            "active_count": 1,
+            "passed_count": 1,
+            "skipped_count": 0,
+            "xfail_count": 0,
+            "failure_categories": [],
+            "reference_passed": true,
+            "assertion_failure": false,
+            "focal": {
+              "executed": true,
+              "line_total": 8,
+              "line_covered": 6,
+              "line_rate": 0.75,
+              "branch_total": 4,
+              "branch_covered": 2,
+              "branch_rate": 0.5,
+              "executable_lines": [
+                81,
+                83,
+                84,
+                85,
+                86,
+                88,
+                89,
+                90
+              ],
+              "covered_lines": [
+                81,
+                83,
+                85,
+                88,
+                89,
+                90
+              ],
+              "branches": {
+                "83": {
+                  "total": 2,
+                  "covered": 1
+                },
+                "85": {
+                  "total": 2,
+                  "covered": 1
+                }
+              }
+            },
+            "raw": {
+              "exit_code": 0,
+              "collected": 1,
+              "reports": [
+                {
+                  "nodeid": "tcc_referencia/test_ref_version_config_parse.py::test_guarda_a_cadeia_original",
+                  "when": "setup",
+                  "outcome": "passed",
+                  "exception": null,
+                  "assertion_failure": false,
+                  "expected_failure": false,
+                  "message": null
+                },
+                {
+                  "nodeid": "tcc_referencia/test_ref_version_config_parse.py::test_guarda_a_cadeia_original",
+                  "when": "call",
+                  "outcome": "passed",
+                  "exception": null,
+                  "assertion_failure": false,
+                  "expected_failure": false,
+                  "message": null
+                },
+                {
+                  "nodeid": "tcc_referencia/test_ref_version_config_parse.py::test_guarda_a_cadeia_original",
+                  "when": "teardown",
+                  "outcome": "passed",
+                  "exception": null,
+                  "assertion_failure": false,
+                  "expected_failure": false,
+                  "message": null
+                }
+              ],
+              "collection_errors": [],
+              "focal": {
+                "executed": true,
+                "line_total": 8,
+                "line_covered": 6,
+                "line_rate": 0.75,
+                "branch_total": 4,
+                "branch_covered": 2,
+                "branch_rate": 0.5,
+                "executable_lines": [
+                  81,
+                  83,
+                  84,
+                  85,
+                  86,
+                  88,
+                  89,
+                  90
+                ],
+                "covered_lines": [
+                  81,
+                  83,
+                  85,
+                  88,
+                  89,
+                  90
+                ],
+                "branches": {
+                  "83": {
+                    "total": 2,
+                    "covered": 1
+                  },
+                  "85": {
+                    "total": 2,
+                    "covered": 1
+                  }
+                }
+              }
+            }
+          },
+          "mutated": {
+            "status": "completed",
+            "seconds": 0.7091185000026599,
+            "exit_code": 1,
+            "production_unchanged": true,
+            "collected": 1,
+            "active_started": true,
+            "active_count": 1,
+            "passed_count": 0,
+            "skipped_count": 0,
+            "xfail_count": 0,
+            "failure_categories": [
+              "assertion_failure"
+            ],
+            "reference_passed": false,
+            "assertion_failure": true,
+            "focal": {
+              "executed": true,
+              "line_total": 8,
+              "line_covered": 6,
+              "line_rate": 0.75,
+              "branch_total": 4,
+              "branch_covered": 2,
+              "branch_rate": 0.5,
+              "executable_lines": [
+                81,
+                83,
+                84,
+                85,
+                86,
+                88,
+                89,
+                90
+              ],
+              "covered_lines": [
+                81,
+                83,
+                85,
+                88,
+                89,
+                90
+              ],
+              "branches": {
+                "83": {
+                  "total": 2,
+                  "covered": 1
+                },
+                "85": {
+                  "total": 2,
+                  "covered": 1
+                }
+              }
+            },
+            "raw": {
+              "exit_code": 1,
+              "collected": 1,
+              "reports": [
+                {
+                  "nodeid": "tcc_referencia/test_ref_version_config_parse.py::test_guarda_a_cadeia_original",
+                  "when": "setup",
+                  "outcome": "passed",
+                  "exception": null,
+                  "assertion_failure": false,
+                  "expected_failure": false,
+                  "message": null
+                },
+                {
+                  "nodeid": "tcc_referencia/test_ref_version_config_parse.py::test_guarda_a_cadeia_original",
+                  "when": "call",
+                  "outcome": "failed",
+                  "exception": "AssertionError",
+                  "assertion_failure": true,
+                  "expected_failure": false,
+                  "message": "tcc_referencia/test_ref_version_config_parse.py:32: in test_guarda_a_cadeia_original\n    assert _config().parse(\"1.2.3\").original == \"1.2.3\"\nE   AssertionError: assert None == '1.2.3'\nE    +  where None = <bumpversion.Version:major=1, minor=2, patch=3>.original\nE    +    where <bumpversion.Version:major=1, minor=2, patch=3> = parse('1.2.3')\nE    +      where parse = <bumpversion.VersionConfig:(?P<major>\\d+)\\.(?P<minor>\\d+)\\.(?P<patch>\\d+):('{major}.{minor}.{patch}',)>.parse\nE    +        where <bumpversion.VersionConfig:(?P<major>\\d+)\\.(?P<minor>\\d+)\\.(?P<patch>\\d+):('{major}.{minor}.{patch}',)> = _config()"
+                },
+                {
+                  "nodeid": "tcc_referencia/test_ref_version_config_parse.py::test_guarda_a_cadeia_original",
+                  "when": "teardown",
+                  "outcome": "passed",
+                  "exception": null,
+                  "assertion_failure": false,
+                  "expected_failure": false,
+                  "message": null
+                }
+              ],
+              "collection_errors": [],
+              "focal": {
+                "executed": true,
+                "line_total": 8,
+                "line_covered": 6,
+                "line_rate": 0.75,
+                "branch_total": 4,
+                "branch_covered": 2,
+                "branch_rate": 0.5,
+                "executable_lines": [
+                  81,
+                  83,
+                  84,
+                  85,
+                  86,
+                  88,
+                  89,
+                  90
+                ],
+                "covered_lines": [
+                  81,
+                  83,
+                  85,
+                  88,
+                  89,
+                  90
+                ],
+                "branches": {
+                  "83": {
+                    "total": 2,
+                    "covered": 1
+                  },
+                  "85": {
+                    "total": 2,
+                    "covered": 1
+                  }
+                }
+              }
+            }
+          }
+        },
+        "detected": true,
+        "status": "detected",
+        "run": {
+          "status": "completed",
+          "seconds": 0.7800890830112621,
+          "exit_code": 1,
+          "production_unchanged": true,
+          "collected": 14,
+          "active_started": true,
+          "active_count": 14,
+          "passed_count": 9,
+          "skipped_count": 0,
+          "xfail_count": 0,
+          "failure_categories": [
+            "assertion_failure"
+          ],
+          "reference_passed": false,
+          "assertion_failure": true,
+          "focal": {
+            "executed": true,
+            "line_total": 8,
+            "line_covered": 8,
+            "line_rate": 1.0,
+            "branch_total": 4,
+            "branch_covered": 4,
+            "branch_rate": 1.0,
+            "executable_lines": [
+              81,
+              83,
+              84,
+              85,
+              86,
+              88,
+              89,
+              90
+            ],
+            "covered_lines": [
+              81,
+              83,
+              84,
+              85,
+              86,
+              88,
+              89,
+              90
+            ],
+            "branches": {
+              "83": {
+                "total": 2,
+                "covered": 2
+              },
+              "85": {
+                "total": 2,
+                "covered": 2
+              }
+            }
+          },
+          "raw": {
+            "exit_code": 1,
+            "collected": 14,
+            "reports": [
+              {
+                "nodeid": "::test_parse_returns_configured_version_and_preserves_input[release v01.2.003-beta; next v9.8.7-alpha-False-expected0]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_returns_configured_version_and_preserves_input[release v01.2.003-beta; next v9.8.7-alpha-False-expected0]",
+                "when": "call",
+                "outcome": "failed",
+                "exception": "AssertionError",
+                "assertion_failure": true,
+                "expected_failure": false,
+                "message": "/submission/test_generated.py:55: in test_parse_returns_configured_version_and_preserves_input\n    assert version.original == text\nE   AssertionError: assert None == 'release v01.2.003-beta; next v9.8.7-alpha'\nE    +  where None = <bumpversion.Version:major=1, minor=2, patch=3, stage=beta>.original"
+              },
+              {
+                "nodeid": "::test_parse_returns_configured_version_and_preserves_input[release v01.2.003-beta; next v9.8.7-alpha-False-expected0]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_returns_configured_version_and_preserves_input[v0.12.4-True-expected1]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_returns_configured_version_and_preserves_input[v0.12.4-True-expected1]",
+                "when": "call",
+                "outcome": "failed",
+                "exception": "AssertionError",
+                "assertion_failure": true,
+                "expected_failure": false,
+                "message": "/submission/test_generated.py:55: in test_parse_returns_configured_version_and_preserves_input\n    assert version.original == text\nE   AssertionError: assert None == 'v0.12.4'\nE    +  where None = <bumpversion.Version:major=0, minor=12, patch=4, stage=final>.original"
+              },
+              {
+                "nodeid": "::test_parse_returns_configured_version_and_preserves_input[v0.12.4-True-expected1]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_returns_configured_version_and_preserves_input[v7.0.5-alpha-True-expected2]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_returns_configured_version_and_preserves_input[v7.0.5-alpha-True-expected2]",
+                "when": "call",
+                "outcome": "failed",
+                "exception": "AssertionError",
+                "assertion_failure": true,
+                "expected_failure": false,
+                "message": "/submission/test_generated.py:55: in test_parse_returns_configured_version_and_preserves_input\n    assert version.original == text\nE   AssertionError: assert None == 'v7.0.5-alpha'\nE    +  where None = <bumpversion.Version:major=7, minor=0, patch=5, stage=alpha>.original"
+              },
+              {
+                "nodeid": "::test_parse_returns_configured_version_and_preserves_input[v7.0.5-alpha-True-expected2]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_failure_returns_none_or_raises_according_to_flag[None]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_failure_returns_none_or_raises_according_to_flag[None]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_failure_returns_none_or_raises_according_to_flag[None]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_failure_returns_none_or_raises_according_to_flag[]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_failure_returns_none_or_raises_according_to_flag[]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_failure_returns_none_or_raises_according_to_flag[]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_failure_returns_none_or_raises_according_to_flag[not a version]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_failure_returns_none_or_raises_according_to_flag[not a version]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_failure_returns_none_or_raises_according_to_flag[not a version]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_failure_returns_none_or_raises_according_to_flag[v1.2]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_failure_returns_none_or_raises_according_to_flag[v1.2]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_failure_returns_none_or_raises_according_to_flag[v1.2]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_without_arguments_treats_input_as_missing",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_without_arguments_treats_input_as_missing",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_without_arguments_treats_input_as_missing",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_requires_named_captures[\\\\A([0-9]+)\\\\Z]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_requires_named_captures[\\\\A([0-9]+)\\\\Z]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_requires_named_captures[\\\\A([0-9]+)\\\\Z]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_requires_named_captures[]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_requires_named_captures[]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_requires_named_captures[]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_applies_spec_to_empty_and_missing_captures",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_applies_spec_to_empty_and_missing_captures",
+                "when": "call",
+                "outcome": "failed",
+                "exception": "AssertionError",
+                "assertion_failure": true,
+                "expected_failure": false,
+                "message": "/submission/test_generated.py:107: in test_parse_applies_spec_to_empty_and_missing_captures\n    assert without_decoration.original == \"v\"\nE   AssertionError: assert None == 'v'\nE    +  where None = <bumpversion.Version:build=3, major=7>.original"
+              },
+              {
+                "nodeid": "::test_parse_applies_spec_to_empty_and_missing_captures",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_creates_independent_results",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_creates_independent_results",
+                "when": "call",
+                "outcome": "failed",
+                "exception": "AssertionError",
+                "assertion_failure": true,
+                "expected_failure": false,
+                "message": "/submission/test_generated.py:118: in test_parse_creates_independent_results\n    assert first.original == second.original == \"v2.4.8-beta\"\nE   AssertionError: assert None == 'v2.4.8-beta'\nE    +  where None = <bumpversion.Version:major=2, minor=4, patch=8, stage=beta>.original"
+              },
+              {
+                "nodeid": "::test_parse_creates_independent_results",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_propagates_component_construction_errors[False]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_propagates_component_construction_errors[False]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_propagates_component_construction_errors[False]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_propagates_component_construction_errors[True]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_propagates_component_construction_errors[True]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_propagates_component_construction_errors[True]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              }
+            ],
+            "collection_errors": [],
+            "focal": {
+              "executed": true,
+              "line_total": 8,
+              "line_covered": 8,
+              "line_rate": 1.0,
+              "branch_total": 4,
+              "branch_covered": 4,
+              "branch_rate": 1.0,
+              "executable_lines": [
+                81,
+                83,
+                84,
+                85,
+                86,
+                88,
+                89,
+                90
+              ],
+              "covered_lines": [
+                81,
+                83,
+                84,
+                85,
+                86,
+                88,
+                89,
+                90
+              ],
+              "branches": {
+                "83": {
+                  "total": 2,
+                  "covered": 2
+                },
+                "85": {
+                  "total": 2,
+                  "covered": 2
+                }
+              }
+            }
+          }
+        }
+      }
+    ],
+    "detection_rate": 1.0,
+    "review": {
+      "behavioral_assertions": true,
+      "no_target_mock": true,
+      "no_production_changes": true,
+      "defect_attribution": {
+        "BMV-01-erro-invertido": true,
+        "BMV-01-sem-original": true
+      },
+      "dependency_doubles": false,
+      "reviewer": "Gabriel Lopes Pereira",
+      "created_at": "2026-11-22T05:05:31.637600+00:00"
+    },
+    "backend": "docker",
+    "submission_sha256": "d9ec3608ef6d191a8d8b9b5279099f9389847a6a5c61f09e61e5d3e51da0b3b3",
+    "status": "completed",
+    "seconds": 0.6836484159575775,
+    "active_count": 14,
+    "passed_count": 14,
+    "skipped_count": 0,
+    "xfail_count": 0,
+    "failure_categories": [],
+    "original": {
+      "status": "completed",
+      "seconds": 0.6836484159575775,
+      "exit_code": 0,
+      "production_unchanged": true,
+      "collected": 14,
+      "active_started": true,
+      "active_count": 14,
+      "passed_count": 14,
+      "skipped_count": 0,
+      "xfail_count": 0,
+      "failure_categories": [],
+      "reference_passed": true,
+      "assertion_failure": false,
+      "focal": {
+        "executed": true,
+        "line_total": 8,
+        "line_covered": 8,
+        "line_rate": 1.0,
+        "branch_total": 4,
+        "branch_covered": 4,
+        "branch_rate": 1.0,
+        "executable_lines": [
+          81,
+          83,
+          84,
+          85,
+          86,
+          88,
+          89,
+          90
+        ],
+        "covered_lines": [
+          81,
+          83,
+          84,
+          85,
+          86,
+          88,
+          89,
+          90
+        ],
+        "branches": {
+          "83": {
+            "total": 2,
+            "covered": 2
+          },
+          "85": {
+            "total": 2,
+            "covered": 2
+          }
+        }
+      },
+      "raw": {
+        "exit_code": 0,
+        "collected": 14,
+        "reports": [
+          {
+            "nodeid": "::test_parse_returns_configured_version_and_preserves_input[release v01.2.003-beta; next v9.8.7-alpha-False-expected0]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_returns_configured_version_and_preserves_input[release v01.2.003-beta; next v9.8.7-alpha-False-expected0]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_returns_configured_version_and_preserves_input[release v01.2.003-beta; next v9.8.7-alpha-False-expected0]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_returns_configured_version_and_preserves_input[v0.12.4-True-expected1]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_returns_configured_version_and_preserves_input[v0.12.4-True-expected1]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_returns_configured_version_and_preserves_input[v0.12.4-True-expected1]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_returns_configured_version_and_preserves_input[v7.0.5-alpha-True-expected2]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_returns_configured_version_and_preserves_input[v7.0.5-alpha-True-expected2]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_returns_configured_version_and_preserves_input[v7.0.5-alpha-True-expected2]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_failure_returns_none_or_raises_according_to_flag[None]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_failure_returns_none_or_raises_according_to_flag[None]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_failure_returns_none_or_raises_according_to_flag[None]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_failure_returns_none_or_raises_according_to_flag[]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_failure_returns_none_or_raises_according_to_flag[]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_failure_returns_none_or_raises_according_to_flag[]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_failure_returns_none_or_raises_according_to_flag[not a version]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_failure_returns_none_or_raises_according_to_flag[not a version]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_failure_returns_none_or_raises_according_to_flag[not a version]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_failure_returns_none_or_raises_according_to_flag[v1.2]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_failure_returns_none_or_raises_according_to_flag[v1.2]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_failure_returns_none_or_raises_according_to_flag[v1.2]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_without_arguments_treats_input_as_missing",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_without_arguments_treats_input_as_missing",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_without_arguments_treats_input_as_missing",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_requires_named_captures[\\\\A([0-9]+)\\\\Z]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_requires_named_captures[\\\\A([0-9]+)\\\\Z]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_requires_named_captures[\\\\A([0-9]+)\\\\Z]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_requires_named_captures[]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_requires_named_captures[]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_requires_named_captures[]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_applies_spec_to_empty_and_missing_captures",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_applies_spec_to_empty_and_missing_captures",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_applies_spec_to_empty_and_missing_captures",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_creates_independent_results",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_creates_independent_results",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_creates_independent_results",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_propagates_component_construction_errors[False]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_propagates_component_construction_errors[False]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_propagates_component_construction_errors[False]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_propagates_component_construction_errors[True]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_propagates_component_construction_errors[True]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_propagates_component_construction_errors[True]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          }
+        ],
+        "collection_errors": [],
+        "focal": {
+          "executed": true,
+          "line_total": 8,
+          "line_covered": 8,
+          "line_rate": 1.0,
+          "branch_total": 4,
+          "branch_covered": 4,
+          "branch_rate": 1.0,
+          "executable_lines": [
+            81,
+            83,
+            84,
+            85,
+            86,
+            88,
+            89,
+            90
+          ],
+          "covered_lines": [
+            81,
+            83,
+            84,
+            85,
+            86,
+            88,
+            89,
+            90
+          ],
+          "branches": {
+            "83": {
+              "total": 2,
+              "covered": 2
+            },
+            "85": {
+              "total": 2,
+              "covered": 2
+            }
+          }
+        }
+      }
+    },
+    "defects_eligible": 2,
+    "defects_measured": 2,
+    "defects_detected": 2,
+    "detection_complete": true,
+    "total_seconds": 5.576459749951027
+  }
+}

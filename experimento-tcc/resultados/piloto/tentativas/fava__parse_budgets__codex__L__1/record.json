@@ -1,0 +1,1420 @@
+{
+  "schema_version": 1,
+  "order": 6,
+  "project": "fava",
+  "target": "parse_budgets",
+  "agent": "codex",
+  "condition": "L",
+  "repetition": 1,
+  "id": "fava__parse_budgets__codex__L__1",
+  "phase": "pilot",
+  "lock_hash": "2b51427488191c72d3dc09fe1d643427e7f0eade28c46106ef7fb3cce021d33a",
+  "started_at": "2026-11-22T02:57:35.823995+00:00",
+  "status": "finished",
+  "generation": {
+    "status": "completed",
+    "input_tokens": 30614,
+    "output_tokens": 2387,
+    "seconds": 57.07961391599383,
+    "version": "codex-cli 0.170.0",
+    "tool_log": [
+      {
+        "index": 1,
+        "tool": "search",
+        "arguments": {
+          "query": "INTERVALS =",
+          "path": "src/fava/util/date.py"
+        },
+        "delivered_chars": 44,
+        "chars_before": 5878,
+        "status": "ok",
+        "chars_after": 5922
+      },
+      {
+        "index": 2,
+        "tool": "search",
+        "arguments": {
+          "query": "INTERVALS",
+          "path": "src/fava/util/date.py"
+        },
+        "delivered_chars": 44,
+        "chars_before": 5922,
+        "status": "ok",
+        "chars_after": 5966
+      },
+      {
+        "index": 3,
+        "tool": "list_files",
+        "arguments": {},
+        "delivered_chars": 38,
+        "chars_before": 5966,
+        "status": "ok",
+        "chars_after": 6004
+      }
+    ],
+    "usage": {
+      "input_tokens": 30614,
+      "cached_input_tokens": 14848,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 2387,
+      "reasoning_output_tokens": 764
+    },
+    "details": [],
+    "capabilities": {
+      "tool_surface_verified": true,
+      "tools": [
+        "functions.list_mcp_resource_templates",
+        "functions.list_mcp_resources",
+        "functions.read_mcp_resource",
+        "mcp__contextlab.list_files",
+        "mcp__contextlab.read_file",
+        "mcp__contextlab.search"
+      ],
+      "catalog_sha256": "a61b50641627a2941fc8be4db823d1fbbfa4ae628add4d7ec443dbab559140fb",
+      "probe": "offline-localhost",
+      "model": "gpt-6.2-sol",
+      "command_rejected": true,
+      "outside_packet_rejected": true,
+      "allowed_read_verified": true
+    },
+    "returncode": 0,
+    "context_stats": {
+      "chars_used": 6004,
+      "initial_chars": 5878,
+      "response_chars": 126,
+      "remaining_chars": 23996,
+      "tool_calls": 3,
+      "max_calls": 20,
+      "budget": 30000
+    },
+    "session_id": "01a20130-1248-7d30-854f-77fd2b01be08"
+  },
+  "evaluation": {
+    "target_id": "parse_budgets",
+    "test_kind": "unit",
+    "received": true,
+    "syntax_ok": true,
+    "collected": 16,
+    "active_started": true,
+    "reference_passed": true,
+    "approval": "pending_review",
+    "approved": false,
+    "coverage_raw": {
+      "executed": true,
+      "line_total": 13,
+      "line_covered": 13,
+      "line_rate": 1.0,
+      "branch_total": 4,
+      "branch_covered": 4,
+      "branch_rate": 1.0,
+      "executable_lines": [
+        100,
+        101,
+        103,
+        104,
+        105,
+        106,
+        107,
+        114,
+        115,
+        122,
+        123,
+        124,
+        128
+      ],
+      "covered_lines": [
+        100,
+        101,
+        103,
+        104,
+        105,
+        106,
+        107,
+        114,
+        115,
+        122,
+        123,
+        124,
+        128
+      ],
+      "branches": {
+        "106": {
+          "total": 2,
+          "covered": 2
+        },
+        "103": {
+          "total": 2,
+          "covered": 2
+        }
+      }
+    },
+    "coverage_main": null,
+    "defects": [],
+    "detection_rate": null,
+    "review": null,
+    "backend": "docker",
+    "submission_sha256": "fa531d9b148c5f7b52f9e14739f141a51836f2a1943c38ce6dfbba16f4ed1401",
+    "status": "completed",
+    "seconds": 0.8413466250058264,
+    "active_count": 16,
+    "passed_count": 16,
+    "skipped_count": 0,
+    "xfail_count": 0,
+    "failure_categories": [],
+    "original": {
+      "status": "completed",
+      "seconds": 0.8413466250058264,
+      "exit_code": 0,
+      "production_unchanged": true,
+      "collected": 16,
+      "active_started": true,
+      "active_count": 16,
+      "passed_count": 16,
+      "skipped_count": 0,
+      "xfail_count": 0,
+      "failure_categories": [],
+      "reference_passed": true,
+      "assertion_failure": false,
+      "focal": {
+        "executed": true,
+        "line_total": 13,
+        "line_covered": 13,
+        "line_rate": 1.0,
+        "branch_total": 4,
+        "branch_covered": 4,
+        "branch_rate": 1.0,
+        "executable_lines": [
+          100,
+          101,
+          103,
+          104,
+          105,
+          106,
+          107,
+          114,
+          115,
+          122,
+          123,
+          124,
+          128
+        ],
+        "covered_lines": [
+          100,
+          101,
+          103,
+          104,
+          105,
+          106,
+          107,
+          114,
+          115,
+          122,
+          123,
+          124,
+          128
+        ],
+        "branches": {
+          "106": {
+            "total": 2,
+            "covered": 2
+          },
+          "103": {
+            "total": 2,
+            "covered": 2
+          }
+        }
+      },
+      "raw": {
+        "exit_code": 0,
+        "collected": 16,
+        "reports": [
+          {
+            "nodeid": "::test_no_budget_directives_produce_no_budgets_or_errors[empty]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_no_budget_directives_produce_no_budgets_or_errors[empty]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_no_budget_directives_produce_no_budgets_or_errors[empty]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_no_budget_directives_produce_no_budgets_or_errors[unrelated-custom-directives]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_no_budget_directives_produce_no_budgets_or_errors[unrelated-custom-directives]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_no_budget_directives_produce_no_budgets_or_errors[unrelated-custom-directives]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parses_each_supported_interval_case_insensitively[daily]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parses_each_supported_interval_case_insensitively[daily]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parses_each_supported_interval_case_insensitively[daily]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parses_each_supported_interval_case_insensitively[day]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parses_each_supported_interval_case_insensitively[day]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parses_each_supported_interval_case_insensitively[day]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parses_each_supported_interval_case_insensitively[month]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parses_each_supported_interval_case_insensitively[month]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parses_each_supported_interval_case_insensitively[month]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parses_each_supported_interval_case_insensitively[monthly]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parses_each_supported_interval_case_insensitively[monthly]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parses_each_supported_interval_case_insensitively[monthly]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parses_each_supported_interval_case_insensitively[quarter]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parses_each_supported_interval_case_insensitively[quarter]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parses_each_supported_interval_case_insensitively[quarter]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parses_each_supported_interval_case_insensitively[quarterly]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parses_each_supported_interval_case_insensitively[quarterly]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parses_each_supported_interval_case_insensitively[quarterly]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parses_each_supported_interval_case_insensitively[week]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parses_each_supported_interval_case_insensitively[week]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parses_each_supported_interval_case_insensitively[week]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parses_each_supported_interval_case_insensitively[weekly]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parses_each_supported_interval_case_insensitively[weekly]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parses_each_supported_interval_case_insensitively[weekly]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parses_each_supported_interval_case_insensitively[year]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parses_each_supported_interval_case_insensitively[year]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parses_each_supported_interval_case_insensitively[year]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parses_each_supported_interval_case_insensitively[yearly]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parses_each_supported_interval_case_insensitively[yearly]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parses_each_supported_interval_case_insensitively[yearly]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_converts_interval_value_to_text_before_normalizing_case",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_converts_interval_value_to_text_before_normalizing_case",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_converts_interval_value_to_text_before_normalizing_case",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_groups_budgets_by_account_and_preserves_order_and_duplicates",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_groups_budgets_by_account_and_preserves_order_and_duplicates",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_groups_budgets_by_account_and_preserves_order_and_duplicates",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_reports_errors_in_input_order_and_keeps_parsing_valid_entries",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_reports_errors_in_input_order_and_keeps_parsing_valid_entries",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_reports_errors_in_input_order_and_keeps_parsing_valid_entries",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_attribute_error_from_a_non_amount_value_propagates",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_attribute_error_from_a_non_amount_value_propagates",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_attribute_error_from_a_non_amount_value_propagates",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          }
+        ],
+        "collection_errors": [],
+        "focal": {
+          "executed": true,
+          "line_total": 13,
+          "line_covered": 13,
+          "line_rate": 1.0,
+          "branch_total": 4,
+          "branch_covered": 4,
+          "branch_rate": 1.0,
+          "executable_lines": [
+            100,
+            101,
+            103,
+            104,
+            105,
+            106,
+            107,
+            114,
+            115,
+            122,
+            123,
+            124,
+            128
+          ],
+          "covered_lines": [
+            100,
+            101,
+            103,
+            104,
+            105,
+            106,
+            107,
+            114,
+            115,
+            122,
+            123,
+            124,
+            128
+          ],
+          "branches": {
+            "106": {
+              "total": 2,
+              "covered": 2
+            },
+            "103": {
+              "total": 2,
+              "covered": 2
+            }
+          }
+        }
+      }
+    },
+    "defects_eligible": null,
+    "defects_measured": null,
+    "defects_detected": null,
+    "detection_complete": null,
+    "total_seconds": 0.8763682499993593
+  },
+  "preparation_seconds": 0.05666987498989329,
+  "submission_sha256": "fa531d9b148c5f7b52f9e14739f141a51836f2a1943c38ce6dfbba16f4ed1401",
+  "finished_at": "2026-11-22T02:58:33.842490+00:00",
+  "review": {
+    "behavioral_assertions": true,
+    "no_target_mock": true,
+    "no_production_changes": true,
+    "defect_attribution": {},
+    "dependency_doubles": false,
+    "reviewer": "Gabriel Lopes Pereira",
+    "created_at": "2026-11-22T03:08:03.260819+00:00"
+  },
+  "reviewed_evaluation": {
+    "target_id": "parse_budgets",
+    "test_kind": "unit",
+    "received": true,
+    "syntax_ok": true,
+    "collected": 16,
+    "active_started": true,
+    "reference_passed": true,
+    "approval": "approved",
+    "approved": true,
+    "coverage_raw": {
+      "executed": true,
+      "line_total": 13,
+      "line_covered": 13,
+      "line_rate": 1.0,
+      "branch_total": 4,
+      "branch_covered": 4,
+      "branch_rate": 1.0,
+      "executable_lines": [
+        100,
+        101,
+        103,
+        104,
+        105,
+        106,
+        107,
+        114,
+        115,
+        122,
+        123,
+        124,
+        128
+      ],
+      "covered_lines": [
+        100,
+        101,
+        103,
+        104,
+        105,
+        106,
+        107,
+        114,
+        115,
+        122,
+        123,
+        124,
+        128
+      ],
+      "branches": {
+        "106": {
+          "total": 2,
+          "covered": 2
+        },
+        "103": {
+          "total": 2,
+          "covered": 2
+        }
+      }
+    },
+    "coverage_main": {
+      "executed": true,
+      "line_total": 13,
+      "line_covered": 13,
+      "line_rate": 1.0,
+      "branch_total": 4,
+      "branch_covered": 4,
+      "branch_rate": 1.0,
+      "executable_lines": [
+        100,
+        101,
+        103,
+        104,
+        105,
+        106,
+        107,
+        114,
+        115,
+        122,
+        123,
+        124,
+        128
+      ],
+      "covered_lines": [
+        100,
+        101,
+        103,
+        104,
+        105,
+        106,
+        107,
+        114,
+        115,
+        122,
+        123,
+        124,
+        128
+      ],
+      "branches": {
+        "106": {
+          "total": 2,
+          "covered": 2
+        },
+        "103": {
+          "total": 2,
+          "covered": 2
+        }
+      }
+    },
+    "defects": [],
+    "detection_rate": null,
+    "review": {
+      "behavioral_assertions": true,
+      "no_target_mock": true,
+      "no_production_changes": true,
+      "defect_attribution": {},
+      "dependency_doubles": false,
+      "reviewer": "Gabriel Lopes Pereira",
+      "created_at": "2026-11-22T03:08:03.260819+00:00"
+    },
+    "backend": "docker",
+    "submission_sha256": "fa531d9b148c5f7b52f9e14739f141a51836f2a1943c38ce6dfbba16f4ed1401",
+    "status": "completed",
+    "seconds": 0.7138047500047833,
+    "active_count": 16,
+    "passed_count": 16,
+    "skipped_count": 0,
+    "xfail_count": 0,
+    "failure_categories": [],
+    "original": {
+      "status": "completed",
+      "seconds": 0.7138047500047833,
+      "exit_code": 0,
+      "production_unchanged": true,
+      "collected": 16,
+      "active_started": true,
+      "active_count": 16,
+      "passed_count": 16,
+      "skipped_count": 0,
+      "xfail_count": 0,
+      "failure_categories": [],
+      "reference_passed": true,
+      "assertion_failure": false,
+      "focal": {
+        "executed": true,
+        "line_total": 13,
+        "line_covered": 13,
+        "line_rate": 1.0,
+        "branch_total": 4,
+        "branch_covered": 4,
+        "branch_rate": 1.0,
+        "executable_lines": [
+          100,
+          101,
+          103,
+          104,
+          105,
+          106,
+          107,
+          114,
+          115,
+          122,
+          123,
+          124,
+          128
+        ],
+        "covered_lines": [
+          100,
+          101,
+          103,
+          104,
+          105,
+          106,
+          107,
+          114,
+          115,
+          122,
+          123,
+          124,
+          128
+        ],
+        "branches": {
+          "106": {
+            "total": 2,
+            "covered": 2
+          },
+          "103": {
+            "total": 2,
+            "covered": 2
+          }
+        }
+      },
+      "raw": {
+        "exit_code": 0,
+        "collected": 16,
+        "reports": [
+          {
+            "nodeid": "::test_no_budget_directives_produce_no_budgets_or_errors[empty]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_no_budget_directives_produce_no_budgets_or_errors[empty]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_no_budget_directives_produce_no_budgets_or_errors[empty]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_no_budget_directives_produce_no_budgets_or_errors[unrelated-custom-directives]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_no_budget_directives_produce_no_budgets_or_errors[unrelated-custom-directives]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_no_budget_directives_produce_no_budgets_or_errors[unrelated-custom-directives]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parses_each_supported_interval_case_insensitively[daily]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parses_each_supported_interval_case_insensitively[daily]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parses_each_supported_interval_case_insensitively[daily]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parses_each_supported_interval_case_insensitively[day]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parses_each_supported_interval_case_insensitively[day]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parses_each_supported_interval_case_insensitively[day]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parses_each_supported_interval_case_insensitively[month]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parses_each_supported_interval_case_insensitively[month]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parses_each_supported_interval_case_insensitively[month]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parses_each_supported_interval_case_insensitively[monthly]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parses_each_supported_interval_case_insensitively[monthly]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parses_each_supported_interval_case_insensitively[monthly]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parses_each_supported_interval_case_insensitively[quarter]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parses_each_supported_interval_case_insensitively[quarter]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parses_each_supported_interval_case_insensitively[quarter]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parses_each_supported_interval_case_insensitively[quarterly]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parses_each_supported_interval_case_insensitively[quarterly]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parses_each_supported_interval_case_insensitively[quarterly]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parses_each_supported_interval_case_insensitively[week]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parses_each_supported_interval_case_insensitively[week]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parses_each_supported_interval_case_insensitively[week]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parses_each_supported_interval_case_insensitively[weekly]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parses_each_supported_interval_case_insensitively[weekly]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parses_each_supported_interval_case_insensitively[weekly]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parses_each_supported_interval_case_insensitively[year]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parses_each_supported_interval_case_insensitively[year]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parses_each_supported_interval_case_insensitively[year]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parses_each_supported_interval_case_insensitively[yearly]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parses_each_supported_interval_case_insensitively[yearly]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parses_each_supported_interval_case_insensitively[yearly]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_converts_interval_value_to_text_before_normalizing_case",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_converts_interval_value_to_text_before_normalizing_case",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_converts_interval_value_to_text_before_normalizing_case",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_groups_budgets_by_account_and_preserves_order_and_duplicates",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_groups_budgets_by_account_and_preserves_order_and_duplicates",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_groups_budgets_by_account_and_preserves_order_and_duplicates",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_reports_errors_in_input_order_and_keeps_parsing_valid_entries",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_reports_errors_in_input_order_and_keeps_parsing_valid_entries",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_reports_errors_in_input_order_and_keeps_parsing_valid_entries",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_attribute_error_from_a_non_amount_value_propagates",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_attribute_error_from_a_non_amount_value_propagates",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_attribute_error_from_a_non_amount_value_propagates",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          }
+        ],
+        "collection_errors": [],
+        "focal": {
+          "executed": true,
+          "line_total": 13,
+          "line_covered": 13,
+          "line_rate": 1.0,
+          "branch_total": 4,
+          "branch_covered": 4,
+          "branch_rate": 1.0,
+          "executable_lines": [
+            100,
+            101,
+            103,
+            104,
+            105,
+            106,
+            107,
+            114,
+            115,
+            122,
+            123,
+            124,
+            128
+          ],
+          "covered_lines": [
+            100,
+            101,
+            103,
+            104,
+            105,
+            106,
+            107,
+            114,
+            115,
+            122,
+            123,
+            124,
+            128
+          ],
+          "branches": {
+            "106": {
+              "total": 2,
+              "covered": 2
+            },
+            "103": {
+              "total": 2,
+              "covered": 2
+            }
+          }
+        }
+      }
+    },
+    "defects_eligible": 0,
+    "defects_measured": 0,
+    "defects_detected": null,
+    "detection_complete": false,
+    "total_seconds": 0.7347575000021607
+  }
+}

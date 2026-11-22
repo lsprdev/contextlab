@@ -1,0 +1,2191 @@
+{
+  "schema_version": 1,
+  "order": 9,
+  "project": "bump_my_version",
+  "target": "parse_version",
+  "agent": "codex",
+  "condition": "A",
+  "repetition": 1,
+  "id": "bump_my_version__parse_version__codex__A__1",
+  "phase": "pilot",
+  "lock_hash": "2b51427488191c72d3dc09fe1d643427e7f0eade28c46106ef7fb3cce021d33a",
+  "started_at": "2026-11-22T03:01:06.246178+00:00",
+  "status": "finished",
+  "generation": {
+    "status": "completed",
+    "input_tokens": 66405,
+    "output_tokens": 2125,
+    "seconds": 56.44906233303482,
+    "version": "codex-cli 0.170.0",
+    "tool_log": [
+      {
+        "index": 1,
+        "tool": "list_files",
+        "arguments": {},
+        "delivered_chars": 462,
+        "chars_before": 0,
+        "status": "ok",
+        "chars_after": 462
+      },
+      {
+        "index": 2,
+        "tool": "read_file",
+        "arguments": {
+          "path": "bumpversion/versioning/serialization.py",
+          "start_line": 1,
+          "end_line": 220
+        },
+        "delivered_chars": 4925,
+        "chars_before": 462,
+        "status": "ok",
+        "chars_after": 5387
+      },
+      {
+        "index": 3,
+        "tool": "search",
+        "arguments": {
+          "query": "parse_version"
+        },
+        "delivered_chars": 480,
+        "chars_before": 5387,
+        "status": "ok",
+        "chars_after": 5867
+      },
+      {
+        "index": 4,
+        "tool": "read_file",
+        "arguments": {
+          "path": "bumpversion/ui.py",
+          "start_line": 1,
+          "end_line": 125
+        },
+        "delivered_chars": 2093,
+        "chars_before": 5867,
+        "status": "ok",
+        "chars_after": 7960
+      },
+      {
+        "index": 5,
+        "tool": "read_file",
+        "arguments": {
+          "path": "bumpversion/versioning/version_config.py",
+          "start_line": 1,
+          "end_line": 105
+        },
+        "delivered_chars": 3775,
+        "chars_before": 7960,
+        "status": "ok",
+        "chars_after": 11735
+      },
+      {
+        "index": 6,
+        "tool": "read_file",
+        "arguments": {
+          "path": "bumpversion/exceptions.py",
+          "start_line": 1,
+          "end_line": 115
+        },
+        "delivered_chars": 1527,
+        "chars_before": 11735,
+        "status": "ok",
+        "chars_after": 13262
+      },
+      {
+        "index": 7,
+        "tool": "search",
+        "arguments": {
+          "path": "README.md",
+          "query": "(?P<"
+        },
+        "delivered_chars": 905,
+        "chars_before": 13262,
+        "status": "ok",
+        "chars_after": 14167
+      }
+    ],
+    "usage": {
+      "input_tokens": 66405,
+      "cached_input_tokens": 45568,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 2125,
+      "reasoning_output_tokens": 341
+    },
+    "details": [],
+    "capabilities": {
+      "tool_surface_verified": true,
+      "tools": [
+        "functions.list_mcp_resource_templates",
+        "functions.list_mcp_resources",
+        "functions.read_mcp_resource",
+        "mcp__contextlab.list_files",
+        "mcp__contextlab.read_file",
+        "mcp__contextlab.search"
+      ],
+      "catalog_sha256": "a61b50641627a2941fc8be4db823d1fbbfa4ae628add4d7ec443dbab559140fb",
+      "probe": "offline-localhost",
+      "model": "gpt-6.2-sol",
+      "command_rejected": true,
+      "outside_packet_rejected": true,
+      "allowed_read_verified": true
+    },
+    "returncode": 0,
+    "context_stats": {
+      "chars_used": 14167,
+      "initial_chars": 0,
+      "response_chars": 14167,
+      "remaining_chars": 15833,
+      "tool_calls": 7,
+      "max_calls": 20,
+      "budget": 30000
+    },
+    "session_id": "01a20133-463c-7a43-bcbb-87158d6fe84c"
+  },
+  "evaluation": {
+    "target_id": "parse_version",
+    "test_kind": "unit",
+    "received": true,
+    "syntax_ok": true,
+    "collected": 27,
+    "active_started": true,
+    "reference_passed": true,
+    "approval": "pending_review",
+    "approved": false,
+    "coverage_raw": {
+      "executed": true,
+      "line_total": 20,
+      "line_covered": 20,
+      "line_rate": 1.0,
+      "branch_total": 6,
+      "branch_covered": 6,
+      "branch_rate": 1.0,
+      "executable_lines": [
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        38,
+        39,
+        41,
+        42,
+        43,
+        44,
+        46,
+        48,
+        49,
+        54,
+        56,
+        57,
+        58,
+        60
+      ],
+      "covered_lines": [
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        38,
+        39,
+        41,
+        42,
+        43,
+        44,
+        46,
+        48,
+        49,
+        54,
+        56,
+        57,
+        58,
+        60
+      ],
+      "branches": {
+        "31": {
+          "total": 2,
+          "covered": 2
+        },
+        "48": {
+          "total": 2,
+          "covered": 2
+        },
+        "34": {
+          "total": 2,
+          "covered": 2
+        }
+      }
+    },
+    "coverage_main": null,
+    "defects": [],
+    "detection_rate": null,
+    "review": null,
+    "backend": "docker",
+    "submission_sha256": "0136fac7f368fbc01802bb0f07c750b495264ae68988396b686694b59a5c803b",
+    "status": "completed",
+    "seconds": 0.681966417003423,
+    "active_count": 27,
+    "passed_count": 27,
+    "skipped_count": 0,
+    "xfail_count": 0,
+    "failure_categories": [],
+    "original": {
+      "status": "completed",
+      "seconds": 0.681966417003423,
+      "exit_code": 0,
+      "production_unchanged": true,
+      "collected": 27,
+      "active_started": true,
+      "active_count": 27,
+      "passed_count": 27,
+      "skipped_count": 0,
+      "xfail_count": 0,
+      "failure_categories": [],
+      "reference_passed": true,
+      "assertion_failure": false,
+      "focal": {
+        "executed": true,
+        "line_total": 20,
+        "line_covered": 20,
+        "line_rate": 1.0,
+        "branch_total": 6,
+        "branch_covered": 6,
+        "branch_rate": 1.0,
+        "executable_lines": [
+          31,
+          32,
+          33,
+          34,
+          35,
+          36,
+          38,
+          39,
+          41,
+          42,
+          43,
+          44,
+          46,
+          48,
+          49,
+          54,
+          56,
+          57,
+          58,
+          60
+        ],
+        "covered_lines": [
+          31,
+          32,
+          33,
+          34,
+          35,
+          36,
+          38,
+          39,
+          41,
+          42,
+          43,
+          44,
+          46,
+          48,
+          49,
+          54,
+          56,
+          57,
+          58,
+          60
+        ],
+        "branches": {
+          "31": {
+            "total": 2,
+            "covered": 2
+          },
+          "48": {
+            "total": 2,
+            "covered": 2
+          },
+          "34": {
+            "total": 2,
+            "covered": 2
+          }
+        }
+      },
+      "raw": {
+        "exit_code": 0,
+        "collected": 27,
+        "reports": [
+          {
+            "nodeid": "::test_returns_named_components_as_original_text",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_returns_named_components_as_original_text",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_returns_named_components_as_original_text",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_verbose_pattern_keeps_optional_component_keys[prerelease]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_verbose_pattern_keeps_optional_component_keys[prerelease]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_verbose_pattern_keeps_optional_component_keys[prerelease]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_verbose_pattern_keeps_optional_component_keys[release-without-prerelease]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_verbose_pattern_keeps_optional_component_keys[release-without-prerelease]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_verbose_pattern_keeps_optional_component_keys[release-without-prerelease]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_search_returns_only_named_groups_from_the_first_match",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_search_returns_only_named_groups_from_the_first_match",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_search_returns_only_named_groups_from_the_first_match",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_alternation_keeps_the_named_group_from_the_unmatched_branch",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_alternation_keeps_the_named_group_from_the_unmatched_branch",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_alternation_keeps_the_named_group_from_the_unmatched_branch",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_zero_width_match_preserves_empty_capture_and_lookahead_capture",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_zero_width_match_preserves_empty_capture_and_lookahead_capture",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_zero_width_match_preserves_empty_capture_and_lookahead_capture",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_returns_empty_dict_without_named_results[missing-component]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_returns_empty_dict_without_named_results[missing-component]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_returns_empty_dict_without_named_results[missing-component]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_returns_empty_dict_without_named_results[wrong-separators]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_returns_empty_dict_without_named_results[wrong-separators]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_returns_empty_dict_without_named_results[wrong-separators]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_returns_empty_dict_without_named_results[anchored-pattern-rejects-suffix]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_returns_empty_dict_without_named_results[anchored-pattern-rejects-suffix]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_returns_empty_dict_without_named_results[anchored-pattern-rejects-suffix]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_returns_empty_dict_without_named_results[anchors-without-multiline]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_returns_empty_dict_without_named_results[anchors-without-multiline]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_returns_empty_dict_without_named_results[anchors-without-multiline]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_returns_empty_dict_without_named_results[case-sensitive-by-default]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_returns_empty_dict_without_named_results[case-sensitive-by-default]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_returns_empty_dict_without_named_results[case-sensitive-by-default]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_returns_empty_dict_without_named_results[dot-excludes-newline]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_returns_empty_dict_without_named_results[dot-excludes-newline]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_returns_empty_dict_without_named_results[dot-excludes-newline]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_returns_empty_dict_without_named_results[only-unnamed-groups]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_returns_empty_dict_without_named_results[only-unnamed-groups]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_returns_empty_dict_without_named_results[only-unnamed-groups]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_returns_empty_dict_without_named_results[no-capture-groups]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_returns_empty_dict_without_named_results[no-capture-groups]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_returns_empty_dict_without_named_results[no-capture-groups]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_respects_literal_input_and_regex_options[whitespace-only-version]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_respects_literal_input_and_regex_options[whitespace-only-version]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_respects_literal_input_and_regex_options[whitespace-only-version]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_respects_literal_input_and_regex_options[leading-space-affects-anchor]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_respects_literal_input_and_regex_options[leading-space-affects-anchor]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_respects_literal_input_and_regex_options[leading-space-affects-anchor]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_respects_literal_input_and_regex_options[escaped-final-space-in-pattern]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_respects_literal_input_and_regex_options[escaped-final-space-in-pattern]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_respects_literal_input_and_regex_options[escaped-final-space-in-pattern]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_respects_literal_input_and_regex_options[escaped-verbose-characters]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_respects_literal_input_and_regex_options[escaped-verbose-characters]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_respects_literal_input_and_regex_options[escaped-verbose-characters]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_respects_literal_input_and_regex_options[unicode-digits]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_respects_literal_input_and_regex_options[unicode-digits]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_respects_literal_input_and_regex_options[unicode-digits]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_respects_literal_input_and_regex_options[inline-case-insensitivity]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_respects_literal_input_and_regex_options[inline-case-insensitivity]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_respects_literal_input_and_regex_options[inline-case-insensitivity]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_missing_input_returns_empty_dict[empty-version-even-if-regex-can-match]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_missing_input_returns_empty_dict[empty-version-even-if-regex-can-match]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_missing_input_returns_empty_dict[empty-version-even-if-regex-can-match]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_missing_input_returns_empty_dict[empty-version-with-invalid-pattern]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_missing_input_returns_empty_dict[empty-version-with-invalid-pattern]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_missing_input_returns_empty_dict[empty-version-with-invalid-pattern]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_missing_input_returns_empty_dict[absent-version-with-invalid-pattern]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_missing_input_returns_empty_dict[absent-version-with-invalid-pattern]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_missing_input_returns_empty_dict[absent-version-with-invalid-pattern]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_missing_input_returns_empty_dict[empty-pattern]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_missing_input_returns_empty_dict[empty-pattern]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_missing_input_returns_empty_dict[empty-pattern]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_missing_input_returns_empty_dict[absent-pattern]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_missing_input_returns_empty_dict[absent-pattern]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_missing_input_returns_empty_dict[absent-pattern]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_invalid_regex_is_reported_as_bumpversion_error[unterminated-group]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_invalid_regex_is_reported_as_bumpversion_error[unterminated-group]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_invalid_regex_is_reported_as_bumpversion_error[unterminated-group]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_invalid_regex_is_reported_as_bumpversion_error[duplicate-group-name]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_invalid_regex_is_reported_as_bumpversion_error[duplicate-group-name]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_invalid_regex_is_reported_as_bumpversion_error[duplicate-group-name]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          }
+        ],
+        "collection_errors": [],
+        "focal": {
+          "executed": true,
+          "line_total": 20,
+          "line_covered": 20,
+          "line_rate": 1.0,
+          "branch_total": 6,
+          "branch_covered": 6,
+          "branch_rate": 1.0,
+          "executable_lines": [
+            31,
+            32,
+            33,
+            34,
+            35,
+            36,
+            38,
+            39,
+            41,
+            42,
+            43,
+            44,
+            46,
+            48,
+            49,
+            54,
+            56,
+            57,
+            58,
+            60
+          ],
+          "covered_lines": [
+            31,
+            32,
+            33,
+            34,
+            35,
+            36,
+            38,
+            39,
+            41,
+            42,
+            43,
+            44,
+            46,
+            48,
+            49,
+            54,
+            56,
+            57,
+            58,
+            60
+          ],
+          "branches": {
+            "31": {
+              "total": 2,
+              "covered": 2
+            },
+            "48": {
+              "total": 2,
+              "covered": 2
+            },
+            "34": {
+              "total": 2,
+              "covered": 2
+            }
+          }
+        }
+      }
+    },
+    "defects_eligible": null,
+    "defects_measured": null,
+    "defects_detected": null,
+    "detection_complete": null,
+    "total_seconds": 0.7090110839926638
+  },
+  "preparation_seconds": 0.018851834000088274,
+  "submission_sha256": "0136fac7f368fbc01802bb0f07c750b495264ae68988396b686694b59a5c803b",
+  "finished_at": "2026-11-22T03:02:03.428486+00:00",
+  "review": {
+    "behavioral_assertions": true,
+    "no_target_mock": true,
+    "no_production_changes": true,
+    "defect_attribution": {},
+    "dependency_doubles": false,
+    "reviewer": "Gabriel Lopes Pereira",
+    "created_at": "2026-11-22T03:07:59.970158+00:00"
+  },
+  "reviewed_evaluation": {
+    "target_id": "parse_version",
+    "test_kind": "unit",
+    "received": true,
+    "syntax_ok": true,
+    "collected": 27,
+    "active_started": true,
+    "reference_passed": true,
+    "approval": "approved",
+    "approved": true,
+    "coverage_raw": {
+      "executed": true,
+      "line_total": 20,
+      "line_covered": 20,
+      "line_rate": 1.0,
+      "branch_total": 6,
+      "branch_covered": 6,
+      "branch_rate": 1.0,
+      "executable_lines": [
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        38,
+        39,
+        41,
+        42,
+        43,
+        44,
+        46,
+        48,
+        49,
+        54,
+        56,
+        57,
+        58,
+        60
+      ],
+      "covered_lines": [
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        38,
+        39,
+        41,
+        42,
+        43,
+        44,
+        46,
+        48,
+        49,
+        54,
+        56,
+        57,
+        58,
+        60
+      ],
+      "branches": {
+        "31": {
+          "total": 2,
+          "covered": 2
+        },
+        "48": {
+          "total": 2,
+          "covered": 2
+        },
+        "34": {
+          "total": 2,
+          "covered": 2
+        }
+      }
+    },
+    "coverage_main": {
+      "executed": true,
+      "line_total": 20,
+      "line_covered": 20,
+      "line_rate": 1.0,
+      "branch_total": 6,
+      "branch_covered": 6,
+      "branch_rate": 1.0,
+      "executable_lines": [
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        38,
+        39,
+        41,
+        42,
+        43,
+        44,
+        46,
+        48,
+        49,
+        54,
+        56,
+        57,
+        58,
+        60
+      ],
+      "covered_lines": [
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        38,
+        39,
+        41,
+        42,
+        43,
+        44,
+        46,
+        48,
+        49,
+        54,
+        56,
+        57,
+        58,
+        60
+      ],
+      "branches": {
+        "31": {
+          "total": 2,
+          "covered": 2
+        },
+        "48": {
+          "total": 2,
+          "covered": 2
+        },
+        "34": {
+          "total": 2,
+          "covered": 2
+        }
+      }
+    },
+    "defects": [],
+    "detection_rate": null,
+    "review": {
+      "behavioral_assertions": true,
+      "no_target_mock": true,
+      "no_production_changes": true,
+      "defect_attribution": {},
+      "dependency_doubles": false,
+      "reviewer": "Gabriel Lopes Pereira",
+      "created_at": "2026-11-22T03:07:59.970158+00:00"
+    },
+    "backend": "docker",
+    "submission_sha256": "0136fac7f368fbc01802bb0f07c750b495264ae68988396b686694b59a5c803b",
+    "status": "completed",
+    "seconds": 0.7416460419772193,
+    "active_count": 27,
+    "passed_count": 27,
+    "skipped_count": 0,
+    "xfail_count": 0,
+    "failure_categories": [],
+    "original": {
+      "status": "completed",
+      "seconds": 0.7416460419772193,
+      "exit_code": 0,
+      "production_unchanged": true,
+      "collected": 27,
+      "active_started": true,
+      "active_count": 27,
+      "passed_count": 27,
+      "skipped_count": 0,
+      "xfail_count": 0,
+      "failure_categories": [],
+      "reference_passed": true,
+      "assertion_failure": false,
+      "focal": {
+        "executed": true,
+        "line_total": 20,
+        "line_covered": 20,
+        "line_rate": 1.0,
+        "branch_total": 6,
+        "branch_covered": 6,
+        "branch_rate": 1.0,
+        "executable_lines": [
+          31,
+          32,
+          33,
+          34,
+          35,
+          36,
+          38,
+          39,
+          41,
+          42,
+          43,
+          44,
+          46,
+          48,
+          49,
+          54,
+          56,
+          57,
+          58,
+          60
+        ],
+        "covered_lines": [
+          31,
+          32,
+          33,
+          34,
+          35,
+          36,
+          38,
+          39,
+          41,
+          42,
+          43,
+          44,
+          46,
+          48,
+          49,
+          54,
+          56,
+          57,
+          58,
+          60
+        ],
+        "branches": {
+          "31": {
+            "total": 2,
+            "covered": 2
+          },
+          "48": {
+            "total": 2,
+            "covered": 2
+          },
+          "34": {
+            "total": 2,
+            "covered": 2
+          }
+        }
+      },
+      "raw": {
+        "exit_code": 0,
+        "collected": 27,
+        "reports": [
+          {
+            "nodeid": "::test_returns_named_components_as_original_text",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_returns_named_components_as_original_text",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_returns_named_components_as_original_text",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_verbose_pattern_keeps_optional_component_keys[prerelease]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_verbose_pattern_keeps_optional_component_keys[prerelease]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_verbose_pattern_keeps_optional_component_keys[prerelease]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_verbose_pattern_keeps_optional_component_keys[release-without-prerelease]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_verbose_pattern_keeps_optional_component_keys[release-without-prerelease]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_verbose_pattern_keeps_optional_component_keys[release-without-prerelease]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_search_returns_only_named_groups_from_the_first_match",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_search_returns_only_named_groups_from_the_first_match",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_search_returns_only_named_groups_from_the_first_match",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_alternation_keeps_the_named_group_from_the_unmatched_branch",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_alternation_keeps_the_named_group_from_the_unmatched_branch",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_alternation_keeps_the_named_group_from_the_unmatched_branch",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_zero_width_match_preserves_empty_capture_and_lookahead_capture",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_zero_width_match_preserves_empty_capture_and_lookahead_capture",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_zero_width_match_preserves_empty_capture_and_lookahead_capture",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_returns_empty_dict_without_named_results[missing-component]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_returns_empty_dict_without_named_results[missing-component]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_returns_empty_dict_without_named_results[missing-component]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_returns_empty_dict_without_named_results[wrong-separators]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_returns_empty_dict_without_named_results[wrong-separators]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_returns_empty_dict_without_named_results[wrong-separators]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_returns_empty_dict_without_named_results[anchored-pattern-rejects-suffix]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_returns_empty_dict_without_named_results[anchored-pattern-rejects-suffix]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_returns_empty_dict_without_named_results[anchored-pattern-rejects-suffix]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_returns_empty_dict_without_named_results[anchors-without-multiline]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_returns_empty_dict_without_named_results[anchors-without-multiline]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_returns_empty_dict_without_named_results[anchors-without-multiline]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_returns_empty_dict_without_named_results[case-sensitive-by-default]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_returns_empty_dict_without_named_results[case-sensitive-by-default]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_returns_empty_dict_without_named_results[case-sensitive-by-default]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_returns_empty_dict_without_named_results[dot-excludes-newline]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_returns_empty_dict_without_named_results[dot-excludes-newline]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_returns_empty_dict_without_named_results[dot-excludes-newline]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_returns_empty_dict_without_named_results[only-unnamed-groups]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_returns_empty_dict_without_named_results[only-unnamed-groups]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_returns_empty_dict_without_named_results[only-unnamed-groups]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_returns_empty_dict_without_named_results[no-capture-groups]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_returns_empty_dict_without_named_results[no-capture-groups]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_returns_empty_dict_without_named_results[no-capture-groups]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_respects_literal_input_and_regex_options[whitespace-only-version]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_respects_literal_input_and_regex_options[whitespace-only-version]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_respects_literal_input_and_regex_options[whitespace-only-version]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_respects_literal_input_and_regex_options[leading-space-affects-anchor]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_respects_literal_input_and_regex_options[leading-space-affects-anchor]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_respects_literal_input_and_regex_options[leading-space-affects-anchor]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_respects_literal_input_and_regex_options[escaped-final-space-in-pattern]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_respects_literal_input_and_regex_options[escaped-final-space-in-pattern]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_respects_literal_input_and_regex_options[escaped-final-space-in-pattern]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_respects_literal_input_and_regex_options[escaped-verbose-characters]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_respects_literal_input_and_regex_options[escaped-verbose-characters]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_respects_literal_input_and_regex_options[escaped-verbose-characters]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_respects_literal_input_and_regex_options[unicode-digits]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_respects_literal_input_and_regex_options[unicode-digits]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_respects_literal_input_and_regex_options[unicode-digits]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_respects_literal_input_and_regex_options[inline-case-insensitivity]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_respects_literal_input_and_regex_options[inline-case-insensitivity]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_respects_literal_input_and_regex_options[inline-case-insensitivity]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_missing_input_returns_empty_dict[empty-version-even-if-regex-can-match]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_missing_input_returns_empty_dict[empty-version-even-if-regex-can-match]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_missing_input_returns_empty_dict[empty-version-even-if-regex-can-match]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_missing_input_returns_empty_dict[empty-version-with-invalid-pattern]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_missing_input_returns_empty_dict[empty-version-with-invalid-pattern]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_missing_input_returns_empty_dict[empty-version-with-invalid-pattern]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_missing_input_returns_empty_dict[absent-version-with-invalid-pattern]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_missing_input_returns_empty_dict[absent-version-with-invalid-pattern]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_missing_input_returns_empty_dict[absent-version-with-invalid-pattern]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_missing_input_returns_empty_dict[empty-pattern]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_missing_input_returns_empty_dict[empty-pattern]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_missing_input_returns_empty_dict[empty-pattern]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_missing_input_returns_empty_dict[absent-pattern]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_missing_input_returns_empty_dict[absent-pattern]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_missing_input_returns_empty_dict[absent-pattern]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_invalid_regex_is_reported_as_bumpversion_error[unterminated-group]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_invalid_regex_is_reported_as_bumpversion_error[unterminated-group]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_invalid_regex_is_reported_as_bumpversion_error[unterminated-group]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_invalid_regex_is_reported_as_bumpversion_error[duplicate-group-name]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_invalid_regex_is_reported_as_bumpversion_error[duplicate-group-name]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_invalid_regex_is_reported_as_bumpversion_error[duplicate-group-name]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          }
+        ],
+        "collection_errors": [],
+        "focal": {
+          "executed": true,
+          "line_total": 20,
+          "line_covered": 20,
+          "line_rate": 1.0,
+          "branch_total": 6,
+          "branch_covered": 6,
+          "branch_rate": 1.0,
+          "executable_lines": [
+            31,
+            32,
+            33,
+            34,
+            35,
+            36,
+            38,
+            39,
+            41,
+            42,
+            43,
+            44,
+            46,
+            48,
+            49,
+            54,
+            56,
+            57,
+            58,
+            60
+          ],
+          "covered_lines": [
+            31,
+            32,
+            33,
+            34,
+            35,
+            36,
+            38,
+            39,
+            41,
+            42,
+            43,
+            44,
+            46,
+            48,
+            49,
+            54,
+            56,
+            57,
+            58,
+            60
+          ],
+          "branches": {
+            "31": {
+              "total": 2,
+              "covered": 2
+            },
+            "48": {
+              "total": 2,
+              "covered": 2
+            },
+            "34": {
+              "total": 2,
+              "covered": 2
+            }
+          }
+        }
+      }
+    },
+    "defects_eligible": 0,
+    "defects_measured": 0,
+    "defects_detected": null,
+    "detection_complete": false,
+    "total_seconds": 0.7572077090153471
+  }
+}

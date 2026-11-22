@@ -1,0 +1,4695 @@
+{
+  "schema_version": 1,
+  "phase": "pilot",
+  "demonstration": false,
+  "lock_hash": "2b51427488191c72d3dc09fe1d643427e7f0eade28c46106ef7fb3cce021d33a",
+  "summary": {
+    "planned": 12,
+    "generation_observable": 12,
+    "pending": 0,
+    "generation_infrastructure": 0,
+    "evaluation_infrastructure": 0,
+    "infrastructure_retries": 0,
+    "approved_with_dependency_doubles": 1,
+    "approval_pending": 0,
+    "approval_unresolved": 0,
+    "approved": 11,
+    "approval_known_n": 12,
+    "approval_observable_n": 12,
+    "approval_rate_known": 0.9166666666666666,
+    "approval_rate": 0.9166666666666666,
+    "approval_complete": true,
+    "generation_complete": true,
+    "active_started_known_n": 12,
+    "active_started_rate_known": 1.0,
+    "active_started_rate": 1.0,
+    "reference_passed_known_n": 12,
+    "reference_passed_rate_known": 0.9166666666666666,
+    "reference_passed_rate": 0.9166666666666666,
+    "line_rate_approved": 1.0,
+    "line_rate_approved_n": 11,
+    "branch_rate_approved": 1.0,
+    "branch_rate_approved_n": 11,
+    "detection_rate_approved": null,
+    "detection_rate_approved_n": 0,
+    "line_coverage_complete": true,
+    "detection_complete": false,
+    "preparation_seconds_mean": 0.02709490275204492,
+    "preparation_seconds_n": 12,
+    "preparation_seconds_complete": true,
+    "generation_seconds_mean": 65.37390695474944,
+    "generation_seconds_n": 12,
+    "generation_seconds_complete": true,
+    "evaluation_seconds_mean": 0.5937644061583948,
+    "evaluation_seconds_n": 12,
+    "evaluation_seconds_complete": true,
+    "context_chars_mean": 7897.75,
+    "context_chars_n": 12,
+    "context_chars_complete": true,
+    "tool_calls_mean": 4.083333333333333,
+    "tool_calls_n": 12,
+    "tool_calls_complete": true,
+    "input_tokens_mean": 40600.75,
+    "input_tokens_n": 12,
+    "input_tokens_complete": true,
+    "output_tokens_mean": 2725.3333333333335,
+    "output_tokens_n": 12,
+    "output_tokens_complete": true
+  },
+  "inventory": [],
+  "groups": [
+    {
+      "project": "bump_my_version",
+      "agent": "codex",
+      "condition": "A",
+      "planned": 1,
+      "generation_observable": 1,
+      "pending": 0,
+      "generation_infrastructure": 0,
+      "evaluation_infrastructure": 0,
+      "infrastructure_retries": 0,
+      "approved_with_dependency_doubles": 0,
+      "approval_pending": 0,
+      "approval_unresolved": 0,
+      "approved": 1,
+      "approval_known_n": 1,
+      "approval_observable_n": 1,
+      "approval_rate_known": 1.0,
+      "approval_rate": 1.0,
+      "approval_complete": true,
+      "generation_complete": true,
+      "active_started_known_n": 1,
+      "active_started_rate_known": 1.0,
+      "active_started_rate": 1.0,
+      "reference_passed_known_n": 1,
+      "reference_passed_rate_known": 1.0,
+      "reference_passed_rate": 1.0,
+      "line_rate_approved": 1.0,
+      "line_rate_approved_n": 1,
+      "branch_rate_approved": 1.0,
+      "branch_rate_approved_n": 1,
+      "detection_rate_approved": null,
+      "detection_rate_approved_n": 0,
+      "line_coverage_complete": true,
+      "detection_complete": false,
+      "preparation_seconds_mean": 0.018851834000088274,
+      "preparation_seconds_n": 1,
+      "preparation_seconds_complete": true,
+      "generation_seconds_mean": 56.44906233303482,
+      "generation_seconds_n": 1,
+      "generation_seconds_complete": true,
+      "evaluation_seconds_mean": 0.7572077090153471,
+      "evaluation_seconds_n": 1,
+      "evaluation_seconds_complete": true,
+      "context_chars_mean": 14167,
+      "context_chars_n": 1,
+      "context_chars_complete": true,
+      "tool_calls_mean": 7,
+      "tool_calls_n": 1,
+      "tool_calls_complete": true,
+      "input_tokens_mean": 66405,
+      "input_tokens_n": 1,
+      "input_tokens_complete": true,
+      "output_tokens_mean": 2125,
+      "output_tokens_n": 1,
+      "output_tokens_complete": true
+    },
+    {
+      "project": "bump_my_version",
+      "agent": "codex",
+      "condition": "L",
+      "planned": 1,
+      "generation_observable": 1,
+      "pending": 0,
+      "generation_infrastructure": 0,
+      "evaluation_infrastructure": 0,
+      "infrastructure_retries": 0,
+      "approved_with_dependency_doubles": 0,
+      "approval_pending": 0,
+      "approval_unresolved": 0,
+      "approved": 1,
+      "approval_known_n": 1,
+      "approval_observable_n": 1,
+      "approval_rate_known": 1.0,
+      "approval_rate": 1.0,
+      "approval_complete": true,
+      "generation_complete": true,
+      "active_started_known_n": 1,
+      "active_started_rate_known": 1.0,
+      "active_started_rate": 1.0,
+      "reference_passed_known_n": 1,
+      "reference_passed_rate_known": 1.0,
+      "reference_passed_rate": 1.0,
+      "line_rate_approved": 1.0,
+      "line_rate_approved_n": 1,
+      "branch_rate_approved": 1.0,
+      "branch_rate_approved_n": 1,
+      "detection_rate_approved": null,
+      "detection_rate_approved_n": 0,
+      "line_coverage_complete": true,
+      "detection_complete": false,
+      "preparation_seconds_mean": 0.01993962499545887,
+      "preparation_seconds_n": 1,
+      "preparation_seconds_complete": true,
+      "generation_seconds_mean": 40.988020707969554,
+      "generation_seconds_n": 1,
+      "generation_seconds_complete": true,
+      "evaluation_seconds_mean": 0.5327845829888247,
+      "evaluation_seconds_n": 1,
+      "evaluation_seconds_complete": true,
+      "context_chars_mean": 4801,
+      "context_chars_n": 1,
+      "context_chars_complete": true,
+      "tool_calls_mean": 3,
+      "tool_calls_n": 1,
+      "tool_calls_complete": true,
+      "input_tokens_mean": 29710,
+      "input_tokens_n": 1,
+      "input_tokens_complete": true,
+      "output_tokens_mean": 1670,
+      "output_tokens_n": 1,
+      "output_tokens_complete": true
+    },
+    {
+      "project": "bump_my_version",
+      "agent": "codex",
+      "condition": "R",
+      "planned": 1,
+      "generation_observable": 1,
+      "pending": 0,
+      "generation_infrastructure": 0,
+      "evaluation_infrastructure": 0,
+      "infrastructure_retries": 0,
+      "approved_with_dependency_doubles": 1,
+      "approval_pending": 0,
+      "approval_unresolved": 0,
+      "approved": 1,
+      "approval_known_n": 1,
+      "approval_observable_n": 1,
+      "approval_rate_known": 1.0,
+      "approval_rate": 1.0,
+      "approval_complete": true,
+      "generation_complete": true,
+      "active_started_known_n": 1,
+      "active_started_rate_known": 1.0,
+      "active_started_rate": 1.0,
+      "reference_passed_known_n": 1,
+      "reference_passed_rate_known": 1.0,
+      "reference_passed_rate": 1.0,
+      "line_rate_approved": 1.0,
+      "line_rate_approved_n": 1,
+      "branch_rate_approved": 1.0,
+      "branch_rate_approved_n": 1,
+      "detection_rate_approved": null,
+      "detection_rate_approved_n": 0,
+      "line_coverage_complete": true,
+      "detection_complete": false,
+      "preparation_seconds_mean": 0.018556333030574024,
+      "preparation_seconds_n": 1,
+      "preparation_seconds_complete": true,
+      "generation_seconds_mean": 52.36882475001039,
+      "generation_seconds_n": 1,
+      "generation_seconds_complete": true,
+      "evaluation_seconds_mean": 0.599463582970202,
+      "evaluation_seconds_n": 1,
+      "evaluation_seconds_complete": true,
+      "context_chars_mean": 5373,
+      "context_chars_n": 1,
+      "context_chars_complete": true,
+      "tool_calls_mean": 2,
+      "tool_calls_n": 1,
+      "tool_calls_complete": true,
+      "input_tokens_mean": 22465,
+      "input_tokens_n": 1,
+      "input_tokens_complete": true,
+      "output_tokens_mean": 2236,
+      "output_tokens_n": 1,
+      "output_tokens_complete": true
+    },
+    {
+      "project": "fava",
+      "agent": "codex",
+      "condition": "A",
+      "planned": 1,
+      "generation_observable": 1,
+      "pending": 0,
+      "generation_infrastructure": 0,
+      "evaluation_infrastructure": 0,
+      "infrastructure_retries": 0,
+      "approved_with_dependency_doubles": 0,
+      "approval_pending": 0,
+      "approval_unresolved": 0,
+      "approved": 1,
+      "approval_known_n": 1,
+      "approval_observable_n": 1,
+      "approval_rate_known": 1.0,
+      "approval_rate": 1.0,
+      "approval_complete": true,
+      "generation_complete": true,
+      "active_started_known_n": 1,
+      "active_started_rate_known": 1.0,
+      "active_started_rate": 1.0,
+      "reference_passed_known_n": 1,
+      "reference_passed_rate_known": 1.0,
+      "reference_passed_rate": 1.0,
+      "line_rate_approved": 1.0,
+      "line_rate_approved_n": 1,
+      "branch_rate_approved": 1.0,
+      "branch_rate_approved_n": 1,
+      "detection_rate_approved": null,
+      "detection_rate_approved_n": 0,
+      "line_coverage_complete": true,
+      "detection_complete": false,
+      "preparation_seconds_mean": 0.055717041017487645,
+      "preparation_seconds_n": 1,
+      "preparation_seconds_complete": true,
+      "generation_seconds_mean": 56.17698637500871,
+      "generation_seconds_n": 1,
+      "generation_seconds_complete": true,
+      "evaluation_seconds_mean": 0.7216623749700375,
+      "evaluation_seconds_n": 1,
+      "evaluation_seconds_complete": true,
+      "context_chars_mean": 14663,
+      "context_chars_n": 1,
+      "context_chars_complete": true,
+      "tool_calls_mean": 11,
+      "tool_calls_n": 1,
+      "tool_calls_complete": true,
+      "input_tokens_mean": 107214,
+      "input_tokens_n": 1,
+      "input_tokens_complete": true,
+      "output_tokens_mean": 1870,
+      "output_tokens_n": 1,
+      "output_tokens_complete": true
+    },
+    {
+      "project": "fava",
+      "agent": "codex",
+      "condition": "L",
+      "planned": 1,
+      "generation_observable": 1,
+      "pending": 0,
+      "generation_infrastructure": 0,
+      "evaluation_infrastructure": 0,
+      "infrastructure_retries": 0,
+      "approved_with_dependency_doubles": 0,
+      "approval_pending": 0,
+      "approval_unresolved": 0,
+      "approved": 1,
+      "approval_known_n": 1,
+      "approval_observable_n": 1,
+      "approval_rate_known": 1.0,
+      "approval_rate": 1.0,
+      "approval_complete": true,
+      "generation_complete": true,
+      "active_started_known_n": 1,
+      "active_started_rate_known": 1.0,
+      "active_started_rate": 1.0,
+      "reference_passed_known_n": 1,
+      "reference_passed_rate_known": 1.0,
+      "reference_passed_rate": 1.0,
+      "line_rate_approved": 1.0,
+      "line_rate_approved_n": 1,
+      "branch_rate_approved": 1.0,
+      "branch_rate_approved_n": 1,
+      "detection_rate_approved": null,
+      "detection_rate_approved_n": 0,
+      "line_coverage_complete": true,
+      "detection_complete": false,
+      "preparation_seconds_mean": 0.05666987498989329,
+      "preparation_seconds_n": 1,
+      "preparation_seconds_complete": true,
+      "generation_seconds_mean": 57.07961391599383,
+      "generation_seconds_n": 1,
+      "generation_seconds_complete": true,
+      "evaluation_seconds_mean": 0.7347575000021607,
+      "evaluation_seconds_n": 1,
+      "evaluation_seconds_complete": true,
+      "context_chars_mean": 6004,
+      "context_chars_n": 1,
+      "context_chars_complete": true,
+      "tool_calls_mean": 3,
+      "tool_calls_n": 1,
+      "tool_calls_complete": true,
+      "input_tokens_mean": 30614,
+      "input_tokens_n": 1,
+      "input_tokens_complete": true,
+      "output_tokens_mean": 2387,
+      "output_tokens_n": 1,
+      "output_tokens_complete": true
+    },
+    {
+      "project": "fava",
+      "agent": "codex",
+      "condition": "R",
+      "planned": 1,
+      "generation_observable": 1,
+      "pending": 0,
+      "generation_infrastructure": 0,
+      "evaluation_infrastructure": 0,
+      "infrastructure_retries": 0,
+      "approved_with_dependency_doubles": 0,
+      "approval_pending": 0,
+      "approval_unresolved": 0,
+      "approved": 1,
+      "approval_known_n": 1,
+      "approval_observable_n": 1,
+      "approval_rate_known": 1.0,
+      "approval_rate": 1.0,
+      "approval_complete": true,
+      "generation_complete": true,
+      "active_started_known_n": 1,
+      "active_started_rate_known": 1.0,
+      "active_started_rate": 1.0,
+      "reference_passed_known_n": 1,
+      "reference_passed_rate_known": 1.0,
+      "reference_passed_rate": 1.0,
+      "line_rate_approved": 1.0,
+      "line_rate_approved_n": 1,
+      "branch_rate_approved": 1.0,
+      "branch_rate_approved_n": 1,
+      "detection_rate_approved": null,
+      "detection_rate_approved_n": 0,
+      "line_coverage_complete": true,
+      "detection_complete": false,
+      "preparation_seconds_mean": 0.05824679200304672,
+      "preparation_seconds_n": 1,
+      "preparation_seconds_complete": true,
+      "generation_seconds_mean": 59.85290337499464,
+      "generation_seconds_n": 1,
+      "generation_seconds_complete": true,
+      "evaluation_seconds_mean": 0.7251352909952402,
+      "evaluation_seconds_n": 1,
+      "evaluation_seconds_complete": true,
+      "context_chars_mean": 6235,
+      "context_chars_n": 1,
+      "context_chars_complete": true,
+      "tool_calls_mean": 4,
+      "tool_calls_n": 1,
+      "tool_calls_complete": true,
+      "input_tokens_mean": 38626,
+      "input_tokens_n": 1,
+      "input_tokens_complete": true,
+      "output_tokens_mean": 2510,
+      "output_tokens_n": 1,
+      "output_tokens_complete": true
+    },
+    {
+      "project": "python_dotenv",
+      "agent": "codex",
+      "condition": "A",
+      "planned": 1,
+      "generation_observable": 1,
+      "pending": 0,
+      "generation_infrastructure": 0,
+      "evaluation_infrastructure": 0,
+      "infrastructure_retries": 0,
+      "approved_with_dependency_doubles": 0,
+      "approval_pending": 0,
+      "approval_unresolved": 0,
+      "approved": 0,
+      "approval_known_n": 1,
+      "approval_observable_n": 1,
+      "approval_rate_known": 0.0,
+      "approval_rate": 0.0,
+      "approval_complete": true,
+      "generation_complete": true,
+      "active_started_known_n": 1,
+      "active_started_rate_known": 1.0,
+      "active_started_rate": 1.0,
+      "reference_passed_known_n": 1,
+      "reference_passed_rate_known": 0.0,
+      "reference_passed_rate": 0.0,
+      "line_rate_approved": null,
+      "line_rate_approved_n": 0,
+      "branch_rate_approved": null,
+      "branch_rate_approved_n": 0,
+      "detection_rate_approved": null,
+      "detection_rate_approved_n": 0,
+      "line_coverage_complete": false,
+      "detection_complete": false,
+      "preparation_seconds_mean": 0.014053124992642552,
+      "preparation_seconds_n": 1,
+      "preparation_seconds_complete": true,
+      "generation_seconds_mean": 71.80360870802542,
+      "generation_seconds_n": 1,
+      "generation_seconds_complete": true,
+      "evaluation_seconds_mean": 0.603821832977701,
+      "evaluation_seconds_n": 1,
+      "evaluation_seconds_complete": true,
+      "context_chars_mean": 8484,
+      "context_chars_n": 1,
+      "context_chars_complete": true,
+      "tool_calls_mean": 4,
+      "tool_calls_n": 1,
+      "tool_calls_complete": true,
+      "input_tokens_mean": 38118,
+      "input_tokens_n": 1,
+      "input_tokens_complete": true,
+      "output_tokens_mean": 3033,
+      "output_tokens_n": 1,
+      "output_tokens_complete": true
+    },
+    {
+      "project": "python_dotenv",
+      "agent": "codex",
+      "condition": "L",
+      "planned": 1,
+      "generation_observable": 1,
+      "pending": 0,
+      "generation_infrastructure": 0,
+      "evaluation_infrastructure": 0,
+      "infrastructure_retries": 0,
+      "approved_with_dependency_doubles": 0,
+      "approval_pending": 0,
+      "approval_unresolved": 0,
+      "approved": 1,
+      "approval_known_n": 1,
+      "approval_observable_n": 1,
+      "approval_rate_known": 1.0,
+      "approval_rate": 1.0,
+      "approval_complete": true,
+      "generation_complete": true,
+      "active_started_known_n": 1,
+      "active_started_rate_known": 1.0,
+      "active_started_rate": 1.0,
+      "reference_passed_known_n": 1,
+      "reference_passed_rate_known": 1.0,
+      "reference_passed_rate": 1.0,
+      "line_rate_approved": 1.0,
+      "line_rate_approved_n": 1,
+      "branch_rate_approved": 1.0,
+      "branch_rate_approved_n": 1,
+      "detection_rate_approved": null,
+      "detection_rate_approved_n": 0,
+      "line_coverage_complete": true,
+      "detection_complete": false,
+      "preparation_seconds_mean": 0.011677832982968539,
+      "preparation_seconds_n": 1,
+      "preparation_seconds_complete": true,
+      "generation_seconds_mean": 84.12951354199322,
+      "generation_seconds_n": 1,
+      "generation_seconds_complete": true,
+      "evaluation_seconds_mean": 0.40398624999215826,
+      "evaluation_seconds_n": 1,
+      "evaluation_seconds_complete": true,
+      "context_chars_mean": 5900,
+      "context_chars_n": 1,
+      "context_chars_complete": true,
+      "tool_calls_mean": 2,
+      "tool_calls_n": 1,
+      "tool_calls_complete": true,
+      "input_tokens_mean": 23471,
+      "input_tokens_n": 1,
+      "input_tokens_complete": true,
+      "output_tokens_mean": 3333,
+      "output_tokens_n": 1,
+      "output_tokens_complete": true
+    },
+    {
+      "project": "python_dotenv",
+      "agent": "codex",
+      "condition": "R",
+      "planned": 1,
+      "generation_observable": 1,
+      "pending": 0,
+      "generation_infrastructure": 0,
+      "evaluation_infrastructure": 0,
+      "infrastructure_retries": 0,
+      "approved_with_dependency_doubles": 0,
+      "approval_pending": 0,
+      "approval_unresolved": 0,
+      "approved": 1,
+      "approval_known_n": 1,
+      "approval_observable_n": 1,
+      "approval_rate_known": 1.0,
+      "approval_rate": 1.0,
+      "approval_complete": true,
+      "generation_complete": true,
+      "active_started_known_n": 1,
+      "active_started_rate_known": 1.0,
+      "active_started_rate": 1.0,
+      "reference_passed_known_n": 1,
+      "reference_passed_rate_known": 1.0,
+      "reference_passed_rate": 1.0,
+      "line_rate_approved": 1.0,
+      "line_rate_approved_n": 1,
+      "branch_rate_approved": 1.0,
+      "branch_rate_approved_n": 1,
+      "detection_rate_approved": null,
+      "detection_rate_approved_n": 0,
+      "line_coverage_complete": true,
+      "detection_complete": false,
+      "preparation_seconds_mean": 0.01109758298844099,
+      "preparation_seconds_n": 1,
+      "preparation_seconds_complete": true,
+      "generation_seconds_mean": 100.0315464999876,
+      "generation_seconds_n": 1,
+      "generation_seconds_complete": true,
+      "evaluation_seconds_mean": 0.4139160419581458,
+      "evaluation_seconds_n": 1,
+      "evaluation_seconds_complete": true,
+      "context_chars_mean": 5900,
+      "context_chars_n": 1,
+      "context_chars_complete": true,
+      "tool_calls_mean": 2,
+      "tool_calls_n": 1,
+      "tool_calls_complete": true,
+      "input_tokens_mean": 23415,
+      "input_tokens_n": 1,
+      "input_tokens_complete": true,
+      "output_tokens_mean": 4640,
+      "output_tokens_n": 1,
+      "output_tokens_complete": true
+    },
+    {
+      "project": "python_stdnum",
+      "agent": "codex",
+      "condition": "A",
+      "planned": 1,
+      "generation_observable": 1,
+      "pending": 0,
+      "generation_infrastructure": 0,
+      "evaluation_infrastructure": 0,
+      "infrastructure_retries": 0,
+      "approved_with_dependency_doubles": 0,
+      "approval_pending": 0,
+      "approval_unresolved": 0,
+      "approved": 1,
+      "approval_known_n": 1,
+      "approval_observable_n": 1,
+      "approval_rate_known": 1.0,
+      "approval_rate": 1.0,
+      "approval_complete": true,
+      "generation_complete": true,
+      "active_started_known_n": 1,
+      "active_started_rate_known": 1.0,
+      "active_started_rate": 1.0,
+      "reference_passed_known_n": 1,
+      "reference_passed_rate_known": 1.0,
+      "reference_passed_rate": 1.0,
+      "line_rate_approved": 1.0,
+      "line_rate_approved_n": 1,
+      "branch_rate_approved": 1.0,
+      "branch_rate_approved_n": 1,
+      "detection_rate_approved": null,
+      "detection_rate_approved_n": 0,
+      "line_coverage_complete": true,
+      "detection_complete": false,
+      "preparation_seconds_mean": 0.02038549998542294,
+      "preparation_seconds_n": 1,
+      "preparation_seconds_complete": true,
+      "generation_seconds_mean": 59.284675500006415,
+      "generation_seconds_n": 1,
+      "generation_seconds_complete": true,
+      "evaluation_seconds_mean": 0.5437599999713711,
+      "evaluation_seconds_n": 1,
+      "evaluation_seconds_complete": true,
+      "context_chars_mean": 13489,
+      "context_chars_n": 1,
+      "context_chars_complete": true,
+      "tool_calls_mean": 5,
+      "tool_calls_n": 1,
+      "tool_calls_complete": true,
+      "input_tokens_mean": 47474,
+      "input_tokens_n": 1,
+      "input_tokens_complete": true,
+      "output_tokens_mean": 2460,
+      "output_tokens_n": 1,
+      "output_tokens_complete": true
+    },
+    {
+      "project": "python_stdnum",
+      "agent": "codex",
+      "condition": "L",
+      "planned": 1,
+      "generation_observable": 1,
+      "pending": 0,
+      "generation_infrastructure": 0,
+      "evaluation_infrastructure": 0,
+      "infrastructure_retries": 0,
+      "approved_with_dependency_doubles": 0,
+      "approval_pending": 0,
+      "approval_unresolved": 0,
+      "approved": 1,
+      "approval_known_n": 1,
+      "approval_observable_n": 1,
+      "approval_rate_known": 1.0,
+      "approval_rate": 1.0,
+      "approval_complete": true,
+      "generation_complete": true,
+      "active_started_known_n": 1,
+      "active_started_rate_known": 1.0,
+      "active_started_rate": 1.0,
+      "reference_passed_known_n": 1,
+      "reference_passed_rate_known": 1.0,
+      "reference_passed_rate": 1.0,
+      "line_rate_approved": 1.0,
+      "line_rate_approved_n": 1,
+      "branch_rate_approved": 1.0,
+      "branch_rate_approved_n": 1,
+      "detection_rate_approved": null,
+      "detection_rate_approved_n": 0,
+      "line_coverage_complete": true,
+      "detection_complete": false,
+      "preparation_seconds_mean": 0.020026125013828278,
+      "preparation_seconds_n": 1,
+      "preparation_seconds_complete": true,
+      "generation_seconds_mean": 55.989444249949884,
+      "generation_seconds_n": 1,
+      "generation_seconds_complete": true,
+      "evaluation_seconds_mean": 0.5515396670089103,
+      "evaluation_seconds_n": 1,
+      "evaluation_seconds_complete": true,
+      "context_chars_mean": 4897,
+      "context_chars_n": 1,
+      "context_chars_complete": true,
+      "tool_calls_mean": 3,
+      "tool_calls_n": 1,
+      "tool_calls_complete": true,
+      "input_tokens_mean": 29334,
+      "input_tokens_n": 1,
+      "input_tokens_complete": true,
+      "output_tokens_mean": 2376,
+      "output_tokens_n": 1,
+      "output_tokens_complete": true
+    },
+    {
+      "project": "python_stdnum",
+      "agent": "codex",
+      "condition": "R",
+      "planned": 1,
+      "generation_observable": 1,
+      "pending": 0,
+      "generation_infrastructure": 0,
+      "evaluation_infrastructure": 0,
+      "infrastructure_retries": 0,
+      "approved_with_dependency_doubles": 0,
+      "approval_pending": 0,
+      "approval_unresolved": 0,
+      "approved": 1,
+      "approval_known_n": 1,
+      "approval_observable_n": 1,
+      "approval_rate_known": 1.0,
+      "approval_rate": 1.0,
+      "approval_complete": true,
+      "generation_complete": true,
+      "active_started_known_n": 1,
+      "active_started_rate_known": 1.0,
+      "active_started_rate": 1.0,
+      "reference_passed_known_n": 1,
+      "reference_passed_rate_known": 1.0,
+      "reference_passed_rate": 1.0,
+      "line_rate_approved": 1.0,
+      "line_rate_approved_n": 1,
+      "branch_rate_approved": 1.0,
+      "branch_rate_approved_n": 1,
+      "detection_rate_approved": null,
+      "detection_rate_approved_n": 0,
+      "line_coverage_complete": true,
+      "detection_complete": false,
+      "preparation_seconds_mean": 0.019917167024686933,
+      "preparation_seconds_n": 1,
+      "preparation_seconds_complete": true,
+      "generation_seconds_mean": 90.3326835000189,
+      "generation_seconds_n": 1,
+      "generation_seconds_complete": true,
+      "evaluation_seconds_mean": 0.537138041050639,
+      "evaluation_seconds_n": 1,
+      "evaluation_seconds_complete": true,
+      "context_chars_mean": 4860,
+      "context_chars_n": 1,
+      "context_chars_complete": true,
+      "tool_calls_mean": 3,
+      "tool_calls_n": 1,
+      "tool_calls_complete": true,
+      "input_tokens_mean": 30363,
+      "input_tokens_n": 1,
+      "input_tokens_complete": true,
+      "output_tokens_mean": 4064,
+      "output_tokens_n": 1,
+      "output_tokens_complete": true
+    }
+  ],
+  "functions": [
+    {
+      "project": "bump_my_version",
+      "target": "parse_version",
+      "agent": "codex",
+      "condition": "A",
+      "planned": 1,
+      "generation_observable": 1,
+      "pending": 0,
+      "generation_infrastructure": 0,
+      "evaluation_infrastructure": 0,
+      "infrastructure_retries": 0,
+      "approved_with_dependency_doubles": 0,
+      "approval_pending": 0,
+      "approval_unresolved": 0,
+      "approved": 1,
+      "approval_known_n": 1,
+      "approval_observable_n": 1,
+      "approval_rate_known": 1.0,
+      "approval_rate": 1.0,
+      "approval_complete": true,
+      "generation_complete": true,
+      "active_started_known_n": 1,
+      "active_started_rate_known": 1.0,
+      "active_started_rate": 1.0,
+      "reference_passed_known_n": 1,
+      "reference_passed_rate_known": 1.0,
+      "reference_passed_rate": 1.0,
+      "line_rate_approved": 1.0,
+      "line_rate_approved_n": 1,
+      "branch_rate_approved": 1.0,
+      "branch_rate_approved_n": 1,
+      "detection_rate_approved": null,
+      "detection_rate_approved_n": 0,
+      "line_coverage_complete": true,
+      "detection_complete": false,
+      "preparation_seconds_mean": 0.018851834000088274,
+      "preparation_seconds_n": 1,
+      "preparation_seconds_complete": true,
+      "generation_seconds_mean": 56.44906233303482,
+      "generation_seconds_n": 1,
+      "generation_seconds_complete": true,
+      "evaluation_seconds_mean": 0.7572077090153471,
+      "evaluation_seconds_n": 1,
+      "evaluation_seconds_complete": true,
+      "context_chars_mean": 14167,
+      "context_chars_n": 1,
+      "context_chars_complete": true,
+      "tool_calls_mean": 7,
+      "tool_calls_n": 1,
+      "tool_calls_complete": true,
+      "input_tokens_mean": 66405,
+      "input_tokens_n": 1,
+      "input_tokens_complete": true,
+      "output_tokens_mean": 2125,
+      "output_tokens_n": 1,
+      "output_tokens_complete": true
+    },
+    {
+      "project": "bump_my_version",
+      "target": "parse_version",
+      "agent": "codex",
+      "condition": "L",
+      "planned": 1,
+      "generation_observable": 1,
+      "pending": 0,
+      "generation_infrastructure": 0,
+      "evaluation_infrastructure": 0,
+      "infrastructure_retries": 0,
+      "approved_with_dependency_doubles": 0,
+      "approval_pending": 0,
+      "approval_unresolved": 0,
+      "approved": 1,
+      "approval_known_n": 1,
+      "approval_observable_n": 1,
+      "approval_rate_known": 1.0,
+      "approval_rate": 1.0,
+      "approval_complete": true,
+      "generation_complete": true,
+      "active_started_known_n": 1,
+      "active_started_rate_known": 1.0,
+      "active_started_rate": 1.0,
+      "reference_passed_known_n": 1,
+      "reference_passed_rate_known": 1.0,
+      "reference_passed_rate": 1.0,
+      "line_rate_approved": 1.0,
+      "line_rate_approved_n": 1,
+      "branch_rate_approved": 1.0,
+      "branch_rate_approved_n": 1,
+      "detection_rate_approved": null,
+      "detection_rate_approved_n": 0,
+      "line_coverage_complete": true,
+      "detection_complete": false,
+      "preparation_seconds_mean": 0.01993962499545887,
+      "preparation_seconds_n": 1,
+      "preparation_seconds_complete": true,
+      "generation_seconds_mean": 40.988020707969554,
+      "generation_seconds_n": 1,
+      "generation_seconds_complete": true,
+      "evaluation_seconds_mean": 0.5327845829888247,
+      "evaluation_seconds_n": 1,
+      "evaluation_seconds_complete": true,
+      "context_chars_mean": 4801,
+      "context_chars_n": 1,
+      "context_chars_complete": true,
+      "tool_calls_mean": 3,
+      "tool_calls_n": 1,
+      "tool_calls_complete": true,
+      "input_tokens_mean": 29710,
+      "input_tokens_n": 1,
+      "input_tokens_complete": true,
+      "output_tokens_mean": 1670,
+      "output_tokens_n": 1,
+      "output_tokens_complete": true
+    },
+    {
+      "project": "bump_my_version",
+      "target": "parse_version",
+      "agent": "codex",
+      "condition": "R",
+      "planned": 1,
+      "generation_observable": 1,
+      "pending": 0,
+      "generation_infrastructure": 0,
+      "evaluation_infrastructure": 0,
+      "infrastructure_retries": 0,
+      "approved_with_dependency_doubles": 1,
+      "approval_pending": 0,
+      "approval_unresolved": 0,
+      "approved": 1,
+      "approval_known_n": 1,
+      "approval_observable_n": 1,
+      "approval_rate_known": 1.0,
+      "approval_rate": 1.0,
+      "approval_complete": true,
+      "generation_complete": true,
+      "active_started_known_n": 1,
+      "active_started_rate_known": 1.0,
+      "active_started_rate": 1.0,
+      "reference_passed_known_n": 1,
+      "reference_passed_rate_known": 1.0,
+      "reference_passed_rate": 1.0,
+      "line_rate_approved": 1.0,
+      "line_rate_approved_n": 1,
+      "branch_rate_approved": 1.0,
+      "branch_rate_approved_n": 1,
+      "detection_rate_approved": null,
+      "detection_rate_approved_n": 0,
+      "line_coverage_complete": true,
+      "detection_complete": false,
+      "preparation_seconds_mean": 0.018556333030574024,
+      "preparation_seconds_n": 1,
+      "preparation_seconds_complete": true,
+      "generation_seconds_mean": 52.36882475001039,
+      "generation_seconds_n": 1,
+      "generation_seconds_complete": true,
+      "evaluation_seconds_mean": 0.599463582970202,
+      "evaluation_seconds_n": 1,
+      "evaluation_seconds_complete": true,
+      "context_chars_mean": 5373,
+      "context_chars_n": 1,
+      "context_chars_complete": true,
+      "tool_calls_mean": 2,
+      "tool_calls_n": 1,
+      "tool_calls_complete": true,
+      "input_tokens_mean": 22465,
+      "input_tokens_n": 1,
+      "input_tokens_complete": true,
+      "output_tokens_mean": 2236,
+      "output_tokens_n": 1,
+      "output_tokens_complete": true
+    },
+    {
+      "project": "fava",
+      "target": "parse_budgets",
+      "agent": "codex",
+      "condition": "A",
+      "planned": 1,
+      "generation_observable": 1,
+      "pending": 0,
+      "generation_infrastructure": 0,
+      "evaluation_infrastructure": 0,
+      "infrastructure_retries": 0,
+      "approved_with_dependency_doubles": 0,
+      "approval_pending": 0,
+      "approval_unresolved": 0,
+      "approved": 1,
+      "approval_known_n": 1,
+      "approval_observable_n": 1,
+      "approval_rate_known": 1.0,
+      "approval_rate": 1.0,
+      "approval_complete": true,
+      "generation_complete": true,
+      "active_started_known_n": 1,
+      "active_started_rate_known": 1.0,
+      "active_started_rate": 1.0,
+      "reference_passed_known_n": 1,
+      "reference_passed_rate_known": 1.0,
+      "reference_passed_rate": 1.0,
+      "line_rate_approved": 1.0,
+      "line_rate_approved_n": 1,
+      "branch_rate_approved": 1.0,
+      "branch_rate_approved_n": 1,
+      "detection_rate_approved": null,
+      "detection_rate_approved_n": 0,
+      "line_coverage_complete": true,
+      "detection_complete": false,
+      "preparation_seconds_mean": 0.055717041017487645,
+      "preparation_seconds_n": 1,
+      "preparation_seconds_complete": true,
+      "generation_seconds_mean": 56.17698637500871,
+      "generation_seconds_n": 1,
+      "generation_seconds_complete": true,
+      "evaluation_seconds_mean": 0.7216623749700375,
+      "evaluation_seconds_n": 1,
+      "evaluation_seconds_complete": true,
+      "context_chars_mean": 14663,
+      "context_chars_n": 1,
+      "context_chars_complete": true,
+      "tool_calls_mean": 11,
+      "tool_calls_n": 1,
+      "tool_calls_complete": true,
+      "input_tokens_mean": 107214,
+      "input_tokens_n": 1,
+      "input_tokens_complete": true,
+      "output_tokens_mean": 1870,
+      "output_tokens_n": 1,
+      "output_tokens_complete": true
+    },
+    {
+      "project": "fava",
+      "target": "parse_budgets",
+      "agent": "codex",
+      "condition": "L",
+      "planned": 1,
+      "generation_observable": 1,
+      "pending": 0,
+      "generation_infrastructure": 0,
+      "evaluation_infrastructure": 0,
+      "infrastructure_retries": 0,
+      "approved_with_dependency_doubles": 0,
+      "approval_pending": 0,
+      "approval_unresolved": 0,
+      "approved": 1,
+      "approval_known_n": 1,
+      "approval_observable_n": 1,
+      "approval_rate_known": 1.0,
+      "approval_rate": 1.0,
+      "approval_complete": true,
+      "generation_complete": true,
+      "active_started_known_n": 1,
+      "active_started_rate_known": 1.0,
+      "active_started_rate": 1.0,
+      "reference_passed_known_n": 1,
+      "reference_passed_rate_known": 1.0,
+      "reference_passed_rate": 1.0,
+      "line_rate_approved": 1.0,
+      "line_rate_approved_n": 1,
+      "branch_rate_approved": 1.0,
+      "branch_rate_approved_n": 1,
+      "detection_rate_approved": null,
+      "detection_rate_approved_n": 0,
+      "line_coverage_complete": true,
+      "detection_complete": false,
+      "preparation_seconds_mean": 0.05666987498989329,
+      "preparation_seconds_n": 1,
+      "preparation_seconds_complete": true,
+      "generation_seconds_mean": 57.07961391599383,
+      "generation_seconds_n": 1,
+      "generation_seconds_complete": true,
+      "evaluation_seconds_mean": 0.7347575000021607,
+      "evaluation_seconds_n": 1,
+      "evaluation_seconds_complete": true,
+      "context_chars_mean": 6004,
+      "context_chars_n": 1,
+      "context_chars_complete": true,
+      "tool_calls_mean": 3,
+      "tool_calls_n": 1,
+      "tool_calls_complete": true,
+      "input_tokens_mean": 30614,
+      "input_tokens_n": 1,
+      "input_tokens_complete": true,
+      "output_tokens_mean": 2387,
+      "output_tokens_n": 1,
+      "output_tokens_complete": true
+    },
+    {
+      "project": "fava",
+      "target": "parse_budgets",
+      "agent": "codex",
+      "condition": "R",
+      "planned": 1,
+      "generation_observable": 1,
+      "pending": 0,
+      "generation_infrastructure": 0,
+      "evaluation_infrastructure": 0,
+      "infrastructure_retries": 0,
+      "approved_with_dependency_doubles": 0,
+      "approval_pending": 0,
+      "approval_unresolved": 0,
+      "approved": 1,
+      "approval_known_n": 1,
+      "approval_observable_n": 1,
+      "approval_rate_known": 1.0,
+      "approval_rate": 1.0,
+      "approval_complete": true,
+      "generation_complete": true,
+      "active_started_known_n": 1,
+      "active_started_rate_known": 1.0,
+      "active_started_rate": 1.0,
+      "reference_passed_known_n": 1,
+      "reference_passed_rate_known": 1.0,
+      "reference_passed_rate": 1.0,
+      "line_rate_approved": 1.0,
+      "line_rate_approved_n": 1,
+      "branch_rate_approved": 1.0,
+      "branch_rate_approved_n": 1,
+      "detection_rate_approved": null,
+      "detection_rate_approved_n": 0,
+      "line_coverage_complete": true,
+      "detection_complete": false,
+      "preparation_seconds_mean": 0.05824679200304672,
+      "preparation_seconds_n": 1,
+      "preparation_seconds_complete": true,
+      "generation_seconds_mean": 59.85290337499464,
+      "generation_seconds_n": 1,
+      "generation_seconds_complete": true,
+      "evaluation_seconds_mean": 0.7251352909952402,
+      "evaluation_seconds_n": 1,
+      "evaluation_seconds_complete": true,
+      "context_chars_mean": 6235,
+      "context_chars_n": 1,
+      "context_chars_complete": true,
+      "tool_calls_mean": 4,
+      "tool_calls_n": 1,
+      "tool_calls_complete": true,
+      "input_tokens_mean": 38626,
+      "input_tokens_n": 1,
+      "input_tokens_complete": true,
+      "output_tokens_mean": 2510,
+      "output_tokens_n": 1,
+      "output_tokens_complete": true
+    },
+    {
+      "project": "python_dotenv",
+      "target": "parse_stream",
+      "agent": "codex",
+      "condition": "A",
+      "planned": 1,
+      "generation_observable": 1,
+      "pending": 0,
+      "generation_infrastructure": 0,
+      "evaluation_infrastructure": 0,
+      "infrastructure_retries": 0,
+      "approved_with_dependency_doubles": 0,
+      "approval_pending": 0,
+      "approval_unresolved": 0,
+      "approved": 0,
+      "approval_known_n": 1,
+      "approval_observable_n": 1,
+      "approval_rate_known": 0.0,
+      "approval_rate": 0.0,
+      "approval_complete": true,
+      "generation_complete": true,
+      "active_started_known_n": 1,
+      "active_started_rate_known": 1.0,
+      "active_started_rate": 1.0,
+      "reference_passed_known_n": 1,
+      "reference_passed_rate_known": 0.0,
+      "reference_passed_rate": 0.0,
+      "line_rate_approved": null,
+      "line_rate_approved_n": 0,
+      "branch_rate_approved": null,
+      "branch_rate_approved_n": 0,
+      "detection_rate_approved": null,
+      "detection_rate_approved_n": 0,
+      "line_coverage_complete": false,
+      "detection_complete": false,
+      "preparation_seconds_mean": 0.014053124992642552,
+      "preparation_seconds_n": 1,
+      "preparation_seconds_complete": true,
+      "generation_seconds_mean": 71.80360870802542,
+      "generation_seconds_n": 1,
+      "generation_seconds_complete": true,
+      "evaluation_seconds_mean": 0.603821832977701,
+      "evaluation_seconds_n": 1,
+      "evaluation_seconds_complete": true,
+      "context_chars_mean": 8484,
+      "context_chars_n": 1,
+      "context_chars_complete": true,
+      "tool_calls_mean": 4,
+      "tool_calls_n": 1,
+      "tool_calls_complete": true,
+      "input_tokens_mean": 38118,
+      "input_tokens_n": 1,
+      "input_tokens_complete": true,
+      "output_tokens_mean": 3033,
+      "output_tokens_n": 1,
+      "output_tokens_complete": true
+    },
+    {
+      "project": "python_dotenv",
+      "target": "parse_stream",
+      "agent": "codex",
+      "condition": "L",
+      "planned": 1,
+      "generation_observable": 1,
+      "pending": 0,
+      "generation_infrastructure": 0,
+      "evaluation_infrastructure": 0,
+      "infrastructure_retries": 0,
+      "approved_with_dependency_doubles": 0,
+      "approval_pending": 0,
+      "approval_unresolved": 0,
+      "approved": 1,
+      "approval_known_n": 1,
+      "approval_observable_n": 1,
+      "approval_rate_known": 1.0,
+      "approval_rate": 1.0,
+      "approval_complete": true,
+      "generation_complete": true,
+      "active_started_known_n": 1,
+      "active_started_rate_known": 1.0,
+      "active_started_rate": 1.0,
+      "reference_passed_known_n": 1,
+      "reference_passed_rate_known": 1.0,
+      "reference_passed_rate": 1.0,
+      "line_rate_approved": 1.0,
+      "line_rate_approved_n": 1,
+      "branch_rate_approved": 1.0,
+      "branch_rate_approved_n": 1,
+      "detection_rate_approved": null,
+      "detection_rate_approved_n": 0,
+      "line_coverage_complete": true,
+      "detection_complete": false,
+      "preparation_seconds_mean": 0.011677832982968539,
+      "preparation_seconds_n": 1,
+      "preparation_seconds_complete": true,
+      "generation_seconds_mean": 84.12951354199322,
+      "generation_seconds_n": 1,
+      "generation_seconds_complete": true,
+      "evaluation_seconds_mean": 0.40398624999215826,
+      "evaluation_seconds_n": 1,
+      "evaluation_seconds_complete": true,
+      "context_chars_mean": 5900,
+      "context_chars_n": 1,
+      "context_chars_complete": true,
+      "tool_calls_mean": 2,
+      "tool_calls_n": 1,
+      "tool_calls_complete": true,
+      "input_tokens_mean": 23471,
+      "input_tokens_n": 1,
+      "input_tokens_complete": true,
+      "output_tokens_mean": 3333,
+      "output_tokens_n": 1,
+      "output_tokens_complete": true
+    },
+    {
+      "project": "python_dotenv",
+      "target": "parse_stream",
+      "agent": "codex",
+      "condition": "R",
+      "planned": 1,
+      "generation_observable": 1,
+      "pending": 0,
+      "generation_infrastructure": 0,
+      "evaluation_infrastructure": 0,
+      "infrastructure_retries": 0,
+      "approved_with_dependency_doubles": 0,
+      "approval_pending": 0,
+      "approval_unresolved": 0,
+      "approved": 1,
+      "approval_known_n": 1,
+      "approval_observable_n": 1,
+      "approval_rate_known": 1.0,
+      "approval_rate": 1.0,
+      "approval_complete": true,
+      "generation_complete": true,
+      "active_started_known_n": 1,
+      "active_started_rate_known": 1.0,
+      "active_started_rate": 1.0,
+      "reference_passed_known_n": 1,
+      "reference_passed_rate_known": 1.0,
+      "reference_passed_rate": 1.0,
+      "line_rate_approved": 1.0,
+      "line_rate_approved_n": 1,
+      "branch_rate_approved": 1.0,
+      "branch_rate_approved_n": 1,
+      "detection_rate_approved": null,
+      "detection_rate_approved_n": 0,
+      "line_coverage_complete": true,
+      "detection_complete": false,
+      "preparation_seconds_mean": 0.01109758298844099,
+      "preparation_seconds_n": 1,
+      "preparation_seconds_complete": true,
+      "generation_seconds_mean": 100.0315464999876,
+      "generation_seconds_n": 1,
+      "generation_seconds_complete": true,
+      "evaluation_seconds_mean": 0.4139160419581458,
+      "evaluation_seconds_n": 1,
+      "evaluation_seconds_complete": true,
+      "context_chars_mean": 5900,
+      "context_chars_n": 1,
+      "context_chars_complete": true,
+      "tool_calls_mean": 2,
+      "tool_calls_n": 1,
+      "tool_calls_complete": true,
+      "input_tokens_mean": 23415,
+      "input_tokens_n": 1,
+      "input_tokens_complete": true,
+      "output_tokens_mean": 4640,
+      "output_tokens_n": 1,
+      "output_tokens_complete": true
+    },
+    {
+      "project": "python_stdnum",
+      "target": "br_cnpj_validate",
+      "agent": "codex",
+      "condition": "A",
+      "planned": 1,
+      "generation_observable": 1,
+      "pending": 0,
+      "generation_infrastructure": 0,
+      "evaluation_infrastructure": 0,
+      "infrastructure_retries": 0,
+      "approved_with_dependency_doubles": 0,
+      "approval_pending": 0,
+      "approval_unresolved": 0,
+      "approved": 1,
+      "approval_known_n": 1,
+      "approval_observable_n": 1,
+      "approval_rate_known": 1.0,
+      "approval_rate": 1.0,
+      "approval_complete": true,
+      "generation_complete": true,
+      "active_started_known_n": 1,
+      "active_started_rate_known": 1.0,
+      "active_started_rate": 1.0,
+      "reference_passed_known_n": 1,
+      "reference_passed_rate_known": 1.0,
+      "reference_passed_rate": 1.0,
+      "line_rate_approved": 1.0,
+      "line_rate_approved_n": 1,
+      "branch_rate_approved": 1.0,
+      "branch_rate_approved_n": 1,
+      "detection_rate_approved": null,
+      "detection_rate_approved_n": 0,
+      "line_coverage_complete": true,
+      "detection_complete": false,
+      "preparation_seconds_mean": 0.02038549998542294,
+      "preparation_seconds_n": 1,
+      "preparation_seconds_complete": true,
+      "generation_seconds_mean": 59.284675500006415,
+      "generation_seconds_n": 1,
+      "generation_seconds_complete": true,
+      "evaluation_seconds_mean": 0.5437599999713711,
+      "evaluation_seconds_n": 1,
+      "evaluation_seconds_complete": true,
+      "context_chars_mean": 13489,
+      "context_chars_n": 1,
+      "context_chars_complete": true,
+      "tool_calls_mean": 5,
+      "tool_calls_n": 1,
+      "tool_calls_complete": true,
+      "input_tokens_mean": 47474,
+      "input_tokens_n": 1,
+      "input_tokens_complete": true,
+      "output_tokens_mean": 2460,
+      "output_tokens_n": 1,
+      "output_tokens_complete": true
+    },
+    {
+      "project": "python_stdnum",
+      "target": "br_cnpj_validate",
+      "agent": "codex",
+      "condition": "L",
+      "planned": 1,
+      "generation_observable": 1,
+      "pending": 0,
+      "generation_infrastructure": 0,
+      "evaluation_infrastructure": 0,
+      "infrastructure_retries": 0,
+      "approved_with_dependency_doubles": 0,
+      "approval_pending": 0,
+      "approval_unresolved": 0,
+      "approved": 1,
+      "approval_known_n": 1,
+      "approval_observable_n": 1,
+      "approval_rate_known": 1.0,
+      "approval_rate": 1.0,
+      "approval_complete": true,
+      "generation_complete": true,
+      "active_started_known_n": 1,
+      "active_started_rate_known": 1.0,
+      "active_started_rate": 1.0,
+      "reference_passed_known_n": 1,
+      "reference_passed_rate_known": 1.0,
+      "reference_passed_rate": 1.0,
+      "line_rate_approved": 1.0,
+      "line_rate_approved_n": 1,
+      "branch_rate_approved": 1.0,
+      "branch_rate_approved_n": 1,
+      "detection_rate_approved": null,
+      "detection_rate_approved_n": 0,
+      "line_coverage_complete": true,
+      "detection_complete": false,
+      "preparation_seconds_mean": 0.020026125013828278,
+      "preparation_seconds_n": 1,
+      "preparation_seconds_complete": true,
+      "generation_seconds_mean": 55.989444249949884,
+      "generation_seconds_n": 1,
+      "generation_seconds_complete": true,
+      "evaluation_seconds_mean": 0.5515396670089103,
+      "evaluation_seconds_n": 1,
+      "evaluation_seconds_complete": true,
+      "context_chars_mean": 4897,
+      "context_chars_n": 1,
+      "context_chars_complete": true,
+      "tool_calls_mean": 3,
+      "tool_calls_n": 1,
+      "tool_calls_complete": true,
+      "input_tokens_mean": 29334,
+      "input_tokens_n": 1,
+      "input_tokens_complete": true,
+      "output_tokens_mean": 2376,
+      "output_tokens_n": 1,
+      "output_tokens_complete": true
+    },
+    {
+      "project": "python_stdnum",
+      "target": "br_cnpj_validate",
+      "agent": "codex",
+      "condition": "R",
+      "planned": 1,
+      "generation_observable": 1,
+      "pending": 0,
+      "generation_infrastructure": 0,
+      "evaluation_infrastructure": 0,
+      "infrastructure_retries": 0,
+      "approved_with_dependency_doubles": 0,
+      "approval_pending": 0,
+      "approval_unresolved": 0,
+      "approved": 1,
+      "approval_known_n": 1,
+      "approval_observable_n": 1,
+      "approval_rate_known": 1.0,
+      "approval_rate": 1.0,
+      "approval_complete": true,
+      "generation_complete": true,
+      "active_started_known_n": 1,
+      "active_started_rate_known": 1.0,
+      "active_started_rate": 1.0,
+      "reference_passed_known_n": 1,
+      "reference_passed_rate_known": 1.0,
+      "reference_passed_rate": 1.0,
+      "line_rate_approved": 1.0,
+      "line_rate_approved_n": 1,
+      "branch_rate_approved": 1.0,
+      "branch_rate_approved_n": 1,
+      "detection_rate_approved": null,
+      "detection_rate_approved_n": 0,
+      "line_coverage_complete": true,
+      "detection_complete": false,
+      "preparation_seconds_mean": 0.019917167024686933,
+      "preparation_seconds_n": 1,
+      "preparation_seconds_complete": true,
+      "generation_seconds_mean": 90.3326835000189,
+      "generation_seconds_n": 1,
+      "generation_seconds_complete": true,
+      "evaluation_seconds_mean": 0.537138041050639,
+      "evaluation_seconds_n": 1,
+      "evaluation_seconds_complete": true,
+      "context_chars_mean": 4860,
+      "context_chars_n": 1,
+      "context_chars_complete": true,
+      "tool_calls_mean": 3,
+      "tool_calls_n": 1,
+      "tool_calls_complete": true,
+      "input_tokens_mean": 30363,
+      "input_tokens_n": 1,
+      "input_tokens_complete": true,
+      "output_tokens_mean": 4064,
+      "output_tokens_n": 1,
+      "output_tokens_complete": true
+    }
+  ],
+  "defects": [],
+  "contrasts": [
+    {
+      "project": "bump_my_version",
+      "agent": "codex",
+      "contrast": "L-A",
+      "metric": "approval_rate",
+      "functions_planned": 1,
+      "functions_comparable": 1,
+      "difference_equal_function_weight": 0.0,
+      "function_differences": [
+        {
+          "project": "bump_my_version",
+          "target": "parse_version",
+          "left": 1.0,
+          "right": 1.0,
+          "difference": 0.0
+        }
+      ]
+    },
+    {
+      "project": "bump_my_version",
+      "agent": "codex",
+      "contrast": "L-A",
+      "metric": "line_rate_approved",
+      "functions_planned": 1,
+      "functions_comparable": 1,
+      "difference_equal_function_weight": 0.0,
+      "function_differences": [
+        {
+          "project": "bump_my_version",
+          "target": "parse_version",
+          "left": 1.0,
+          "right": 1.0,
+          "difference": 0.0
+        }
+      ]
+    },
+    {
+      "project": "bump_my_version",
+      "agent": "codex",
+      "contrast": "L-A",
+      "metric": "branch_rate_approved",
+      "functions_planned": 1,
+      "functions_comparable": 1,
+      "difference_equal_function_weight": 0.0,
+      "function_differences": [
+        {
+          "project": "bump_my_version",
+          "target": "parse_version",
+          "left": 1.0,
+          "right": 1.0,
+          "difference": 0.0
+        }
+      ]
+    },
+    {
+      "project": "bump_my_version",
+      "agent": "codex",
+      "contrast": "L-A",
+      "metric": "detection_rate_approved",
+      "functions_planned": 1,
+      "functions_comparable": 0,
+      "difference_equal_function_weight": null,
+      "function_differences": []
+    },
+    {
+      "project": "bump_my_version",
+      "agent": "codex",
+      "contrast": "L-A",
+      "metric": "generation_seconds_mean",
+      "functions_planned": 1,
+      "functions_comparable": 1,
+      "difference_equal_function_weight": -15.461041625065263,
+      "function_differences": [
+        {
+          "project": "bump_my_version",
+          "target": "parse_version",
+          "left": 40.988020707969554,
+          "right": 56.44906233303482,
+          "difference": -15.461041625065263
+        }
+      ]
+    },
+    {
+      "project": "bump_my_version",
+      "agent": "codex",
+      "contrast": "L-A",
+      "metric": "context_chars_mean",
+      "functions_planned": 1,
+      "functions_comparable": 1,
+      "difference_equal_function_weight": -9366,
+      "function_differences": [
+        {
+          "project": "bump_my_version",
+          "target": "parse_version",
+          "left": 4801,
+          "right": 14167,
+          "difference": -9366
+        }
+      ]
+    },
+    {
+      "project": "bump_my_version",
+      "agent": "codex",
+      "contrast": "L-A",
+      "metric": "tool_calls_mean",
+      "functions_planned": 1,
+      "functions_comparable": 1,
+      "difference_equal_function_weight": -4,
+      "function_differences": [
+        {
+          "project": "bump_my_version",
+          "target": "parse_version",
+          "left": 3,
+          "right": 7,
+          "difference": -4
+        }
+      ]
+    },
+    {
+      "project": "bump_my_version",
+      "agent": "codex",
+      "contrast": "L-A",
+      "metric": "input_tokens_mean",
+      "functions_planned": 1,
+      "functions_comparable": 1,
+      "difference_equal_function_weight": -36695,
+      "function_differences": [
+        {
+          "project": "bump_my_version",
+          "target": "parse_version",
+          "left": 29710,
+          "right": 66405,
+          "difference": -36695
+        }
+      ]
+    },
+    {
+      "project": "bump_my_version",
+      "agent": "codex",
+      "contrast": "L-A",
+      "metric": "output_tokens_mean",
+      "functions_planned": 1,
+      "functions_comparable": 1,
+      "difference_equal_function_weight": -455,
+      "function_differences": [
+        {
+          "project": "bump_my_version",
+          "target": "parse_version",
+          "left": 1670,
+          "right": 2125,
+          "difference": -455
+        }
+      ]
+    },
+    {
+      "project": "bump_my_version",
+      "agent": "codex",
+      "contrast": "R-A",
+      "metric": "approval_rate",
+      "functions_planned": 1,
+      "functions_comparable": 1,
+      "difference_equal_function_weight": 0.0,
+      "function_differences": [
+        {
+          "project": "bump_my_version",
+          "target": "parse_version",
+          "left": 1.0,
+          "right": 1.0,
+          "difference": 0.0
+        }
+      ]
+    },
+    {
+      "project": "bump_my_version",
+      "agent": "codex",
+      "contrast": "R-A",
+      "metric": "line_rate_approved",
+      "functions_planned": 1,
+      "functions_comparable": 1,
+      "difference_equal_function_weight": 0.0,
+      "function_differences": [
+        {
+          "project": "bump_my_version",
+          "target": "parse_version",
+          "left": 1.0,
+          "right": 1.0,
+          "difference": 0.0
+        }
+      ]
+    },
+    {
+      "project": "bump_my_version",
+      "agent": "codex",
+      "contrast": "R-A",
+      "metric": "branch_rate_approved",
+      "functions_planned": 1,
+      "functions_comparable": 1,
+      "difference_equal_function_weight": 0.0,
+      "function_differences": [
+        {
+          "project": "bump_my_version",
+          "target": "parse_version",
+          "left": 1.0,
+          "right": 1.0,
+          "difference": 0.0
+        }
+      ]
+    },
+    {
+      "project": "bump_my_version",
+      "agent": "codex",
+      "contrast": "R-A",
+      "metric": "detection_rate_approved",
+      "functions_planned": 1,
+      "functions_comparable": 0,
+      "difference_equal_function_weight": null,
+      "function_differences": []
+    },
+    {
+      "project": "bump_my_version",
+      "agent": "codex",
+      "contrast": "R-A",
+      "metric": "generation_seconds_mean",
+      "functions_planned": 1,
+      "functions_comparable": 1,
+      "difference_equal_function_weight": -4.080237583024427,
+      "function_differences": [
+        {
+          "project": "bump_my_version",
+          "target": "parse_version",
+          "left": 52.36882475001039,
+          "right": 56.44906233303482,
+          "difference": -4.080237583024427
+        }
+      ]
+    },
+    {
+      "project": "bump_my_version",
+      "agent": "codex",
+      "contrast": "R-A",
+      "metric": "context_chars_mean",
+      "functions_planned": 1,
+      "functions_comparable": 1,
+      "difference_equal_function_weight": -8794,
+      "function_differences": [
+        {
+          "project": "bump_my_version",
+          "target": "parse_version",
+          "left": 5373,
+          "right": 14167,
+          "difference": -8794
+        }
+      ]
+    },
+    {
+      "project": "bump_my_version",
+      "agent": "codex",
+      "contrast": "R-A",
+      "metric": "tool_calls_mean",
+      "functions_planned": 1,
+      "functions_comparable": 1,
+      "difference_equal_function_weight": -5,
+      "function_differences": [
+        {
+          "project": "bump_my_version",
+          "target": "parse_version",
+          "left": 2,
+          "right": 7,
+          "difference": -5
+        }
+      ]
+    },
+    {
+      "project": "bump_my_version",
+      "agent": "codex",
+      "contrast": "R-A",
+      "metric": "input_tokens_mean",
+      "functions_planned": 1,
+      "functions_comparable": 1,
+      "difference_equal_function_weight": -43940,
+      "function_differences": [
+        {
+          "project": "bump_my_version",
+          "target": "parse_version",
+          "left": 22465,
+          "right": 66405,
+          "difference": -43940
+        }
+      ]
+    },
+    {
+      "project": "bump_my_version",
+      "agent": "codex",
+      "contrast": "R-A",
+      "metric": "output_tokens_mean",
+      "functions_planned": 1,
+      "functions_comparable": 1,
+      "difference_equal_function_weight": 111,
+      "function_differences": [
+        {
+          "project": "bump_my_version",
+          "target": "parse_version",
+          "left": 2236,
+          "right": 2125,
+          "difference": 111
+        }
+      ]
+    },
+    {
+      "project": "bump_my_version",
+      "agent": "codex",
+      "contrast": "R-L",
+      "metric": "approval_rate",
+      "functions_planned": 1,
+      "functions_comparable": 1,
+      "difference_equal_function_weight": 0.0,
+      "function_differences": [
+        {
+          "project": "bump_my_version",
+          "target": "parse_version",
+          "left": 1.0,
+          "right": 1.0,
+          "difference": 0.0
+        }
+      ]
+    },
+    {
+      "project": "bump_my_version",
+      "agent": "codex",
+      "contrast": "R-L",
+      "metric": "line_rate_approved",
+      "functions_planned": 1,
+      "functions_comparable": 1,
+      "difference_equal_function_weight": 0.0,
+      "function_differences": [
+        {
+          "project": "bump_my_version",
+          "target": "parse_version",
+          "left": 1.0,
+          "right": 1.0,
+          "difference": 0.0
+        }
+      ]
+    },
+    {
+      "project": "bump_my_version",
+      "agent": "codex",
+      "contrast": "R-L",
+      "metric": "branch_rate_approved",
+      "functions_planned": 1,
+      "functions_comparable": 1,
+      "difference_equal_function_weight": 0.0,
+      "function_differences": [
+        {
+          "project": "bump_my_version",
+          "target": "parse_version",
+          "left": 1.0,
+          "right": 1.0,
+          "difference": 0.0
+        }
+      ]
+    },
+    {
+      "project": "bump_my_version",
+      "agent": "codex",
+      "contrast": "R-L",
+      "metric": "detection_rate_approved",
+      "functions_planned": 1,
+      "functions_comparable": 0,
+      "difference_equal_function_weight": null,
+      "function_differences": []
+    },
+    {
+      "project": "bump_my_version",
+      "agent": "codex",
+      "contrast": "R-L",
+      "metric": "generation_seconds_mean",
+      "functions_planned": 1,
+      "functions_comparable": 1,
+      "difference_equal_function_weight": 11.380804042040836,
+      "function_differences": [
+        {
+          "project": "bump_my_version",
+          "target": "parse_version",
+          "left": 52.36882475001039,
+          "right": 40.988020707969554,
+          "difference": 11.380804042040836
+        }
+      ]
+    },
+    {
+      "project": "bump_my_version",
+      "agent": "codex",
+      "contrast": "R-L",
+      "metric": "context_chars_mean",
+      "functions_planned": 1,
+      "functions_comparable": 1,
+      "difference_equal_function_weight": 572,
+      "function_differences": [
+        {
+          "project": "bump_my_version",
+          "target": "parse_version",
+          "left": 5373,
+          "right": 4801,
+          "difference": 572
+        }
+      ]
+    },
+    {
+      "project": "bump_my_version",
+      "agent": "codex",
+      "contrast": "R-L",
+      "metric": "tool_calls_mean",
+      "functions_planned": 1,
+      "functions_comparable": 1,
+      "difference_equal_function_weight": -1,
+      "function_differences": [
+        {
+          "project": "bump_my_version",
+          "target": "parse_version",
+          "left": 2,
+          "right": 3,
+          "difference": -1
+        }
+      ]
+    },
+    {
+      "project": "bump_my_version",
+      "agent": "codex",
+      "contrast": "R-L",
+      "metric": "input_tokens_mean",
+      "functions_planned": 1,
+      "functions_comparable": 1,
+      "difference_equal_function_weight": -7245,
+      "function_differences": [
+        {
+          "project": "bump_my_version",
+          "target": "parse_version",
+          "left": 22465,
+          "right": 29710,
+          "difference": -7245
+        }
+      ]
+    },
+    {
+      "project": "bump_my_version",
+      "agent": "codex",
+      "contrast": "R-L",
+      "metric": "output_tokens_mean",
+      "functions_planned": 1,
+      "functions_comparable": 1,
+      "difference_equal_function_weight": 566,
+      "function_differences": [
+        {
+          "project": "bump_my_version",
+          "target": "parse_version",
+          "left": 2236,
+          "right": 1670,
+          "difference": 566
+        }
+      ]
+    },
+    {
+      "project": "fava",
+      "agent": "codex",
+      "contrast": "L-A",
+      "metric": "approval_rate",
+      "functions_planned": 1,
+      "functions_comparable": 1,
+      "difference_equal_function_weight": 0.0,
+      "function_differences": [
+        {
+          "project": "fava",
+          "target": "parse_budgets",
+          "left": 1.0,
+          "right": 1.0,
+          "difference": 0.0
+        }
+      ]
+    },
+    {
+      "project": "fava",
+      "agent": "codex",
+      "contrast": "L-A",
+      "metric": "line_rate_approved",
+      "functions_planned": 1,
+      "functions_comparable": 1,
+      "difference_equal_function_weight": 0.0,
+      "function_differences": [
+        {
+          "project": "fava",
+          "target": "parse_budgets",
+          "left": 1.0,
+          "right": 1.0,
+          "difference": 0.0
+        }
+      ]
+    },
+    {
+      "project": "fava",
+      "agent": "codex",
+      "contrast": "L-A",
+      "metric": "branch_rate_approved",
+      "functions_planned": 1,
+      "functions_comparable": 1,
+      "difference_equal_function_weight": 0.0,
+      "function_differences": [
+        {
+          "project": "fava",
+          "target": "parse_budgets",
+          "left": 1.0,
+          "right": 1.0,
+          "difference": 0.0
+        }
+      ]
+    },
+    {
+      "project": "fava",
+      "agent": "codex",
+      "contrast": "L-A",
+      "metric": "detection_rate_approved",
+      "functions_planned": 1,
+      "functions_comparable": 0,
+      "difference_equal_function_weight": null,
+      "function_differences": []
+    },
+    {
+      "project": "fava",
+      "agent": "codex",
+      "contrast": "L-A",
+      "metric": "generation_seconds_mean",
+      "functions_planned": 1,
+      "functions_comparable": 1,
+      "difference_equal_function_weight": 0.9026275409851223,
+      "function_differences": [
+        {
+          "project": "fava",
+          "target": "parse_budgets",
+          "left": 57.07961391599383,
+          "right": 56.17698637500871,
+          "difference": 0.9026275409851223
+        }
+      ]
+    },
+    {
+      "project": "fava",
+      "agent": "codex",
+      "contrast": "L-A",
+      "metric": "context_chars_mean",
+      "functions_planned": 1,
+      "functions_comparable": 1,
+      "difference_equal_function_weight": -8659,
+      "function_differences": [
+        {
+          "project": "fava",
+          "target": "parse_budgets",
+          "left": 6004,
+          "right": 14663,
+          "difference": -8659
+        }
+      ]
+    },
+    {
+      "project": "fava",
+      "agent": "codex",
+      "contrast": "L-A",
+      "metric": "tool_calls_mean",
+      "functions_planned": 1,
+      "functions_comparable": 1,
+      "difference_equal_function_weight": -8,
+      "function_differences": [
+        {
+          "project": "fava",
+          "target": "parse_budgets",
+          "left": 3,
+          "right": 11,
+          "difference": -8
+        }
+      ]
+    },
+    {
+      "project": "fava",
+      "agent": "codex",
+      "contrast": "L-A",
+      "metric": "input_tokens_mean",
+      "functions_planned": 1,
+      "functions_comparable": 1,
+      "difference_equal_function_weight": -76600,
+      "function_differences": [
+        {
+          "project": "fava",
+          "target": "parse_budgets",
+          "left": 30614,
+          "right": 107214,
+          "difference": -76600
+        }
+      ]
+    },
+    {
+      "project": "fava",
+      "agent": "codex",
+      "contrast": "L-A",
+      "metric": "output_tokens_mean",
+      "functions_planned": 1,
+      "functions_comparable": 1,
+      "difference_equal_function_weight": 517,
+      "function_differences": [
+        {
+          "project": "fava",
+          "target": "parse_budgets",
+          "left": 2387,
+          "right": 1870,
+          "difference": 517
+        }
+      ]
+    },
+    {
+      "project": "fava",
+      "agent": "codex",
+      "contrast": "R-A",
+      "metric": "approval_rate",
+      "functions_planned": 1,
+      "functions_comparable": 1,
+      "difference_equal_function_weight": 0.0,
+      "function_differences": [
+        {
+          "project": "fava",
+          "target": "parse_budgets",
+          "left": 1.0,
+          "right": 1.0,
+          "difference": 0.0
+        }
+      ]
+    },
+    {
+      "project": "fava",
+      "agent": "codex",
+      "contrast": "R-A",
+      "metric": "line_rate_approved",
+      "functions_planned": 1,
+      "functions_comparable": 1,
+      "difference_equal_function_weight": 0.0,
+      "function_differences": [
+        {
+          "project": "fava",
+          "target": "parse_budgets",
+          "left": 1.0,
+          "right": 1.0,
+          "difference": 0.0
+        }
+      ]
+    },
+    {
+      "project": "fava",
+      "agent": "codex",
+      "contrast": "R-A",
+      "metric": "branch_rate_approved",
+      "functions_planned": 1,
+      "functions_comparable": 1,
+      "difference_equal_function_weight": 0.0,
+      "function_differences": [
+        {
+          "project": "fava",
+          "target": "parse_budgets",
+          "left": 1.0,
+          "right": 1.0,
+          "difference": 0.0
+        }
+      ]
+    },
+    {
+      "project": "fava",
+      "agent": "codex",
+      "contrast": "R-A",
+      "metric": "detection_rate_approved",
+      "functions_planned": 1,
+      "functions_comparable": 0,
+      "difference_equal_function_weight": null,
+      "function_differences": []
+    },
+    {
+      "project": "fava",
+      "agent": "codex",
+      "contrast": "R-A",
+      "metric": "generation_seconds_mean",
+      "functions_planned": 1,
+      "functions_comparable": 1,
+      "difference_equal_function_weight": 3.6759169999859296,
+      "function_differences": [
+        {
+          "project": "fava",
+          "target": "parse_budgets",
+          "left": 59.85290337499464,
+          "right": 56.17698637500871,
+          "difference": 3.6759169999859296
+        }
+      ]
+    },
+    {
+      "project": "fava",
+      "agent": "codex",
+      "contrast": "R-A",
+      "metric": "context_chars_mean",
+      "functions_planned": 1,
+      "functions_comparable": 1,
+      "difference_equal_function_weight": -8428,
+      "function_differences": [
+        {
+          "project": "fava",
+          "target": "parse_budgets",
+          "left": 6235,
+          "right": 14663,
+          "difference": -8428
+        }
+      ]
+    },
+    {
+      "project": "fava",
+      "agent": "codex",
+      "contrast": "R-A",
+      "metric": "tool_calls_mean",
+      "functions_planned": 1,
+      "functions_comparable": 1,
+      "difference_equal_function_weight": -7,
+      "function_differences": [
+        {
+          "project": "fava",
+          "target": "parse_budgets",
+          "left": 4,
+          "right": 11,
+          "difference": -7
+        }
+      ]
+    },
+    {
+      "project": "fava",
+      "agent": "codex",
+      "contrast": "R-A",
+      "metric": "input_tokens_mean",
+      "functions_planned": 1,
+      "functions_comparable": 1,
+      "difference_equal_function_weight": -68588,
+      "function_differences": [
+        {
+          "project": "fava",
+          "target": "parse_budgets",
+          "left": 38626,
+          "right": 107214,
+          "difference": -68588
+        }
+      ]
+    },
+    {
+      "project": "fava",
+      "agent": "codex",
+      "contrast": "R-A",
+      "metric": "output_tokens_mean",
+      "functions_planned": 1,
+      "functions_comparable": 1,
+      "difference_equal_function_weight": 640,
+      "function_differences": [
+        {
+          "project": "fava",
+          "target": "parse_budgets",
+          "left": 2510,
+          "right": 1870,
+          "difference": 640
+        }
+      ]
+    },
+    {
+      "project": "fava",
+      "agent": "codex",
+      "contrast": "R-L",
+      "metric": "approval_rate",
+      "functions_planned": 1,
+      "functions_comparable": 1,
+      "difference_equal_function_weight": 0.0,
+      "function_differences": [
+        {
+          "project": "fava",
+          "target": "parse_budgets",
+          "left": 1.0,
+          "right": 1.0,
+          "difference": 0.0
+        }
+      ]
+    },
+    {
+      "project": "fava",
+      "agent": "codex",
+      "contrast": "R-L",
+      "metric": "line_rate_approved",
+      "functions_planned": 1,
+      "functions_comparable": 1,
+      "difference_equal_function_weight": 0.0,
+      "function_differences": [
+        {
+          "project": "fava",
+          "target": "parse_budgets",
+          "left": 1.0,
+          "right": 1.0,
+          "difference": 0.0
+        }
+      ]
+    },
+    {
+      "project": "fava",
+      "agent": "codex",
+      "contrast": "R-L",
+      "metric": "branch_rate_approved",
+      "functions_planned": 1,
+      "functions_comparable": 1,
+      "difference_equal_function_weight": 0.0,
+      "function_differences": [
+        {
+          "project": "fava",
+          "target": "parse_budgets",
+          "left": 1.0,
+          "right": 1.0,
+          "difference": 0.0
+        }
+      ]
+    },
+    {
+      "project": "fava",
+      "agent": "codex",
+      "contrast": "R-L",
+      "metric": "detection_rate_approved",
+      "functions_planned": 1,
+      "functions_comparable": 0,
+      "difference_equal_function_weight": null,
+      "function_differences": []
+    },
+    {
+      "project": "fava",
+      "agent": "codex",
+      "contrast": "R-L",
+      "metric": "generation_seconds_mean",
+      "functions_planned": 1,
+      "functions_comparable": 1,
+      "difference_equal_function_weight": 2.7732894590008073,
+      "function_differences": [
+        {
+          "project": "fava",
+          "target": "parse_budgets",
+          "left": 59.85290337499464,
+          "right": 57.07961391599383,
+          "difference": 2.7732894590008073
+        }
+      ]
+    },
+    {
+      "project": "fava",
+      "agent": "codex",
+      "contrast": "R-L",
+      "metric": "context_chars_mean",
+      "functions_planned": 1,
+      "functions_comparable": 1,
+      "difference_equal_function_weight": 231,
+      "function_differences": [
+        {
+          "project": "fava",
+          "target": "parse_budgets",
+          "left": 6235,
+          "right": 6004,
+          "difference": 231
+        }
+      ]
+    },
+    {
+      "project": "fava",
+      "agent": "codex",
+      "contrast": "R-L",
+      "metric": "tool_calls_mean",
+      "functions_planned": 1,
+      "functions_comparable": 1,
+      "difference_equal_function_weight": 1,
+      "function_differences": [
+        {
+          "project": "fava",
+          "target": "parse_budgets",
+          "left": 4,
+          "right": 3,
+          "difference": 1
+        }
+      ]
+    },
+    {
+      "project": "fava",
+      "agent": "codex",
+      "contrast": "R-L",
+      "metric": "input_tokens_mean",
+      "functions_planned": 1,
+      "functions_comparable": 1,
+      "difference_equal_function_weight": 8012,
+      "function_differences": [
+        {
+          "project": "fava",
+          "target": "parse_budgets",
+          "left": 38626,
+          "right": 30614,
+          "difference": 8012
+        }
+      ]
+    },
+    {
+      "project": "fava",
+      "agent": "codex",
+      "contrast": "R-L",
+      "metric": "output_tokens_mean",
+      "functions_planned": 1,
+      "functions_comparable": 1,
+      "difference_equal_function_weight": 123,
+      "function_differences": [
+        {
+          "project": "fava",
+          "target": "parse_budgets",
+          "left": 2510,
+          "right": 2387,
+          "difference": 123
+        }
+      ]
+    },
+    {
+      "project": "python_dotenv",
+      "agent": "codex",
+      "contrast": "L-A",
+      "metric": "approval_rate",
+      "functions_planned": 1,
+      "functions_comparable": 1,
+      "difference_equal_function_weight": 1.0,
+      "function_differences": [
+        {
+          "project": "python_dotenv",
+          "target": "parse_stream",
+          "left": 1.0,
+          "right": 0.0,
+          "difference": 1.0
+        }
+      ]
+    },
+    {
+      "project": "python_dotenv",
+      "agent": "codex",
+      "contrast": "L-A",
+      "metric": "line_rate_approved",
+      "functions_planned": 1,
+      "functions_comparable": 0,
+      "difference_equal_function_weight": null,
+      "function_differences": []
+    },
+    {
+      "project": "python_dotenv",
+      "agent": "codex",
+      "contrast": "L-A",
+      "metric": "branch_rate_approved",
+      "functions_planned": 1,
+      "functions_comparable": 0,
+      "difference_equal_function_weight": null,
+      "function_differences": []
+    },
+    {
+      "project": "python_dotenv",
+      "agent": "codex",
+      "contrast": "L-A",
+      "metric": "detection_rate_approved",
+      "functions_planned": 1,
+      "functions_comparable": 0,
+      "difference_equal_function_weight": null,
+      "function_differences": []
+    },
+    {
+      "project": "python_dotenv",
+      "agent": "codex",
+      "contrast": "L-A",
+      "metric": "generation_seconds_mean",
+      "functions_planned": 1,
+      "functions_comparable": 1,
+      "difference_equal_function_weight": 12.325904833967797,
+      "function_differences": [
+        {
+          "project": "python_dotenv",
+          "target": "parse_stream",
+          "left": 84.12951354199322,
+          "right": 71.80360870802542,
+          "difference": 12.325904833967797
+        }
+      ]
+    },
+    {
+      "project": "python_dotenv",
+      "agent": "codex",
+      "contrast": "L-A",
+      "metric": "context_chars_mean",
+      "functions_planned": 1,
+      "functions_comparable": 1,
+      "difference_equal_function_weight": -2584,
+      "function_differences": [
+        {
+          "project": "python_dotenv",
+          "target": "parse_stream",
+          "left": 5900,
+          "right": 8484,
+          "difference": -2584
+        }
+      ]
+    },
+    {
+      "project": "python_dotenv",
+      "agent": "codex",
+      "contrast": "L-A",
+      "metric": "tool_calls_mean",
+      "functions_planned": 1,
+      "functions_comparable": 1,
+      "difference_equal_function_weight": -2,
+      "function_differences": [
+        {
+          "project": "python_dotenv",
+          "target": "parse_stream",
+          "left": 2,
+          "right": 4,
+          "difference": -2
+        }
+      ]
+    },
+    {
+      "project": "python_dotenv",
+      "agent": "codex",
+      "contrast": "L-A",
+      "metric": "input_tokens_mean",
+      "functions_planned": 1,
+      "functions_comparable": 1,
+      "difference_equal_function_weight": -14647,
+      "function_differences": [
+        {
+          "project": "python_dotenv",
+          "target": "parse_stream",
+          "left": 23471,
+          "right": 38118,
+          "difference": -14647
+        }
+      ]
+    },
+    {
+      "project": "python_dotenv",
+      "agent": "codex",
+      "contrast": "L-A",
+      "metric": "output_tokens_mean",
+      "functions_planned": 1,
+      "functions_comparable": 1,
+      "difference_equal_function_weight": 300,
+      "function_differences": [
+        {
+          "project": "python_dotenv",
+          "target": "parse_stream",
+          "left": 3333,
+          "right": 3033,
+          "difference": 300
+        }
+      ]
+    },
+    {
+      "project": "python_dotenv",
+      "agent": "codex",
+      "contrast": "R-A",
+      "metric": "approval_rate",
+      "functions_planned": 1,
+      "functions_comparable": 1,
+      "difference_equal_function_weight": 1.0,
+      "function_differences": [
+        {
+          "project": "python_dotenv",
+          "target": "parse_stream",
+          "left": 1.0,
+          "right": 0.0,
+          "difference": 1.0
+        }
+      ]
+    },
+    {
+      "project": "python_dotenv",
+      "agent": "codex",
+      "contrast": "R-A",
+      "metric": "line_rate_approved",
+      "functions_planned": 1,
+      "functions_comparable": 0,
+      "difference_equal_function_weight": null,
+      "function_differences": []
+    },
+    {
+      "project": "python_dotenv",
+      "agent": "codex",
+      "contrast": "R-A",
+      "metric": "branch_rate_approved",
+      "functions_planned": 1,
+      "functions_comparable": 0,
+      "difference_equal_function_weight": null,
+      "function_differences": []
+    },
+    {
+      "project": "python_dotenv",
+      "agent": "codex",
+      "contrast": "R-A",
+      "metric": "detection_rate_approved",
+      "functions_planned": 1,
+      "functions_comparable": 0,
+      "difference_equal_function_weight": null,
+      "function_differences": []
+    },
+    {
+      "project": "python_dotenv",
+      "agent": "codex",
+      "contrast": "R-A",
+      "metric": "generation_seconds_mean",
+      "functions_planned": 1,
+      "functions_comparable": 1,
+      "difference_equal_function_weight": 28.227937791962177,
+      "function_differences": [
+        {
+          "project": "python_dotenv",
+          "target": "parse_stream",
+          "left": 100.0315464999876,
+          "right": 71.80360870802542,
+          "difference": 28.227937791962177
+        }
+      ]
+    },
+    {
+      "project": "python_dotenv",
+      "agent": "codex",
+      "contrast": "R-A",
+      "metric": "context_chars_mean",
+      "functions_planned": 1,
+      "functions_comparable": 1,
+      "difference_equal_function_weight": -2584,
+      "function_differences": [
+        {
+          "project": "python_dotenv",
+          "target": "parse_stream",
+          "left": 5900,
+          "right": 8484,
+          "difference": -2584
+        }
+      ]
+    },
+    {
+      "project": "python_dotenv",
+      "agent": "codex",
+      "contrast": "R-A",
+      "metric": "tool_calls_mean",
+      "functions_planned": 1,
+      "functions_comparable": 1,
+      "difference_equal_function_weight": -2,
+      "function_differences": [
+        {
+          "project": "python_dotenv",
+          "target": "parse_stream",
+          "left": 2,
+          "right": 4,
+          "difference": -2
+        }
+      ]
+    },
+    {
+      "project": "python_dotenv",
+      "agent": "codex",
+      "contrast": "R-A",
+      "metric": "input_tokens_mean",
+      "functions_planned": 1,
+      "functions_comparable": 1,
+      "difference_equal_function_weight": -14703,
+      "function_differences": [
+        {
+          "project": "python_dotenv",
+          "target": "parse_stream",
+          "left": 23415,
+          "right": 38118,
+          "difference": -14703
+        }
+      ]
+    },
+    {
+      "project": "python_dotenv",
+      "agent": "codex",
+      "contrast": "R-A",
+      "metric": "output_tokens_mean",
+      "functions_planned": 1,
+      "functions_comparable": 1,
+      "difference_equal_function_weight": 1607,
+      "function_differences": [
+        {
+          "project": "python_dotenv",
+          "target": "parse_stream",
+          "left": 4640,
+          "right": 3033,
+          "difference": 1607
+        }
+      ]
+    },
+    {
+      "project": "python_dotenv",
+      "agent": "codex",
+      "contrast": "R-L",
+      "metric": "approval_rate",
+      "functions_planned": 1,
+      "functions_comparable": 1,
+      "difference_equal_function_weight": 0.0,
+      "function_differences": [
+        {
+          "project": "python_dotenv",
+          "target": "parse_stream",
+          "left": 1.0,
+          "right": 1.0,
+          "difference": 0.0
+        }
+      ]
+    },
+    {
+      "project": "python_dotenv",
+      "agent": "codex",
+      "contrast": "R-L",
+      "metric": "line_rate_approved",
+      "functions_planned": 1,
+      "functions_comparable": 1,
+      "difference_equal_function_weight": 0.0,
+      "function_differences": [
+        {
+          "project": "python_dotenv",
+          "target": "parse_stream",
+          "left": 1.0,
+          "right": 1.0,
+          "difference": 0.0
+        }
+      ]
+    },
+    {
+      "project": "python_dotenv",
+      "agent": "codex",
+      "contrast": "R-L",
+      "metric": "branch_rate_approved",
+      "functions_planned": 1,
+      "functions_comparable": 1,
+      "difference_equal_function_weight": 0.0,
+      "function_differences": [
+        {
+          "project": "python_dotenv",
+          "target": "parse_stream",
+          "left": 1.0,
+          "right": 1.0,
+          "difference": 0.0
+        }
+      ]
+    },
+    {
+      "project": "python_dotenv",
+      "agent": "codex",
+      "contrast": "R-L",
+      "metric": "detection_rate_approved",
+      "functions_planned": 1,
+      "functions_comparable": 0,
+      "difference_equal_function_weight": null,
+      "function_differences": []
+    },
+    {
+      "project": "python_dotenv",
+      "agent": "codex",
+      "contrast": "R-L",
+      "metric": "generation_seconds_mean",
+      "functions_planned": 1,
+      "functions_comparable": 1,
+      "difference_equal_function_weight": 15.902032957994379,
+      "function_differences": [
+        {
+          "project": "python_dotenv",
+          "target": "parse_stream",
+          "left": 100.0315464999876,
+          "right": 84.12951354199322,
+          "difference": 15.902032957994379
+        }
+      ]
+    },
+    {
+      "project": "python_dotenv",
+      "agent": "codex",
+      "contrast": "R-L",
+      "metric": "context_chars_mean",
+      "functions_planned": 1,
+      "functions_comparable": 1,
+      "difference_equal_function_weight": 0,
+      "function_differences": [
+        {
+          "project": "python_dotenv",
+          "target": "parse_stream",
+          "left": 5900,
+          "right": 5900,
+          "difference": 0
+        }
+      ]
+    },
+    {
+      "project": "python_dotenv",
+      "agent": "codex",
+      "contrast": "R-L",
+      "metric": "tool_calls_mean",
+      "functions_planned": 1,
+      "functions_comparable": 1,
+      "difference_equal_function_weight": 0,
+      "function_differences": [
+        {
+          "project": "python_dotenv",
+          "target": "parse_stream",
+          "left": 2,
+          "right": 2,
+          "difference": 0
+        }
+      ]
+    },
+    {
+      "project": "python_dotenv",
+      "agent": "codex",
+      "contrast": "R-L",
+      "metric": "input_tokens_mean",
+      "functions_planned": 1,
+      "functions_comparable": 1,
+      "difference_equal_function_weight": -56,
+      "function_differences": [
+        {
+          "project": "python_dotenv",
+          "target": "parse_stream",
+          "left": 23415,
+          "right": 23471,
+          "difference": -56
+        }
+      ]
+    },
+    {
+      "project": "python_dotenv",
+      "agent": "codex",
+      "contrast": "R-L",
+      "metric": "output_tokens_mean",
+      "functions_planned": 1,
+      "functions_comparable": 1,
+      "difference_equal_function_weight": 1307,
+      "function_differences": [
+        {
+          "project": "python_dotenv",
+          "target": "parse_stream",
+          "left": 4640,
+          "right": 3333,
+          "difference": 1307
+        }
+      ]
+    },
+    {
+      "project": "python_stdnum",
+      "agent": "codex",
+      "contrast": "L-A",
+      "metric": "approval_rate",
+      "functions_planned": 1,
+      "functions_comparable": 1,
+      "difference_equal_function_weight": 0.0,
+      "function_differences": [
+        {
+          "project": "python_stdnum",
+          "target": "br_cnpj_validate",
+          "left": 1.0,
+          "right": 1.0,
+          "difference": 0.0
+        }
+      ]
+    },
+    {
+      "project": "python_stdnum",
+      "agent": "codex",
+      "contrast": "L-A",
+      "metric": "line_rate_approved",
+      "functions_planned": 1,
+      "functions_comparable": 1,
+      "difference_equal_function_weight": 0.0,
+      "function_differences": [
+        {
+          "project": "python_stdnum",
+          "target": "br_cnpj_validate",
+          "left": 1.0,
+          "right": 1.0,
+          "difference": 0.0
+        }
+      ]
+    },
+    {
+      "project": "python_stdnum",
+      "agent": "codex",
+      "contrast": "L-A",
+      "metric": "branch_rate_approved",
+      "functions_planned": 1,
+      "functions_comparable": 1,
+      "difference_equal_function_weight": 0.0,
+      "function_differences": [
+        {
+          "project": "python_stdnum",
+          "target": "br_cnpj_validate",
+          "left": 1.0,
+          "right": 1.0,
+          "difference": 0.0
+        }
+      ]
+    },
+    {
+      "project": "python_stdnum",
+      "agent": "codex",
+      "contrast": "L-A",
+      "metric": "detection_rate_approved",
+      "functions_planned": 1,
+      "functions_comparable": 0,
+      "difference_equal_function_weight": null,
+      "function_differences": []
+    },
+    {
+      "project": "python_stdnum",
+      "agent": "codex",
+      "contrast": "L-A",
+      "metric": "generation_seconds_mean",
+      "functions_planned": 1,
+      "functions_comparable": 1,
+      "difference_equal_function_weight": -3.2952312500565313,
+      "function_differences": [
+        {
+          "project": "python_stdnum",
+          "target": "br_cnpj_validate",
+          "left": 55.989444249949884,
+          "right": 59.284675500006415,
+          "difference": -3.2952312500565313
+        }
+      ]
+    },
+    {
+      "project": "python_stdnum",
+      "agent": "codex",
+      "contrast": "L-A",
+      "metric": "context_chars_mean",
+      "functions_planned": 1,
+      "functions_comparable": 1,
+      "difference_equal_function_weight": -8592,
+      "function_differences": [
+        {
+          "project": "python_stdnum",
+          "target": "br_cnpj_validate",
+          "left": 4897,
+          "right": 13489,
+          "difference": -8592
+        }
+      ]
+    },
+    {
+      "project": "python_stdnum",
+      "agent": "codex",
+      "contrast": "L-A",
+      "metric": "tool_calls_mean",
+      "functions_planned": 1,
+      "functions_comparable": 1,
+      "difference_equal_function_weight": -2,
+      "function_differences": [
+        {
+          "project": "python_stdnum",
+          "target": "br_cnpj_validate",
+          "left": 3,
+          "right": 5,
+          "difference": -2
+        }
+      ]
+    },
+    {
+      "project": "python_stdnum",
+      "agent": "codex",
+      "contrast": "L-A",
+      "metric": "input_tokens_mean",
+      "functions_planned": 1,
+      "functions_comparable": 1,
+      "difference_equal_function_weight": -18140,
+      "function_differences": [
+        {
+          "project": "python_stdnum",
+          "target": "br_cnpj_validate",
+          "left": 29334,
+          "right": 47474,
+          "difference": -18140
+        }
+      ]
+    },
+    {
+      "project": "python_stdnum",
+      "agent": "codex",
+      "contrast": "L-A",
+      "metric": "output_tokens_mean",
+      "functions_planned": 1,
+      "functions_comparable": 1,
+      "difference_equal_function_weight": -84,
+      "function_differences": [
+        {
+          "project": "python_stdnum",
+          "target": "br_cnpj_validate",
+          "left": 2376,
+          "right": 2460,
+          "difference": -84
+        }
+      ]
+    },
+    {
+      "project": "python_stdnum",
+      "agent": "codex",
+      "contrast": "R-A",
+      "metric": "approval_rate",
+      "functions_planned": 1,
+      "functions_comparable": 1,
+      "difference_equal_function_weight": 0.0,
+      "function_differences": [
+        {
+          "project": "python_stdnum",
+          "target": "br_cnpj_validate",
+          "left": 1.0,
+          "right": 1.0,
+          "difference": 0.0
+        }
+      ]
+    },
+    {
+      "project": "python_stdnum",
+      "agent": "codex",
+      "contrast": "R-A",
+      "metric": "line_rate_approved",
+      "functions_planned": 1,
+      "functions_comparable": 1,
+      "difference_equal_function_weight": 0.0,
+      "function_differences": [
+        {
+          "project": "python_stdnum",
+          "target": "br_cnpj_validate",
+          "left": 1.0,
+          "right": 1.0,
+          "difference": 0.0
+        }
+      ]
+    },
+    {
+      "project": "python_stdnum",
+      "agent": "codex",
+      "contrast": "R-A",
+      "metric": "branch_rate_approved",
+      "functions_planned": 1,
+      "functions_comparable": 1,
+      "difference_equal_function_weight": 0.0,
+      "function_differences": [
+        {
+          "project": "python_stdnum",
+          "target": "br_cnpj_validate",
+          "left": 1.0,
+          "right": 1.0,
+          "difference": 0.0
+        }
+      ]
+    },
+    {
+      "project": "python_stdnum",
+      "agent": "codex",
+      "contrast": "R-A",
+      "metric": "detection_rate_approved",
+      "functions_planned": 1,
+      "functions_comparable": 0,
+      "difference_equal_function_weight": null,
+      "function_differences": []
+    },
+    {
+      "project": "python_stdnum",
+      "agent": "codex",
+      "contrast": "R-A",
+      "metric": "generation_seconds_mean",
+      "functions_planned": 1,
+      "functions_comparable": 1,
+      "difference_equal_function_weight": 31.048008000012487,
+      "function_differences": [
+        {
+          "project": "python_stdnum",
+          "target": "br_cnpj_validate",
+          "left": 90.3326835000189,
+          "right": 59.284675500006415,
+          "difference": 31.048008000012487
+        }
+      ]
+    },
+    {
+      "project": "python_stdnum",
+      "agent": "codex",
+      "contrast": "R-A",
+      "metric": "context_chars_mean",
+      "functions_planned": 1,
+      "functions_comparable": 1,
+      "difference_equal_function_weight": -8629,
+      "function_differences": [
+        {
+          "project": "python_stdnum",
+          "target": "br_cnpj_validate",
+          "left": 4860,
+          "right": 13489,
+          "difference": -8629
+        }
+      ]
+    },
+    {
+      "project": "python_stdnum",
+      "agent": "codex",
+      "contrast": "R-A",
+      "metric": "tool_calls_mean",
+      "functions_planned": 1,
+      "functions_comparable": 1,
+      "difference_equal_function_weight": -2,
+      "function_differences": [
+        {
+          "project": "python_stdnum",
+          "target": "br_cnpj_validate",
+          "left": 3,
+          "right": 5,
+          "difference": -2
+        }
+      ]
+    },
+    {
+      "project": "python_stdnum",
+      "agent": "codex",
+      "contrast": "R-A",
+      "metric": "input_tokens_mean",
+      "functions_planned": 1,
+      "functions_comparable": 1,
+      "difference_equal_function_weight": -17111,
+      "function_differences": [
+        {
+          "project": "python_stdnum",
+          "target": "br_cnpj_validate",
+          "left": 30363,
+          "right": 47474,
+          "difference": -17111
+        }
+      ]
+    },
+    {
+      "project": "python_stdnum",
+      "agent": "codex",
+      "contrast": "R-A",
+      "metric": "output_tokens_mean",
+      "functions_planned": 1,
+      "functions_comparable": 1,
+      "difference_equal_function_weight": 1604,
+      "function_differences": [
+        {
+          "project": "python_stdnum",
+          "target": "br_cnpj_validate",
+          "left": 4064,
+          "right": 2460,
+          "difference": 1604
+        }
+      ]
+    },
+    {
+      "project": "python_stdnum",
+      "agent": "codex",
+      "contrast": "R-L",
+      "metric": "approval_rate",
+      "functions_planned": 1,
+      "functions_comparable": 1,
+      "difference_equal_function_weight": 0.0,
+      "function_differences": [
+        {
+          "project": "python_stdnum",
+          "target": "br_cnpj_validate",
+          "left": 1.0,
+          "right": 1.0,
+          "difference": 0.0
+        }
+      ]
+    },
+    {
+      "project": "python_stdnum",
+      "agent": "codex",
+      "contrast": "R-L",
+      "metric": "line_rate_approved",
+      "functions_planned": 1,
+      "functions_comparable": 1,
+      "difference_equal_function_weight": 0.0,
+      "function_differences": [
+        {
+          "project": "python_stdnum",
+          "target": "br_cnpj_validate",
+          "left": 1.0,
+          "right": 1.0,
+          "difference": 0.0
+        }
+      ]
+    },
+    {
+      "project": "python_stdnum",
+      "agent": "codex",
+      "contrast": "R-L",
+      "metric": "branch_rate_approved",
+      "functions_planned": 1,
+      "functions_comparable": 1,
+      "difference_equal_function_weight": 0.0,
+      "function_differences": [
+        {
+          "project": "python_stdnum",
+          "target": "br_cnpj_validate",
+          "left": 1.0,
+          "right": 1.0,
+          "difference": 0.0
+        }
+      ]
+    },
+    {
+      "project": "python_stdnum",
+      "agent": "codex",
+      "contrast": "R-L",
+      "metric": "detection_rate_approved",
+      "functions_planned": 1,
+      "functions_comparable": 0,
+      "difference_equal_function_weight": null,
+      "function_differences": []
+    },
+    {
+      "project": "python_stdnum",
+      "agent": "codex",
+      "contrast": "R-L",
+      "metric": "generation_seconds_mean",
+      "functions_planned": 1,
+      "functions_comparable": 1,
+      "difference_equal_function_weight": 34.34323925006902,
+      "function_differences": [
+        {
+          "project": "python_stdnum",
+          "target": "br_cnpj_validate",
+          "left": 90.3326835000189,
+          "right": 55.989444249949884,
+          "difference": 34.34323925006902
+        }
+      ]
+    },
+    {
+      "project": "python_stdnum",
+      "agent": "codex",
+      "contrast": "R-L",
+      "metric": "context_chars_mean",
+      "functions_planned": 1,
+      "functions_comparable": 1,
+      "difference_equal_function_weight": -37,
+      "function_differences": [
+        {
+          "project": "python_stdnum",
+          "target": "br_cnpj_validate",
+          "left": 4860,
+          "right": 4897,
+          "difference": -37
+        }
+      ]
+    },
+    {
+      "project": "python_stdnum",
+      "agent": "codex",
+      "contrast": "R-L",
+      "metric": "tool_calls_mean",
+      "functions_planned": 1,
+      "functions_comparable": 1,
+      "difference_equal_function_weight": 0,
+      "function_differences": [
+        {
+          "project": "python_stdnum",
+          "target": "br_cnpj_validate",
+          "left": 3,
+          "right": 3,
+          "difference": 0
+        }
+      ]
+    },
+    {
+      "project": "python_stdnum",
+      "agent": "codex",
+      "contrast": "R-L",
+      "metric": "input_tokens_mean",
+      "functions_planned": 1,
+      "functions_comparable": 1,
+      "difference_equal_function_weight": 1029,
+      "function_differences": [
+        {
+          "project": "python_stdnum",
+          "target": "br_cnpj_validate",
+          "left": 30363,
+          "right": 29334,
+          "difference": 1029
+        }
+      ]
+    },
+    {
+      "project": "python_stdnum",
+      "agent": "codex",
+      "contrast": "R-L",
+      "metric": "output_tokens_mean",
+      "functions_planned": 1,
+      "functions_comparable": 1,
+      "difference_equal_function_weight": 1688,
+      "function_differences": [
+        {
+          "project": "python_stdnum",
+          "target": "br_cnpj_validate",
+          "left": 4064,
+          "right": 2376,
+          "difference": 1688
+        }
+      ]
+    },
+    {
+      "project": null,
+      "agent": "codex",
+      "contrast": "L-A",
+      "metric": "approval_rate",
+      "functions_planned": 4,
+      "functions_comparable": 4,
+      "difference_equal_function_weight": 0.25,
+      "function_differences": [
+        {
+          "project": "bump_my_version",
+          "target": "parse_version",
+          "left": 1.0,
+          "right": 1.0,
+          "difference": 0.0
+        },
+        {
+          "project": "fava",
+          "target": "parse_budgets",
+          "left": 1.0,
+          "right": 1.0,
+          "difference": 0.0
+        },
+        {
+          "project": "python_dotenv",
+          "target": "parse_stream",
+          "left": 1.0,
+          "right": 0.0,
+          "difference": 1.0
+        },
+        {
+          "project": "python_stdnum",
+          "target": "br_cnpj_validate",
+          "left": 1.0,
+          "right": 1.0,
+          "difference": 0.0
+        }
+      ]
+    },
+    {
+      "project": null,
+      "agent": "codex",
+      "contrast": "L-A",
+      "metric": "line_rate_approved",
+      "functions_planned": 4,
+      "functions_comparable": 3,
+      "difference_equal_function_weight": 0.0,
+      "function_differences": [
+        {
+          "project": "bump_my_version",
+          "target": "parse_version",
+          "left": 1.0,
+          "right": 1.0,
+          "difference": 0.0
+        },
+        {
+          "project": "fava",
+          "target": "parse_budgets",
+          "left": 1.0,
+          "right": 1.0,
+          "difference": 0.0
+        },
+        {
+          "project": "python_stdnum",
+          "target": "br_cnpj_validate",
+          "left": 1.0,
+          "right": 1.0,
+          "difference": 0.0
+        }
+      ]
+    },
+    {
+      "project": null,
+      "agent": "codex",
+      "contrast": "L-A",
+      "metric": "branch_rate_approved",
+      "functions_planned": 4,
+      "functions_comparable": 3,
+      "difference_equal_function_weight": 0.0,
+      "function_differences": [
+        {
+          "project": "bump_my_version",
+          "target": "parse_version",
+          "left": 1.0,
+          "right": 1.0,
+          "difference": 0.0
+        },
+        {
+          "project": "fava",
+          "target": "parse_budgets",
+          "left": 1.0,
+          "right": 1.0,
+          "difference": 0.0
+        },
+        {
+          "project": "python_stdnum",
+          "target": "br_cnpj_validate",
+          "left": 1.0,
+          "right": 1.0,
+          "difference": 0.0
+        }
+      ]
+    },
+    {
+      "project": null,
+      "agent": "codex",
+      "contrast": "L-A",
+      "metric": "detection_rate_approved",
+      "functions_planned": 4,
+      "functions_comparable": 0,
+      "difference_equal_function_weight": null,
+      "function_differences": []
+    },
+    {
+      "project": null,
+      "agent": "codex",
+      "contrast": "L-A",
+      "metric": "generation_seconds_mean",
+      "functions_planned": 4,
+      "functions_comparable": 4,
+      "difference_equal_function_weight": -1.3819351250422187,
+      "function_differences": [
+        {
+          "project": "bump_my_version",
+          "target": "parse_version",
+          "left": 40.988020707969554,
+          "right": 56.44906233303482,
+          "difference": -15.461041625065263
+        },
+        {
+          "project": "fava",
+          "target": "parse_budgets",
+          "left": 57.07961391599383,
+          "right": 56.17698637500871,
+          "difference": 0.9026275409851223
+        },
+        {
+          "project": "python_dotenv",
+          "target": "parse_stream",
+          "left": 84.12951354199322,
+          "right": 71.80360870802542,
+          "difference": 12.325904833967797
+        },
+        {
+          "project": "python_stdnum",
+          "target": "br_cnpj_validate",
+          "left": 55.989444249949884,
+          "right": 59.284675500006415,
+          "difference": -3.2952312500565313
+        }
+      ]
+    },
+    {
+      "project": null,
+      "agent": "codex",
+      "contrast": "L-A",
+      "metric": "context_chars_mean",
+      "functions_planned": 4,
+      "functions_comparable": 4,
+      "difference_equal_function_weight": -7300.25,
+      "function_differences": [
+        {
+          "project": "bump_my_version",
+          "target": "parse_version",
+          "left": 4801,
+          "right": 14167,
+          "difference": -9366
+        },
+        {
+          "project": "fava",
+          "target": "parse_budgets",
+          "left": 6004,
+          "right": 14663,
+          "difference": -8659
+        },
+        {
+          "project": "python_dotenv",
+          "target": "parse_stream",
+          "left": 5900,
+          "right": 8484,
+          "difference": -2584
+        },
+        {
+          "project": "python_stdnum",
+          "target": "br_cnpj_validate",
+          "left": 4897,
+          "right": 13489,
+          "difference": -8592
+        }
+      ]
+    },
+    {
+      "project": null,
+      "agent": "codex",
+      "contrast": "L-A",
+      "metric": "tool_calls_mean",
+      "functions_planned": 4,
+      "functions_comparable": 4,
+      "difference_equal_function_weight": -4,
+      "function_differences": [
+        {
+          "project": "bump_my_version",
+          "target": "parse_version",
+          "left": 3,
+          "right": 7,
+          "difference": -4
+        },
+        {
+          "project": "fava",
+          "target": "parse_budgets",
+          "left": 3,
+          "right": 11,
+          "difference": -8
+        },
+        {
+          "project": "python_dotenv",
+          "target": "parse_stream",
+          "left": 2,
+          "right": 4,
+          "difference": -2
+        },
+        {
+          "project": "python_stdnum",
+          "target": "br_cnpj_validate",
+          "left": 3,
+          "right": 5,
+          "difference": -2
+        }
+      ]
+    },
+    {
+      "project": null,
+      "agent": "codex",
+      "contrast": "L-A",
+      "metric": "input_tokens_mean",
+      "functions_planned": 4,
+      "functions_comparable": 4,
+      "difference_equal_function_weight": -36520.5,
+      "function_differences": [
+        {
+          "project": "bump_my_version",
+          "target": "parse_version",
+          "left": 29710,
+          "right": 66405,
+          "difference": -36695
+        },
+        {
+          "project": "fava",
+          "target": "parse_budgets",
+          "left": 30614,
+          "right": 107214,
+          "difference": -76600
+        },
+        {
+          "project": "python_dotenv",
+          "target": "parse_stream",
+          "left": 23471,
+          "right": 38118,
+          "difference": -14647
+        },
+        {
+          "project": "python_stdnum",
+          "target": "br_cnpj_validate",
+          "left": 29334,
+          "right": 47474,
+          "difference": -18140
+        }
+      ]
+    },
+    {
+      "project": null,
+      "agent": "codex",
+      "contrast": "L-A",
+      "metric": "output_tokens_mean",
+      "functions_planned": 4,
+      "functions_comparable": 4,
+      "difference_equal_function_weight": 69.5,
+      "function_differences": [
+        {
+          "project": "bump_my_version",
+          "target": "parse_version",
+          "left": 1670,
+          "right": 2125,
+          "difference": -455
+        },
+        {
+          "project": "fava",
+          "target": "parse_budgets",
+          "left": 2387,
+          "right": 1870,
+          "difference": 517
+        },
+        {
+          "project": "python_dotenv",
+          "target": "parse_stream",
+          "left": 3333,
+          "right": 3033,
+          "difference": 300
+        },
+        {
+          "project": "python_stdnum",
+          "target": "br_cnpj_validate",
+          "left": 2376,
+          "right": 2460,
+          "difference": -84
+        }
+      ]
+    },
+    {
+      "project": null,
+      "agent": "codex",
+      "contrast": "R-A",
+      "metric": "approval_rate",
+      "functions_planned": 4,
+      "functions_comparable": 4,
+      "difference_equal_function_weight": 0.25,
+      "function_differences": [
+        {
+          "project": "bump_my_version",
+          "target": "parse_version",
+          "left": 1.0,
+          "right": 1.0,
+          "difference": 0.0
+        },
+        {
+          "project": "fava",
+          "target": "parse_budgets",
+          "left": 1.0,
+          "right": 1.0,
+          "difference": 0.0
+        },
+        {
+          "project": "python_dotenv",
+          "target": "parse_stream",
+          "left": 1.0,
+          "right": 0.0,
+          "difference": 1.0
+        },
+        {
+          "project": "python_stdnum",
+          "target": "br_cnpj_validate",
+          "left": 1.0,
+          "right": 1.0,
+          "difference": 0.0
+        }
+      ]
+    },
+    {
+      "project": null,
+      "agent": "codex",
+      "contrast": "R-A",
+      "metric": "line_rate_approved",
+      "functions_planned": 4,
+      "functions_comparable": 3,
+      "difference_equal_function_weight": 0.0,
+      "function_differences": [
+        {
+          "project": "bump_my_version",
+          "target": "parse_version",
+          "left": 1.0,
+          "right": 1.0,
+          "difference": 0.0
+        },
+        {
+          "project": "fava",
+          "target": "parse_budgets",
+          "left": 1.0,
+          "right": 1.0,
+          "difference": 0.0
+        },
+        {
+          "project": "python_stdnum",
+          "target": "br_cnpj_validate",
+          "left": 1.0,
+          "right": 1.0,
+          "difference": 0.0
+        }
+      ]
+    },
+    {
+      "project": null,
+      "agent": "codex",
+      "contrast": "R-A",
+      "metric": "branch_rate_approved",
+      "functions_planned": 4,
+      "functions_comparable": 3,
+      "difference_equal_function_weight": 0.0,
+      "function_differences": [
+        {
+          "project": "bump_my_version",
+          "target": "parse_version",
+          "left": 1.0,
+          "right": 1.0,
+          "difference": 0.0
+        },
+        {
+          "project": "fava",
+          "target": "parse_budgets",
+          "left": 1.0,
+          "right": 1.0,
+          "difference": 0.0
+        },
+        {
+          "project": "python_stdnum",
+          "target": "br_cnpj_validate",
+          "left": 1.0,
+          "right": 1.0,
+          "difference": 0.0
+        }
+      ]
+    },
+    {
+      "project": null,
+      "agent": "codex",
+      "contrast": "R-A",
+      "metric": "detection_rate_approved",
+      "functions_planned": 4,
+      "functions_comparable": 0,
+      "difference_equal_function_weight": null,
+      "function_differences": []
+    },
+    {
+      "project": null,
+      "agent": "codex",
+      "contrast": "R-A",
+      "metric": "generation_seconds_mean",
+      "functions_planned": 4,
+      "functions_comparable": 4,
+      "difference_equal_function_weight": 14.717906302234042,
+      "function_differences": [
+        {
+          "project": "bump_my_version",
+          "target": "parse_version",
+          "left": 52.36882475001039,
+          "right": 56.44906233303482,
+          "difference": -4.080237583024427
+        },
+        {
+          "project": "fava",
+          "target": "parse_budgets",
+          "left": 59.85290337499464,
+          "right": 56.17698637500871,
+          "difference": 3.6759169999859296
+        },
+        {
+          "project": "python_dotenv",
+          "target": "parse_stream",
+          "left": 100.0315464999876,
+          "right": 71.80360870802542,
+          "difference": 28.227937791962177
+        },
+        {
+          "project": "python_stdnum",
+          "target": "br_cnpj_validate",
+          "left": 90.3326835000189,
+          "right": 59.284675500006415,
+          "difference": 31.048008000012487
+        }
+      ]
+    },
+    {
+      "project": null,
+      "agent": "codex",
+      "contrast": "R-A",
+      "metric": "context_chars_mean",
+      "functions_planned": 4,
+      "functions_comparable": 4,
+      "difference_equal_function_weight": -7108.75,
+      "function_differences": [
+        {
+          "project": "bump_my_version",
+          "target": "parse_version",
+          "left": 5373,
+          "right": 14167,
+          "difference": -8794
+        },
+        {
+          "project": "fava",
+          "target": "parse_budgets",
+          "left": 6235,
+          "right": 14663,
+          "difference": -8428
+        },
+        {
+          "project": "python_dotenv",
+          "target": "parse_stream",
+          "left": 5900,
+          "right": 8484,
+          "difference": -2584
+        },
+        {
+          "project": "python_stdnum",
+          "target": "br_cnpj_validate",
+          "left": 4860,
+          "right": 13489,
+          "difference": -8629
+        }
+      ]
+    },
+    {
+      "project": null,
+      "agent": "codex",
+      "contrast": "R-A",
+      "metric": "tool_calls_mean",
+      "functions_planned": 4,
+      "functions_comparable": 4,
+      "difference_equal_function_weight": -4,
+      "function_differences": [
+        {
+          "project": "bump_my_version",
+          "target": "parse_version",
+          "left": 2,
+          "right": 7,
+          "difference": -5
+        },
+        {
+          "project": "fava",
+          "target": "parse_budgets",
+          "left": 4,
+          "right": 11,
+          "difference": -7
+        },
+        {
+          "project": "python_dotenv",
+          "target": "parse_stream",
+          "left": 2,
+          "right": 4,
+          "difference": -2
+        },
+        {
+          "project": "python_stdnum",
+          "target": "br_cnpj_validate",
+          "left": 3,
+          "right": 5,
+          "difference": -2
+        }
+      ]
+    },
+    {
+      "project": null,
+      "agent": "codex",
+      "contrast": "R-A",
+      "metric": "input_tokens_mean",
+      "functions_planned": 4,
+      "functions_comparable": 4,
+      "difference_equal_function_weight": -36085.5,
+      "function_differences": [
+        {
+          "project": "bump_my_version",
+          "target": "parse_version",
+          "left": 22465,
+          "right": 66405,
+          "difference": -43940
+        },
+        {
+          "project": "fava",
+          "target": "parse_budgets",
+          "left": 38626,
+          "right": 107214,
+          "difference": -68588
+        },
+        {
+          "project": "python_dotenv",
+          "target": "parse_stream",
+          "left": 23415,
+          "right": 38118,
+          "difference": -14703
+        },
+        {
+          "project": "python_stdnum",
+          "target": "br_cnpj_validate",
+          "left": 30363,
+          "right": 47474,
+          "difference": -17111
+        }
+      ]
+    },
+    {
+      "project": null,
+      "agent": "codex",
+      "contrast": "R-A",
+      "metric": "output_tokens_mean",
+      "functions_planned": 4,
+      "functions_comparable": 4,
+      "difference_equal_function_weight": 990.5,
+      "function_differences": [
+        {
+          "project": "bump_my_version",
+          "target": "parse_version",
+          "left": 2236,
+          "right": 2125,
+          "difference": 111
+        },
+        {
+          "project": "fava",
+          "target": "parse_budgets",
+          "left": 2510,
+          "right": 1870,
+          "difference": 640
+        },
+        {
+          "project": "python_dotenv",
+          "target": "parse_stream",
+          "left": 4640,
+          "right": 3033,
+          "difference": 1607
+        },
+        {
+          "project": "python_stdnum",
+          "target": "br_cnpj_validate",
+          "left": 4064,
+          "right": 2460,
+          "difference": 1604
+        }
+      ]
+    },
+    {
+      "project": null,
+      "agent": "codex",
+      "contrast": "R-L",
+      "metric": "approval_rate",
+      "functions_planned": 4,
+      "functions_comparable": 4,
+      "difference_equal_function_weight": 0.0,
+      "function_differences": [
+        {
+          "project": "bump_my_version",
+          "target": "parse_version",
+          "left": 1.0,
+          "right": 1.0,
+          "difference": 0.0
+        },
+        {
+          "project": "fava",
+          "target": "parse_budgets",
+          "left": 1.0,
+          "right": 1.0,
+          "difference": 0.0
+        },
+        {
+          "project": "python_dotenv",
+          "target": "parse_stream",
+          "left": 1.0,
+          "right": 1.0,
+          "difference": 0.0
+        },
+        {
+          "project": "python_stdnum",
+          "target": "br_cnpj_validate",
+          "left": 1.0,
+          "right": 1.0,
+          "difference": 0.0
+        }
+      ]
+    },
+    {
+      "project": null,
+      "agent": "codex",
+      "contrast": "R-L",
+      "metric": "line_rate_approved",
+      "functions_planned": 4,
+      "functions_comparable": 4,
+      "difference_equal_function_weight": 0.0,
+      "function_differences": [
+        {
+          "project": "bump_my_version",
+          "target": "parse_version",
+          "left": 1.0,
+          "right": 1.0,
+          "difference": 0.0
+        },
+        {
+          "project": "fava",
+          "target": "parse_budgets",
+          "left": 1.0,
+          "right": 1.0,
+          "difference": 0.0
+        },
+        {
+          "project": "python_dotenv",
+          "target": "parse_stream",
+          "left": 1.0,
+          "right": 1.0,
+          "difference": 0.0
+        },
+        {
+          "project": "python_stdnum",
+          "target": "br_cnpj_validate",
+          "left": 1.0,
+          "right": 1.0,
+          "difference": 0.0
+        }
+      ]
+    },
+    {
+      "project": null,
+      "agent": "codex",
+      "contrast": "R-L",
+      "metric": "branch_rate_approved",
+      "functions_planned": 4,
+      "functions_comparable": 4,
+      "difference_equal_function_weight": 0.0,
+      "function_differences": [
+        {
+          "project": "bump_my_version",
+          "target": "parse_version",
+          "left": 1.0,
+          "right": 1.0,
+          "difference": 0.0
+        },
+        {
+          "project": "fava",
+          "target": "parse_budgets",
+          "left": 1.0,
+          "right": 1.0,
+          "difference": 0.0
+        },
+        {
+          "project": "python_dotenv",
+          "target": "parse_stream",
+          "left": 1.0,
+          "right": 1.0,
+          "difference": 0.0
+        },
+        {
+          "project": "python_stdnum",
+          "target": "br_cnpj_validate",
+          "left": 1.0,
+          "right": 1.0,
+          "difference": 0.0
+        }
+      ]
+    },
+    {
+      "project": null,
+      "agent": "codex",
+      "contrast": "R-L",
+      "metric": "detection_rate_approved",
+      "functions_planned": 4,
+      "functions_comparable": 0,
+      "difference_equal_function_weight": null,
+      "function_differences": []
+    },
+    {
+      "project": null,
+      "agent": "codex",
+      "contrast": "R-L",
+      "metric": "generation_seconds_mean",
+      "functions_planned": 4,
+      "functions_comparable": 4,
+      "difference_equal_function_weight": 16.09984142727626,
+      "function_differences": [
+        {
+          "project": "bump_my_version",
+          "target": "parse_version",
+          "left": 52.36882475001039,
+          "right": 40.988020707969554,
+          "difference": 11.380804042040836
+        },
+        {
+          "project": "fava",
+          "target": "parse_budgets",
+          "left": 59.85290337499464,
+          "right": 57.07961391599383,
+          "difference": 2.7732894590008073
+        },
+        {
+          "project": "python_dotenv",
+          "target": "parse_stream",
+          "left": 100.0315464999876,
+          "right": 84.12951354199322,
+          "difference": 15.902032957994379
+        },
+        {
+          "project": "python_stdnum",
+          "target": "br_cnpj_validate",
+          "left": 90.3326835000189,
+          "right": 55.989444249949884,
+          "difference": 34.34323925006902
+        }
+      ]
+    },
+    {
+      "project": null,
+      "agent": "codex",
+      "contrast": "R-L",
+      "metric": "context_chars_mean",
+      "functions_planned": 4,
+      "functions_comparable": 4,
+      "difference_equal_function_weight": 191.5,
+      "function_differences": [
+        {
+          "project": "bump_my_version",
+          "target": "parse_version",
+          "left": 5373,
+          "right": 4801,
+          "difference": 572
+        },
+        {
+          "project": "fava",
+          "target": "parse_budgets",
+          "left": 6235,
+          "right": 6004,
+          "difference": 231
+        },
+        {
+          "project": "python_dotenv",
+          "target": "parse_stream",
+          "left": 5900,
+          "right": 5900,
+          "difference": 0
+        },
+        {
+          "project": "python_stdnum",
+          "target": "br_cnpj_validate",
+          "left": 4860,
+          "right": 4897,
+          "difference": -37
+        }
+      ]
+    },
+    {
+      "project": null,
+      "agent": "codex",
+      "contrast": "R-L",
+      "metric": "tool_calls_mean",
+      "functions_planned": 4,
+      "functions_comparable": 4,
+      "difference_equal_function_weight": 0,
+      "function_differences": [
+        {
+          "project": "bump_my_version",
+          "target": "parse_version",
+          "left": 2,
+          "right": 3,
+          "difference": -1
+        },
+        {
+          "project": "fava",
+          "target": "parse_budgets",
+          "left": 4,
+          "right": 3,
+          "difference": 1
+        },
+        {
+          "project": "python_dotenv",
+          "target": "parse_stream",
+          "left": 2,
+          "right": 2,
+          "difference": 0
+        },
+        {
+          "project": "python_stdnum",
+          "target": "br_cnpj_validate",
+          "left": 3,
+          "right": 3,
+          "difference": 0
+        }
+      ]
+    },
+    {
+      "project": null,
+      "agent": "codex",
+      "contrast": "R-L",
+      "metric": "input_tokens_mean",
+      "functions_planned": 4,
+      "functions_comparable": 4,
+      "difference_equal_function_weight": 435,
+      "function_differences": [
+        {
+          "project": "bump_my_version",
+          "target": "parse_version",
+          "left": 22465,
+          "right": 29710,
+          "difference": -7245
+        },
+        {
+          "project": "fava",
+          "target": "parse_budgets",
+          "left": 38626,
+          "right": 30614,
+          "difference": 8012
+        },
+        {
+          "project": "python_dotenv",
+          "target": "parse_stream",
+          "left": 23415,
+          "right": 23471,
+          "difference": -56
+        },
+        {
+          "project": "python_stdnum",
+          "target": "br_cnpj_validate",
+          "left": 30363,
+          "right": 29334,
+          "difference": 1029
+        }
+      ]
+    },
+    {
+      "project": null,
+      "agent": "codex",
+      "contrast": "R-L",
+      "metric": "output_tokens_mean",
+      "functions_planned": 4,
+      "functions_comparable": 4,
+      "difference_equal_function_weight": 921,
+      "function_differences": [
+        {
+          "project": "bump_my_version",
+          "target": "parse_version",
+          "left": 2236,
+          "right": 1670,
+          "difference": 566
+        },
+        {
+          "project": "fava",
+          "target": "parse_budgets",
+          "left": 2510,
+          "right": 2387,
+          "difference": 123
+        },
+        {
+          "project": "python_dotenv",
+          "target": "parse_stream",
+          "left": 4640,
+          "right": 3333,
+          "difference": 1307
+        },
+        {
+          "project": "python_stdnum",
+          "target": "br_cnpj_validate",
+          "left": 4064,
+          "right": 2376,
+          "difference": 1688
+        }
+      ]
+    }
+  ],
+  "rows": [
+    {
+      "order": 1,
+      "project": "python_dotenv",
+      "target": "parse_stream",
+      "agent": "codex",
+      "condition": "L",
+      "repetition": 1,
+      "id": "python_dotenv__parse_stream__codex__L__1",
+      "phase": "pilot",
+      "demonstration": false,
+      "record_status": "finished",
+      "generation_status": "completed",
+      "observable": true,
+      "pending": false,
+      "generation_infrastructure": false,
+      "evaluation_status": "completed",
+      "evaluation_infrastructure": false,
+      "approval": "approved",
+      "approved": true,
+      "active_started": true,
+      "reference_passed": true,
+      "syntax_ok": true,
+      "collected": 64,
+      "line_rate": 1.0,
+      "branch_rate": 1.0,
+      "preparation_seconds": 0.011677832982968539,
+      "generation_seconds": 84.12951354199322,
+      "evaluation_seconds": 0.40398624999215826,
+      "context_chars": 5900,
+      "tool_calls": 2,
+      "input_tokens": 23471,
+      "output_tokens": 3333,
+      "detection_rate": null,
+      "defects_configured": 0,
+      "defects_eligible": 0,
+      "defects_measured": 0,
+      "defects_detected": null,
+      "detection_complete": false,
+      "defects": [],
+      "dependency_doubles": false,
+      "infrastructure_retry": null,
+      "infrastructure_retry_reason": null
+    },
+    {
+      "order": 2,
+      "project": "bump_my_version",
+      "target": "parse_version",
+      "agent": "codex",
+      "condition": "L",
+      "repetition": 1,
+      "id": "bump_my_version__parse_version__codex__L__1",
+      "phase": "pilot",
+      "demonstration": false,
+      "record_status": "finished",
+      "generation_status": "completed",
+      "observable": true,
+      "pending": false,
+      "generation_infrastructure": false,
+      "evaluation_status": "completed",
+      "evaluation_infrastructure": false,
+      "approval": "approved",
+      "approved": true,
+      "active_started": true,
+      "reference_passed": true,
+      "syntax_ok": true,
+      "collected": 22,
+      "line_rate": 1.0,
+      "branch_rate": 1.0,
+      "preparation_seconds": 0.01993962499545887,
+      "generation_seconds": 40.988020707969554,
+      "evaluation_seconds": 0.5327845829888247,
+      "context_chars": 4801,
+      "tool_calls": 3,
+      "input_tokens": 29710,
+      "output_tokens": 1670,
+      "detection_rate": null,
+      "defects_configured": 0,
+      "defects_eligible": 0,
+      "defects_measured": 0,
+      "defects_detected": null,
+      "detection_complete": false,
+      "defects": [],
+      "dependency_doubles": false,
+      "infrastructure_retry": null,
+      "infrastructure_retry_reason": null
+    },
+    {
+      "order": 3,
+      "project": "python_stdnum",
+      "target": "br_cnpj_validate",
+      "agent": "codex",
+      "condition": "L",
+      "repetition": 1,
+      "id": "python_stdnum__br_cnpj_validate__codex__L__1",
+      "phase": "pilot",
+      "demonstration": false,
+      "record_status": "finished",
+      "generation_status": "completed",
+      "observable": true,
+      "pending": false,
+      "generation_infrastructure": false,
+      "evaluation_status": "completed",
+      "evaluation_infrastructure": false,
+      "approval": "approved",
+      "approved": true,
+      "active_started": true,
+      "reference_passed": true,
+      "syntax_ok": true,
+      "collected": 39,
+      "line_rate": 1.0,
+      "branch_rate": 1.0,
+      "preparation_seconds": 0.020026125013828278,
+      "generation_seconds": 55.989444249949884,
+      "evaluation_seconds": 0.5515396670089103,
+      "context_chars": 4897,
+      "tool_calls": 3,
+      "input_tokens": 29334,
+      "output_tokens": 2376,
+      "detection_rate": null,
+      "defects_configured": 0,
+      "defects_eligible": 0,
+      "defects_measured": 0,
+      "defects_detected": null,
+      "detection_complete": false,
+      "defects": [],
+      "dependency_doubles": false,
+      "infrastructure_retry": null,
+      "infrastructure_retry_reason": null
+    },
+    {
+      "order": 4,
+      "project": "python_dotenv",
+      "target": "parse_stream",
+      "agent": "codex",
+      "condition": "R",
+      "repetition": 1,
+      "id": "python_dotenv__parse_stream__codex__R__1",
+      "phase": "pilot",
+      "demonstration": false,
+      "record_status": "finished",
+      "generation_status": "completed",
+      "observable": true,
+      "pending": false,
+      "generation_infrastructure": false,
+      "evaluation_status": "completed",
+      "evaluation_infrastructure": false,
+      "approval": "approved",
+      "approved": true,
+      "active_started": true,
+      "reference_passed": true,
+      "syntax_ok": true,
+      "collected": 73,
+      "line_rate": 1.0,
+      "branch_rate": 1.0,
+      "preparation_seconds": 0.01109758298844099,
+      "generation_seconds": 100.0315464999876,
+      "evaluation_seconds": 0.4139160419581458,
+      "context_chars": 5900,
+      "tool_calls": 2,
+      "input_tokens": 23415,
+      "output_tokens": 4640,
+      "detection_rate": null,
+      "defects_configured": 0,
+      "defects_eligible": 0,
+      "defects_measured": 0,
+      "defects_detected": null,
+      "detection_complete": false,
+      "defects": [],
+      "dependency_doubles": false,
+      "infrastructure_retry": null,
+      "infrastructure_retry_reason": null
+    },
+    {
+      "order": 5,
+      "project": "python_stdnum",
+      "target": "br_cnpj_validate",
+      "agent": "codex",
+      "condition": "A",
+      "repetition": 1,
+      "id": "python_stdnum__br_cnpj_validate__codex__A__1",
+      "phase": "pilot",
+      "demonstration": false,
+      "record_status": "finished",
+      "generation_status": "completed",
+      "observable": true,
+      "pending": false,
+      "generation_infrastructure": false,
+      "evaluation_status": "completed",
+      "evaluation_infrastructure": false,
+      "approval": "approved",
+      "approved": true,
+      "active_started": true,
+      "reference_passed": true,
+      "syntax_ok": true,
+      "collected": 47,
+      "line_rate": 1.0,
+      "branch_rate": 1.0,
+      "preparation_seconds": 0.02038549998542294,
+      "generation_seconds": 59.284675500006415,
+      "evaluation_seconds": 0.5437599999713711,
+      "context_chars": 13489,
+      "tool_calls": 5,
+      "input_tokens": 47474,
+      "output_tokens": 2460,
+      "detection_rate": null,
+      "defects_configured": 0,
+      "defects_eligible": 0,
+      "defects_measured": 0,
+      "defects_detected": null,
+      "detection_complete": false,
+      "defects": [],
+      "dependency_doubles": false,
+      "infrastructure_retry": null,
+      "infrastructure_retry_reason": null
+    },
+    {
+      "order": 6,
+      "project": "fava",
+      "target": "parse_budgets",
+      "agent": "codex",
+      "condition": "L",
+      "repetition": 1,
+      "id": "fava__parse_budgets__codex__L__1",
+      "phase": "pilot",
+      "demonstration": false,
+      "record_status": "finished",
+      "generation_status": "completed",
+      "observable": true,
+      "pending": false,
+      "generation_infrastructure": false,
+      "evaluation_status": "completed",
+      "evaluation_infrastructure": false,
+      "approval": "approved",
+      "approved": true,
+      "active_started": true,
+      "reference_passed": true,
+      "syntax_ok": true,
+      "collected": 16,
+      "line_rate": 1.0,
+      "branch_rate": 1.0,
+      "preparation_seconds": 0.05666987498989329,
+      "generation_seconds": 57.07961391599383,
+      "evaluation_seconds": 0.7347575000021607,
+      "context_chars": 6004,
+      "tool_calls": 3,
+      "input_tokens": 30614,
+      "output_tokens": 2387,
+      "detection_rate": null,
+      "defects_configured": 0,
+      "defects_eligible": 0,
+      "defects_measured": 0,
+      "defects_detected": null,
+      "detection_complete": false,
+      "defects": [],
+      "dependency_doubles": false,
+      "infrastructure_retry": null,
+      "infrastructure_retry_reason": null
+    },
+    {
+      "order": 7,
+      "project": "python_stdnum",
+      "target": "br_cnpj_validate",
+      "agent": "codex",
+      "condition": "R",
+      "repetition": 1,
+      "id": "python_stdnum__br_cnpj_validate__codex__R__1",
+      "phase": "pilot",
+      "demonstration": false,
+      "record_status": "finished",
+      "generation_status": "completed",
+      "observable": true,
+      "pending": false,
+      "generation_infrastructure": false,
+      "evaluation_status": "completed",
+      "evaluation_infrastructure": false,
+      "approval": "approved",
+      "approved": true,
+      "active_started": true,
+      "reference_passed": true,
+      "syntax_ok": true,
+      "collected": 54,
+      "line_rate": 1.0,
+      "branch_rate": 1.0,
+      "preparation_seconds": 0.019917167024686933,
+      "generation_seconds": 90.3326835000189,
+      "evaluation_seconds": 0.537138041050639,
+      "context_chars": 4860,
+      "tool_calls": 3,
+      "input_tokens": 30363,
+      "output_tokens": 4064,
+      "detection_rate": null,
+      "defects_configured": 0,
+      "defects_eligible": 0,
+      "defects_measured": 0,
+      "defects_detected": null,
+      "detection_complete": false,
+      "defects": [],
+      "dependency_doubles": false,
+      "infrastructure_retry": null,
+      "infrastructure_retry_reason": null
+    },
+    {
+      "order": 8,
+      "project": "fava",
+      "target": "parse_budgets",
+      "agent": "codex",
+      "condition": "R",
+      "repetition": 1,
+      "id": "fava__parse_budgets__codex__R__1",
+      "phase": "pilot",
+      "demonstration": false,
+      "record_status": "finished",
+      "generation_status": "completed",
+      "observable": true,
+      "pending": false,
+      "generation_infrastructure": false,
+      "evaluation_status": "completed",
+      "evaluation_infrastructure": false,
+      "approval": "approved",
+      "approved": true,
+      "active_started": true,
+      "reference_passed": true,
+      "syntax_ok": true,
+      "collected": 20,
+      "line_rate": 1.0,
+      "branch_rate": 1.0,
+      "preparation_seconds": 0.05824679200304672,
+      "generation_seconds": 59.85290337499464,
+      "evaluation_seconds": 0.7251352909952402,
+      "context_chars": 6235,
+      "tool_calls": 4,
+      "input_tokens": 38626,
+      "output_tokens": 2510,
+      "detection_rate": null,
+      "defects_configured": 0,
+      "defects_eligible": 0,
+      "defects_measured": 0,
+      "defects_detected": null,
+      "detection_complete": false,
+      "defects": [],
+      "dependency_doubles": false,
+      "infrastructure_retry": null,
+      "infrastructure_retry_reason": null
+    },
+    {
+      "order": 9,
+      "project": "bump_my_version",
+      "target": "parse_version",
+      "agent": "codex",
+      "condition": "A",
+      "repetition": 1,
+      "id": "bump_my_version__parse_version__codex__A__1",
+      "phase": "pilot",
+      "demonstration": false,
+      "record_status": "finished",
+      "generation_status": "completed",
+      "observable": true,
+      "pending": false,
+      "generation_infrastructure": false,
+      "evaluation_status": "completed",
+      "evaluation_infrastructure": false,
+      "approval": "approved",
+      "approved": true,
+      "active_started": true,
+      "reference_passed": true,
+      "syntax_ok": true,
+      "collected": 27,
+      "line_rate": 1.0,
+      "branch_rate": 1.0,
+      "preparation_seconds": 0.018851834000088274,
+      "generation_seconds": 56.44906233303482,
+      "evaluation_seconds": 0.7572077090153471,
+      "context_chars": 14167,
+      "tool_calls": 7,
+      "input_tokens": 66405,
+      "output_tokens": 2125,
+      "detection_rate": null,
+      "defects_configured": 0,
+      "defects_eligible": 0,
+      "defects_measured": 0,
+      "defects_detected": null,
+      "detection_complete": false,
+      "defects": [],
+      "dependency_doubles": false,
+      "infrastructure_retry": null,
+      "infrastructure_retry_reason": null
+    },
+    {
+      "order": 10,
+      "project": "bump_my_version",
+      "target": "parse_version",
+      "agent": "codex",
+      "condition": "R",
+      "repetition": 1,
+      "id": "bump_my_version__parse_version__codex__R__1",
+      "phase": "pilot",
+      "demonstration": false,
+      "record_status": "finished",
+      "generation_status": "completed",
+      "observable": true,
+      "pending": false,
+      "generation_infrastructure": false,
+      "evaluation_status": "completed",
+      "evaluation_infrastructure": false,
+      "approval": "approved",
+      "approved": true,
+      "active_started": true,
+      "reference_passed": true,
+      "syntax_ok": true,
+      "collected": 20,
+      "line_rate": 1.0,
+      "branch_rate": 1.0,
+      "preparation_seconds": 0.018556333030574024,
+      "generation_seconds": 52.36882475001039,
+      "evaluation_seconds": 0.599463582970202,
+      "context_chars": 5373,
+      "tool_calls": 2,
+      "input_tokens": 22465,
+      "output_tokens": 2236,
+      "detection_rate": null,
+      "defects_configured": 0,
+      "defects_eligible": 0,
+      "defects_measured": 0,
+      "defects_detected": null,
+      "detection_complete": false,
+      "defects": [],
+      "dependency_doubles": true,
+      "infrastructure_retry": null,
+      "infrastructure_retry_reason": null
+    },
+    {
+      "order": 11,
+      "project": "fava",
+      "target": "parse_budgets",
+      "agent": "codex",
+      "condition": "A",
+      "repetition": 1,
+      "id": "fava__parse_budgets__codex__A__1",
+      "phase": "pilot",
+      "demonstration": false,
+      "record_status": "finished",
+      "generation_status": "completed",
+      "observable": true,
+      "pending": false,
+      "generation_infrastructure": false,
+      "evaluation_status": "completed",
+      "evaluation_infrastructure": false,
+      "approval": "approved",
+      "approved": true,
+      "active_started": true,
+      "reference_passed": true,
+      "syntax_ok": true,
+      "collected": 15,
+      "line_rate": 1.0,
+      "branch_rate": 1.0,
+      "preparation_seconds": 0.055717041017487645,
+      "generation_seconds": 56.17698637500871,
+      "evaluation_seconds": 0.7216623749700375,
+      "context_chars": 14663,
+      "tool_calls": 11,
+      "input_tokens": 107214,
+      "output_tokens": 1870,
+      "detection_rate": null,
+      "defects_configured": 0,
+      "defects_eligible": 0,
+      "defects_measured": 0,
+      "defects_detected": null,
+      "detection_complete": false,
+      "defects": [],
+      "dependency_doubles": false,
+      "infrastructure_retry": null,
+      "infrastructure_retry_reason": null
+    },
+    {
+      "order": 12,
+      "project": "python_dotenv",
+      "target": "parse_stream",
+      "agent": "codex",
+      "condition": "A",
+      "repetition": 1,
+      "id": "python_dotenv__parse_stream__codex__A__1",
+      "phase": "pilot",
+      "demonstration": false,
+      "record_status": "finished",
+      "generation_status": "completed",
+      "observable": true,
+      "pending": false,
+      "generation_infrastructure": false,
+      "evaluation_status": "completed",
+      "evaluation_infrastructure": false,
+      "approval": "rejected",
+      "approved": false,
+      "active_started": true,
+      "reference_passed": false,
+      "syntax_ok": true,
+      "collected": 54,
+      "line_rate": null,
+      "branch_rate": null,
+      "preparation_seconds": 0.014053124992642552,
+      "generation_seconds": 71.80360870802542,
+      "evaluation_seconds": 0.603821832977701,
+      "context_chars": 8484,
+      "tool_calls": 4,
+      "input_tokens": 38118,
+      "output_tokens": 3033,
+      "detection_rate": null,
+      "defects_configured": 0,
+      "defects_eligible": null,
+      "defects_measured": null,
+      "defects_detected": null,
+      "detection_complete": null,
+      "defects": [],
+      "dependency_doubles": null,
+      "infrastructure_retry": null,
+      "infrastructure_retry_reason": null
+    }
+  ]
+}

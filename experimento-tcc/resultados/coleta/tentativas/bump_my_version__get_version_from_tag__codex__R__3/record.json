@@ -1,0 +1,4945 @@
+{
+  "schema_version": 1,
+  "order": 100,
+  "project": "bump_my_version",
+  "target": "get_version_from_tag",
+  "agent": "codex",
+  "condition": "R",
+  "repetition": 3,
+  "id": "bump_my_version__get_version_from_tag__codex__R__3",
+  "phase": "main",
+  "lock_hash": "49dd66a522994eb03001a67255ded0aa13cc696255859f45a924b43f05f5da33",
+  "started_at": "2026-11-22T04:41:06.213440+00:00",
+  "status": "finished",
+  "generation": {
+    "status": "completed",
+    "input_tokens": 8634,
+    "output_tokens": 1863,
+    "seconds": 41.88884845899884,
+    "version": "codex-cli 0.170.0",
+    "tool_log": [],
+    "usage": {
+      "input_tokens": 8634,
+      "cached_input_tokens": 5504,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 1863,
+      "reasoning_output_tokens": 395
+    },
+    "details": [],
+    "capabilities": {
+      "tool_surface_verified": true,
+      "tools": [
+        "functions.list_mcp_resource_templates",
+        "functions.list_mcp_resources",
+        "functions.read_mcp_resource",
+        "mcp__contextlab.list_files",
+        "mcp__contextlab.read_file",
+        "mcp__contextlab.search"
+      ],
+      "catalog_sha256": "a61b50641627a2941fc8be4db823d1fbbfa4ae628add4d7ec443dbab559140fb",
+      "probe": "offline-localhost",
+      "model": "gpt-6.2-sol",
+      "command_rejected": true,
+      "outside_packet_rejected": true,
+      "allowed_read_verified": true
+    },
+    "returncode": 0,
+    "context_stats": {
+      "chars_used": 10547,
+      "initial_chars": 10547,
+      "response_chars": 0,
+      "remaining_chars": 19453,
+      "tool_calls": 0,
+      "max_calls": 20,
+      "budget": 30000
+    },
+    "session_id": "01a2018e-d49a-7f63-b198-b064cd3e639b"
+  },
+  "evaluation": {
+    "target_id": "get_version_from_tag",
+    "test_kind": "unit",
+    "received": true,
+    "syntax_ok": true,
+    "collected": 27,
+    "active_started": true,
+    "reference_passed": true,
+    "approval": "pending_review",
+    "approved": false,
+    "coverage_raw": {
+      "executed": true,
+      "line_total": 7,
+      "line_covered": 7,
+      "line_rate": 1.0,
+      "branch_total": 0,
+      "branch_covered": 0,
+      "branch_rate": null,
+      "executable_lines": [
+        37,
+        38,
+        39,
+        40,
+        42,
+        43,
+        44
+      ],
+      "covered_lines": [
+        37,
+        38,
+        39,
+        40,
+        42,
+        43,
+        44
+      ],
+      "branches": {}
+    },
+    "coverage_main": null,
+    "defects": [],
+    "detection_rate": null,
+    "review": null,
+    "backend": "docker",
+    "submission_sha256": "2dd5cc44b4b21bfe5659e8661c70bdf4abb901169f025c3dd9414957e7ff0b7d",
+    "status": "completed",
+    "seconds": 0.563671916956082,
+    "active_count": 27,
+    "passed_count": 27,
+    "skipped_count": 0,
+    "xfail_count": 0,
+    "failure_categories": [],
+    "original": {
+      "status": "completed",
+      "seconds": 0.563671916956082,
+      "exit_code": 0,
+      "production_unchanged": true,
+      "collected": 27,
+      "active_started": true,
+      "active_count": 27,
+      "passed_count": 27,
+      "skipped_count": 0,
+      "xfail_count": 0,
+      "failure_categories": [],
+      "reference_passed": true,
+      "assertion_failure": false,
+      "focal": {
+        "executed": true,
+        "line_total": 7,
+        "line_covered": 7,
+        "line_rate": 1.0,
+        "branch_total": 0,
+        "branch_covered": 0,
+        "branch_rate": null,
+        "executable_lines": [
+          37,
+          38,
+          39,
+          40,
+          42,
+          43,
+          44
+        ],
+        "covered_lines": [
+          37,
+          38,
+          39,
+          40,
+          42,
+          43,
+          44
+        ],
+        "branches": {}
+      },
+      "raw": {
+        "exit_code": 0,
+        "collected": 27,
+        "reports": [
+          {
+            "nodeid": "::test_get_version_from_tag[preserves-version-text]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[preserves-version-text]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[preserves-version-text]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[missing-prefix]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[missing-prefix]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[missing-prefix]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[case-sensitive-by-default]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[case-sensitive-by-default]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[case-sensitive-by-default]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[version-separators-are-literal]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[version-separators-are-literal]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[version-separators-are-literal]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[incomplete-version]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[incomplete-version]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[incomplete-version]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[empty-tag]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[empty-tag]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[empty-tag]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[searches-within-tag]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[searches-within-tag]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[searches-within-tag]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[first-successful-match]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[first-successful-match]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[first-successful-match]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[literal-prefix-with-regex-metacharacters]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[literal-prefix-with-regex-metacharacters]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[literal-prefix-with-regex-metacharacters]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[prefix-metacharacters-do-not-act-as-regex]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[prefix-metacharacters-do-not-act-as-regex]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[prefix-metacharacters-do-not-act-as-regex]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[suffix-may-be-absent]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[suffix-may-be-absent]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[suffix-may-be-absent]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[suffix-may-differ]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[suffix-may-differ]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[suffix-may-differ]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[first-placeholder]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[first-placeholder]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[first-placeholder]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[template-without-placeholder]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[template-without-placeholder]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[template-without-placeholder]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[prefix-required-without-placeholder]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[prefix-required-without-placeholder]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[prefix-required-without-placeholder]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[empty-prefix]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[empty-prefix]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[empty-prefix]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[doubled-backslashes]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[doubled-backslashes]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[doubled-backslashes]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[global-ignore-case]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[global-ignore-case]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[global-ignore-case]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[combined-global-flags]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[combined-global-flags]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[combined-global-flags]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[verbose-flag-and-literal-prefix]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[verbose-flag-and-literal-prefix]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[verbose-flag-and-literal-prefix]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[scoped-flag-leaves-prefix-case-sensitive]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[scoped-flag-leaves-prefix-case-sensitive]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[scoped-flag-leaves-prefix-case-sensitive]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[captures-entire-version-with-inner-groups]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[captures-entire-version-with-inner-groups]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[captures-entire-version-with-inner-groups]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[prefix-applies-to-second-alternative]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[prefix-applies-to-second-alternative]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[prefix-applies-to-second-alternative]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[bare-alternative-does-not-match]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[bare-alternative-does-not-match]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[bare-alternative-does-not-match]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[version-pattern-end-anchor]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[version-pattern-end-anchor]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[version-pattern-end-anchor]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[empty-version-is-a-successful-match]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[empty-version-is-a-successful-match]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[empty-version-is-a-successful-match]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag_raises_for_invalid_parse_pattern",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag_raises_for_invalid_parse_pattern",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag_raises_for_invalid_parse_pattern",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          }
+        ],
+        "collection_errors": [],
+        "focal": {
+          "executed": true,
+          "line_total": 7,
+          "line_covered": 7,
+          "line_rate": 1.0,
+          "branch_total": 0,
+          "branch_covered": 0,
+          "branch_rate": null,
+          "executable_lines": [
+            37,
+            38,
+            39,
+            40,
+            42,
+            43,
+            44
+          ],
+          "covered_lines": [
+            37,
+            38,
+            39,
+            40,
+            42,
+            43,
+            44
+          ],
+          "branches": {}
+        }
+      }
+    },
+    "defects_eligible": null,
+    "defects_measured": null,
+    "defects_detected": null,
+    "detection_complete": null,
+    "total_seconds": 0.5966084169922397
+  },
+  "preparation_seconds": 0.020447832997888327,
+  "submission_sha256": "2dd5cc44b4b21bfe5659e8661c70bdf4abb901169f025c3dd9414957e7ff0b7d",
+  "finished_at": "2026-11-22T04:41:48.724564+00:00",
+  "review": {
+    "behavioral_assertions": true,
+    "no_target_mock": true,
+    "no_production_changes": true,
+    "defect_attribution": {
+      "BMV-03-sem-escape": true,
+      "BMV-03-sem-flags": true,
+      "BMV-03-prefixo-errado": true
+    },
+    "dependency_doubles": false,
+    "reviewer": "Gabriel Lopes Pereira",
+    "created_at": "2026-11-22T05:04:27.910409+00:00"
+  },
+  "reviewed_evaluation": {
+    "target_id": "get_version_from_tag",
+    "test_kind": "unit",
+    "received": true,
+    "syntax_ok": true,
+    "collected": 27,
+    "active_started": true,
+    "reference_passed": true,
+    "approval": "approved",
+    "approved": true,
+    "coverage_raw": {
+      "executed": true,
+      "line_total": 7,
+      "line_covered": 7,
+      "line_rate": 1.0,
+      "branch_total": 0,
+      "branch_covered": 0,
+      "branch_rate": null,
+      "executable_lines": [
+        37,
+        38,
+        39,
+        40,
+        42,
+        43,
+        44
+      ],
+      "covered_lines": [
+        37,
+        38,
+        39,
+        40,
+        42,
+        43,
+        44
+      ],
+      "branches": {}
+    },
+    "coverage_main": {
+      "executed": true,
+      "line_total": 7,
+      "line_covered": 7,
+      "line_rate": 1.0,
+      "branch_total": 0,
+      "branch_covered": 0,
+      "branch_rate": null,
+      "executable_lines": [
+        37,
+        38,
+        39,
+        40,
+        42,
+        43,
+        44
+      ],
+      "covered_lines": [
+        37,
+        38,
+        39,
+        40,
+        42,
+        43,
+        44
+      ],
+      "branches": {}
+    },
+    "defects": [
+      {
+        "id": "BMV-03-sem-escape",
+        "eligible": true,
+        "validation": {
+          "id": "BMV-03-sem-escape",
+          "eligible": true,
+          "project_sha256": "ed0530cb8db810554ce8a8d8bc5d2ac9f33c732970f9186134c05a46b3d0036c",
+          "definition_sha256": "ac323fd726a712179d6b23fdb4f4fcdfe51917cac2438ff25c6defde2eb02451",
+          "reason": null,
+          "baseline": {
+            "status": "completed",
+            "seconds": 0.5121093329507858,
+            "exit_code": 0,
+            "production_unchanged": true,
+            "collected": 1,
+            "active_started": true,
+            "active_count": 1,
+            "passed_count": 1,
+            "skipped_count": 0,
+            "xfail_count": 0,
+            "failure_categories": [],
+            "reference_passed": true,
+            "assertion_failure": false,
+            "focal": {
+              "executed": true,
+              "line_total": 7,
+              "line_covered": 7,
+              "line_rate": 1.0,
+              "branch_total": 0,
+              "branch_covered": 0,
+              "branch_rate": null,
+              "executable_lines": [
+                37,
+                38,
+                39,
+                40,
+                42,
+                43,
+                44
+              ],
+              "covered_lines": [
+                37,
+                38,
+                39,
+                40,
+                42,
+                43,
+                44
+              ],
+              "branches": {}
+            },
+            "raw": {
+              "exit_code": 0,
+              "collected": 1,
+              "reports": [
+                {
+                  "nodeid": "tcc_referencia/test_ref_get_version_from_tag.py::test_prefixo_e_tratado_como_texto_literal",
+                  "when": "setup",
+                  "outcome": "passed",
+                  "exception": null,
+                  "assertion_failure": false,
+                  "expected_failure": false,
+                  "message": null
+                },
+                {
+                  "nodeid": "tcc_referencia/test_ref_get_version_from_tag.py::test_prefixo_e_tratado_como_texto_literal",
+                  "when": "call",
+                  "outcome": "passed",
+                  "exception": null,
+                  "assertion_failure": false,
+                  "expected_failure": false,
+                  "message": null
+                },
+                {
+                  "nodeid": "tcc_referencia/test_ref_get_version_from_tag.py::test_prefixo_e_tratado_como_texto_literal",
+                  "when": "teardown",
+                  "outcome": "passed",
+                  "exception": null,
+                  "assertion_failure": false,
+                  "expected_failure": false,
+                  "message": null
+                }
+              ],
+              "collection_errors": [],
+              "focal": {
+                "executed": true,
+                "line_total": 7,
+                "line_covered": 7,
+                "line_rate": 1.0,
+                "branch_total": 0,
+                "branch_covered": 0,
+                "branch_rate": null,
+                "executable_lines": [
+                  37,
+                  38,
+                  39,
+                  40,
+                  42,
+                  43,
+                  44
+                ],
+                "covered_lines": [
+                  37,
+                  38,
+                  39,
+                  40,
+                  42,
+                  43,
+                  44
+                ],
+                "branches": {}
+              }
+            }
+          },
+          "mutated": {
+            "status": "completed",
+            "seconds": 0.6879732919624075,
+            "exit_code": 1,
+            "production_unchanged": true,
+            "collected": 1,
+            "active_started": true,
+            "active_count": 1,
+            "passed_count": 0,
+            "skipped_count": 0,
+            "xfail_count": 0,
+            "failure_categories": [
+              "assertion_failure"
+            ],
+            "reference_passed": false,
+            "assertion_failure": true,
+            "focal": {
+              "executed": true,
+              "line_total": 7,
+              "line_covered": 7,
+              "line_rate": 1.0,
+              "branch_total": 0,
+              "branch_covered": 0,
+              "branch_rate": null,
+              "executable_lines": [
+                37,
+                38,
+                39,
+                40,
+                42,
+                43,
+                44
+              ],
+              "covered_lines": [
+                37,
+                38,
+                39,
+                40,
+                42,
+                43,
+                44
+              ],
+              "branches": {}
+            },
+            "raw": {
+              "exit_code": 1,
+              "collected": 1,
+              "reports": [
+                {
+                  "nodeid": "tcc_referencia/test_ref_get_version_from_tag.py::test_prefixo_e_tratado_como_texto_literal",
+                  "when": "setup",
+                  "outcome": "passed",
+                  "exception": null,
+                  "assertion_failure": false,
+                  "expected_failure": false,
+                  "message": null
+                },
+                {
+                  "nodeid": "tcc_referencia/test_ref_get_version_from_tag.py::test_prefixo_e_tratado_como_texto_literal",
+                  "when": "call",
+                  "outcome": "failed",
+                  "exception": "AssertionError",
+                  "assertion_failure": true,
+                  "expected_failure": false,
+                  "message": "tcc_referencia/test_ref_get_version_from_tag.py:27: in test_prefixo_e_tratado_como_texto_literal\n    assert scm.get_version_from_tag(\"releaseX1.2.3\") is None\nE   AssertionError: assert '1.2.3' is None\nE    +  where '1.2.3' = get_version_from_tag('releaseX1.2.3')\nE    +    where get_version_from_tag = SCMConfig(tag=True, push_tag=False, sign_tags=False, tag_name='release.{new_version}', allow_dirty=False, commit=False...\\\\d+)\\\\.(?P<minor>\\\\d+)\\\\.(?P<patch>\\\\d+)', tag_message=None, commit_args=None, moveable_tags=[], allow_dirty_files=[]).get_version_from_tag"
+                },
+                {
+                  "nodeid": "tcc_referencia/test_ref_get_version_from_tag.py::test_prefixo_e_tratado_como_texto_literal",
+                  "when": "teardown",
+                  "outcome": "passed",
+                  "exception": null,
+                  "assertion_failure": false,
+                  "expected_failure": false,
+                  "message": null
+                }
+              ],
+              "collection_errors": [],
+              "focal": {
+                "executed": true,
+                "line_total": 7,
+                "line_covered": 7,
+                "line_rate": 1.0,
+                "branch_total": 0,
+                "branch_covered": 0,
+                "branch_rate": null,
+                "executable_lines": [
+                  37,
+                  38,
+                  39,
+                  40,
+                  42,
+                  43,
+                  44
+                ],
+                "covered_lines": [
+                  37,
+                  38,
+                  39,
+                  40,
+                  42,
+                  43,
+                  44
+                ],
+                "branches": {}
+              }
+            }
+          }
+        },
+        "detected": true,
+        "status": "detected",
+        "run": {
+          "status": "completed",
+          "seconds": 0.5890579159604385,
+          "exit_code": 1,
+          "production_unchanged": true,
+          "collected": 27,
+          "active_started": true,
+          "active_count": 27,
+          "passed_count": 24,
+          "skipped_count": 0,
+          "xfail_count": 0,
+          "failure_categories": [
+            "assertion_failure",
+            "execution_error"
+          ],
+          "reference_passed": false,
+          "assertion_failure": true,
+          "focal": {
+            "executed": true,
+            "line_total": 7,
+            "line_covered": 7,
+            "line_rate": 1.0,
+            "branch_total": 0,
+            "branch_covered": 0,
+            "branch_rate": null,
+            "executable_lines": [
+              37,
+              38,
+              39,
+              40,
+              42,
+              43,
+              44
+            ],
+            "covered_lines": [
+              37,
+              38,
+              39,
+              40,
+              42,
+              43,
+              44
+            ],
+            "branches": {}
+          },
+          "raw": {
+            "exit_code": 1,
+            "collected": 27,
+            "reports": [
+              {
+                "nodeid": "::test_get_version_from_tag[preserves-version-text]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[preserves-version-text]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[preserves-version-text]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[missing-prefix]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[missing-prefix]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[missing-prefix]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[case-sensitive-by-default]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[case-sensitive-by-default]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[case-sensitive-by-default]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[version-separators-are-literal]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[version-separators-are-literal]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[version-separators-are-literal]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[incomplete-version]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[incomplete-version]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[incomplete-version]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[empty-tag]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[empty-tag]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[empty-tag]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[searches-within-tag]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[searches-within-tag]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[searches-within-tag]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[first-successful-match]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[first-successful-match]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[first-successful-match]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[literal-prefix-with-regex-metacharacters]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[literal-prefix-with-regex-metacharacters]",
+                "when": "call",
+                "outcome": "failed",
+                "exception": "AssertionError",
+                "assertion_failure": true,
+                "expected_failure": false,
+                "message": "/submission/test_generated.py:98: in test_get_version_from_tag\n    assert config.get_version_from_tag(tag) == expected\nE   AssertionError: assert None == '1.2.3'\nE    +  where None = get_version_from_tag('release.[qa]+-1.2.3')\nE    +    where get_version_from_tag = SCMConfig(tag=True, push_tag=False, sign_tags=False, tag_name='release.[qa]+-{new_version}', allow_dirty=False, commit...rsion', parse_pattern='\\\\d+\\\\.\\\\d+\\\\.\\\\d+', tag_message=None, commit_args=None, moveable_tags=[], allow_dirty_files=[]).get_version_from_tag"
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[literal-prefix-with-regex-metacharacters]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[prefix-metacharacters-do-not-act-as-regex]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[prefix-metacharacters-do-not-act-as-regex]",
+                "when": "call",
+                "outcome": "failed",
+                "exception": "AssertionError",
+                "assertion_failure": true,
+                "expected_failure": false,
+                "message": "/submission/test_generated.py:98: in test_get_version_from_tag\n    assert config.get_version_from_tag(tag) == expected\nE   AssertionError: assert '1.2.3' == None\nE    +  where '1.2.3' = get_version_from_tag('releaseXqq-1.2.3')\nE    +    where get_version_from_tag = SCMConfig(tag=True, push_tag=False, sign_tags=False, tag_name='release.[qa]+-{new_version}', allow_dirty=False, commit...rsion', parse_pattern='\\\\d+\\\\.\\\\d+\\\\.\\\\d+', tag_message=None, commit_args=None, moveable_tags=[], allow_dirty_files=[]).get_version_from_tag"
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[prefix-metacharacters-do-not-act-as-regex]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[suffix-may-be-absent]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[suffix-may-be-absent]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[suffix-may-be-absent]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[suffix-may-differ]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[suffix-may-differ]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[suffix-may-differ]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[first-placeholder]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[first-placeholder]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[first-placeholder]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[template-without-placeholder]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[template-without-placeholder]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[template-without-placeholder]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[prefix-required-without-placeholder]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[prefix-required-without-placeholder]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[prefix-required-without-placeholder]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[empty-prefix]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[empty-prefix]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[empty-prefix]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[doubled-backslashes]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[doubled-backslashes]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[doubled-backslashes]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[global-ignore-case]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[global-ignore-case]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[global-ignore-case]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[combined-global-flags]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[combined-global-flags]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[combined-global-flags]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[verbose-flag-and-literal-prefix]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[verbose-flag-and-literal-prefix]",
+                "when": "call",
+                "outcome": "failed",
+                "exception": "IndexError",
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": "/submission/test_generated.py:98: in test_get_version_from_tag\n    assert config.get_version_from_tag(tag) == expected\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nbumpversion/scm/models.py:44: in get_version_from_tag\n    return match[\"current_version\"] if (match := tag_regex.search(tag)) else None\n           ^^^^^^^^^^^^^^^^^^^^^^^^\nE   IndexError: no such group"
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[verbose-flag-and-literal-prefix]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[scoped-flag-leaves-prefix-case-sensitive]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[scoped-flag-leaves-prefix-case-sensitive]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[scoped-flag-leaves-prefix-case-sensitive]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[captures-entire-version-with-inner-groups]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[captures-entire-version-with-inner-groups]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[captures-entire-version-with-inner-groups]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[prefix-applies-to-second-alternative]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[prefix-applies-to-second-alternative]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[prefix-applies-to-second-alternative]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[bare-alternative-does-not-match]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[bare-alternative-does-not-match]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[bare-alternative-does-not-match]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[version-pattern-end-anchor]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[version-pattern-end-anchor]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[version-pattern-end-anchor]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[empty-version-is-a-successful-match]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[empty-version-is-a-successful-match]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[empty-version-is-a-successful-match]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag_raises_for_invalid_parse_pattern",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag_raises_for_invalid_parse_pattern",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag_raises_for_invalid_parse_pattern",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              }
+            ],
+            "collection_errors": [],
+            "focal": {
+              "executed": true,
+              "line_total": 7,
+              "line_covered": 7,
+              "line_rate": 1.0,
+              "branch_total": 0,
+              "branch_covered": 0,
+              "branch_rate": null,
+              "executable_lines": [
+                37,
+                38,
+                39,
+                40,
+                42,
+                43,
+                44
+              ],
+              "covered_lines": [
+                37,
+                38,
+                39,
+                40,
+                42,
+                43,
+                44
+              ],
+              "branches": {}
+            }
+          }
+        }
+      },
+      {
+        "id": "BMV-03-sem-flags",
+        "eligible": true,
+        "validation": {
+          "id": "BMV-03-sem-flags",
+          "eligible": true,
+          "project_sha256": "ed0530cb8db810554ce8a8d8bc5d2ac9f33c732970f9186134c05a46b3d0036c",
+          "definition_sha256": "201a3143bc20ef1a4141f6bd96e3a3804356b1545ee10e63e003a6508dc30b83",
+          "reason": null,
+          "baseline": {
+            "status": "completed",
+            "seconds": 0.4904453749768436,
+            "exit_code": 0,
+            "production_unchanged": true,
+            "collected": 1,
+            "active_started": true,
+            "active_count": 1,
+            "passed_count": 1,
+            "skipped_count": 0,
+            "xfail_count": 0,
+            "failure_categories": [],
+            "reference_passed": true,
+            "assertion_failure": false,
+            "focal": {
+              "executed": true,
+              "line_total": 7,
+              "line_covered": 7,
+              "line_rate": 1.0,
+              "branch_total": 0,
+              "branch_covered": 0,
+              "branch_rate": null,
+              "executable_lines": [
+                37,
+                38,
+                39,
+                40,
+                42,
+                43,
+                44
+              ],
+              "covered_lines": [
+                37,
+                38,
+                39,
+                40,
+                42,
+                43,
+                44
+              ],
+              "branches": {}
+            },
+            "raw": {
+              "exit_code": 0,
+              "collected": 1,
+              "reports": [
+                {
+                  "nodeid": "tcc_referencia/test_ref_get_version_from_tag.py::test_marcacao_verbose_no_inicio_do_padrao_continua_valendo",
+                  "when": "setup",
+                  "outcome": "passed",
+                  "exception": null,
+                  "assertion_failure": false,
+                  "expected_failure": false,
+                  "message": null
+                },
+                {
+                  "nodeid": "tcc_referencia/test_ref_get_version_from_tag.py::test_marcacao_verbose_no_inicio_do_padrao_continua_valendo",
+                  "when": "call",
+                  "outcome": "passed",
+                  "exception": null,
+                  "assertion_failure": false,
+                  "expected_failure": false,
+                  "message": null
+                },
+                {
+                  "nodeid": "tcc_referencia/test_ref_get_version_from_tag.py::test_marcacao_verbose_no_inicio_do_padrao_continua_valendo",
+                  "when": "teardown",
+                  "outcome": "passed",
+                  "exception": null,
+                  "assertion_failure": false,
+                  "expected_failure": false,
+                  "message": null
+                }
+              ],
+              "collection_errors": [],
+              "focal": {
+                "executed": true,
+                "line_total": 7,
+                "line_covered": 7,
+                "line_rate": 1.0,
+                "branch_total": 0,
+                "branch_covered": 0,
+                "branch_rate": null,
+                "executable_lines": [
+                  37,
+                  38,
+                  39,
+                  40,
+                  42,
+                  43,
+                  44
+                ],
+                "covered_lines": [
+                  37,
+                  38,
+                  39,
+                  40,
+                  42,
+                  43,
+                  44
+                ],
+                "branches": {}
+              }
+            }
+          },
+          "mutated": {
+            "status": "completed",
+            "seconds": 0.5098259170772508,
+            "exit_code": 1,
+            "production_unchanged": true,
+            "collected": 1,
+            "active_started": true,
+            "active_count": 1,
+            "passed_count": 0,
+            "skipped_count": 0,
+            "xfail_count": 0,
+            "failure_categories": [
+              "assertion_failure"
+            ],
+            "reference_passed": false,
+            "assertion_failure": true,
+            "focal": {
+              "executed": true,
+              "line_total": 7,
+              "line_covered": 7,
+              "line_rate": 1.0,
+              "branch_total": 0,
+              "branch_covered": 0,
+              "branch_rate": null,
+              "executable_lines": [
+                37,
+                38,
+                39,
+                40,
+                42,
+                43,
+                44
+              ],
+              "covered_lines": [
+                37,
+                38,
+                39,
+                40,
+                42,
+                43,
+                44
+              ],
+              "branches": {}
+            },
+            "raw": {
+              "exit_code": 1,
+              "collected": 1,
+              "reports": [
+                {
+                  "nodeid": "tcc_referencia/test_ref_get_version_from_tag.py::test_marcacao_verbose_no_inicio_do_padrao_continua_valendo",
+                  "when": "setup",
+                  "outcome": "passed",
+                  "exception": null,
+                  "assertion_failure": false,
+                  "expected_failure": false,
+                  "message": null
+                },
+                {
+                  "nodeid": "tcc_referencia/test_ref_get_version_from_tag.py::test_marcacao_verbose_no_inicio_do_padrao_continua_valendo",
+                  "when": "call",
+                  "outcome": "failed",
+                  "exception": "AssertionError",
+                  "assertion_failure": true,
+                  "expected_failure": false,
+                  "message": "tcc_referencia/test_ref_get_version_from_tag.py:36: in test_marcacao_verbose_no_inicio_do_padrao_continua_valendo\n    assert _scm(parse_pattern=padrao).get_version_from_tag(\"v1.2.3\") == \"1.2.3\"\nE   AssertionError: assert None == '1.2.3'\nE    +  where None = get_version_from_tag('v1.2.3')\nE    +    where get_version_from_tag = SCMConfig(tag=True, push_tag=False, sign_tags=False, tag_name='v{new_version}', allow_dirty=False, commit=False, messa...) \\\\. (?P<minor>\\\\d+) \\\\. (?P<patch>\\\\d+)', tag_message=None, commit_args=None, moveable_tags=[], allow_dirty_files=[]).get_version_from_tag\nE    +      where SCMConfig(tag=True, push_tag=False, sign_tags=False, tag_name='v{new_version}', allow_dirty=False, commit=False, messa...) \\\\. (?P<minor>\\\\d+) \\\\. (?P<patch>\\\\d+)', tag_message=None, commit_args=None, moveable_tags=[], allow_dirty_files=[]) = _scm(parse_pattern='(?x) (?P<major>\\\\d+) \\\\. (?P<minor>\\\\d+) \\\\. (?P<patch>\\\\d+)')"
+                },
+                {
+                  "nodeid": "tcc_referencia/test_ref_get_version_from_tag.py::test_marcacao_verbose_no_inicio_do_padrao_continua_valendo",
+                  "when": "teardown",
+                  "outcome": "passed",
+                  "exception": null,
+                  "assertion_failure": false,
+                  "expected_failure": false,
+                  "message": null
+                }
+              ],
+              "collection_errors": [],
+              "focal": {
+                "executed": true,
+                "line_total": 7,
+                "line_covered": 7,
+                "line_rate": 1.0,
+                "branch_total": 0,
+                "branch_covered": 0,
+                "branch_rate": null,
+                "executable_lines": [
+                  37,
+                  38,
+                  39,
+                  40,
+                  42,
+                  43,
+                  44
+                ],
+                "covered_lines": [
+                  37,
+                  38,
+                  39,
+                  40,
+                  42,
+                  43,
+                  44
+                ],
+                "branches": {}
+              }
+            }
+          }
+        },
+        "detected": true,
+        "status": "detected",
+        "run": {
+          "status": "completed",
+          "seconds": 0.5508969590300694,
+          "exit_code": 1,
+          "production_unchanged": true,
+          "collected": 27,
+          "active_started": true,
+          "active_count": 27,
+          "passed_count": 24,
+          "skipped_count": 0,
+          "xfail_count": 0,
+          "failure_categories": [
+            "assertion_failure"
+          ],
+          "reference_passed": false,
+          "assertion_failure": true,
+          "focal": {
+            "executed": true,
+            "line_total": 7,
+            "line_covered": 7,
+            "line_rate": 1.0,
+            "branch_total": 0,
+            "branch_covered": 0,
+            "branch_rate": null,
+            "executable_lines": [
+              37,
+              38,
+              39,
+              40,
+              42,
+              43,
+              44
+            ],
+            "covered_lines": [
+              37,
+              38,
+              39,
+              40,
+              42,
+              43,
+              44
+            ],
+            "branches": {}
+          },
+          "raw": {
+            "exit_code": 1,
+            "collected": 27,
+            "reports": [
+              {
+                "nodeid": "::test_get_version_from_tag[preserves-version-text]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[preserves-version-text]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[preserves-version-text]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[missing-prefix]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[missing-prefix]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[missing-prefix]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[case-sensitive-by-default]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[case-sensitive-by-default]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[case-sensitive-by-default]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[version-separators-are-literal]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[version-separators-are-literal]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[version-separators-are-literal]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[incomplete-version]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[incomplete-version]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[incomplete-version]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[empty-tag]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[empty-tag]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[empty-tag]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[searches-within-tag]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[searches-within-tag]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[searches-within-tag]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[first-successful-match]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[first-successful-match]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[first-successful-match]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[literal-prefix-with-regex-metacharacters]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[literal-prefix-with-regex-metacharacters]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[literal-prefix-with-regex-metacharacters]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[prefix-metacharacters-do-not-act-as-regex]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[prefix-metacharacters-do-not-act-as-regex]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[prefix-metacharacters-do-not-act-as-regex]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[suffix-may-be-absent]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[suffix-may-be-absent]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[suffix-may-be-absent]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[suffix-may-differ]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[suffix-may-differ]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[suffix-may-differ]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[first-placeholder]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[first-placeholder]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[first-placeholder]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[template-without-placeholder]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[template-without-placeholder]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[template-without-placeholder]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[prefix-required-without-placeholder]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[prefix-required-without-placeholder]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[prefix-required-without-placeholder]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[empty-prefix]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[empty-prefix]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[empty-prefix]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[doubled-backslashes]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[doubled-backslashes]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[doubled-backslashes]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[global-ignore-case]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[global-ignore-case]",
+                "when": "call",
+                "outcome": "failed",
+                "exception": "AssertionError",
+                "assertion_failure": true,
+                "expected_failure": false,
+                "message": "/submission/test_generated.py:98: in test_get_version_from_tag\n    assert config.get_version_from_tag(tag) == expected\nE   AssertionError: assert None == '1.2RC3'\nE    +  where None = get_version_from_tag('RELEASE-1.2RC3')\nE    +    where get_version_from_tag = SCMConfig(tag=True, push_tag=False, sign_tags=False, tag_name='release-{new_version}', allow_dirty=False, commit=False...on', parse_pattern='(?i)\\\\d+\\\\.\\\\d+rc\\\\d+', tag_message=None, commit_args=None, moveable_tags=[], allow_dirty_files=[]).get_version_from_tag"
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[global-ignore-case]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[combined-global-flags]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[combined-global-flags]",
+                "when": "call",
+                "outcome": "failed",
+                "exception": "AssertionError",
+                "assertion_failure": true,
+                "expected_failure": false,
+                "message": "/submission/test_generated.py:98: in test_get_version_from_tag\n    assert config.get_version_from_tag(tag) == expected\nE   AssertionError: assert None == '1\\nRC2'\nE    +  where None = get_version_from_tag('V1\\nRC2')\nE    +    where get_version_from_tag = SCMConfig(tag=True, push_tag=False, sign_tags=False, tag_name='v{new_version}', allow_dirty=False, commit=False, messa...ersion', parse_pattern='(?is)\\\\d+.*rc\\\\d+', tag_message=None, commit_args=None, moveable_tags=[], allow_dirty_files=[]).get_version_from_tag"
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[combined-global-flags]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[verbose-flag-and-literal-prefix]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[verbose-flag-and-literal-prefix]",
+                "when": "call",
+                "outcome": "failed",
+                "exception": "AssertionError",
+                "assertion_failure": true,
+                "expected_failure": false,
+                "message": "/submission/test_generated.py:98: in test_get_version_from_tag\n    assert config.get_version_from_tag(tag) == expected\nE   AssertionError: assert None == '12.34'\nE    +  where None = get_version_from_tag('release # 12.34')\nE    +    where get_version_from_tag = SCMConfig(tag=True, push_tag=False, sign_tags=False, tag_name='release # {new_version}', allow_dirty=False, commit=Fal...ersion', parse_pattern='(?x)\\\\d+ \\\\. \\\\d+', tag_message=None, commit_args=None, moveable_tags=[], allow_dirty_files=[]).get_version_from_tag"
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[verbose-flag-and-literal-prefix]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[scoped-flag-leaves-prefix-case-sensitive]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[scoped-flag-leaves-prefix-case-sensitive]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[scoped-flag-leaves-prefix-case-sensitive]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[captures-entire-version-with-inner-groups]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[captures-entire-version-with-inner-groups]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[captures-entire-version-with-inner-groups]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[prefix-applies-to-second-alternative]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[prefix-applies-to-second-alternative]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[prefix-applies-to-second-alternative]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[bare-alternative-does-not-match]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[bare-alternative-does-not-match]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[bare-alternative-does-not-match]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[version-pattern-end-anchor]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[version-pattern-end-anchor]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[version-pattern-end-anchor]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[empty-version-is-a-successful-match]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[empty-version-is-a-successful-match]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[empty-version-is-a-successful-match]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag_raises_for_invalid_parse_pattern",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag_raises_for_invalid_parse_pattern",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag_raises_for_invalid_parse_pattern",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              }
+            ],
+            "collection_errors": [],
+            "focal": {
+              "executed": true,
+              "line_total": 7,
+              "line_covered": 7,
+              "line_rate": 1.0,
+              "branch_total": 0,
+              "branch_covered": 0,
+              "branch_rate": null,
+              "executable_lines": [
+                37,
+                38,
+                39,
+                40,
+                42,
+                43,
+                44
+              ],
+              "covered_lines": [
+                37,
+                38,
+                39,
+                40,
+                42,
+                43,
+                44
+              ],
+              "branches": {}
+            }
+          }
+        }
+      },
+      {
+        "id": "BMV-03-prefixo-errado",
+        "eligible": true,
+        "validation": {
+          "id": "BMV-03-prefixo-errado",
+          "eligible": true,
+          "project_sha256": "ed0530cb8db810554ce8a8d8bc5d2ac9f33c732970f9186134c05a46b3d0036c",
+          "definition_sha256": "3e850ff603b035aaccbcc740826aba942b1e4e4e9f3925b4af942b85423ca2c7",
+          "reason": null,
+          "baseline": {
+            "status": "completed",
+            "seconds": 0.49542420799843967,
+            "exit_code": 0,
+            "production_unchanged": true,
+            "collected": 1,
+            "active_started": true,
+            "active_count": 1,
+            "passed_count": 1,
+            "skipped_count": 0,
+            "xfail_count": 0,
+            "failure_categories": [],
+            "reference_passed": true,
+            "assertion_failure": false,
+            "focal": {
+              "executed": true,
+              "line_total": 7,
+              "line_covered": 7,
+              "line_rate": 1.0,
+              "branch_total": 0,
+              "branch_covered": 0,
+              "branch_rate": null,
+              "executable_lines": [
+                37,
+                38,
+                39,
+                40,
+                42,
+                43,
+                44
+              ],
+              "covered_lines": [
+                37,
+                38,
+                39,
+                40,
+                42,
+                43,
+                44
+              ],
+              "branches": {}
+            },
+            "raw": {
+              "exit_code": 0,
+              "collected": 1,
+              "reports": [
+                {
+                  "nodeid": "tcc_referencia/test_ref_get_version_from_tag.py::test_modelo_com_sufixo_usa_so_o_prefixo",
+                  "when": "setup",
+                  "outcome": "passed",
+                  "exception": null,
+                  "assertion_failure": false,
+                  "expected_failure": false,
+                  "message": null
+                },
+                {
+                  "nodeid": "tcc_referencia/test_ref_get_version_from_tag.py::test_modelo_com_sufixo_usa_so_o_prefixo",
+                  "when": "call",
+                  "outcome": "passed",
+                  "exception": null,
+                  "assertion_failure": false,
+                  "expected_failure": false,
+                  "message": null
+                },
+                {
+                  "nodeid": "tcc_referencia/test_ref_get_version_from_tag.py::test_modelo_com_sufixo_usa_so_o_prefixo",
+                  "when": "teardown",
+                  "outcome": "passed",
+                  "exception": null,
+                  "assertion_failure": false,
+                  "expected_failure": false,
+                  "message": null
+                }
+              ],
+              "collection_errors": [],
+              "focal": {
+                "executed": true,
+                "line_total": 7,
+                "line_covered": 7,
+                "line_rate": 1.0,
+                "branch_total": 0,
+                "branch_covered": 0,
+                "branch_rate": null,
+                "executable_lines": [
+                  37,
+                  38,
+                  39,
+                  40,
+                  42,
+                  43,
+                  44
+                ],
+                "covered_lines": [
+                  37,
+                  38,
+                  39,
+                  40,
+                  42,
+                  43,
+                  44
+                ],
+                "branches": {}
+              }
+            }
+          },
+          "mutated": {
+            "status": "completed",
+            "seconds": 0.5362642080290243,
+            "exit_code": 1,
+            "production_unchanged": true,
+            "collected": 1,
+            "active_started": true,
+            "active_count": 1,
+            "passed_count": 0,
+            "skipped_count": 0,
+            "xfail_count": 0,
+            "failure_categories": [
+              "assertion_failure"
+            ],
+            "reference_passed": false,
+            "assertion_failure": true,
+            "focal": {
+              "executed": true,
+              "line_total": 7,
+              "line_covered": 7,
+              "line_rate": 1.0,
+              "branch_total": 0,
+              "branch_covered": 0,
+              "branch_rate": null,
+              "executable_lines": [
+                37,
+                38,
+                39,
+                40,
+                42,
+                43,
+                44
+              ],
+              "covered_lines": [
+                37,
+                38,
+                39,
+                40,
+                42,
+                43,
+                44
+              ],
+              "branches": {}
+            },
+            "raw": {
+              "exit_code": 1,
+              "collected": 1,
+              "reports": [
+                {
+                  "nodeid": "tcc_referencia/test_ref_get_version_from_tag.py::test_modelo_com_sufixo_usa_so_o_prefixo",
+                  "when": "setup",
+                  "outcome": "passed",
+                  "exception": null,
+                  "assertion_failure": false,
+                  "expected_failure": false,
+                  "message": null
+                },
+                {
+                  "nodeid": "tcc_referencia/test_ref_get_version_from_tag.py::test_modelo_com_sufixo_usa_so_o_prefixo",
+                  "when": "call",
+                  "outcome": "failed",
+                  "exception": "AssertionError",
+                  "assertion_failure": true,
+                  "expected_failure": false,
+                  "message": "tcc_referencia/test_ref_get_version_from_tag.py:31: in test_modelo_com_sufixo_usa_so_o_prefixo\n    assert _scm(\"v{new_version}-final\").get_version_from_tag(\"v1.2.3-final\") == \"1.2.3\"\nE   AssertionError: assert None == '1.2.3'\nE    +  where None = get_version_from_tag('v1.2.3-final')\nE    +    where get_version_from_tag = SCMConfig(tag=True, push_tag=False, sign_tags=False, tag_name='v{new_version}-final', allow_dirty=False, commit=False,...\\\\d+)\\\\.(?P<minor>\\\\d+)\\\\.(?P<patch>\\\\d+)', tag_message=None, commit_args=None, moveable_tags=[], allow_dirty_files=[]).get_version_from_tag\nE    +      where SCMConfig(tag=True, push_tag=False, sign_tags=False, tag_name='v{new_version}-final', allow_dirty=False, commit=False,...\\\\d+)\\\\.(?P<minor>\\\\d+)\\\\.(?P<patch>\\\\d+)', tag_message=None, commit_args=None, moveable_tags=[], allow_dirty_files=[]) = _scm('v{new_version}-final')"
+                },
+                {
+                  "nodeid": "tcc_referencia/test_ref_get_version_from_tag.py::test_modelo_com_sufixo_usa_so_o_prefixo",
+                  "when": "teardown",
+                  "outcome": "passed",
+                  "exception": null,
+                  "assertion_failure": false,
+                  "expected_failure": false,
+                  "message": null
+                }
+              ],
+              "collection_errors": [],
+              "focal": {
+                "executed": true,
+                "line_total": 7,
+                "line_covered": 7,
+                "line_rate": 1.0,
+                "branch_total": 0,
+                "branch_covered": 0,
+                "branch_rate": null,
+                "executable_lines": [
+                  37,
+                  38,
+                  39,
+                  40,
+                  42,
+                  43,
+                  44
+                ],
+                "covered_lines": [
+                  37,
+                  38,
+                  39,
+                  40,
+                  42,
+                  43,
+                  44
+                ],
+                "branches": {}
+              }
+            }
+          }
+        },
+        "detected": true,
+        "status": "detected",
+        "run": {
+          "status": "completed",
+          "seconds": 0.6962720419978723,
+          "exit_code": 1,
+          "production_unchanged": true,
+          "collected": 27,
+          "active_started": true,
+          "active_count": 27,
+          "passed_count": 18,
+          "skipped_count": 0,
+          "xfail_count": 0,
+          "failure_categories": [
+            "assertion_failure"
+          ],
+          "reference_passed": false,
+          "assertion_failure": true,
+          "focal": {
+            "executed": true,
+            "line_total": 7,
+            "line_covered": 7,
+            "line_rate": 1.0,
+            "branch_total": 0,
+            "branch_covered": 0,
+            "branch_rate": null,
+            "executable_lines": [
+              37,
+              38,
+              39,
+              40,
+              42,
+              43,
+              44
+            ],
+            "covered_lines": [
+              37,
+              38,
+              39,
+              40,
+              42,
+              43,
+              44
+            ],
+            "branches": {}
+          },
+          "raw": {
+            "exit_code": 1,
+            "collected": 27,
+            "reports": [
+              {
+                "nodeid": "::test_get_version_from_tag[preserves-version-text]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[preserves-version-text]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[preserves-version-text]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[missing-prefix]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[missing-prefix]",
+                "when": "call",
+                "outcome": "failed",
+                "exception": "AssertionError",
+                "assertion_failure": true,
+                "expected_failure": false,
+                "message": "/submission/test_generated.py:98: in test_get_version_from_tag\n    assert config.get_version_from_tag(tag) == expected\nE   AssertionError: assert '1.2.3' == None\nE    +  where '1.2.3' = get_version_from_tag('release-1.2.3')\nE    +    where get_version_from_tag = SCMConfig(tag=True, push_tag=False, sign_tags=False, tag_name='v{new_version}', allow_dirty=False, commit=False, messa...rsion', parse_pattern='\\\\d+\\\\.\\\\d+\\\\.\\\\d+', tag_message=None, commit_args=None, moveable_tags=[], allow_dirty_files=[]).get_version_from_tag"
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[missing-prefix]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[case-sensitive-by-default]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[case-sensitive-by-default]",
+                "when": "call",
+                "outcome": "failed",
+                "exception": "AssertionError",
+                "assertion_failure": true,
+                "expected_failure": false,
+                "message": "/submission/test_generated.py:98: in test_get_version_from_tag\n    assert config.get_version_from_tag(tag) == expected\nE   AssertionError: assert '1.2.3' == None\nE    +  where '1.2.3' = get_version_from_tag('V1.2.3')\nE    +    where get_version_from_tag = SCMConfig(tag=True, push_tag=False, sign_tags=False, tag_name='v{new_version}', allow_dirty=False, commit=False, messa...rsion', parse_pattern='\\\\d+\\\\.\\\\d+\\\\.\\\\d+', tag_message=None, commit_args=None, moveable_tags=[], allow_dirty_files=[]).get_version_from_tag"
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[case-sensitive-by-default]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[version-separators-are-literal]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[version-separators-are-literal]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[version-separators-are-literal]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[incomplete-version]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[incomplete-version]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[incomplete-version]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[empty-tag]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[empty-tag]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[empty-tag]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[searches-within-tag]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[searches-within-tag]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[searches-within-tag]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[first-successful-match]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[first-successful-match]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[first-successful-match]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[literal-prefix-with-regex-metacharacters]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[literal-prefix-with-regex-metacharacters]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[literal-prefix-with-regex-metacharacters]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[prefix-metacharacters-do-not-act-as-regex]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[prefix-metacharacters-do-not-act-as-regex]",
+                "when": "call",
+                "outcome": "failed",
+                "exception": "AssertionError",
+                "assertion_failure": true,
+                "expected_failure": false,
+                "message": "/submission/test_generated.py:98: in test_get_version_from_tag\n    assert config.get_version_from_tag(tag) == expected\nE   AssertionError: assert '1.2.3' == None\nE    +  where '1.2.3' = get_version_from_tag('releaseXqq-1.2.3')\nE    +    where get_version_from_tag = SCMConfig(tag=True, push_tag=False, sign_tags=False, tag_name='release.[qa]+-{new_version}', allow_dirty=False, commit...rsion', parse_pattern='\\\\d+\\\\.\\\\d+\\\\.\\\\d+', tag_message=None, commit_args=None, moveable_tags=[], allow_dirty_files=[]).get_version_from_tag"
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[prefix-metacharacters-do-not-act-as-regex]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[suffix-may-be-absent]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[suffix-may-be-absent]",
+                "when": "call",
+                "outcome": "failed",
+                "exception": "AssertionError",
+                "assertion_failure": true,
+                "expected_failure": false,
+                "message": "/submission/test_generated.py:98: in test_get_version_from_tag\n    assert config.get_version_from_tag(tag) == expected\nE   AssertionError: assert None == '1.2.3'\nE    +  where None = get_version_from_tag('release-1.2.3')\nE    +    where get_version_from_tag = SCMConfig(tag=True, push_tag=False, sign_tags=False, tag_name='release-{new_version}-stable', allow_dirty=False, commi...rsion', parse_pattern='\\\\d+\\\\.\\\\d+\\\\.\\\\d+', tag_message=None, commit_args=None, moveable_tags=[], allow_dirty_files=[]).get_version_from_tag"
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[suffix-may-be-absent]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[suffix-may-differ]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[suffix-may-differ]",
+                "when": "call",
+                "outcome": "failed",
+                "exception": "AssertionError",
+                "assertion_failure": true,
+                "expected_failure": false,
+                "message": "/submission/test_generated.py:98: in test_get_version_from_tag\n    assert config.get_version_from_tag(tag) == expected\nE   AssertionError: assert None == '1.2.3'\nE    +  where None = get_version_from_tag('release-1.2.3-beta')\nE    +    where get_version_from_tag = SCMConfig(tag=True, push_tag=False, sign_tags=False, tag_name='release-{new_version}-stable', allow_dirty=False, commi...rsion', parse_pattern='\\\\d+\\\\.\\\\d+\\\\.\\\\d+', tag_message=None, commit_args=None, moveable_tags=[], allow_dirty_files=[]).get_version_from_tag"
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[suffix-may-differ]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[first-placeholder]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[first-placeholder]",
+                "when": "call",
+                "outcome": "failed",
+                "exception": "AssertionError",
+                "assertion_failure": true,
+                "expected_failure": false,
+                "message": "/submission/test_generated.py:98: in test_get_version_from_tag\n    assert config.get_version_from_tag(tag) == expected\nE   AssertionError: assert None == '1.2.3'\nE    +  where None = get_version_from_tag('v1.2.3-4.5.6')\nE    +    where get_version_from_tag = SCMConfig(tag=True, push_tag=False, sign_tags=False, tag_name='v{new_version}-{new_version}', allow_dirty=False, commi...rsion', parse_pattern='\\\\d+\\\\.\\\\d+\\\\.\\\\d+', tag_message=None, commit_args=None, moveable_tags=[], allow_dirty_files=[]).get_version_from_tag"
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[first-placeholder]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[template-without-placeholder]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[template-without-placeholder]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[template-without-placeholder]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[prefix-required-without-placeholder]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[prefix-required-without-placeholder]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[prefix-required-without-placeholder]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[empty-prefix]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[empty-prefix]",
+                "when": "call",
+                "outcome": "failed",
+                "exception": "AssertionError",
+                "assertion_failure": true,
+                "expected_failure": false,
+                "message": "/submission/test_generated.py:98: in test_get_version_from_tag\n    assert config.get_version_from_tag(tag) == expected\nE   AssertionError: assert None == '2.3.4'\nE    +  where None = get_version_from_tag('2.3.4-dev')\nE    +    where get_version_from_tag = SCMConfig(tag=True, push_tag=False, sign_tags=False, tag_name='{new_version}-stable', allow_dirty=False, commit=False,...rsion', parse_pattern='\\\\d+\\\\.\\\\d+\\\\.\\\\d+', tag_message=None, commit_args=None, moveable_tags=[], allow_dirty_files=[]).get_version_from_tag"
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[empty-prefix]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[doubled-backslashes]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[doubled-backslashes]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[doubled-backslashes]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[global-ignore-case]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[global-ignore-case]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[global-ignore-case]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[combined-global-flags]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[combined-global-flags]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[combined-global-flags]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[verbose-flag-and-literal-prefix]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[verbose-flag-and-literal-prefix]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[verbose-flag-and-literal-prefix]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[scoped-flag-leaves-prefix-case-sensitive]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[scoped-flag-leaves-prefix-case-sensitive]",
+                "when": "call",
+                "outcome": "failed",
+                "exception": "AssertionError",
+                "assertion_failure": true,
+                "expected_failure": false,
+                "message": "/submission/test_generated.py:98: in test_get_version_from_tag\n    assert config.get_version_from_tag(tag) == expected\nE   AssertionError: assert '1RC2' == '3RC4'\nE     \nE     - 3RC4\nE     + 1RC2"
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[scoped-flag-leaves-prefix-case-sensitive]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[captures-entire-version-with-inner-groups]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[captures-entire-version-with-inner-groups]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[captures-entire-version-with-inner-groups]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[prefix-applies-to-second-alternative]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[prefix-applies-to-second-alternative]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[prefix-applies-to-second-alternative]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[bare-alternative-does-not-match]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[bare-alternative-does-not-match]",
+                "when": "call",
+                "outcome": "failed",
+                "exception": "AssertionError",
+                "assertion_failure": true,
+                "expected_failure": false,
+                "message": "/submission/test_generated.py:98: in test_get_version_from_tag\n    assert config.get_version_from_tag(tag) == expected\nE   AssertionError: assert 'dev' == None\nE    +  where 'dev' = get_version_from_tag('unrelated-dev')\nE    +    where get_version_from_tag = SCMConfig(tag=True, push_tag=False, sign_tags=False, tag_name='v{new_version}', allow_dirty=False, commit=False, message='Bump version', parse_pattern='\\\\d+|dev', tag_message=None, commit_args=None, moveable_tags=[], allow_dirty_files=[]).get_version_from_tag"
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[bare-alternative-does-not-match]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[version-pattern-end-anchor]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[version-pattern-end-anchor]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[version-pattern-end-anchor]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[empty-version-is-a-successful-match]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[empty-version-is-a-successful-match]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag[empty-version-is-a-successful-match]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag_raises_for_invalid_parse_pattern",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag_raises_for_invalid_parse_pattern",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_get_version_from_tag_raises_for_invalid_parse_pattern",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              }
+            ],
+            "collection_errors": [],
+            "focal": {
+              "executed": true,
+              "line_total": 7,
+              "line_covered": 7,
+              "line_rate": 1.0,
+              "branch_total": 0,
+              "branch_covered": 0,
+              "branch_rate": null,
+              "executable_lines": [
+                37,
+                38,
+                39,
+                40,
+                42,
+                43,
+                44
+              ],
+              "covered_lines": [
+                37,
+                38,
+                39,
+                40,
+                42,
+                43,
+                44
+              ],
+              "branches": {}
+            }
+          }
+        }
+      }
+    ],
+    "detection_rate": 1.0,
+    "review": {
+      "behavioral_assertions": true,
+      "no_target_mock": true,
+      "no_production_changes": true,
+      "defect_attribution": {
+        "BMV-03-sem-escape": true,
+        "BMV-03-sem-flags": true,
+        "BMV-03-prefixo-errado": true
+      },
+      "dependency_doubles": false,
+      "reviewer": "Gabriel Lopes Pereira",
+      "created_at": "2026-11-22T05:04:27.910409+00:00"
+    },
+    "backend": "docker",
+    "submission_sha256": "2dd5cc44b4b21bfe5659e8661c70bdf4abb901169f025c3dd9414957e7ff0b7d",
+    "status": "completed",
+    "seconds": 0.49083337490446866,
+    "active_count": 27,
+    "passed_count": 27,
+    "skipped_count": 0,
+    "xfail_count": 0,
+    "failure_categories": [],
+    "original": {
+      "status": "completed",
+      "seconds": 0.49083337490446866,
+      "exit_code": 0,
+      "production_unchanged": true,
+      "collected": 27,
+      "active_started": true,
+      "active_count": 27,
+      "passed_count": 27,
+      "skipped_count": 0,
+      "xfail_count": 0,
+      "failure_categories": [],
+      "reference_passed": true,
+      "assertion_failure": false,
+      "focal": {
+        "executed": true,
+        "line_total": 7,
+        "line_covered": 7,
+        "line_rate": 1.0,
+        "branch_total": 0,
+        "branch_covered": 0,
+        "branch_rate": null,
+        "executable_lines": [
+          37,
+          38,
+          39,
+          40,
+          42,
+          43,
+          44
+        ],
+        "covered_lines": [
+          37,
+          38,
+          39,
+          40,
+          42,
+          43,
+          44
+        ],
+        "branches": {}
+      },
+      "raw": {
+        "exit_code": 0,
+        "collected": 27,
+        "reports": [
+          {
+            "nodeid": "::test_get_version_from_tag[preserves-version-text]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[preserves-version-text]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[preserves-version-text]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[missing-prefix]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[missing-prefix]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[missing-prefix]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[case-sensitive-by-default]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[case-sensitive-by-default]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[case-sensitive-by-default]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[version-separators-are-literal]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[version-separators-are-literal]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[version-separators-are-literal]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[incomplete-version]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[incomplete-version]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[incomplete-version]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[empty-tag]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[empty-tag]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[empty-tag]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[searches-within-tag]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[searches-within-tag]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[searches-within-tag]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[first-successful-match]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[first-successful-match]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[first-successful-match]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[literal-prefix-with-regex-metacharacters]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[literal-prefix-with-regex-metacharacters]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[literal-prefix-with-regex-metacharacters]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[prefix-metacharacters-do-not-act-as-regex]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[prefix-metacharacters-do-not-act-as-regex]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[prefix-metacharacters-do-not-act-as-regex]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[suffix-may-be-absent]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[suffix-may-be-absent]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[suffix-may-be-absent]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[suffix-may-differ]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[suffix-may-differ]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[suffix-may-differ]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[first-placeholder]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[first-placeholder]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[first-placeholder]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[template-without-placeholder]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[template-without-placeholder]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[template-without-placeholder]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[prefix-required-without-placeholder]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[prefix-required-without-placeholder]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[prefix-required-without-placeholder]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[empty-prefix]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[empty-prefix]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[empty-prefix]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[doubled-backslashes]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[doubled-backslashes]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[doubled-backslashes]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[global-ignore-case]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[global-ignore-case]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[global-ignore-case]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[combined-global-flags]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[combined-global-flags]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[combined-global-flags]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[verbose-flag-and-literal-prefix]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[verbose-flag-and-literal-prefix]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[verbose-flag-and-literal-prefix]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[scoped-flag-leaves-prefix-case-sensitive]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[scoped-flag-leaves-prefix-case-sensitive]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[scoped-flag-leaves-prefix-case-sensitive]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[captures-entire-version-with-inner-groups]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[captures-entire-version-with-inner-groups]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[captures-entire-version-with-inner-groups]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[prefix-applies-to-second-alternative]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[prefix-applies-to-second-alternative]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[prefix-applies-to-second-alternative]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[bare-alternative-does-not-match]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[bare-alternative-does-not-match]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[bare-alternative-does-not-match]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[version-pattern-end-anchor]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[version-pattern-end-anchor]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[version-pattern-end-anchor]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[empty-version-is-a-successful-match]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[empty-version-is-a-successful-match]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag[empty-version-is-a-successful-match]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag_raises_for_invalid_parse_pattern",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag_raises_for_invalid_parse_pattern",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_get_version_from_tag_raises_for_invalid_parse_pattern",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          }
+        ],
+        "collection_errors": [],
+        "focal": {
+          "executed": true,
+          "line_total": 7,
+          "line_covered": 7,
+          "line_rate": 1.0,
+          "branch_total": 0,
+          "branch_covered": 0,
+          "branch_rate": null,
+          "executable_lines": [
+            37,
+            38,
+            39,
+            40,
+            42,
+            43,
+            44
+          ],
+          "covered_lines": [
+            37,
+            38,
+            39,
+            40,
+            42,
+            43,
+            44
+          ],
+          "branches": {}
+        }
+      }
+    },
+    "defects_eligible": 3,
+    "defects_measured": 3,
+    "defects_detected": 3,
+    "detection_complete": true,
+    "total_seconds": 5.825311499997042
+  }
+}

@@ -1,0 +1,3697 @@
+{
+  "schema_version": 1,
+  "order": 46,
+  "project": "fava",
+  "target": "find_insert_position",
+  "agent": "codex",
+  "condition": "A",
+  "repetition": 2,
+  "id": "fava__find_insert_position__codex__A__2",
+  "phase": "main",
+  "lock_hash": "49dd66a522994eb03001a67255ded0aa13cc696255859f45a924b43f05f5da33",
+  "started_at": "2026-11-22T03:53:50.438617+00:00",
+  "status": "finished",
+  "generation": {
+    "status": "completed",
+    "input_tokens": 117908,
+    "output_tokens": 2517,
+    "seconds": 68.81283837498631,
+    "version": "codex-cli 0.170.0",
+    "tool_log": [
+      {
+        "index": 1,
+        "tool": "search",
+        "arguments": {
+          "query": "find_insert_position"
+        },
+        "delivered_chars": 220,
+        "chars_before": 0,
+        "status": "ok",
+        "chars_after": 220
+      },
+      {
+        "index": 2,
+        "tool": "read_file",
+        "arguments": {
+          "path": "src/fava/core/file.py",
+          "start_line": 396,
+          "end_line": 620
+        },
+        "delivered_chars": 4715,
+        "chars_before": 220,
+        "status": "ok",
+        "chars_after": 4935
+      },
+      {
+        "index": 3,
+        "tool": "search",
+        "arguments": {
+          "query": "def get_entry_accounts"
+        },
+        "delivered_chars": 158,
+        "chars_before": 4935,
+        "status": "ok",
+        "chars_after": 5093
+      },
+      {
+        "index": 4,
+        "tool": "read_file",
+        "arguments": {
+          "path": "src/fava/beans/account.py",
+          "start_line": 1,
+          "end_line": 130
+        },
+        "delivered_chars": 2454,
+        "chars_before": 5093,
+        "status": "ok",
+        "chars_after": 7547
+      },
+      {
+        "index": 5,
+        "tool": "search",
+        "arguments": {
+          "query": "class InsertEntryOption"
+        },
+        "delivered_chars": 128,
+        "chars_before": 7547,
+        "status": "ok",
+        "chars_after": 7675
+      },
+      {
+        "index": 6,
+        "tool": "read_file",
+        "arguments": {
+          "path": "src/fava/core/fava_options.py",
+          "start_line": 1,
+          "end_line": 115
+        },
+        "delivered_chars": 3764,
+        "chars_before": 7675,
+        "status": "ok",
+        "chars_after": 11439
+      },
+      {
+        "index": 7,
+        "tool": "list_files",
+        "arguments": {
+          "path": "tests"
+        },
+        "delivered_chars": 12,
+        "chars_before": 11439,
+        "status": "ok",
+        "chars_after": 11451
+      },
+      {
+        "index": 8,
+        "tool": "search",
+        "arguments": {
+          "query": "def test_insert_entry"
+        },
+        "delivered_chars": 44,
+        "chars_before": 11451,
+        "status": "ok",
+        "chars_after": 11495
+      },
+      {
+        "index": 9,
+        "tool": "read_file",
+        "arguments": {
+          "path": "src/fava/beans/abc.py",
+          "start_line": 1,
+          "end_line": 160
+        },
+        "delivered_chars": 3808,
+        "chars_before": 11495,
+        "status": "ok",
+        "chars_after": 15303
+      },
+      {
+        "index": 10,
+        "tool": "search",
+        "arguments": {
+          "query": "data.Custom"
+        },
+        "delivered_chars": 125,
+        "chars_before": 15303,
+        "status": "ok",
+        "chars_after": 15428
+      },
+      {
+        "index": 11,
+        "tool": "search",
+        "arguments": {
+          "query": "insert-entry"
+        },
+        "delivered_chars": 44,
+        "chars_before": 15428,
+        "status": "ok",
+        "chars_after": 15472
+      },
+      {
+        "index": 12,
+        "tool": "search",
+        "arguments": {
+          "query": "insert_entry",
+          "path": "src/fava/core/fava_options.py"
+        },
+        "delivered_chars": 767,
+        "chars_before": 15472,
+        "status": "ok",
+        "chars_after": 16239
+      }
+    ],
+    "usage": {
+      "input_tokens": 117908,
+      "cached_input_tokens": 99840,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 2517,
+      "reasoning_output_tokens": 273
+    },
+    "details": [],
+    "capabilities": {
+      "tool_surface_verified": true,
+      "tools": [
+        "functions.list_mcp_resource_templates",
+        "functions.list_mcp_resources",
+        "functions.read_mcp_resource",
+        "mcp__contextlab.list_files",
+        "mcp__contextlab.read_file",
+        "mcp__contextlab.search"
+      ],
+      "catalog_sha256": "a61b50641627a2941fc8be4db823d1fbbfa4ae628add4d7ec443dbab559140fb",
+      "probe": "offline-localhost",
+      "model": "gpt-6.2-sol",
+      "command_rejected": true,
+      "outside_packet_rejected": true,
+      "allowed_read_verified": true
+    },
+    "returncode": 0,
+    "context_stats": {
+      "chars_used": 16239,
+      "initial_chars": 0,
+      "response_chars": 16239,
+      "remaining_chars": 13761,
+      "tool_calls": 12,
+      "max_calls": 20,
+      "budget": 30000
+    },
+    "session_id": "01a20163-8e85-7e51-9b06-eff059144aa7"
+  },
+  "evaluation": {
+    "target_id": "find_insert_position",
+    "test_kind": "unit",
+    "received": true,
+    "syntax_ok": true,
+    "collected": 13,
+    "active_started": true,
+    "reference_passed": true,
+    "approval": "pending_review",
+    "approved": false,
+    "coverage_raw": {
+      "executed": true,
+      "line_total": 9,
+      "line_covered": 9,
+      "line_rate": 1.0,
+      "branch_total": 8,
+      "branch_covered": 8,
+      "branch_rate": 1.0,
+      "executable_lines": [
+        524,
+        528,
+        534,
+        535,
+        537,
+        538,
+        539,
+        540,
+        542
+      ],
+      "covered_lines": [
+        524,
+        528,
+        534,
+        535,
+        537,
+        538,
+        539,
+        540,
+        542
+      ],
+      "branches": {
+        "534": {
+          "total": 2,
+          "covered": 2
+        },
+        "537": {
+          "total": 2,
+          "covered": 2
+        },
+        "535": {
+          "total": 2,
+          "covered": 2
+        },
+        "539": {
+          "total": 2,
+          "covered": 2
+        }
+      }
+    },
+    "coverage_main": null,
+    "defects": [],
+    "detection_rate": null,
+    "review": null,
+    "backend": "docker",
+    "submission_sha256": "137c3f8dafd90bfad7d16a63e473d0852e00b36d13e04c7aa81e4a1139523670",
+    "status": "completed",
+    "seconds": 0.9374057910172269,
+    "active_count": 13,
+    "passed_count": 13,
+    "skipped_count": 0,
+    "xfail_count": 0,
+    "failure_categories": [],
+    "original": {
+      "status": "completed",
+      "seconds": 0.9374057910172269,
+      "exit_code": 0,
+      "production_unchanged": true,
+      "collected": 13,
+      "active_started": true,
+      "active_count": 13,
+      "passed_count": 13,
+      "skipped_count": 0,
+      "xfail_count": 0,
+      "failure_categories": [],
+      "reference_passed": true,
+      "assertion_failure": false,
+      "focal": {
+        "executed": true,
+        "line_total": 9,
+        "line_covered": 9,
+        "line_rate": 1.0,
+        "branch_total": 8,
+        "branch_covered": 8,
+        "branch_rate": 1.0,
+        "executable_lines": [
+          524,
+          528,
+          534,
+          535,
+          537,
+          538,
+          539,
+          540,
+          542
+        ],
+        "covered_lines": [
+          524,
+          528,
+          534,
+          535,
+          537,
+          538,
+          539,
+          540,
+          542
+        ],
+        "branches": {
+          "534": {
+            "total": 2,
+            "covered": 2
+          },
+          "537": {
+            "total": 2,
+            "covered": 2
+          },
+          "535": {
+            "total": 2,
+            "covered": 2
+          },
+          "539": {
+            "total": 2,
+            "covered": 2
+          }
+        }
+      },
+      "raw": {
+        "exit_code": 0,
+        "collected": 13,
+        "reports": [
+          {
+            "nodeid": "::test_uses_latest_matching_option_strictly_before_entry",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_uses_latest_matching_option_strictly_before_entry",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_uses_latest_matching_option_strictly_before_entry",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_matches_regex_at_start_and_accepts_a_prefix",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_matches_regex_at_start_and_accepts_a_prefix",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_matches_regex_at_start_and_accepts_a_prefix",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_equal_dates_preserve_input_order",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_equal_dates_preserve_input_order",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_equal_dates_preserve_input_order",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_falls_back_when_no_option_qualifies[no-options]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_falls_back_when_no_option_qualifies[no-options]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_falls_back_when_no_option_qualifies[no-options]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_falls_back_when_no_option_qualifies[no-regex-match]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_falls_back_when_no_option_qualifies[no-regex-match]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_falls_back_when_no_option_qualifies[no-regex-match]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_falls_back_when_no_option_qualifies[same-day-only]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_falls_back_when_no_option_qualifies[same-day-only]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_falls_back_when_no_option_qualifies[same-day-only]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_falls_back_when_no_option_qualifies[future-only]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_falls_back_when_no_option_qualifies[future-only]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_falls_back_when_no_option_qualifies[future-only]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_transaction_considers_postings_in_reverse_order[last-posting]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_transaction_considers_postings_in_reverse_order[last-posting]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_transaction_considers_postings_in_reverse_order[last-posting]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_transaction_considers_postings_in_reverse_order[middle-posting]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_transaction_considers_postings_in_reverse_order[middle-posting]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_transaction_considers_postings_in_reverse_order[middle-posting]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_transaction_considers_postings_in_reverse_order[first-posting]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_transaction_considers_postings_in_reverse_order[first-posting]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_transaction_considers_postings_in_reverse_order[first-posting]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_pad_prefers_its_account_and_can_fall_back_to_its_source",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_pad_prefers_its_account_and_can_fall_back_to_its_source",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_pad_prefers_its_account_and_can_fall_back_to_its_source",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_custom_uses_account_values_in_order_and_ignores_strings",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_custom_uses_account_values_in_order_and_ignores_strings",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_custom_uses_account_values_in_order_and_ignores_strings",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_directive_without_accounts_falls_back_even_with_a_catchall",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_directive_without_accounts_falls_back_even_with_a_catchall",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_directive_without_accounts_falls_back_even_with_a_catchall",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          }
+        ],
+        "collection_errors": [],
+        "focal": {
+          "executed": true,
+          "line_total": 9,
+          "line_covered": 9,
+          "line_rate": 1.0,
+          "branch_total": 8,
+          "branch_covered": 8,
+          "branch_rate": 1.0,
+          "executable_lines": [
+            524,
+            528,
+            534,
+            535,
+            537,
+            538,
+            539,
+            540,
+            542
+          ],
+          "covered_lines": [
+            524,
+            528,
+            534,
+            535,
+            537,
+            538,
+            539,
+            540,
+            542
+          ],
+          "branches": {
+            "534": {
+              "total": 2,
+              "covered": 2
+            },
+            "537": {
+              "total": 2,
+              "covered": 2
+            },
+            "535": {
+              "total": 2,
+              "covered": 2
+            },
+            "539": {
+              "total": 2,
+              "covered": 2
+            }
+          }
+        }
+      }
+    },
+    "defects_eligible": null,
+    "defects_measured": null,
+    "defects_detected": null,
+    "detection_complete": null,
+    "total_seconds": 0.9789599160430953
+  },
+  "preparation_seconds": 0.05903299991041422,
+  "submission_sha256": "137c3f8dafd90bfad7d16a63e473d0852e00b36d13e04c7aa81e4a1139523670",
+  "finished_at": "2026-11-22T03:55:00.297575+00:00",
+  "review": {
+    "behavioral_assertions": true,
+    "no_target_mock": true,
+    "no_production_changes": true,
+    "defect_attribution": {
+      "FAV-03-data-estrita": true,
+      "FAV-03-sem-menos-um": true,
+      "FAV-03-ordem-crescente": true
+    },
+    "dependency_doubles": false,
+    "reviewer": "Gabriel Lopes Pereira",
+    "created_at": "2026-11-22T05:06:27.102947+00:00"
+  },
+  "reviewed_evaluation": {
+    "target_id": "find_insert_position",
+    "test_kind": "unit",
+    "received": true,
+    "syntax_ok": true,
+    "collected": 13,
+    "active_started": true,
+    "reference_passed": true,
+    "approval": "approved",
+    "approved": true,
+    "coverage_raw": {
+      "executed": true,
+      "line_total": 9,
+      "line_covered": 9,
+      "line_rate": 1.0,
+      "branch_total": 8,
+      "branch_covered": 8,
+      "branch_rate": 1.0,
+      "executable_lines": [
+        524,
+        528,
+        534,
+        535,
+        537,
+        538,
+        539,
+        540,
+        542
+      ],
+      "covered_lines": [
+        524,
+        528,
+        534,
+        535,
+        537,
+        538,
+        539,
+        540,
+        542
+      ],
+      "branches": {
+        "534": {
+          "total": 2,
+          "covered": 2
+        },
+        "537": {
+          "total": 2,
+          "covered": 2
+        },
+        "535": {
+          "total": 2,
+          "covered": 2
+        },
+        "539": {
+          "total": 2,
+          "covered": 2
+        }
+      }
+    },
+    "coverage_main": {
+      "executed": true,
+      "line_total": 9,
+      "line_covered": 9,
+      "line_rate": 1.0,
+      "branch_total": 8,
+      "branch_covered": 8,
+      "branch_rate": 1.0,
+      "executable_lines": [
+        524,
+        528,
+        534,
+        535,
+        537,
+        538,
+        539,
+        540,
+        542
+      ],
+      "covered_lines": [
+        524,
+        528,
+        534,
+        535,
+        537,
+        538,
+        539,
+        540,
+        542
+      ],
+      "branches": {
+        "534": {
+          "total": 2,
+          "covered": 2
+        },
+        "537": {
+          "total": 2,
+          "covered": 2
+        },
+        "535": {
+          "total": 2,
+          "covered": 2
+        },
+        "539": {
+          "total": 2,
+          "covered": 2
+        }
+      }
+    },
+    "defects": [
+      {
+        "id": "FAV-03-data-estrita",
+        "eligible": true,
+        "validation": {
+          "id": "FAV-03-data-estrita",
+          "eligible": true,
+          "project_sha256": "4d796c64d4bd57dbddb09da8fb81982862d1d16df42389e2b3585f1b5dd011b7",
+          "definition_sha256": "6a622fabef917d052e914adab7c5ba14eade7c74fc10915bca22ce84b57fc256",
+          "reason": null,
+          "baseline": {
+            "status": "completed",
+            "seconds": 1.0550308339297771,
+            "exit_code": 0,
+            "production_unchanged": true,
+            "collected": 1,
+            "active_started": true,
+            "active_count": 1,
+            "passed_count": 1,
+            "skipped_count": 0,
+            "xfail_count": 0,
+            "failure_categories": [],
+            "reference_passed": true,
+            "assertion_failure": false,
+            "focal": {
+              "executed": true,
+              "line_total": 9,
+              "line_covered": 7,
+              "line_rate": 0.7777777777777778,
+              "branch_total": 8,
+              "branch_covered": 5,
+              "branch_rate": 0.625,
+              "executable_lines": [
+                524,
+                528,
+                534,
+                535,
+                537,
+                538,
+                539,
+                540,
+                542
+              ],
+              "covered_lines": [
+                524,
+                528,
+                534,
+                535,
+                537,
+                538,
+                542
+              ],
+              "branches": {
+                "534": {
+                  "total": 2,
+                  "covered": 2
+                },
+                "537": {
+                  "total": 2,
+                  "covered": 1
+                },
+                "535": {
+                  "total": 2,
+                  "covered": 2
+                },
+                "539": {
+                  "total": 2,
+                  "covered": 0
+                }
+              }
+            },
+            "raw": {
+              "exit_code": 0,
+              "collected": 1,
+              "reports": [
+                {
+                  "nodeid": "tcc_referencia/test_ref_find_insert_position.py::test_opcao_com_mesma_data_da_diretiva_e_ignorada",
+                  "when": "setup",
+                  "outcome": "passed",
+                  "exception": null,
+                  "assertion_failure": false,
+                  "expected_failure": false,
+                  "message": null
+                },
+                {
+                  "nodeid": "tcc_referencia/test_ref_find_insert_position.py::test_opcao_com_mesma_data_da_diretiva_e_ignorada",
+                  "when": "call",
+                  "outcome": "passed",
+                  "exception": null,
+                  "assertion_failure": false,
+                  "expected_failure": false,
+                  "message": null
+                },
+                {
+                  "nodeid": "tcc_referencia/test_ref_find_insert_position.py::test_opcao_com_mesma_data_da_diretiva_e_ignorada",
+                  "when": "teardown",
+                  "outcome": "passed",
+                  "exception": null,
+                  "assertion_failure": false,
+                  "expected_failure": false,
+                  "message": null
+                }
+              ],
+              "collection_errors": [],
+              "focal": {
+                "executed": true,
+                "line_total": 9,
+                "line_covered": 7,
+                "line_rate": 0.7777777777777778,
+                "branch_total": 8,
+                "branch_covered": 5,
+                "branch_rate": 0.625,
+                "executable_lines": [
+                  524,
+                  528,
+                  534,
+                  535,
+                  537,
+                  538,
+                  539,
+                  540,
+                  542
+                ],
+                "covered_lines": [
+                  524,
+                  528,
+                  534,
+                  535,
+                  537,
+                  538,
+                  542
+                ],
+                "branches": {
+                  "534": {
+                    "total": 2,
+                    "covered": 2
+                  },
+                  "537": {
+                    "total": 2,
+                    "covered": 1
+                  },
+                  "535": {
+                    "total": 2,
+                    "covered": 2
+                  },
+                  "539": {
+                    "total": 2,
+                    "covered": 0
+                  }
+                }
+              }
+            }
+          },
+          "mutated": {
+            "status": "completed",
+            "seconds": 0.9483379169832915,
+            "exit_code": 1,
+            "production_unchanged": true,
+            "collected": 1,
+            "active_started": true,
+            "active_count": 1,
+            "passed_count": 0,
+            "skipped_count": 0,
+            "xfail_count": 0,
+            "failure_categories": [
+              "assertion_failure"
+            ],
+            "reference_passed": false,
+            "assertion_failure": true,
+            "focal": {
+              "executed": true,
+              "line_total": 9,
+              "line_covered": 7,
+              "line_rate": 0.7777777777777778,
+              "branch_total": 8,
+              "branch_covered": 4,
+              "branch_rate": 0.5,
+              "executable_lines": [
+                524,
+                528,
+                534,
+                535,
+                537,
+                538,
+                539,
+                540,
+                542
+              ],
+              "covered_lines": [
+                524,
+                528,
+                534,
+                535,
+                537,
+                539,
+                540
+              ],
+              "branches": {
+                "534": {
+                  "total": 2,
+                  "covered": 1
+                },
+                "537": {
+                  "total": 2,
+                  "covered": 1
+                },
+                "535": {
+                  "total": 2,
+                  "covered": 1
+                },
+                "539": {
+                  "total": 2,
+                  "covered": 1
+                }
+              }
+            },
+            "raw": {
+              "exit_code": 1,
+              "collected": 1,
+              "reports": [
+                {
+                  "nodeid": "tcc_referencia/test_ref_find_insert_position.py::test_opcao_com_mesma_data_da_diretiva_e_ignorada",
+                  "when": "setup",
+                  "outcome": "passed",
+                  "exception": null,
+                  "assertion_failure": false,
+                  "expected_failure": false,
+                  "message": null
+                },
+                {
+                  "nodeid": "tcc_referencia/test_ref_find_insert_position.py::test_opcao_com_mesma_data_da_diretiva_e_ignorada",
+                  "when": "call",
+                  "outcome": "failed",
+                  "exception": "AssertionError",
+                  "assertion_failure": true,
+                  "expected_failure": false,
+                  "message": "tcc_referencia/test_ref_find_insert_position.py:47: in test_opcao_com_mesma_data_da_diretiva_e_ignorada\n    assert find_insert_position(_nota(D(2024, 3, 10), \"Expenses:Food\"), opcoes, \"main.beancount\") == (\"main.beancount\", None)\nE   AssertionError: assert ('gastos.beancount', 11) == ('main.beancount', None)\nE     \nE     At index 0 diff: 'gastos.beancount' != 'main.beancount'\nE     Use -v to get more diff"
+                },
+                {
+                  "nodeid": "tcc_referencia/test_ref_find_insert_position.py::test_opcao_com_mesma_data_da_diretiva_e_ignorada",
+                  "when": "teardown",
+                  "outcome": "passed",
+                  "exception": null,
+                  "assertion_failure": false,
+                  "expected_failure": false,
+                  "message": null
+                }
+              ],
+              "collection_errors": [],
+              "focal": {
+                "executed": true,
+                "line_total": 9,
+                "line_covered": 7,
+                "line_rate": 0.7777777777777778,
+                "branch_total": 8,
+                "branch_covered": 4,
+                "branch_rate": 0.5,
+                "executable_lines": [
+                  524,
+                  528,
+                  534,
+                  535,
+                  537,
+                  538,
+                  539,
+                  540,
+                  542
+                ],
+                "covered_lines": [
+                  524,
+                  528,
+                  534,
+                  535,
+                  537,
+                  539,
+                  540
+                ],
+                "branches": {
+                  "534": {
+                    "total": 2,
+                    "covered": 1
+                  },
+                  "537": {
+                    "total": 2,
+                    "covered": 1
+                  },
+                  "535": {
+                    "total": 2,
+                    "covered": 1
+                  },
+                  "539": {
+                    "total": 2,
+                    "covered": 1
+                  }
+                }
+              }
+            }
+          }
+        },
+        "detected": true,
+        "status": "detected",
+        "run": {
+          "status": "completed",
+          "seconds": 0.9605735420482233,
+          "exit_code": 1,
+          "production_unchanged": true,
+          "collected": 13,
+          "active_started": true,
+          "active_count": 13,
+          "passed_count": 8,
+          "skipped_count": 0,
+          "xfail_count": 0,
+          "failure_categories": [
+            "assertion_failure"
+          ],
+          "reference_passed": false,
+          "assertion_failure": true,
+          "focal": {
+            "executed": true,
+            "line_total": 9,
+            "line_covered": 9,
+            "line_rate": 1.0,
+            "branch_total": 8,
+            "branch_covered": 8,
+            "branch_rate": 1.0,
+            "executable_lines": [
+              524,
+              528,
+              534,
+              535,
+              537,
+              538,
+              539,
+              540,
+              542
+            ],
+            "covered_lines": [
+              524,
+              528,
+              534,
+              535,
+              537,
+              538,
+              539,
+              540,
+              542
+            ],
+            "branches": {
+              "534": {
+                "total": 2,
+                "covered": 2
+              },
+              "537": {
+                "total": 2,
+                "covered": 2
+              },
+              "535": {
+                "total": 2,
+                "covered": 2
+              },
+              "539": {
+                "total": 2,
+                "covered": 2
+              }
+            }
+          },
+          "raw": {
+            "exit_code": 1,
+            "collected": 13,
+            "reports": [
+              {
+                "nodeid": "::test_uses_latest_matching_option_strictly_before_entry",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_uses_latest_matching_option_strictly_before_entry",
+                "when": "call",
+                "outcome": "failed",
+                "exception": "AssertionError",
+                "assertion_failure": true,
+                "expected_failure": false,
+                "message": "/submission/test_generated.py:44: in test_uses_latest_matching_option_strictly_before_entry\n    assert find_insert_position(checking_entry, options, DEFAULT_FILE) == (\nE   AssertionError: assert ('same-day.beancount', 24) == ('bank.beancount', 0)\nE     \nE     At index 0 diff: 'same-day.beancount' != 'bank.beancount'\nE     Use -v to get more diff"
+              },
+              {
+                "nodeid": "::test_uses_latest_matching_option_strictly_before_entry",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_matches_regex_at_start_and_accepts_a_prefix",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_matches_regex_at_start_and_accepts_a_prefix",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_matches_regex_at_start_and_accepts_a_prefix",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_equal_dates_preserve_input_order",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_equal_dates_preserve_input_order",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_equal_dates_preserve_input_order",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_falls_back_when_no_option_qualifies[no-options]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_falls_back_when_no_option_qualifies[no-options]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_falls_back_when_no_option_qualifies[no-options]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_falls_back_when_no_option_qualifies[no-regex-match]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_falls_back_when_no_option_qualifies[no-regex-match]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_falls_back_when_no_option_qualifies[no-regex-match]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_falls_back_when_no_option_qualifies[same-day-only]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_falls_back_when_no_option_qualifies[same-day-only]",
+                "when": "call",
+                "outcome": "failed",
+                "exception": "AssertionError",
+                "assertion_failure": true,
+                "expected_failure": false,
+                "message": "/submission/test_generated.py:88: in test_falls_back_when_no_option_qualifies\n    assert find_insert_position(checking_entry, options, DEFAULT_FILE) == (\nE   AssertionError: assert ('same-day.beancount', 7) == ('main.beancount', None)\nE     \nE     At index 0 diff: 'same-day.beancount' != 'main.beancount'\nE     Use -v to get more diff"
+              },
+              {
+                "nodeid": "::test_falls_back_when_no_option_qualifies[same-day-only]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_falls_back_when_no_option_qualifies[future-only]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_falls_back_when_no_option_qualifies[future-only]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_falls_back_when_no_option_qualifies[future-only]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_transaction_considers_postings_in_reverse_order[last-posting]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_transaction_considers_postings_in_reverse_order[last-posting]",
+                "when": "call",
+                "outcome": "failed",
+                "exception": "AssertionError",
+                "assertion_failure": true,
+                "expected_failure": false,
+                "message": "/submission/test_generated.py:130: in test_transaction_considers_postings_in_reverse_order\n    assert find_insert_position(entry, options, DEFAULT_FILE) == expected\nE   AssertionError: assert ('same-day.beancount', 40) == ('newer-food.beancount', 50)\nE     \nE     At index 0 diff: 'same-day.beancount' != 'newer-food.beancount'\nE     Use -v to get more diff"
+              },
+              {
+                "nodeid": "::test_transaction_considers_postings_in_reverse_order[last-posting]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_transaction_considers_postings_in_reverse_order[middle-posting]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_transaction_considers_postings_in_reverse_order[middle-posting]",
+                "when": "call",
+                "outcome": "failed",
+                "exception": "AssertionError",
+                "assertion_failure": true,
+                "expected_failure": false,
+                "message": "/submission/test_generated.py:130: in test_transaction_considers_postings_in_reverse_order\n    assert find_insert_position(entry, options, DEFAULT_FILE) == expected\nE   AssertionError: assert ('same-day.beancount', 40) == ('middle.beancount', 20)\nE     \nE     At index 0 diff: 'same-day.beancount' != 'middle.beancount'\nE     Use -v to get more diff"
+              },
+              {
+                "nodeid": "::test_transaction_considers_postings_in_reverse_order[middle-posting]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_transaction_considers_postings_in_reverse_order[first-posting]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_transaction_considers_postings_in_reverse_order[first-posting]",
+                "when": "call",
+                "outcome": "failed",
+                "exception": "AssertionError",
+                "assertion_failure": true,
+                "expected_failure": false,
+                "message": "/submission/test_generated.py:130: in test_transaction_considers_postings_in_reverse_order\n    assert find_insert_position(entry, options, DEFAULT_FILE) == expected\nE   AssertionError: assert ('same-day.beancount', 40) == ('first.beancount', 10)\nE     \nE     At index 0 diff: 'same-day.beancount' != 'first.beancount'\nE     Use -v to get more diff"
+              },
+              {
+                "nodeid": "::test_transaction_considers_postings_in_reverse_order[first-posting]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_pad_prefers_its_account_and_can_fall_back_to_its_source",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_pad_prefers_its_account_and_can_fall_back_to_its_source",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_pad_prefers_its_account_and_can_fall_back_to_its_source",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_custom_uses_account_values_in_order_and_ignores_strings",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_custom_uses_account_values_in_order_and_ignores_strings",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_custom_uses_account_values_in_order_and_ignores_strings",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_directive_without_accounts_falls_back_even_with_a_catchall",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_directive_without_accounts_falls_back_even_with_a_catchall",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_directive_without_accounts_falls_back_even_with_a_catchall",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              }
+            ],
+            "collection_errors": [],
+            "focal": {
+              "executed": true,
+              "line_total": 9,
+              "line_covered": 9,
+              "line_rate": 1.0,
+              "branch_total": 8,
+              "branch_covered": 8,
+              "branch_rate": 1.0,
+              "executable_lines": [
+                524,
+                528,
+                534,
+                535,
+                537,
+                538,
+                539,
+                540,
+                542
+              ],
+              "covered_lines": [
+                524,
+                528,
+                534,
+                535,
+                537,
+                538,
+                539,
+                540,
+                542
+              ],
+              "branches": {
+                "534": {
+                  "total": 2,
+                  "covered": 2
+                },
+                "537": {
+                  "total": 2,
+                  "covered": 2
+                },
+                "535": {
+                  "total": 2,
+                  "covered": 2
+                },
+                "539": {
+                  "total": 2,
+                  "covered": 2
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "id": "FAV-03-sem-menos-um",
+        "eligible": true,
+        "validation": {
+          "id": "FAV-03-sem-menos-um",
+          "eligible": true,
+          "project_sha256": "4d796c64d4bd57dbddb09da8fb81982862d1d16df42389e2b3585f1b5dd011b7",
+          "definition_sha256": "f2d3a2321dafc138ebd1c3b21578f5f2e32e51137538aad9b84d48ba88a21a9b",
+          "reason": null,
+          "baseline": {
+            "status": "completed",
+            "seconds": 0.9294133340008557,
+            "exit_code": 0,
+            "production_unchanged": true,
+            "collected": 1,
+            "active_started": true,
+            "active_count": 1,
+            "passed_count": 1,
+            "skipped_count": 0,
+            "xfail_count": 0,
+            "failure_categories": [],
+            "reference_passed": true,
+            "assertion_failure": false,
+            "focal": {
+              "executed": true,
+              "line_total": 9,
+              "line_covered": 7,
+              "line_rate": 0.7777777777777778,
+              "branch_total": 8,
+              "branch_covered": 4,
+              "branch_rate": 0.5,
+              "executable_lines": [
+                524,
+                528,
+                534,
+                535,
+                537,
+                538,
+                539,
+                540,
+                542
+              ],
+              "covered_lines": [
+                524,
+                528,
+                534,
+                535,
+                537,
+                539,
+                540
+              ],
+              "branches": {
+                "534": {
+                  "total": 2,
+                  "covered": 1
+                },
+                "537": {
+                  "total": 2,
+                  "covered": 1
+                },
+                "535": {
+                  "total": 2,
+                  "covered": 1
+                },
+                "539": {
+                  "total": 2,
+                  "covered": 1
+                }
+              }
+            },
+            "raw": {
+              "exit_code": 0,
+              "collected": 1,
+              "reports": [
+                {
+                  "nodeid": "tcc_referencia/test_ref_find_insert_position.py::test_opcao_anterior_que_casa_retorna_arquivo_e_linha_anterior",
+                  "when": "setup",
+                  "outcome": "passed",
+                  "exception": null,
+                  "assertion_failure": false,
+                  "expected_failure": false,
+                  "message": null
+                },
+                {
+                  "nodeid": "tcc_referencia/test_ref_find_insert_position.py::test_opcao_anterior_que_casa_retorna_arquivo_e_linha_anterior",
+                  "when": "call",
+                  "outcome": "passed",
+                  "exception": null,
+                  "assertion_failure": false,
+                  "expected_failure": false,
+                  "message": null
+                },
+                {
+                  "nodeid": "tcc_referencia/test_ref_find_insert_position.py::test_opcao_anterior_que_casa_retorna_arquivo_e_linha_anterior",
+                  "when": "teardown",
+                  "outcome": "passed",
+                  "exception": null,
+                  "assertion_failure": false,
+                  "expected_failure": false,
+                  "message": null
+                }
+              ],
+              "collection_errors": [],
+              "focal": {
+                "executed": true,
+                "line_total": 9,
+                "line_covered": 7,
+                "line_rate": 0.7777777777777778,
+                "branch_total": 8,
+                "branch_covered": 4,
+                "branch_rate": 0.5,
+                "executable_lines": [
+                  524,
+                  528,
+                  534,
+                  535,
+                  537,
+                  538,
+                  539,
+                  540,
+                  542
+                ],
+                "covered_lines": [
+                  524,
+                  528,
+                  534,
+                  535,
+                  537,
+                  539,
+                  540
+                ],
+                "branches": {
+                  "534": {
+                    "total": 2,
+                    "covered": 1
+                  },
+                  "537": {
+                    "total": 2,
+                    "covered": 1
+                  },
+                  "535": {
+                    "total": 2,
+                    "covered": 1
+                  },
+                  "539": {
+                    "total": 2,
+                    "covered": 1
+                  }
+                }
+              }
+            }
+          },
+          "mutated": {
+            "status": "completed",
+            "seconds": 0.9678295420017093,
+            "exit_code": 1,
+            "production_unchanged": true,
+            "collected": 1,
+            "active_started": true,
+            "active_count": 1,
+            "passed_count": 0,
+            "skipped_count": 0,
+            "xfail_count": 0,
+            "failure_categories": [
+              "assertion_failure"
+            ],
+            "reference_passed": false,
+            "assertion_failure": true,
+            "focal": {
+              "executed": true,
+              "line_total": 9,
+              "line_covered": 7,
+              "line_rate": 0.7777777777777778,
+              "branch_total": 8,
+              "branch_covered": 4,
+              "branch_rate": 0.5,
+              "executable_lines": [
+                524,
+                528,
+                534,
+                535,
+                537,
+                538,
+                539,
+                540,
+                542
+              ],
+              "covered_lines": [
+                524,
+                528,
+                534,
+                535,
+                537,
+                539,
+                540
+              ],
+              "branches": {
+                "534": {
+                  "total": 2,
+                  "covered": 1
+                },
+                "537": {
+                  "total": 2,
+                  "covered": 1
+                },
+                "535": {
+                  "total": 2,
+                  "covered": 1
+                },
+                "539": {
+                  "total": 2,
+                  "covered": 1
+                }
+              }
+            },
+            "raw": {
+              "exit_code": 1,
+              "collected": 1,
+              "reports": [
+                {
+                  "nodeid": "tcc_referencia/test_ref_find_insert_position.py::test_opcao_anterior_que_casa_retorna_arquivo_e_linha_anterior",
+                  "when": "setup",
+                  "outcome": "passed",
+                  "exception": null,
+                  "assertion_failure": false,
+                  "expected_failure": false,
+                  "message": null
+                },
+                {
+                  "nodeid": "tcc_referencia/test_ref_find_insert_position.py::test_opcao_anterior_que_casa_retorna_arquivo_e_linha_anterior",
+                  "when": "call",
+                  "outcome": "failed",
+                  "exception": "AssertionError",
+                  "assertion_failure": true,
+                  "expected_failure": false,
+                  "message": "tcc_referencia/test_ref_find_insert_position.py:42: in test_opcao_anterior_que_casa_retorna_arquivo_e_linha_anterior\n    assert find_insert_position(_nota(D(2024, 3, 10), \"Expenses:Food\"), opcoes, \"main.beancount\") == (\"gastos.beancount\", 11)\nE   AssertionError: assert ('gastos.beancount', 12) == ('gastos.beancount', 11)\nE     \nE     At index 1 diff: 12 != 11\nE     Use -v to get more diff"
+                },
+                {
+                  "nodeid": "tcc_referencia/test_ref_find_insert_position.py::test_opcao_anterior_que_casa_retorna_arquivo_e_linha_anterior",
+                  "when": "teardown",
+                  "outcome": "passed",
+                  "exception": null,
+                  "assertion_failure": false,
+                  "expected_failure": false,
+                  "message": null
+                }
+              ],
+              "collection_errors": [],
+              "focal": {
+                "executed": true,
+                "line_total": 9,
+                "line_covered": 7,
+                "line_rate": 0.7777777777777778,
+                "branch_total": 8,
+                "branch_covered": 4,
+                "branch_rate": 0.5,
+                "executable_lines": [
+                  524,
+                  528,
+                  534,
+                  535,
+                  537,
+                  538,
+                  539,
+                  540,
+                  542
+                ],
+                "covered_lines": [
+                  524,
+                  528,
+                  534,
+                  535,
+                  537,
+                  539,
+                  540
+                ],
+                "branches": {
+                  "534": {
+                    "total": 2,
+                    "covered": 1
+                  },
+                  "537": {
+                    "total": 2,
+                    "covered": 1
+                  },
+                  "535": {
+                    "total": 2,
+                    "covered": 1
+                  },
+                  "539": {
+                    "total": 2,
+                    "covered": 1
+                  }
+                }
+              }
+            }
+          }
+        },
+        "detected": true,
+        "status": "detected",
+        "run": {
+          "status": "completed",
+          "seconds": 1.0354893750045449,
+          "exit_code": 1,
+          "production_unchanged": true,
+          "collected": 13,
+          "active_started": true,
+          "active_count": 13,
+          "passed_count": 5,
+          "skipped_count": 0,
+          "xfail_count": 0,
+          "failure_categories": [
+            "assertion_failure"
+          ],
+          "reference_passed": false,
+          "assertion_failure": true,
+          "focal": {
+            "executed": true,
+            "line_total": 9,
+            "line_covered": 9,
+            "line_rate": 1.0,
+            "branch_total": 8,
+            "branch_covered": 8,
+            "branch_rate": 1.0,
+            "executable_lines": [
+              524,
+              528,
+              534,
+              535,
+              537,
+              538,
+              539,
+              540,
+              542
+            ],
+            "covered_lines": [
+              524,
+              528,
+              534,
+              535,
+              537,
+              538,
+              539,
+              540,
+              542
+            ],
+            "branches": {
+              "534": {
+                "total": 2,
+                "covered": 2
+              },
+              "537": {
+                "total": 2,
+                "covered": 2
+              },
+              "535": {
+                "total": 2,
+                "covered": 2
+              },
+              "539": {
+                "total": 2,
+                "covered": 2
+              }
+            }
+          },
+          "raw": {
+            "exit_code": 1,
+            "collected": 13,
+            "reports": [
+              {
+                "nodeid": "::test_uses_latest_matching_option_strictly_before_entry",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_uses_latest_matching_option_strictly_before_entry",
+                "when": "call",
+                "outcome": "failed",
+                "exception": "AssertionError",
+                "assertion_failure": true,
+                "expected_failure": false,
+                "message": "/submission/test_generated.py:44: in test_uses_latest_matching_option_strictly_before_entry\n    assert find_insert_position(checking_entry, options, DEFAULT_FILE) == (\nE   AssertionError: assert ('bank.beancount', 1) == ('bank.beancount', 0)\nE     \nE     At index 1 diff: 1 != 0\nE     Use -v to get more diff"
+              },
+              {
+                "nodeid": "::test_uses_latest_matching_option_strictly_before_entry",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_matches_regex_at_start_and_accepts_a_prefix",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_matches_regex_at_start_and_accepts_a_prefix",
+                "when": "call",
+                "outcome": "failed",
+                "exception": "AssertionError",
+                "assertion_failure": true,
+                "expected_failure": false,
+                "message": "/submission/test_generated.py:58: in test_matches_regex_at_start_and_accepts_a_prefix\n    assert find_insert_position(checking_entry, options, DEFAULT_FILE) == (\nE   AssertionError: assert ('prefix.beancount', 23) == ('prefix.beancount', 22)\nE     \nE     At index 1 diff: 23 != 22\nE     Use -v to get more diff"
+              },
+              {
+                "nodeid": "::test_matches_regex_at_start_and_accepts_a_prefix",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_equal_dates_preserve_input_order",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_equal_dates_preserve_input_order",
+                "when": "call",
+                "outcome": "failed",
+                "exception": "AssertionError",
+                "assertion_failure": true,
+                "expected_failure": false,
+                "message": "/submission/test_generated.py:69: in test_equal_dates_preserve_input_order\n    assert find_insert_position(\nE   AssertionError: assert ('z-assets.beancount', 29) == ('z-assets.beancount', 28)\nE     \nE     At index 1 diff: 29 != 28\nE     Use -v to get more diff"
+              },
+              {
+                "nodeid": "::test_equal_dates_preserve_input_order",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_falls_back_when_no_option_qualifies[no-options]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_falls_back_when_no_option_qualifies[no-options]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_falls_back_when_no_option_qualifies[no-options]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_falls_back_when_no_option_qualifies[no-regex-match]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_falls_back_when_no_option_qualifies[no-regex-match]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_falls_back_when_no_option_qualifies[no-regex-match]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_falls_back_when_no_option_qualifies[same-day-only]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_falls_back_when_no_option_qualifies[same-day-only]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_falls_back_when_no_option_qualifies[same-day-only]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_falls_back_when_no_option_qualifies[future-only]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_falls_back_when_no_option_qualifies[future-only]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_falls_back_when_no_option_qualifies[future-only]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_transaction_considers_postings_in_reverse_order[last-posting]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_transaction_considers_postings_in_reverse_order[last-posting]",
+                "when": "call",
+                "outcome": "failed",
+                "exception": "AssertionError",
+                "assertion_failure": true,
+                "expected_failure": false,
+                "message": "/submission/test_generated.py:130: in test_transaction_considers_postings_in_reverse_order\n    assert find_insert_position(entry, options, DEFAULT_FILE) == expected\nE   AssertionError: assert ('newer-food.beancount', 51) == ('newer-food.beancount', 50)\nE     \nE     At index 1 diff: 51 != 50\nE     Use -v to get more diff"
+              },
+              {
+                "nodeid": "::test_transaction_considers_postings_in_reverse_order[last-posting]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_transaction_considers_postings_in_reverse_order[middle-posting]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_transaction_considers_postings_in_reverse_order[middle-posting]",
+                "when": "call",
+                "outcome": "failed",
+                "exception": "AssertionError",
+                "assertion_failure": true,
+                "expected_failure": false,
+                "message": "/submission/test_generated.py:130: in test_transaction_considers_postings_in_reverse_order\n    assert find_insert_position(entry, options, DEFAULT_FILE) == expected\nE   AssertionError: assert ('middle.beancount', 21) == ('middle.beancount', 20)\nE     \nE     At index 1 diff: 21 != 20\nE     Use -v to get more diff"
+              },
+              {
+                "nodeid": "::test_transaction_considers_postings_in_reverse_order[middle-posting]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_transaction_considers_postings_in_reverse_order[first-posting]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_transaction_considers_postings_in_reverse_order[first-posting]",
+                "when": "call",
+                "outcome": "failed",
+                "exception": "AssertionError",
+                "assertion_failure": true,
+                "expected_failure": false,
+                "message": "/submission/test_generated.py:130: in test_transaction_considers_postings_in_reverse_order\n    assert find_insert_position(entry, options, DEFAULT_FILE) == expected\nE   AssertionError: assert ('first.beancount', 11) == ('first.beancount', 10)\nE     \nE     At index 1 diff: 11 != 10\nE     Use -v to get more diff"
+              },
+              {
+                "nodeid": "::test_transaction_considers_postings_in_reverse_order[first-posting]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_pad_prefers_its_account_and_can_fall_back_to_its_source",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_pad_prefers_its_account_and_can_fall_back_to_its_source",
+                "when": "call",
+                "outcome": "failed",
+                "exception": "AssertionError",
+                "assertion_failure": true,
+                "expected_failure": false,
+                "message": "/submission/test_generated.py:138: in test_pad_prefers_its_account_and_can_fall_back_to_its_source\n    assert find_insert_position(\nE   AssertionError: assert ('assets.beancount', 5) == ('assets.beancount', 4)\nE     \nE     At index 1 diff: 5 != 4\nE     Use -v to get more diff"
+              },
+              {
+                "nodeid": "::test_pad_prefers_its_account_and_can_fall_back_to_its_source",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_custom_uses_account_values_in_order_and_ignores_strings",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_custom_uses_account_values_in_order_and_ignores_strings",
+                "when": "call",
+                "outcome": "failed",
+                "exception": "AssertionError",
+                "assertion_failure": true,
+                "expected_failure": false,
+                "message": "/submission/test_generated.py:162: in test_custom_uses_account_values_in_order_and_ignores_strings\n    assert find_insert_position(\nE   AssertionError: assert ('cash.beancount', 12) == ('cash.beancount', 11)\nE     \nE     At index 1 diff: 12 != 11\nE     Use -v to get more diff"
+              },
+              {
+                "nodeid": "::test_custom_uses_account_values_in_order_and_ignores_strings",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_directive_without_accounts_falls_back_even_with_a_catchall",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_directive_without_accounts_falls_back_even_with_a_catchall",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_directive_without_accounts_falls_back_even_with_a_catchall",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              }
+            ],
+            "collection_errors": [],
+            "focal": {
+              "executed": true,
+              "line_total": 9,
+              "line_covered": 9,
+              "line_rate": 1.0,
+              "branch_total": 8,
+              "branch_covered": 8,
+              "branch_rate": 1.0,
+              "executable_lines": [
+                524,
+                528,
+                534,
+                535,
+                537,
+                538,
+                539,
+                540,
+                542
+              ],
+              "covered_lines": [
+                524,
+                528,
+                534,
+                535,
+                537,
+                538,
+                539,
+                540,
+                542
+              ],
+              "branches": {
+                "534": {
+                  "total": 2,
+                  "covered": 2
+                },
+                "537": {
+                  "total": 2,
+                  "covered": 2
+                },
+                "535": {
+                  "total": 2,
+                  "covered": 2
+                },
+                "539": {
+                  "total": 2,
+                  "covered": 2
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "id": "FAV-03-ordem-crescente",
+        "eligible": true,
+        "validation": {
+          "id": "FAV-03-ordem-crescente",
+          "eligible": true,
+          "project_sha256": "4d796c64d4bd57dbddb09da8fb81982862d1d16df42389e2b3585f1b5dd011b7",
+          "definition_sha256": "c182c337be5aff2c65eca40820069507fea8e41f70a541affafdf6e561dc6828",
+          "reason": null,
+          "baseline": {
+            "status": "completed",
+            "seconds": 1.241412500035949,
+            "exit_code": 0,
+            "production_unchanged": true,
+            "collected": 1,
+            "active_started": true,
+            "active_count": 1,
+            "passed_count": 1,
+            "skipped_count": 0,
+            "xfail_count": 0,
+            "failure_categories": [],
+            "reference_passed": true,
+            "assertion_failure": false,
+            "focal": {
+              "executed": true,
+              "line_total": 9,
+              "line_covered": 7,
+              "line_rate": 0.7777777777777778,
+              "branch_total": 8,
+              "branch_covered": 4,
+              "branch_rate": 0.5,
+              "executable_lines": [
+                524,
+                528,
+                534,
+                535,
+                537,
+                538,
+                539,
+                540,
+                542
+              ],
+              "covered_lines": [
+                524,
+                528,
+                534,
+                535,
+                537,
+                539,
+                540
+              ],
+              "branches": {
+                "534": {
+                  "total": 2,
+                  "covered": 1
+                },
+                "537": {
+                  "total": 2,
+                  "covered": 1
+                },
+                "535": {
+                  "total": 2,
+                  "covered": 1
+                },
+                "539": {
+                  "total": 2,
+                  "covered": 1
+                }
+              }
+            },
+            "raw": {
+              "exit_code": 0,
+              "collected": 1,
+              "reports": [
+                {
+                  "nodeid": "tcc_referencia/test_ref_find_insert_position.py::test_entre_duas_opcoes_vale_a_mais_recente_em_qualquer_ordem",
+                  "when": "setup",
+                  "outcome": "passed",
+                  "exception": null,
+                  "assertion_failure": false,
+                  "expected_failure": false,
+                  "message": null
+                },
+                {
+                  "nodeid": "tcc_referencia/test_ref_find_insert_position.py::test_entre_duas_opcoes_vale_a_mais_recente_em_qualquer_ordem",
+                  "when": "call",
+                  "outcome": "passed",
+                  "exception": null,
+                  "assertion_failure": false,
+                  "expected_failure": false,
+                  "message": null
+                },
+                {
+                  "nodeid": "tcc_referencia/test_ref_find_insert_position.py::test_entre_duas_opcoes_vale_a_mais_recente_em_qualquer_ordem",
+                  "when": "teardown",
+                  "outcome": "passed",
+                  "exception": null,
+                  "assertion_failure": false,
+                  "expected_failure": false,
+                  "message": null
+                }
+              ],
+              "collection_errors": [],
+              "focal": {
+                "executed": true,
+                "line_total": 9,
+                "line_covered": 7,
+                "line_rate": 0.7777777777777778,
+                "branch_total": 8,
+                "branch_covered": 4,
+                "branch_rate": 0.5,
+                "executable_lines": [
+                  524,
+                  528,
+                  534,
+                  535,
+                  537,
+                  538,
+                  539,
+                  540,
+                  542
+                ],
+                "covered_lines": [
+                  524,
+                  528,
+                  534,
+                  535,
+                  537,
+                  539,
+                  540
+                ],
+                "branches": {
+                  "534": {
+                    "total": 2,
+                    "covered": 1
+                  },
+                  "537": {
+                    "total": 2,
+                    "covered": 1
+                  },
+                  "535": {
+                    "total": 2,
+                    "covered": 1
+                  },
+                  "539": {
+                    "total": 2,
+                    "covered": 1
+                  }
+                }
+              }
+            }
+          },
+          "mutated": {
+            "status": "completed",
+            "seconds": 1.6446844160091132,
+            "exit_code": 1,
+            "production_unchanged": true,
+            "collected": 1,
+            "active_started": true,
+            "active_count": 1,
+            "passed_count": 0,
+            "skipped_count": 0,
+            "xfail_count": 0,
+            "failure_categories": [
+              "assertion_failure"
+            ],
+            "reference_passed": false,
+            "assertion_failure": true,
+            "focal": {
+              "executed": true,
+              "line_total": 9,
+              "line_covered": 7,
+              "line_rate": 0.7777777777777778,
+              "branch_total": 8,
+              "branch_covered": 4,
+              "branch_rate": 0.5,
+              "executable_lines": [
+                524,
+                528,
+                534,
+                535,
+                537,
+                538,
+                539,
+                540,
+                542
+              ],
+              "covered_lines": [
+                524,
+                528,
+                534,
+                535,
+                537,
+                539,
+                540
+              ],
+              "branches": {
+                "534": {
+                  "total": 2,
+                  "covered": 1
+                },
+                "537": {
+                  "total": 2,
+                  "covered": 1
+                },
+                "535": {
+                  "total": 2,
+                  "covered": 1
+                },
+                "539": {
+                  "total": 2,
+                  "covered": 1
+                }
+              }
+            },
+            "raw": {
+              "exit_code": 1,
+              "collected": 1,
+              "reports": [
+                {
+                  "nodeid": "tcc_referencia/test_ref_find_insert_position.py::test_entre_duas_opcoes_vale_a_mais_recente_em_qualquer_ordem",
+                  "when": "setup",
+                  "outcome": "passed",
+                  "exception": null,
+                  "assertion_failure": false,
+                  "expected_failure": false,
+                  "message": null
+                },
+                {
+                  "nodeid": "tcc_referencia/test_ref_find_insert_position.py::test_entre_duas_opcoes_vale_a_mais_recente_em_qualquer_ordem",
+                  "when": "call",
+                  "outcome": "failed",
+                  "exception": "AssertionError",
+                  "assertion_failure": true,
+                  "expected_failure": false,
+                  "message": "tcc_referencia/test_ref_find_insert_position.py:59: in test_entre_duas_opcoes_vale_a_mais_recente_em_qualquer_ordem\n    assert find_insert_position(nota, [antiga, recente], \"main.beancount\") == (\"recente.beancount\", 7)\nE   AssertionError: assert ('antigo.beancount', 2) == ('recente.beancount', 7)\nE     \nE     At index 0 diff: 'antigo.beancount' != 'recente.beancount'\nE     Use -v to get more diff"
+                },
+                {
+                  "nodeid": "tcc_referencia/test_ref_find_insert_position.py::test_entre_duas_opcoes_vale_a_mais_recente_em_qualquer_ordem",
+                  "when": "teardown",
+                  "outcome": "passed",
+                  "exception": null,
+                  "assertion_failure": false,
+                  "expected_failure": false,
+                  "message": null
+                }
+              ],
+              "collection_errors": [],
+              "focal": {
+                "executed": true,
+                "line_total": 9,
+                "line_covered": 7,
+                "line_rate": 0.7777777777777778,
+                "branch_total": 8,
+                "branch_covered": 4,
+                "branch_rate": 0.5,
+                "executable_lines": [
+                  524,
+                  528,
+                  534,
+                  535,
+                  537,
+                  538,
+                  539,
+                  540,
+                  542
+                ],
+                "covered_lines": [
+                  524,
+                  528,
+                  534,
+                  535,
+                  537,
+                  539,
+                  540
+                ],
+                "branches": {
+                  "534": {
+                    "total": 2,
+                    "covered": 1
+                  },
+                  "537": {
+                    "total": 2,
+                    "covered": 1
+                  },
+                  "535": {
+                    "total": 2,
+                    "covered": 1
+                  },
+                  "539": {
+                    "total": 2,
+                    "covered": 1
+                  }
+                }
+              }
+            }
+          }
+        },
+        "detected": true,
+        "status": "detected",
+        "run": {
+          "status": "completed",
+          "seconds": 1.6232227920554578,
+          "exit_code": 1,
+          "production_unchanged": true,
+          "collected": 13,
+          "active_started": true,
+          "active_count": 13,
+          "passed_count": 9,
+          "skipped_count": 0,
+          "xfail_count": 0,
+          "failure_categories": [
+            "assertion_failure"
+          ],
+          "reference_passed": false,
+          "assertion_failure": true,
+          "focal": {
+            "executed": true,
+            "line_total": 9,
+            "line_covered": 9,
+            "line_rate": 1.0,
+            "branch_total": 8,
+            "branch_covered": 8,
+            "branch_rate": 1.0,
+            "executable_lines": [
+              524,
+              528,
+              534,
+              535,
+              537,
+              538,
+              539,
+              540,
+              542
+            ],
+            "covered_lines": [
+              524,
+              528,
+              534,
+              535,
+              537,
+              538,
+              539,
+              540,
+              542
+            ],
+            "branches": {
+              "534": {
+                "total": 2,
+                "covered": 2
+              },
+              "537": {
+                "total": 2,
+                "covered": 2
+              },
+              "535": {
+                "total": 2,
+                "covered": 2
+              },
+              "539": {
+                "total": 2,
+                "covered": 2
+              }
+            }
+          },
+          "raw": {
+            "exit_code": 1,
+            "collected": 13,
+            "reports": [
+              {
+                "nodeid": "::test_uses_latest_matching_option_strictly_before_entry",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_uses_latest_matching_option_strictly_before_entry",
+                "when": "call",
+                "outcome": "failed",
+                "exception": "AssertionError",
+                "assertion_failure": true,
+                "expected_failure": false,
+                "message": "/submission/test_generated.py:44: in test_uses_latest_matching_option_strictly_before_entry\n    assert find_insert_position(checking_entry, options, DEFAULT_FILE) == (\nE   AssertionError: assert ('old.beancount', 41) == ('bank.beancount', 0)\nE     \nE     At index 0 diff: 'old.beancount' != 'bank.beancount'\nE     Use -v to get more diff"
+              },
+              {
+                "nodeid": "::test_uses_latest_matching_option_strictly_before_entry",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_matches_regex_at_start_and_accepts_a_prefix",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_matches_regex_at_start_and_accepts_a_prefix",
+                "when": "call",
+                "outcome": "failed",
+                "exception": "AssertionError",
+                "assertion_failure": true,
+                "expected_failure": false,
+                "message": "/submission/test_generated.py:58: in test_matches_regex_at_start_and_accepts_a_prefix\n    assert find_insert_position(checking_entry, options, DEFAULT_FILE) == (\nE   AssertionError: assert ('exact.beancount', 34) == ('prefix.beancount', 22)\nE     \nE     At index 0 diff: 'exact.beancount' != 'prefix.beancount'\nE     Use -v to get more diff"
+              },
+              {
+                "nodeid": "::test_matches_regex_at_start_and_accepts_a_prefix",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_equal_dates_preserve_input_order",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_equal_dates_preserve_input_order",
+                "when": "call",
+                "outcome": "failed",
+                "exception": "AssertionError",
+                "assertion_failure": true,
+                "expected_failure": false,
+                "message": "/submission/test_generated.py:69: in test_equal_dates_preserve_input_order\n    assert find_insert_position(\nE   AssertionError: assert ('old.beancount', 2) == ('z-assets.beancount', 28)\nE     \nE     At index 0 diff: 'old.beancount' != 'z-assets.beancount'\nE     Use -v to get more diff"
+              },
+              {
+                "nodeid": "::test_equal_dates_preserve_input_order",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_falls_back_when_no_option_qualifies[no-options]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_falls_back_when_no_option_qualifies[no-options]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_falls_back_when_no_option_qualifies[no-options]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_falls_back_when_no_option_qualifies[no-regex-match]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_falls_back_when_no_option_qualifies[no-regex-match]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_falls_back_when_no_option_qualifies[no-regex-match]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_falls_back_when_no_option_qualifies[same-day-only]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_falls_back_when_no_option_qualifies[same-day-only]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_falls_back_when_no_option_qualifies[same-day-only]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_falls_back_when_no_option_qualifies[future-only]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_falls_back_when_no_option_qualifies[future-only]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_falls_back_when_no_option_qualifies[future-only]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_transaction_considers_postings_in_reverse_order[last-posting]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_transaction_considers_postings_in_reverse_order[last-posting]",
+                "when": "call",
+                "outcome": "failed",
+                "exception": "AssertionError",
+                "assertion_failure": true,
+                "expected_failure": false,
+                "message": "/submission/test_generated.py:130: in test_transaction_considers_postings_in_reverse_order\n    assert find_insert_position(entry, options, DEFAULT_FILE) == expected\nE   AssertionError: assert ('last.beancount', 30) == ('newer-food.beancount', 50)\nE     \nE     At index 0 diff: 'last.beancount' != 'newer-food.beancount'\nE     Use -v to get more diff"
+              },
+              {
+                "nodeid": "::test_transaction_considers_postings_in_reverse_order[last-posting]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_transaction_considers_postings_in_reverse_order[middle-posting]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_transaction_considers_postings_in_reverse_order[middle-posting]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_transaction_considers_postings_in_reverse_order[middle-posting]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_transaction_considers_postings_in_reverse_order[first-posting]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_transaction_considers_postings_in_reverse_order[first-posting]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_transaction_considers_postings_in_reverse_order[first-posting]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_pad_prefers_its_account_and_can_fall_back_to_its_source",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_pad_prefers_its_account_and_can_fall_back_to_its_source",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_pad_prefers_its_account_and_can_fall_back_to_its_source",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_custom_uses_account_values_in_order_and_ignores_strings",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_custom_uses_account_values_in_order_and_ignores_strings",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_custom_uses_account_values_in_order_and_ignores_strings",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_directive_without_accounts_falls_back_even_with_a_catchall",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_directive_without_accounts_falls_back_even_with_a_catchall",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_directive_without_accounts_falls_back_even_with_a_catchall",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              }
+            ],
+            "collection_errors": [],
+            "focal": {
+              "executed": true,
+              "line_total": 9,
+              "line_covered": 9,
+              "line_rate": 1.0,
+              "branch_total": 8,
+              "branch_covered": 8,
+              "branch_rate": 1.0,
+              "executable_lines": [
+                524,
+                528,
+                534,
+                535,
+                537,
+                538,
+                539,
+                540,
+                542
+              ],
+              "covered_lines": [
+                524,
+                528,
+                534,
+                535,
+                537,
+                538,
+                539,
+                540,
+                542
+              ],
+              "branches": {
+                "534": {
+                  "total": 2,
+                  "covered": 2
+                },
+                "537": {
+                  "total": 2,
+                  "covered": 2
+                },
+                "535": {
+                  "total": 2,
+                  "covered": 2
+                },
+                "539": {
+                  "total": 2,
+                  "covered": 2
+                }
+              }
+            }
+          }
+        }
+      }
+    ],
+    "detection_rate": 1.0,
+    "review": {
+      "behavioral_assertions": true,
+      "no_target_mock": true,
+      "no_production_changes": true,
+      "defect_attribution": {
+        "FAV-03-data-estrita": true,
+        "FAV-03-sem-menos-um": true,
+        "FAV-03-ordem-crescente": true
+      },
+      "dependency_doubles": false,
+      "reviewer": "Gabriel Lopes Pereira",
+      "created_at": "2026-11-22T05:06:27.102947+00:00"
+    },
+    "backend": "docker",
+    "submission_sha256": "137c3f8dafd90bfad7d16a63e473d0852e00b36d13e04c7aa81e4a1139523670",
+    "status": "completed",
+    "seconds": 0.8697405409766361,
+    "active_count": 13,
+    "passed_count": 13,
+    "skipped_count": 0,
+    "xfail_count": 0,
+    "failure_categories": [],
+    "original": {
+      "status": "completed",
+      "seconds": 0.8697405409766361,
+      "exit_code": 0,
+      "production_unchanged": true,
+      "collected": 13,
+      "active_started": true,
+      "active_count": 13,
+      "passed_count": 13,
+      "skipped_count": 0,
+      "xfail_count": 0,
+      "failure_categories": [],
+      "reference_passed": true,
+      "assertion_failure": false,
+      "focal": {
+        "executed": true,
+        "line_total": 9,
+        "line_covered": 9,
+        "line_rate": 1.0,
+        "branch_total": 8,
+        "branch_covered": 8,
+        "branch_rate": 1.0,
+        "executable_lines": [
+          524,
+          528,
+          534,
+          535,
+          537,
+          538,
+          539,
+          540,
+          542
+        ],
+        "covered_lines": [
+          524,
+          528,
+          534,
+          535,
+          537,
+          538,
+          539,
+          540,
+          542
+        ],
+        "branches": {
+          "534": {
+            "total": 2,
+            "covered": 2
+          },
+          "537": {
+            "total": 2,
+            "covered": 2
+          },
+          "535": {
+            "total": 2,
+            "covered": 2
+          },
+          "539": {
+            "total": 2,
+            "covered": 2
+          }
+        }
+      },
+      "raw": {
+        "exit_code": 0,
+        "collected": 13,
+        "reports": [
+          {
+            "nodeid": "::test_uses_latest_matching_option_strictly_before_entry",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_uses_latest_matching_option_strictly_before_entry",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_uses_latest_matching_option_strictly_before_entry",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_matches_regex_at_start_and_accepts_a_prefix",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_matches_regex_at_start_and_accepts_a_prefix",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_matches_regex_at_start_and_accepts_a_prefix",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_equal_dates_preserve_input_order",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_equal_dates_preserve_input_order",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_equal_dates_preserve_input_order",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_falls_back_when_no_option_qualifies[no-options]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_falls_back_when_no_option_qualifies[no-options]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_falls_back_when_no_option_qualifies[no-options]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_falls_back_when_no_option_qualifies[no-regex-match]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_falls_back_when_no_option_qualifies[no-regex-match]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_falls_back_when_no_option_qualifies[no-regex-match]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_falls_back_when_no_option_qualifies[same-day-only]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_falls_back_when_no_option_qualifies[same-day-only]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_falls_back_when_no_option_qualifies[same-day-only]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_falls_back_when_no_option_qualifies[future-only]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_falls_back_when_no_option_qualifies[future-only]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_falls_back_when_no_option_qualifies[future-only]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_transaction_considers_postings_in_reverse_order[last-posting]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_transaction_considers_postings_in_reverse_order[last-posting]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_transaction_considers_postings_in_reverse_order[last-posting]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_transaction_considers_postings_in_reverse_order[middle-posting]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_transaction_considers_postings_in_reverse_order[middle-posting]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_transaction_considers_postings_in_reverse_order[middle-posting]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_transaction_considers_postings_in_reverse_order[first-posting]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_transaction_considers_postings_in_reverse_order[first-posting]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_transaction_considers_postings_in_reverse_order[first-posting]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_pad_prefers_its_account_and_can_fall_back_to_its_source",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_pad_prefers_its_account_and_can_fall_back_to_its_source",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_pad_prefers_its_account_and_can_fall_back_to_its_source",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_custom_uses_account_values_in_order_and_ignores_strings",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_custom_uses_account_values_in_order_and_ignores_strings",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_custom_uses_account_values_in_order_and_ignores_strings",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_directive_without_accounts_falls_back_even_with_a_catchall",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_directive_without_accounts_falls_back_even_with_a_catchall",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_directive_without_accounts_falls_back_even_with_a_catchall",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          }
+        ],
+        "collection_errors": [],
+        "focal": {
+          "executed": true,
+          "line_total": 9,
+          "line_covered": 9,
+          "line_rate": 1.0,
+          "branch_total": 8,
+          "branch_covered": 8,
+          "branch_rate": 1.0,
+          "executable_lines": [
+            524,
+            528,
+            534,
+            535,
+            537,
+            538,
+            539,
+            540,
+            542
+          ],
+          "covered_lines": [
+            524,
+            528,
+            534,
+            535,
+            537,
+            538,
+            539,
+            540,
+            542
+          ],
+          "branches": {
+            "534": {
+              "total": 2,
+              "covered": 2
+            },
+            "537": {
+              "total": 2,
+              "covered": 2
+            },
+            "535": {
+              "total": 2,
+              "covered": 2
+            },
+            "539": {
+              "total": 2,
+              "covered": 2
+            }
+          }
+        }
+      }
+    },
+    "defects_eligible": 3,
+    "defects_measured": 3,
+    "defects_detected": 3,
+    "detection_complete": true,
+    "total_seconds": 11.70715845900122
+  }
+}

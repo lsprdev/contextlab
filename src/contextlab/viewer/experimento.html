@@ -1,0 +1,80 @@
+<style>
+/* Página Experimento (somente no site). Cores dos gráficos validadas para daltonismo e contraste nos dois temas. */
+:root { --ch-L: #3b82f6; --ch-R: #0d9488; --ch-A: #ea580c; --seq: #4f46e5; }
+:root[data-theme="dark"] { --ch-L: #3b82f6; --ch-R: #0f9f91; --ch-A: #e5641c; --seq: #818cf8; }
+#view-exp .lead { color: var(--muted); font-size: 14.5px; max-width: 860px; margin: 4px 0 18px; line-height: 1.6; }
+#view-exp .lead a, #view-exp .exp-note a { color: var(--ink); }
+#view-exp .grid-2 { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px; align-items: start; }
+#view-exp .chart { padding: 14px 16px 10px; }
+#view-exp .chart svg { display: block; width: 100%; height: auto; overflow: visible; }
+#view-exp .chart svg text { font: 12px var(--sans); fill: var(--muted); }
+#view-exp .chart svg .ink { fill: var(--ink); }
+#view-exp .chart svg .grid { stroke: var(--line); stroke-width: 1; }
+#view-exp .chart svg .hit { fill: transparent; cursor: default; }
+#view-exp .chart svg .mark:hover, #view-exp .chart svg .mark.on { filter: brightness(1.12); }
+#view-exp .legend { display: flex; gap: 14px; flex-wrap: wrap; color: var(--muted); font-size: 12.5px; padding: 0 16px 12px; }
+#view-exp .legend span { display: inline-flex; align-items: center; gap: 6px; }
+#view-exp .legend i { width: 10px; height: 10px; border-radius: 3px; background: var(--c); display: inline-block; }
+#view-exp .legend i.ring { background: transparent; border: 2px solid var(--muted); border-radius: 50%; }
+#view-exp .legend i.dot { border-radius: 50%; background: var(--muted); }
+#view-exp .exp-note { color: var(--muted); font-size: 12.5px; padding: 0 16px 14px; margin: 0; line-height: 1.55; }
+#view-exp details.tabela { border-top: 1px solid var(--line); }
+#view-exp details.tabela summary { cursor: pointer; padding: 9px 16px; color: var(--muted); font-size: 12.5px; }
+#view-exp details.tabela summary:hover { color: var(--ink); }
+#view-exp details.tabela .wrap { border-top: 1px solid var(--line); }
+#view-exp .heat { display: grid; grid-template-columns: minmax(0, 1fr) repeat(3, 64px); gap: 3px; padding: 14px 16px; font-size: 12.5px; }
+#view-exp .heat .h { color: var(--muted); font-weight: 500; text-align: center; padding-bottom: 2px; }
+#view-exp .heat .proj { grid-column: 1 / -1; color: var(--muted); font-size: 11.5px; font-weight: 600; text-transform: uppercase; letter-spacing: .04em; padding: 8px 0 2px; }
+#view-exp .heat .fn { font-family: var(--mono); font-size: 12px; align-self: center; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--ink); }
+#view-exp .heat .hc { height: 30px; border-radius: 4px; display: grid; place-items: center; font-weight: 600; font-variant-numeric: tabular-nums; }
+#view-exp .heat .hc:hover, #view-exp .heat .hc:focus-visible { outline: 2px solid var(--ink); outline-offset: 1px; }
+#view-exp .heat .v0 { background: var(--panel-2); color: var(--muted); }
+#view-exp .heat .v1 { background: color-mix(in srgb, var(--seq) 30%, var(--panel)); color: var(--ink); }
+#view-exp .heat .v2 { background: color-mix(in srgb, var(--seq) 62%, var(--panel)); color: #fff; }
+#view-exp .heat .v3 { background: var(--seq); color: #fff; }
+#view-exp .scale { display: flex; align-items: center; gap: 6px; color: var(--muted); font-size: 12px; padding: 0 16px 12px; }
+#view-exp .scale b { width: 22px; height: 12px; border-radius: 3px; display: inline-block; }
+#view-exp table td.num, #view-exp table th.num { text-align: right; font-variant-numeric: tabular-nums; }
+#view-exp .kv { display: grid; grid-template-columns: max-content 1fr; gap: 6px 18px; padding: 14px 16px; margin: 0; font-size: 13px; }
+#view-exp .kv dt { color: var(--muted); } #view-exp .kv dd { margin: 0; overflow-wrap: anywhere; }
+#view-exp .findings { margin: 0; padding: 14px 16px 14px 34px; font-size: 13.5px; line-height: 1.6; }
+#view-exp .findings li { margin-bottom: 6px; }
+.exp-tip { position: fixed; z-index: 30; pointer-events: none; background: var(--panel); border: 1px solid var(--line); border-radius: 8px;
+  box-shadow: 0 6px 20px rgba(0,0,0,.14); padding: 8px 10px; font-size: 12.5px; min-width: 150px; max-width: 280px; }
+.exp-tip strong { display: block; font-size: 14px; color: var(--ink); }
+.exp-tip span { display: block; color: var(--muted); }
+.exp-tip .key { display: inline-block; width: 12px; height: 2px; background: var(--c); vertical-align: middle; margin-right: 6px; }
+:root[data-theme="dark"] #view-exp .heat .v3 { color: #111113; }
+@media (max-width: 520px) { body.site .site-link + .icon-btn { margin-left: auto; } }
+@media (max-width: 420px) { body.site .brand { font-size: 0; gap: 0; } body.site .nav button { padding: 6px 9px; } }
+@media (max-width: 900px) { #view-exp .grid-2 { grid-template-columns: minmax(0, 1fr); } #view-exp .heat { grid-template-columns: minmax(0, 1fr) repeat(3, 48px); } }
+</style>
+<main id="view-exp" hidden>
+  <div class="head"><div><div class="crumb">Avaliação experimental do TCC</div><h1>Experimento</h1></div><div class="tags" id="exp-tags"></div></div>
+  <p class="lead">Doze funções de quatro projetos Python públicos, três estratégias de contexto e três repetições: 108 gerações de testes unitários pelo Codex, cada uma com uma única entrega, avaliada depois em Docker e revisada por uma pessoa. <b>L</b> recebe o arquivo da função; <b>R</b> recebe também as dependências diretas; <b>A</b> explora o repositório sozinho. Os dados brutos estão em <a id="exp-data-link" href="https://github.com/lsprdev/contextlab/tree/main/experimento-tcc">experimento-tcc/</a>.</p>
+  <section class="stats" id="exp-kpis" aria-label="Indicadores do experimento"></section>
+  <div class="grid-2">
+    <section class="panel"><div class="panel-head"><h2>Suítes aprovadas por estratégia</h2></div>
+      <div class="chart" id="exp-approval"></div><p class="exp-note" id="exp-approval-note"></p></section>
+    <section class="panel"><div class="panel-head"><h2>Aprovação por função</h2><span class="hint">suítes aprovadas em 3 repetições</span></div>
+      <div class="heat" id="exp-heat" role="table" aria-label="Suítes aprovadas por função e estratégia"></div>
+      <div class="scale" id="exp-heat-scale"></div></section>
+  </div>
+  <section class="panel"><div class="panel-head"><h2>Tokens de entrada por tentativa</h2><span class="hint">cada ponto é uma tentativa</span></div>
+    <div class="chart" id="exp-tokens"></div>
+    <div class="legend"><span><i class="dot"></i>aprovada</span><span><i class="ring"></i>não aprovada</span><span><i style="--c: var(--ink); width: 2px; height: 14px; border-radius: 0"></i>média da estratégia</span></div>
+    <p class="exp-note" id="exp-tokens-note"></p></section>
+  <section class="panel"><div class="panel-head"><h2>Esforço por suíte aprovada, por função</h2>
+      <div class="seg" id="exp-effort-mode"><button aria-pressed="true" data-m="cost">Custo estimado</button><button aria-pressed="false" data-m="tokens">Tokens de entrada</button></div></div>
+    <div class="chart" id="exp-effort"></div>
+    <div class="legend" id="exp-effort-legend"></div>
+    <p class="exp-note" id="exp-effort-note"></p>
+    <details class="tabela"><summary>Ver tabela</summary><div class="wrap" id="exp-effort-table"></div></details></section>
+  <div class="grid-2">
+    <section class="panel"><div class="panel-head"><h2>Consumo médio por tentativa</h2></div><div class="wrap" id="exp-resources"></div><p class="exp-note" id="exp-resources-note"></p></section>
+    <section class="panel"><div class="panel-head"><h2>Por que as entregas não foram aprovadas</h2></div><div class="wrap" id="exp-failures"></div>
+      <p class="exp-note">Nenhuma suíte foi reprovada na revisão humana: todas as reprovações vieram dos critérios automáticos.</p></section>
+  </div>
+  <section class="panel"><div class="panel-head"><h2>O que os dados mostram</h2></div><ol class="findings" id="exp-findings"></ol></section>
+  <section class="panel"><div class="panel-head"><h2>Configuração congelada</h2></div><dl class="kv" id="exp-config"></dl></section>
+</main>

@@ -1,0 +1,1931 @@
+{
+  "schema_version": 1,
+  "order": 87,
+  "project": "fava",
+  "target": "calculate_budget",
+  "agent": "codex",
+  "condition": "L",
+  "repetition": 1,
+  "id": "fava__calculate_budget__codex__L__1",
+  "phase": "main",
+  "lock_hash": "49dd66a522994eb03001a67255ded0aa13cc696255859f45a924b43f05f5da33",
+  "started_at": "2026-11-22T04:30:46.480341+00:00",
+  "status": "finished",
+  "generation": {
+    "status": "completed",
+    "input_tokens": 30576,
+    "output_tokens": 2537,
+    "seconds": 59.30224441702012,
+    "version": "codex-cli 0.170.0",
+    "tool_log": [
+      {
+        "index": 1,
+        "tool": "search",
+        "arguments": {
+          "path": "src/fava/util/date.py",
+          "query": "number_of_days"
+        },
+        "delivered_chars": 44,
+        "chars_before": 5878,
+        "status": "ok",
+        "chars_after": 5922
+      },
+      {
+        "index": 2,
+        "tool": "list_files",
+        "arguments": {
+          "path": "src/fava/util"
+        },
+        "delivered_chars": 12,
+        "chars_before": 5922,
+        "status": "ok",
+        "chars_after": 5934
+      },
+      {
+        "index": 3,
+        "tool": "list_files",
+        "arguments": {},
+        "delivered_chars": 38,
+        "chars_before": 5934,
+        "status": "ok",
+        "chars_after": 5972
+      }
+    ],
+    "usage": {
+      "input_tokens": 30576,
+      "cached_input_tokens": 14848,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 2537,
+      "reasoning_output_tokens": 828
+    },
+    "details": [],
+    "capabilities": {
+      "tool_surface_verified": true,
+      "tools": [
+        "functions.list_mcp_resource_templates",
+        "functions.list_mcp_resources",
+        "functions.read_mcp_resource",
+        "mcp__contextlab.list_files",
+        "mcp__contextlab.read_file",
+        "mcp__contextlab.search"
+      ],
+      "catalog_sha256": "a61b50641627a2941fc8be4db823d1fbbfa4ae628add4d7ec443dbab559140fb",
+      "probe": "offline-localhost",
+      "model": "gpt-6.2-sol",
+      "command_rejected": true,
+      "outside_packet_rejected": true,
+      "allowed_read_verified": true
+    },
+    "returncode": 0,
+    "context_stats": {
+      "chars_used": 5972,
+      "initial_chars": 5878,
+      "response_chars": 94,
+      "remaining_chars": 24028,
+      "tool_calls": 3,
+      "max_calls": 20,
+      "budget": 30000
+    },
+    "session_id": "01a20185-5f0b-7281-ab89-483e1776dec2"
+  },
+  "evaluation": {
+    "target_id": "calculate_budget",
+    "test_kind": "unit",
+    "received": true,
+    "syntax_ok": true,
+    "collected": 12,
+    "active_started": true,
+    "reference_passed": true,
+    "approval": "pending_review",
+    "approved": false,
+    "coverage_raw": {
+      "executed": true,
+      "line_total": 10,
+      "line_covered": 10,
+      "line_rate": 1.0,
+      "branch_total": 6,
+      "branch_covered": 6,
+      "branch_rate": 1.0,
+      "executable_lines": [
+        168,
+        169,
+        170,
+        172,
+        174,
+        175,
+        176,
+        177,
+        178,
+        179
+      ],
+      "covered_lines": [
+        168,
+        169,
+        170,
+        172,
+        174,
+        175,
+        176,
+        177,
+        178,
+        179
+      ],
+      "branches": {
+        "169": {
+          "total": 2,
+          "covered": 2
+        },
+        "174": {
+          "total": 2,
+          "covered": 2
+        },
+        "176": {
+          "total": 2,
+          "covered": 2
+        }
+      }
+    },
+    "coverage_main": null,
+    "defects": [],
+    "detection_rate": null,
+    "review": null,
+    "backend": "docker",
+    "submission_sha256": "e10d252d15e23099e2dcdb96ba271aeedeec9252e5927a41daae39780eb4b0ea",
+    "status": "completed",
+    "seconds": 0.8697577499551699,
+    "active_count": 12,
+    "passed_count": 12,
+    "skipped_count": 0,
+    "xfail_count": 0,
+    "failure_categories": [],
+    "original": {
+      "status": "completed",
+      "seconds": 0.8697577499551699,
+      "exit_code": 0,
+      "production_unchanged": true,
+      "collected": 12,
+      "active_started": true,
+      "active_count": 12,
+      "passed_count": 12,
+      "skipped_count": 0,
+      "xfail_count": 0,
+      "failure_categories": [],
+      "reference_passed": true,
+      "assertion_failure": false,
+      "focal": {
+        "executed": true,
+        "line_total": 10,
+        "line_covered": 10,
+        "line_rate": 1.0,
+        "branch_total": 6,
+        "branch_covered": 6,
+        "branch_rate": 1.0,
+        "executable_lines": [
+          168,
+          169,
+          170,
+          172,
+          174,
+          175,
+          176,
+          177,
+          178,
+          179
+        ],
+        "covered_lines": [
+          168,
+          169,
+          170,
+          172,
+          174,
+          175,
+          176,
+          177,
+          178,
+          179
+        ],
+        "branches": {
+          "169": {
+            "total": 2,
+            "covered": 2
+          },
+          "174": {
+            "total": 2,
+            "covered": 2
+          },
+          "176": {
+            "total": 2,
+            "covered": 2
+          }
+        }
+      },
+      "raw": {
+        "exit_code": 0,
+        "collected": 12,
+        "reports": [
+          {
+            "nodeid": "::test_only_the_requested_account_contributes",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_only_the_requested_account_contributes",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_only_the_requested_account_contributes",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_account_with_no_budget_entries_returns_empty_mapping",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_account_with_no_budget_entries_returns_empty_mapping",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_account_with_no_budget_entries_returns_empty_mapping",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_zero_day_range_returns_empty_mapping_even_with_an_active_budget",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_zero_day_range_returns_empty_mapping_even_with_an_active_budget",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_zero_day_range_returns_empty_mapping_even_with_an_active_budget",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_budget_starts_on_its_effective_date_and_end_date_is_exclusive",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_budget_starts_on_its_effective_date_and_end_date_is_exclusive",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_budget_starts_on_its_effective_date_and_end_date_is_exclusive",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_versions_are_applied_independently_per_currency",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_versions_are_applied_independently_per_currency",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_versions_are_applied_independently_per_currency",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_daily_rate_uses_the_calendar_period_containing_each_day[february-in-a-common-year]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_daily_rate_uses_the_calendar_period_containing_each_day[february-in-a-common-year]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_daily_rate_uses_the_calendar_period_containing_each_day[february-in-a-common-year]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_daily_rate_uses_the_calendar_period_containing_each_day[february-in-a-leap-year]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_daily_rate_uses_the_calendar_period_containing_each_day[february-in-a-leap-year]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_daily_rate_uses_the_calendar_period_containing_each_day[february-in-a-leap-year]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_daily_rate_uses_the_calendar_period_containing_each_day[thirty-day-to-thirty-one-day-month]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_daily_rate_uses_the_calendar_period_containing_each_day[thirty-day-to-thirty-one-day-month]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_daily_rate_uses_the_calendar_period_containing_each_day[thirty-day-to-thirty-one-day-month]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_daily_rate_uses_the_calendar_period_containing_each_day[leap-year-to-common-year]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_daily_rate_uses_the_calendar_period_containing_each_day[leap-year-to-common-year]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_daily_rate_uses_the_calendar_period_containing_each_day[leap-year-to-common-year]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_replacement_can_change_the_budget_period",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_replacement_can_change_the_budget_period",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_replacement_can_change_the_budget_period",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_partial_period_keeps_fractional_decimal_precision",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_partial_period_keeps_fractional_decimal_precision",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_partial_period_keeps_fractional_decimal_precision",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_zero_and_negative_totals_are_retained",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_zero_and_negative_totals_are_retained",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_zero_and_negative_totals_are_retained",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          }
+        ],
+        "collection_errors": [],
+        "focal": {
+          "executed": true,
+          "line_total": 10,
+          "line_covered": 10,
+          "line_rate": 1.0,
+          "branch_total": 6,
+          "branch_covered": 6,
+          "branch_rate": 1.0,
+          "executable_lines": [
+            168,
+            169,
+            170,
+            172,
+            174,
+            175,
+            176,
+            177,
+            178,
+            179
+          ],
+          "covered_lines": [
+            168,
+            169,
+            170,
+            172,
+            174,
+            175,
+            176,
+            177,
+            178,
+            179
+          ],
+          "branches": {
+            "169": {
+              "total": 2,
+              "covered": 2
+            },
+            "174": {
+              "total": 2,
+              "covered": 2
+            },
+            "176": {
+              "total": 2,
+              "covered": 2
+            }
+          }
+        }
+      }
+    },
+    "defects_eligible": null,
+    "defects_measured": null,
+    "defects_detected": null,
+    "detection_complete": null,
+    "total_seconds": 0.9120954169193283
+  },
+  "preparation_seconds": 0.05809254199266434,
+  "submission_sha256": "e10d252d15e23099e2dcdb96ba271aeedeec9252e5927a41daae39780eb4b0ea",
+  "finished_at": "2026-11-22T04:31:46.757565+00:00",
+  "review": {
+    "behavioral_assertions": true,
+    "no_target_mock": true,
+    "no_production_changes": true,
+    "defect_attribution": {
+      "FAV-01-sem-divisao": true
+    },
+    "dependency_doubles": false,
+    "reviewer": "Gabriel Lopes Pereira",
+    "created_at": "2026-11-22T05:05:50.434638+00:00"
+  },
+  "reviewed_evaluation": {
+    "target_id": "calculate_budget",
+    "test_kind": "unit",
+    "received": true,
+    "syntax_ok": true,
+    "collected": 12,
+    "active_started": true,
+    "reference_passed": true,
+    "approval": "approved",
+    "approved": true,
+    "coverage_raw": {
+      "executed": true,
+      "line_total": 10,
+      "line_covered": 10,
+      "line_rate": 1.0,
+      "branch_total": 6,
+      "branch_covered": 6,
+      "branch_rate": 1.0,
+      "executable_lines": [
+        168,
+        169,
+        170,
+        172,
+        174,
+        175,
+        176,
+        177,
+        178,
+        179
+      ],
+      "covered_lines": [
+        168,
+        169,
+        170,
+        172,
+        174,
+        175,
+        176,
+        177,
+        178,
+        179
+      ],
+      "branches": {
+        "169": {
+          "total": 2,
+          "covered": 2
+        },
+        "174": {
+          "total": 2,
+          "covered": 2
+        },
+        "176": {
+          "total": 2,
+          "covered": 2
+        }
+      }
+    },
+    "coverage_main": {
+      "executed": true,
+      "line_total": 10,
+      "line_covered": 10,
+      "line_rate": 1.0,
+      "branch_total": 6,
+      "branch_covered": 6,
+      "branch_rate": 1.0,
+      "executable_lines": [
+        168,
+        169,
+        170,
+        172,
+        174,
+        175,
+        176,
+        177,
+        178,
+        179
+      ],
+      "covered_lines": [
+        168,
+        169,
+        170,
+        172,
+        174,
+        175,
+        176,
+        177,
+        178,
+        179
+      ],
+      "branches": {
+        "169": {
+          "total": 2,
+          "covered": 2
+        },
+        "174": {
+          "total": 2,
+          "covered": 2
+        },
+        "176": {
+          "total": 2,
+          "covered": 2
+        }
+      }
+    },
+    "defects": [
+      {
+        "id": "FAV-01-sem-divisao",
+        "eligible": true,
+        "validation": {
+          "id": "FAV-01-sem-divisao",
+          "eligible": true,
+          "project_sha256": "4d796c64d4bd57dbddb09da8fb81982862d1d16df42389e2b3585f1b5dd011b7",
+          "definition_sha256": "1a2ef32a9f427ac3484bf0acbd43c0859de80770087d39f9e62f4e82a4e83a1e",
+          "reason": null,
+          "baseline": {
+            "status": "completed",
+            "seconds": 0.9713179590180516,
+            "exit_code": 0,
+            "production_unchanged": true,
+            "collected": 1,
+            "active_started": true,
+            "active_count": 1,
+            "passed_count": 1,
+            "skipped_count": 0,
+            "xfail_count": 0,
+            "failure_categories": [],
+            "reference_passed": true,
+            "assertion_failure": false,
+            "focal": {
+              "executed": true,
+              "line_total": 10,
+              "line_covered": 9,
+              "line_rate": 0.9,
+              "branch_total": 6,
+              "branch_covered": 5,
+              "branch_rate": 0.8333333333333334,
+              "executable_lines": [
+                168,
+                169,
+                170,
+                172,
+                174,
+                175,
+                176,
+                177,
+                178,
+                179
+              ],
+              "covered_lines": [
+                168,
+                169,
+                172,
+                174,
+                175,
+                176,
+                177,
+                178,
+                179
+              ],
+              "branches": {
+                "169": {
+                  "total": 2,
+                  "covered": 1
+                },
+                "174": {
+                  "total": 2,
+                  "covered": 2
+                },
+                "176": {
+                  "total": 2,
+                  "covered": 2
+                }
+              }
+            },
+            "raw": {
+              "exit_code": 0,
+              "collected": 1,
+              "reports": [
+                {
+                  "nodeid": "tcc_referencia/test_ref_calculate_budget.py::test_orcamento_mensal_de_um_dia_e_a_parcela_diaria",
+                  "when": "setup",
+                  "outcome": "passed",
+                  "exception": null,
+                  "assertion_failure": false,
+                  "expected_failure": false,
+                  "message": null
+                },
+                {
+                  "nodeid": "tcc_referencia/test_ref_calculate_budget.py::test_orcamento_mensal_de_um_dia_e_a_parcela_diaria",
+                  "when": "call",
+                  "outcome": "passed",
+                  "exception": null,
+                  "assertion_failure": false,
+                  "expected_failure": false,
+                  "message": null
+                },
+                {
+                  "nodeid": "tcc_referencia/test_ref_calculate_budget.py::test_orcamento_mensal_de_um_dia_e_a_parcela_diaria",
+                  "when": "teardown",
+                  "outcome": "passed",
+                  "exception": null,
+                  "assertion_failure": false,
+                  "expected_failure": false,
+                  "message": null
+                }
+              ],
+              "collection_errors": [],
+              "focal": {
+                "executed": true,
+                "line_total": 10,
+                "line_covered": 9,
+                "line_rate": 0.9,
+                "branch_total": 6,
+                "branch_covered": 5,
+                "branch_rate": 0.8333333333333334,
+                "executable_lines": [
+                  168,
+                  169,
+                  170,
+                  172,
+                  174,
+                  175,
+                  176,
+                  177,
+                  178,
+                  179
+                ],
+                "covered_lines": [
+                  168,
+                  169,
+                  172,
+                  174,
+                  175,
+                  176,
+                  177,
+                  178,
+                  179
+                ],
+                "branches": {
+                  "169": {
+                    "total": 2,
+                    "covered": 1
+                  },
+                  "174": {
+                    "total": 2,
+                    "covered": 2
+                  },
+                  "176": {
+                    "total": 2,
+                    "covered": 2
+                  }
+                }
+              }
+            }
+          },
+          "mutated": {
+            "status": "completed",
+            "seconds": 1.0518612909363583,
+            "exit_code": 1,
+            "production_unchanged": true,
+            "collected": 1,
+            "active_started": true,
+            "active_count": 1,
+            "passed_count": 0,
+            "skipped_count": 0,
+            "xfail_count": 0,
+            "failure_categories": [
+              "assertion_failure"
+            ],
+            "reference_passed": false,
+            "assertion_failure": true,
+            "focal": {
+              "executed": true,
+              "line_total": 10,
+              "line_covered": 9,
+              "line_rate": 0.9,
+              "branch_total": 6,
+              "branch_covered": 5,
+              "branch_rate": 0.8333333333333334,
+              "executable_lines": [
+                168,
+                169,
+                170,
+                172,
+                174,
+                175,
+                176,
+                177,
+                178,
+                179
+              ],
+              "covered_lines": [
+                168,
+                169,
+                172,
+                174,
+                175,
+                176,
+                177,
+                178,
+                179
+              ],
+              "branches": {
+                "169": {
+                  "total": 2,
+                  "covered": 1
+                },
+                "174": {
+                  "total": 2,
+                  "covered": 2
+                },
+                "176": {
+                  "total": 2,
+                  "covered": 2
+                }
+              }
+            },
+            "raw": {
+              "exit_code": 1,
+              "collected": 1,
+              "reports": [
+                {
+                  "nodeid": "tcc_referencia/test_ref_calculate_budget.py::test_orcamento_mensal_de_um_dia_e_a_parcela_diaria",
+                  "when": "setup",
+                  "outcome": "passed",
+                  "exception": null,
+                  "assertion_failure": false,
+                  "expected_failure": false,
+                  "message": null
+                },
+                {
+                  "nodeid": "tcc_referencia/test_ref_calculate_budget.py::test_orcamento_mensal_de_um_dia_e_a_parcela_diaria",
+                  "when": "call",
+                  "outcome": "failed",
+                  "exception": "AssertionError",
+                  "assertion_failure": true,
+                  "expected_failure": false,
+                  "message": "tcc_referencia/test_ref_calculate_budget.py:35: in test_orcamento_mensal_de_um_dia_e_a_parcela_diaria\n    assert calculate_budget(budgets, \"Expenses:Food\", D(2024, 3, 10), D(2024, 3, 11)) == {\"EUR\": Decimal(10)}\nE   AssertionError: assert {'EUR': Decimal('310')} == {'EUR': Decimal('10')}\nE     \nE     Differing items:\nE     {'EUR': Decimal('310')} != {'EUR': Decimal('10')}\nE     Use -v to get more diff"
+                },
+                {
+                  "nodeid": "tcc_referencia/test_ref_calculate_budget.py::test_orcamento_mensal_de_um_dia_e_a_parcela_diaria",
+                  "when": "teardown",
+                  "outcome": "passed",
+                  "exception": null,
+                  "assertion_failure": false,
+                  "expected_failure": false,
+                  "message": null
+                }
+              ],
+              "collection_errors": [],
+              "focal": {
+                "executed": true,
+                "line_total": 10,
+                "line_covered": 9,
+                "line_rate": 0.9,
+                "branch_total": 6,
+                "branch_covered": 5,
+                "branch_rate": 0.8333333333333334,
+                "executable_lines": [
+                  168,
+                  169,
+                  170,
+                  172,
+                  174,
+                  175,
+                  176,
+                  177,
+                  178,
+                  179
+                ],
+                "covered_lines": [
+                  168,
+                  169,
+                  172,
+                  174,
+                  175,
+                  176,
+                  177,
+                  178,
+                  179
+                ],
+                "branches": {
+                  "169": {
+                    "total": 2,
+                    "covered": 1
+                  },
+                  "174": {
+                    "total": 2,
+                    "covered": 2
+                  },
+                  "176": {
+                    "total": 2,
+                    "covered": 2
+                  }
+                }
+              }
+            }
+          }
+        },
+        "detected": true,
+        "status": "detected",
+        "run": {
+          "status": "completed",
+          "seconds": 0.9923561249161139,
+          "exit_code": 1,
+          "production_unchanged": true,
+          "collected": 12,
+          "active_started": true,
+          "active_count": 12,
+          "passed_count": 2,
+          "skipped_count": 0,
+          "xfail_count": 0,
+          "failure_categories": [
+            "assertion_failure"
+          ],
+          "reference_passed": false,
+          "assertion_failure": true,
+          "focal": {
+            "executed": true,
+            "line_total": 10,
+            "line_covered": 9,
+            "line_rate": 0.9,
+            "branch_total": 6,
+            "branch_covered": 5,
+            "branch_rate": 0.8333333333333334,
+            "executable_lines": [
+              168,
+              169,
+              170,
+              172,
+              174,
+              175,
+              176,
+              177,
+              178,
+              179
+            ],
+            "covered_lines": [
+              168,
+              169,
+              172,
+              174,
+              175,
+              176,
+              177,
+              178,
+              179
+            ],
+            "branches": {
+              "169": {
+                "total": 2,
+                "covered": 1
+              },
+              "174": {
+                "total": 2,
+                "covered": 2
+              },
+              "176": {
+                "total": 2,
+                "covered": 2
+              }
+            }
+          },
+          "raw": {
+            "exit_code": 1,
+            "collected": 12,
+            "reports": [
+              {
+                "nodeid": "::test_only_the_requested_account_contributes",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_only_the_requested_account_contributes",
+                "when": "call",
+                "outcome": "failed",
+                "exception": "AssertionError",
+                "assertion_failure": true,
+                "expected_failure": false,
+                "message": "/submission/test_generated.py:27: in test_only_the_requested_account_contributes\n    assert calculate_budget(budgets, ACCOUNT, start, date(2024, 1, 4)) == {\nE   AssertionError: assert {'USD': Decimal('930')} == {'USD': Decimal('30')}\nE     \nE     Differing items:\nE     {'USD': Decimal('930')} != {'USD': Decimal('30')}\nE     Use -v to get more diff"
+              },
+              {
+                "nodeid": "::test_only_the_requested_account_contributes",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_account_with_no_budget_entries_returns_empty_mapping",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_account_with_no_budget_entries_returns_empty_mapping",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_account_with_no_budget_entries_returns_empty_mapping",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_zero_day_range_returns_empty_mapping_even_with_an_active_budget",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_zero_day_range_returns_empty_mapping_even_with_an_active_budget",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_zero_day_range_returns_empty_mapping_even_with_an_active_budget",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_budget_starts_on_its_effective_date_and_end_date_is_exclusive",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_budget_starts_on_its_effective_date_and_end_date_is_exclusive",
+                "when": "call",
+                "outcome": "failed",
+                "exception": "AssertionError",
+                "assertion_failure": true,
+                "expected_failure": false,
+                "message": "/submission/test_generated.py:56: in test_budget_starts_on_its_effective_date_and_end_date_is_exclusive\n    assert calculate_budget(budgets, ACCOUNT, start, date(2024, 1, 5)) == {\nE   AssertionError: assert {'USD': Decimal('620')} == {'USD': Decimal('20')}\nE     \nE     Differing items:\nE     {'USD': Decimal('620')} != {'USD': Decimal('20')}\nE     Use -v to get more diff"
+              },
+              {
+                "nodeid": "::test_budget_starts_on_its_effective_date_and_end_date_is_exclusive",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_versions_are_applied_independently_per_currency",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_versions_are_applied_independently_per_currency",
+                "when": "call",
+                "outcome": "failed",
+                "exception": "AssertionError",
+                "assertion_failure": true,
+                "expected_failure": false,
+                "message": "/submission/test_generated.py:75: in test_versions_are_applied_independently_per_currency\n    assert calculate_budget(\nE   AssertionError: assert {'EUR': Decim...cimal('3100')} == {'EUR': Decim...ecimal('100')}\nE     \nE     Differing items:\nE     {'EUR': Decimal('434')} != {'EUR': Decimal('14')}\nE     {'USD': Decimal('3100')} != {'USD': Decimal('100')}\nE     Use -v to get more diff"
+              },
+              {
+                "nodeid": "::test_versions_are_applied_independently_per_currency",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_daily_rate_uses_the_calendar_period_containing_each_day[february-in-a-common-year]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_daily_rate_uses_the_calendar_period_containing_each_day[february-in-a-common-year]",
+                "when": "call",
+                "outcome": "failed",
+                "exception": "AssertionError",
+                "assertion_failure": true,
+                "expected_failure": false,
+                "message": "/submission/test_generated.py:108: in test_daily_rate_uses_the_calendar_period_containing_each_day\n    assert calculate_budget(budgets, ACCOUNT, date_from, date_to) == {\nE   AssertionError: assert {'USD': Decimal('1736')} == {'USD': Decimal('59')}\nE     \nE     Differing items:\nE     {'USD': Decimal('1736')} != {'USD': Decimal('59')}\nE     Use -v to get more diff"
+              },
+              {
+                "nodeid": "::test_daily_rate_uses_the_calendar_period_containing_each_day[february-in-a-common-year]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_daily_rate_uses_the_calendar_period_containing_each_day[february-in-a-leap-year]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_daily_rate_uses_the_calendar_period_containing_each_day[february-in-a-leap-year]",
+                "when": "call",
+                "outcome": "failed",
+                "exception": "AssertionError",
+                "assertion_failure": true,
+                "expected_failure": false,
+                "message": "/submission/test_generated.py:108: in test_daily_rate_uses_the_calendar_period_containing_each_day\n    assert calculate_budget(budgets, ACCOUNT, date_from, date_to) == {\nE   AssertionError: assert {'USD': Decimal('3596')} == {'USD': Decimal('120')}\nE     \nE     Differing items:\nE     {'USD': Decimal('3596')} != {'USD': Decimal('120')}\nE     Use -v to get more diff"
+              },
+              {
+                "nodeid": "::test_daily_rate_uses_the_calendar_period_containing_each_day[february-in-a-leap-year]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_daily_rate_uses_the_calendar_period_containing_each_day[thirty-day-to-thirty-one-day-month]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_daily_rate_uses_the_calendar_period_containing_each_day[thirty-day-to-thirty-one-day-month]",
+                "when": "call",
+                "outcome": "failed",
+                "exception": "AssertionError",
+                "assertion_failure": true,
+                "expected_failure": false,
+                "message": "/submission/test_generated.py:108: in test_daily_rate_uses_the_calendar_period_containing_each_day\n    assert calculate_budget(budgets, ACCOUNT, date_from, date_to) == {\nE   AssertionError: assert {'USD': Decimal('1860')} == {'USD': Decimal('61')}\nE     \nE     Differing items:\nE     {'USD': Decimal('1860')} != {'USD': Decimal('61')}\nE     Use -v to get more diff"
+              },
+              {
+                "nodeid": "::test_daily_rate_uses_the_calendar_period_containing_each_day[thirty-day-to-thirty-one-day-month]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_daily_rate_uses_the_calendar_period_containing_each_day[leap-year-to-common-year]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_daily_rate_uses_the_calendar_period_containing_each_day[leap-year-to-common-year]",
+                "when": "call",
+                "outcome": "failed",
+                "exception": "AssertionError",
+                "assertion_failure": true,
+                "expected_failure": false,
+                "message": "/submission/test_generated.py:108: in test_daily_rate_uses_the_calendar_period_containing_each_day\n    assert calculate_budget(budgets, ACCOUNT, date_from, date_to) == {\nE   AssertionError: assert {'USD': Decimal('267180')} == {'USD': Decimal('731')}\nE     \nE     Differing items:\nE     {'USD': Decimal('267180')} != {'USD': Decimal('731')}\nE     Use -v to get more diff"
+              },
+              {
+                "nodeid": "::test_daily_rate_uses_the_calendar_period_containing_each_day[leap-year-to-common-year]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_replacement_can_change_the_budget_period",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_replacement_can_change_the_budget_period",
+                "when": "call",
+                "outcome": "failed",
+                "exception": "AssertionError",
+                "assertion_failure": true,
+                "expected_failure": false,
+                "message": "/submission/test_generated.py:121: in test_replacement_can_change_the_budget_period\n    assert calculate_budget(\nE   AssertionError: assert {'USD': Decimal('14950')} == {'USD': Decimal('50')}\nE     \nE     Differing items:\nE     {'USD': Decimal('14950')} != {'USD': Decimal('50')}\nE     Use -v to get more diff"
+              },
+              {
+                "nodeid": "::test_replacement_can_change_the_budget_period",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_partial_period_keeps_fractional_decimal_precision",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_partial_period_keeps_fractional_decimal_precision",
+                "when": "call",
+                "outcome": "failed",
+                "exception": "AssertionError",
+                "assertion_failure": true,
+                "expected_failure": false,
+                "message": "/submission/test_generated.py:135: in test_partial_period_keeps_fractional_decimal_precision\n    assert total == {\"USD\": expected}\nE   AssertionError: assert {'USD': Decimal('1')} == {'USD': Decim...25806451613')}\nE     \nE     Differing items:\nE     {'USD': Decimal('1')} != {'USD': Decimal('0.03225806451612903225806451613')}\nE     Use -v to get more diff"
+              },
+              {
+                "nodeid": "::test_partial_period_keeps_fractional_decimal_precision",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_zero_and_negative_totals_are_retained",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_zero_and_negative_totals_are_retained",
+                "when": "call",
+                "outcome": "failed",
+                "exception": "AssertionError",
+                "assertion_failure": true,
+                "expected_failure": false,
+                "message": "/submission/test_generated.py:150: in test_zero_and_negative_totals_are_retained\n    assert calculate_budget(budgets, ACCOUNT, start, date(2024, 1, 3)) == {\nE   AssertionError: assert {'EUR': Decim... Decimal('0')} == {'EUR': Decim... Decimal('0')}\nE     \nE     Omitting 2 identical items, use -vv to show\nE     Differing items:\nE     {'EUR': Decimal('-124')} != {'EUR': Decimal('-4')}\nE     Use -v to get more diff"
+              },
+              {
+                "nodeid": "::test_zero_and_negative_totals_are_retained",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              }
+            ],
+            "collection_errors": [],
+            "focal": {
+              "executed": true,
+              "line_total": 10,
+              "line_covered": 9,
+              "line_rate": 0.9,
+              "branch_total": 6,
+              "branch_covered": 5,
+              "branch_rate": 0.8333333333333334,
+              "executable_lines": [
+                168,
+                169,
+                170,
+                172,
+                174,
+                175,
+                176,
+                177,
+                178,
+                179
+              ],
+              "covered_lines": [
+                168,
+                169,
+                172,
+                174,
+                175,
+                176,
+                177,
+                178,
+                179
+              ],
+              "branches": {
+                "169": {
+                  "total": 2,
+                  "covered": 1
+                },
+                "174": {
+                  "total": 2,
+                  "covered": 2
+                },
+                "176": {
+                  "total": 2,
+                  "covered": 2
+                }
+              }
+            }
+          }
+        }
+      }
+    ],
+    "detection_rate": 1.0,
+    "review": {
+      "behavioral_assertions": true,
+      "no_target_mock": true,
+      "no_production_changes": true,
+      "defect_attribution": {
+        "FAV-01-sem-divisao": true
+      },
+      "dependency_doubles": false,
+      "reviewer": "Gabriel Lopes Pereira",
+      "created_at": "2026-11-22T05:05:50.434638+00:00"
+    },
+    "backend": "docker",
+    "submission_sha256": "e10d252d15e23099e2dcdb96ba271aeedeec9252e5927a41daae39780eb4b0ea",
+    "status": "completed",
+    "seconds": 0.8614884578855708,
+    "active_count": 12,
+    "passed_count": 12,
+    "skipped_count": 0,
+    "xfail_count": 0,
+    "failure_categories": [],
+    "original": {
+      "status": "completed",
+      "seconds": 0.8614884578855708,
+      "exit_code": 0,
+      "production_unchanged": true,
+      "collected": 12,
+      "active_started": true,
+      "active_count": 12,
+      "passed_count": 12,
+      "skipped_count": 0,
+      "xfail_count": 0,
+      "failure_categories": [],
+      "reference_passed": true,
+      "assertion_failure": false,
+      "focal": {
+        "executed": true,
+        "line_total": 10,
+        "line_covered": 10,
+        "line_rate": 1.0,
+        "branch_total": 6,
+        "branch_covered": 6,
+        "branch_rate": 1.0,
+        "executable_lines": [
+          168,
+          169,
+          170,
+          172,
+          174,
+          175,
+          176,
+          177,
+          178,
+          179
+        ],
+        "covered_lines": [
+          168,
+          169,
+          170,
+          172,
+          174,
+          175,
+          176,
+          177,
+          178,
+          179
+        ],
+        "branches": {
+          "169": {
+            "total": 2,
+            "covered": 2
+          },
+          "174": {
+            "total": 2,
+            "covered": 2
+          },
+          "176": {
+            "total": 2,
+            "covered": 2
+          }
+        }
+      },
+      "raw": {
+        "exit_code": 0,
+        "collected": 12,
+        "reports": [
+          {
+            "nodeid": "::test_only_the_requested_account_contributes",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_only_the_requested_account_contributes",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_only_the_requested_account_contributes",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_account_with_no_budget_entries_returns_empty_mapping",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_account_with_no_budget_entries_returns_empty_mapping",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_account_with_no_budget_entries_returns_empty_mapping",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_zero_day_range_returns_empty_mapping_even_with_an_active_budget",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_zero_day_range_returns_empty_mapping_even_with_an_active_budget",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_zero_day_range_returns_empty_mapping_even_with_an_active_budget",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_budget_starts_on_its_effective_date_and_end_date_is_exclusive",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_budget_starts_on_its_effective_date_and_end_date_is_exclusive",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_budget_starts_on_its_effective_date_and_end_date_is_exclusive",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_versions_are_applied_independently_per_currency",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_versions_are_applied_independently_per_currency",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_versions_are_applied_independently_per_currency",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_daily_rate_uses_the_calendar_period_containing_each_day[february-in-a-common-year]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_daily_rate_uses_the_calendar_period_containing_each_day[february-in-a-common-year]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_daily_rate_uses_the_calendar_period_containing_each_day[february-in-a-common-year]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_daily_rate_uses_the_calendar_period_containing_each_day[february-in-a-leap-year]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_daily_rate_uses_the_calendar_period_containing_each_day[february-in-a-leap-year]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_daily_rate_uses_the_calendar_period_containing_each_day[february-in-a-leap-year]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_daily_rate_uses_the_calendar_period_containing_each_day[thirty-day-to-thirty-one-day-month]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_daily_rate_uses_the_calendar_period_containing_each_day[thirty-day-to-thirty-one-day-month]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_daily_rate_uses_the_calendar_period_containing_each_day[thirty-day-to-thirty-one-day-month]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_daily_rate_uses_the_calendar_period_containing_each_day[leap-year-to-common-year]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_daily_rate_uses_the_calendar_period_containing_each_day[leap-year-to-common-year]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_daily_rate_uses_the_calendar_period_containing_each_day[leap-year-to-common-year]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_replacement_can_change_the_budget_period",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_replacement_can_change_the_budget_period",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_replacement_can_change_the_budget_period",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_partial_period_keeps_fractional_decimal_precision",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_partial_period_keeps_fractional_decimal_precision",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_partial_period_keeps_fractional_decimal_precision",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_zero_and_negative_totals_are_retained",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_zero_and_negative_totals_are_retained",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_zero_and_negative_totals_are_retained",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          }
+        ],
+        "collection_errors": [],
+        "focal": {
+          "executed": true,
+          "line_total": 10,
+          "line_covered": 10,
+          "line_rate": 1.0,
+          "branch_total": 6,
+          "branch_covered": 6,
+          "branch_rate": 1.0,
+          "executable_lines": [
+            168,
+            169,
+            170,
+            172,
+            174,
+            175,
+            176,
+            177,
+            178,
+            179
+          ],
+          "covered_lines": [
+            168,
+            169,
+            170,
+            172,
+            174,
+            175,
+            176,
+            177,
+            178,
+            179
+          ],
+          "branches": {
+            "169": {
+              "total": 2,
+              "covered": 2
+            },
+            "174": {
+              "total": 2,
+              "covered": 2
+            },
+            "176": {
+              "total": 2,
+              "covered": 2
+            }
+          }
+        }
+      }
+    },
+    "defects_eligible": 1,
+    "defects_measured": 1,
+    "defects_detected": 1,
+    "detection_complete": true,
+    "total_seconds": 3.997474457952194
+  }
+}

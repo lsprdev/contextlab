@@ -1,0 +1,1750 @@
+{
+  "schema_version": 1,
+  "order": 10,
+  "project": "bump_my_version",
+  "target": "parse_version",
+  "agent": "codex",
+  "condition": "R",
+  "repetition": 1,
+  "id": "bump_my_version__parse_version__codex__R__1",
+  "phase": "pilot",
+  "lock_hash": "2b51427488191c72d3dc09fe1d643427e7f0eade28c46106ef7fb3cce021d33a",
+  "started_at": "2026-11-22T03:02:03.577799+00:00",
+  "status": "finished",
+  "generation": {
+    "status": "completed",
+    "input_tokens": 22465,
+    "output_tokens": 2236,
+    "seconds": 52.36882475001039,
+    "version": "codex-cli 0.170.0",
+    "tool_log": [
+      {
+        "index": 1,
+        "tool": "search",
+        "arguments": {
+          "query": "parse_version",
+          "path": "tests"
+        },
+        "delivered_chars": 44,
+        "chars_before": 5208,
+        "status": "ok",
+        "chars_after": 5252
+      },
+      {
+        "index": 2,
+        "tool": "list_files",
+        "arguments": {},
+        "delivered_chars": 121,
+        "chars_before": 5252,
+        "status": "ok",
+        "chars_after": 5373
+      }
+    ],
+    "usage": {
+      "input_tokens": 22465,
+      "cached_input_tokens": 14592,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 2236,
+      "reasoning_output_tokens": 768
+    },
+    "details": [],
+    "capabilities": {
+      "tool_surface_verified": true,
+      "tools": [
+        "functions.list_mcp_resource_templates",
+        "functions.list_mcp_resources",
+        "functions.read_mcp_resource",
+        "mcp__contextlab.list_files",
+        "mcp__contextlab.read_file",
+        "mcp__contextlab.search"
+      ],
+      "catalog_sha256": "a61b50641627a2941fc8be4db823d1fbbfa4ae628add4d7ec443dbab559140fb",
+      "probe": "offline-localhost",
+      "model": "gpt-6.2-sol",
+      "command_rejected": true,
+      "outside_packet_rejected": true,
+      "allowed_read_verified": true
+    },
+    "returncode": 0,
+    "context_stats": {
+      "chars_used": 5373,
+      "initial_chars": 5208,
+      "response_chars": 165,
+      "remaining_chars": 24627,
+      "tool_calls": 2,
+      "max_calls": 20,
+      "budget": 30000
+    },
+    "session_id": "01a20134-261a-7751-9bb9-abd8861bfdf3"
+  },
+  "evaluation": {
+    "target_id": "parse_version",
+    "test_kind": "unit",
+    "received": true,
+    "syntax_ok": true,
+    "collected": 20,
+    "active_started": true,
+    "reference_passed": true,
+    "approval": "pending_review",
+    "approved": false,
+    "coverage_raw": {
+      "executed": true,
+      "line_total": 20,
+      "line_covered": 20,
+      "line_rate": 1.0,
+      "branch_total": 6,
+      "branch_covered": 6,
+      "branch_rate": 1.0,
+      "executable_lines": [
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        38,
+        39,
+        41,
+        42,
+        43,
+        44,
+        46,
+        48,
+        49,
+        54,
+        56,
+        57,
+        58,
+        60
+      ],
+      "covered_lines": [
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        38,
+        39,
+        41,
+        42,
+        43,
+        44,
+        46,
+        48,
+        49,
+        54,
+        56,
+        57,
+        58,
+        60
+      ],
+      "branches": {
+        "31": {
+          "total": 2,
+          "covered": 2
+        },
+        "48": {
+          "total": 2,
+          "covered": 2
+        },
+        "34": {
+          "total": 2,
+          "covered": 2
+        }
+      }
+    },
+    "coverage_main": null,
+    "defects": [],
+    "detection_rate": null,
+    "review": null,
+    "backend": "docker",
+    "submission_sha256": "7ee7deee8e7f10a1e717b02b422cd1ce41d195f37453a76411edee1a6b7ef2f6",
+    "status": "completed",
+    "seconds": 0.7556692499783821,
+    "active_count": 20,
+    "passed_count": 20,
+    "skipped_count": 0,
+    "xfail_count": 0,
+    "failure_categories": [],
+    "original": {
+      "status": "completed",
+      "seconds": 0.7556692499783821,
+      "exit_code": 0,
+      "production_unchanged": true,
+      "collected": 20,
+      "active_started": true,
+      "active_count": 20,
+      "passed_count": 20,
+      "skipped_count": 0,
+      "xfail_count": 0,
+      "failure_categories": [],
+      "reference_passed": true,
+      "assertion_failure": false,
+      "focal": {
+        "executed": true,
+        "line_total": 20,
+        "line_covered": 20,
+        "line_rate": 1.0,
+        "branch_total": 6,
+        "branch_covered": 6,
+        "branch_rate": 1.0,
+        "executable_lines": [
+          31,
+          32,
+          33,
+          34,
+          35,
+          36,
+          38,
+          39,
+          41,
+          42,
+          43,
+          44,
+          46,
+          48,
+          49,
+          54,
+          56,
+          57,
+          58,
+          60
+        ],
+        "covered_lines": [
+          31,
+          32,
+          33,
+          34,
+          35,
+          36,
+          38,
+          39,
+          41,
+          42,
+          43,
+          44,
+          46,
+          48,
+          49,
+          54,
+          56,
+          57,
+          58,
+          60
+        ],
+        "branches": {
+          "31": {
+            "total": 2,
+            "covered": 2
+          },
+          "48": {
+            "total": 2,
+            "covered": 2
+          },
+          "34": {
+            "total": 2,
+            "covered": 2
+          }
+        }
+      },
+      "raw": {
+        "exit_code": 0,
+        "collected": 20,
+        "reports": [
+          {
+            "nodeid": "::test_empty_input_returns_empty_dictionary_without_starting_parse[empty-version-with-zero-width-match]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_empty_input_returns_empty_dictionary_without_starting_parse[empty-version-with-zero-width-match]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_empty_input_returns_empty_dictionary_without_starting_parse[empty-version-with-zero-width-match]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_empty_input_returns_empty_dictionary_without_starting_parse[empty-version-with-invalid-pattern]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_empty_input_returns_empty_dictionary_without_starting_parse[empty-version-with-invalid-pattern]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_empty_input_returns_empty_dictionary_without_starting_parse[empty-version-with-invalid-pattern]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_empty_input_returns_empty_dictionary_without_starting_parse[empty-pattern]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_empty_input_returns_empty_dictionary_without_starting_parse[empty-pattern]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_empty_input_returns_empty_dictionary_without_starting_parse[empty-pattern]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_empty_input_returns_empty_dictionary_without_starting_parse[both-empty]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_empty_input_returns_empty_dictionary_without_starting_parse[both-empty]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_empty_input_returns_empty_dictionary_without_starting_parse[both-empty]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_returns_named_captures_as_strings_and_excludes_unnamed_captures",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_returns_named_captures_as_strings_and_excludes_unnamed_captures",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_returns_named_captures_as_strings_and_excludes_unnamed_captures",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_verbose_pattern_supports_comments_and_preserves_literal_hash_and_spaces",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_verbose_pattern_supports_comments_and_preserves_literal_hash_and_spaces",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_verbose_pattern_supports_comments_and_preserves_literal_hash_and_spaces",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_search_returns_first_match_inside_surrounding_text",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_search_returns_first_match_inside_surrounding_text",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_search_returns_first_match_inside_surrounding_text",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unmatched_optional_groups_remain_in_result_as_empty_strings[1-expected0]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unmatched_optional_groups_remain_in_result_as_empty_strings[1-expected0]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unmatched_optional_groups_remain_in_result_as_empty_strings[1-expected0]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unmatched_optional_groups_remain_in_result_as_empty_strings[2-rc03-expected1]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unmatched_optional_groups_remain_in_result_as_empty_strings[2-rc03-expected1]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unmatched_optional_groups_remain_in_result_as_empty_strings[2-rc03-expected1]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unmatched_optional_groups_remain_in_result_as_empty_strings[3+007-expected2]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unmatched_optional_groups_remain_in_result_as_empty_strings[3+007-expected2]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unmatched_optional_groups_remain_in_result_as_empty_strings[3+007-expected2]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_zero_width_match_can_return_named_captures",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_zero_width_match_can_return_named_captures",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_zero_width_match_can_return_named_captures",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_whitespace_only_version_can_match_literal_whitespace",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_whitespace_only_version_can_match_literal_whitespace",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_whitespace_only_version_can_match_literal_whitespace",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_match_with_only_unnamed_groups_returns_empty_dictionary",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_match_with_only_unnamed_groups_returns_empty_dictionary",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_match_with_only_unnamed_groups_returns_empty_dictionary",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_no_match_returns_empty_dictionary[release 1.2-^(?P<major>\\\\d+)\\\\.(?P<minor>\\\\d+)$]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_no_match_returns_empty_dictionary[release 1.2-^(?P<major>\\\\d+)\\\\.(?P<minor>\\\\d+)$]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_no_match_returns_empty_dictionary[release 1.2-^(?P<major>\\\\d+)\\\\.(?P<minor>\\\\d+)$]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_no_match_returns_empty_dictionary[1x2-^(?P<major>\\\\d+)\\\\.(?P<minor>\\\\d+)$]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_no_match_returns_empty_dictionary[1x2-^(?P<major>\\\\d+)\\\\.(?P<minor>\\\\d+)$]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_no_match_returns_empty_dictionary[1x2-^(?P<major>\\\\d+)\\\\.(?P<minor>\\\\d+)$]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_no_match_returns_empty_dictionary[RC1-^(?P<stage>rc)(?P<serial>\\\\d+)$]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_no_match_returns_empty_dictionary[RC1-^(?P<stage>rc)(?P<serial>\\\\d+)$]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_no_match_returns_empty_dictionary[RC1-^(?P<stage>rc)(?P<serial>\\\\d+)$]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_malformed_pattern_reports_original_pattern_and_chains_regex_error[(]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_malformed_pattern_reports_original_pattern_and_chains_regex_error[(]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_malformed_pattern_reports_original_pattern_and_chains_regex_error[(]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_malformed_pattern_reports_original_pattern_and_chains_regex_error[(?P<bad-name>\\\\d+)]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_malformed_pattern_reports_original_pattern_and_chains_regex_error[(?P<bad-name>\\\\d+)]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_malformed_pattern_reports_original_pattern_and_chains_regex_error[(?P<bad-name>\\\\d+)]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_malformed_pattern_reports_original_pattern_and_chains_regex_error[(?P<part>\\\\d+)(?P<part>\\\\d+)]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_malformed_pattern_reports_original_pattern_and_chains_regex_error[(?P<part>\\\\d+)(?P<part>\\\\d+)]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_malformed_pattern_reports_original_pattern_and_chains_regex_error[(?P<part>\\\\d+)(?P<part>\\\\d+)]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_success_logs_parsed_values_within_indentation",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_success_logs_parsed_values_within_indentation",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_success_logs_parsed_values_within_indentation",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          }
+        ],
+        "collection_errors": [],
+        "focal": {
+          "executed": true,
+          "line_total": 20,
+          "line_covered": 20,
+          "line_rate": 1.0,
+          "branch_total": 6,
+          "branch_covered": 6,
+          "branch_rate": 1.0,
+          "executable_lines": [
+            31,
+            32,
+            33,
+            34,
+            35,
+            36,
+            38,
+            39,
+            41,
+            42,
+            43,
+            44,
+            46,
+            48,
+            49,
+            54,
+            56,
+            57,
+            58,
+            60
+          ],
+          "covered_lines": [
+            31,
+            32,
+            33,
+            34,
+            35,
+            36,
+            38,
+            39,
+            41,
+            42,
+            43,
+            44,
+            46,
+            48,
+            49,
+            54,
+            56,
+            57,
+            58,
+            60
+          ],
+          "branches": {
+            "31": {
+              "total": 2,
+              "covered": 2
+            },
+            "48": {
+              "total": 2,
+              "covered": 2
+            },
+            "34": {
+              "total": 2,
+              "covered": 2
+            }
+          }
+        }
+      }
+    },
+    "defects_eligible": null,
+    "defects_measured": null,
+    "defects_detected": null,
+    "detection_complete": null,
+    "total_seconds": 0.7820685000042431
+  },
+  "preparation_seconds": 0.018556333030574024,
+  "submission_sha256": "7ee7deee8e7f10a1e717b02b422cd1ce41d195f37453a76411edee1a6b7ef2f6",
+  "finished_at": "2026-11-22T03:02:56.751671+00:00",
+  "review": {
+    "behavioral_assertions": true,
+    "no_target_mock": true,
+    "no_production_changes": true,
+    "defect_attribution": {},
+    "dependency_doubles": true,
+    "reviewer": "Gabriel Lopes Pereira",
+    "created_at": "2026-11-22T03:08:01.633451+00:00"
+  },
+  "reviewed_evaluation": {
+    "target_id": "parse_version",
+    "test_kind": "unit",
+    "received": true,
+    "syntax_ok": true,
+    "collected": 20,
+    "active_started": true,
+    "reference_passed": true,
+    "approval": "approved",
+    "approved": true,
+    "coverage_raw": {
+      "executed": true,
+      "line_total": 20,
+      "line_covered": 20,
+      "line_rate": 1.0,
+      "branch_total": 6,
+      "branch_covered": 6,
+      "branch_rate": 1.0,
+      "executable_lines": [
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        38,
+        39,
+        41,
+        42,
+        43,
+        44,
+        46,
+        48,
+        49,
+        54,
+        56,
+        57,
+        58,
+        60
+      ],
+      "covered_lines": [
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        38,
+        39,
+        41,
+        42,
+        43,
+        44,
+        46,
+        48,
+        49,
+        54,
+        56,
+        57,
+        58,
+        60
+      ],
+      "branches": {
+        "31": {
+          "total": 2,
+          "covered": 2
+        },
+        "48": {
+          "total": 2,
+          "covered": 2
+        },
+        "34": {
+          "total": 2,
+          "covered": 2
+        }
+      }
+    },
+    "coverage_main": {
+      "executed": true,
+      "line_total": 20,
+      "line_covered": 20,
+      "line_rate": 1.0,
+      "branch_total": 6,
+      "branch_covered": 6,
+      "branch_rate": 1.0,
+      "executable_lines": [
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        38,
+        39,
+        41,
+        42,
+        43,
+        44,
+        46,
+        48,
+        49,
+        54,
+        56,
+        57,
+        58,
+        60
+      ],
+      "covered_lines": [
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        38,
+        39,
+        41,
+        42,
+        43,
+        44,
+        46,
+        48,
+        49,
+        54,
+        56,
+        57,
+        58,
+        60
+      ],
+      "branches": {
+        "31": {
+          "total": 2,
+          "covered": 2
+        },
+        "48": {
+          "total": 2,
+          "covered": 2
+        },
+        "34": {
+          "total": 2,
+          "covered": 2
+        }
+      }
+    },
+    "defects": [],
+    "detection_rate": null,
+    "review": {
+      "behavioral_assertions": true,
+      "no_target_mock": true,
+      "no_production_changes": true,
+      "defect_attribution": {},
+      "dependency_doubles": true,
+      "reviewer": "Gabriel Lopes Pereira",
+      "created_at": "2026-11-22T03:08:01.633451+00:00"
+    },
+    "backend": "docker",
+    "submission_sha256": "7ee7deee8e7f10a1e717b02b422cd1ce41d195f37453a76411edee1a6b7ef2f6",
+    "status": "completed",
+    "seconds": 0.5860307500115596,
+    "active_count": 20,
+    "passed_count": 20,
+    "skipped_count": 0,
+    "xfail_count": 0,
+    "failure_categories": [],
+    "original": {
+      "status": "completed",
+      "seconds": 0.5860307500115596,
+      "exit_code": 0,
+      "production_unchanged": true,
+      "collected": 20,
+      "active_started": true,
+      "active_count": 20,
+      "passed_count": 20,
+      "skipped_count": 0,
+      "xfail_count": 0,
+      "failure_categories": [],
+      "reference_passed": true,
+      "assertion_failure": false,
+      "focal": {
+        "executed": true,
+        "line_total": 20,
+        "line_covered": 20,
+        "line_rate": 1.0,
+        "branch_total": 6,
+        "branch_covered": 6,
+        "branch_rate": 1.0,
+        "executable_lines": [
+          31,
+          32,
+          33,
+          34,
+          35,
+          36,
+          38,
+          39,
+          41,
+          42,
+          43,
+          44,
+          46,
+          48,
+          49,
+          54,
+          56,
+          57,
+          58,
+          60
+        ],
+        "covered_lines": [
+          31,
+          32,
+          33,
+          34,
+          35,
+          36,
+          38,
+          39,
+          41,
+          42,
+          43,
+          44,
+          46,
+          48,
+          49,
+          54,
+          56,
+          57,
+          58,
+          60
+        ],
+        "branches": {
+          "31": {
+            "total": 2,
+            "covered": 2
+          },
+          "48": {
+            "total": 2,
+            "covered": 2
+          },
+          "34": {
+            "total": 2,
+            "covered": 2
+          }
+        }
+      },
+      "raw": {
+        "exit_code": 0,
+        "collected": 20,
+        "reports": [
+          {
+            "nodeid": "::test_empty_input_returns_empty_dictionary_without_starting_parse[empty-version-with-zero-width-match]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_empty_input_returns_empty_dictionary_without_starting_parse[empty-version-with-zero-width-match]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_empty_input_returns_empty_dictionary_without_starting_parse[empty-version-with-zero-width-match]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_empty_input_returns_empty_dictionary_without_starting_parse[empty-version-with-invalid-pattern]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_empty_input_returns_empty_dictionary_without_starting_parse[empty-version-with-invalid-pattern]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_empty_input_returns_empty_dictionary_without_starting_parse[empty-version-with-invalid-pattern]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_empty_input_returns_empty_dictionary_without_starting_parse[empty-pattern]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_empty_input_returns_empty_dictionary_without_starting_parse[empty-pattern]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_empty_input_returns_empty_dictionary_without_starting_parse[empty-pattern]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_empty_input_returns_empty_dictionary_without_starting_parse[both-empty]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_empty_input_returns_empty_dictionary_without_starting_parse[both-empty]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_empty_input_returns_empty_dictionary_without_starting_parse[both-empty]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_returns_named_captures_as_strings_and_excludes_unnamed_captures",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_returns_named_captures_as_strings_and_excludes_unnamed_captures",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_returns_named_captures_as_strings_and_excludes_unnamed_captures",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_verbose_pattern_supports_comments_and_preserves_literal_hash_and_spaces",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_verbose_pattern_supports_comments_and_preserves_literal_hash_and_spaces",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_verbose_pattern_supports_comments_and_preserves_literal_hash_and_spaces",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_search_returns_first_match_inside_surrounding_text",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_search_returns_first_match_inside_surrounding_text",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_search_returns_first_match_inside_surrounding_text",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unmatched_optional_groups_remain_in_result_as_empty_strings[1-expected0]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unmatched_optional_groups_remain_in_result_as_empty_strings[1-expected0]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unmatched_optional_groups_remain_in_result_as_empty_strings[1-expected0]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unmatched_optional_groups_remain_in_result_as_empty_strings[2-rc03-expected1]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unmatched_optional_groups_remain_in_result_as_empty_strings[2-rc03-expected1]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unmatched_optional_groups_remain_in_result_as_empty_strings[2-rc03-expected1]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unmatched_optional_groups_remain_in_result_as_empty_strings[3+007-expected2]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unmatched_optional_groups_remain_in_result_as_empty_strings[3+007-expected2]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unmatched_optional_groups_remain_in_result_as_empty_strings[3+007-expected2]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_zero_width_match_can_return_named_captures",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_zero_width_match_can_return_named_captures",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_zero_width_match_can_return_named_captures",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_whitespace_only_version_can_match_literal_whitespace",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_whitespace_only_version_can_match_literal_whitespace",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_whitespace_only_version_can_match_literal_whitespace",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_match_with_only_unnamed_groups_returns_empty_dictionary",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_match_with_only_unnamed_groups_returns_empty_dictionary",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_match_with_only_unnamed_groups_returns_empty_dictionary",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_no_match_returns_empty_dictionary[release 1.2-^(?P<major>\\\\d+)\\\\.(?P<minor>\\\\d+)$]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_no_match_returns_empty_dictionary[release 1.2-^(?P<major>\\\\d+)\\\\.(?P<minor>\\\\d+)$]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_no_match_returns_empty_dictionary[release 1.2-^(?P<major>\\\\d+)\\\\.(?P<minor>\\\\d+)$]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_no_match_returns_empty_dictionary[1x2-^(?P<major>\\\\d+)\\\\.(?P<minor>\\\\d+)$]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_no_match_returns_empty_dictionary[1x2-^(?P<major>\\\\d+)\\\\.(?P<minor>\\\\d+)$]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_no_match_returns_empty_dictionary[1x2-^(?P<major>\\\\d+)\\\\.(?P<minor>\\\\d+)$]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_no_match_returns_empty_dictionary[RC1-^(?P<stage>rc)(?P<serial>\\\\d+)$]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_no_match_returns_empty_dictionary[RC1-^(?P<stage>rc)(?P<serial>\\\\d+)$]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_no_match_returns_empty_dictionary[RC1-^(?P<stage>rc)(?P<serial>\\\\d+)$]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_malformed_pattern_reports_original_pattern_and_chains_regex_error[(]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_malformed_pattern_reports_original_pattern_and_chains_regex_error[(]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_malformed_pattern_reports_original_pattern_and_chains_regex_error[(]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_malformed_pattern_reports_original_pattern_and_chains_regex_error[(?P<bad-name>\\\\d+)]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_malformed_pattern_reports_original_pattern_and_chains_regex_error[(?P<bad-name>\\\\d+)]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_malformed_pattern_reports_original_pattern_and_chains_regex_error[(?P<bad-name>\\\\d+)]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_malformed_pattern_reports_original_pattern_and_chains_regex_error[(?P<part>\\\\d+)(?P<part>\\\\d+)]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_malformed_pattern_reports_original_pattern_and_chains_regex_error[(?P<part>\\\\d+)(?P<part>\\\\d+)]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_malformed_pattern_reports_original_pattern_and_chains_regex_error[(?P<part>\\\\d+)(?P<part>\\\\d+)]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_success_logs_parsed_values_within_indentation",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_success_logs_parsed_values_within_indentation",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_success_logs_parsed_values_within_indentation",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          }
+        ],
+        "collection_errors": [],
+        "focal": {
+          "executed": true,
+          "line_total": 20,
+          "line_covered": 20,
+          "line_rate": 1.0,
+          "branch_total": 6,
+          "branch_covered": 6,
+          "branch_rate": 1.0,
+          "executable_lines": [
+            31,
+            32,
+            33,
+            34,
+            35,
+            36,
+            38,
+            39,
+            41,
+            42,
+            43,
+            44,
+            46,
+            48,
+            49,
+            54,
+            56,
+            57,
+            58,
+            60
+          ],
+          "covered_lines": [
+            31,
+            32,
+            33,
+            34,
+            35,
+            36,
+            38,
+            39,
+            41,
+            42,
+            43,
+            44,
+            46,
+            48,
+            49,
+            54,
+            56,
+            57,
+            58,
+            60
+          ],
+          "branches": {
+            "31": {
+              "total": 2,
+              "covered": 2
+            },
+            "48": {
+              "total": 2,
+              "covered": 2
+            },
+            "34": {
+              "total": 2,
+              "covered": 2
+            }
+          }
+        }
+      }
+    },
+    "defects_eligible": 0,
+    "defects_measured": 0,
+    "defects_detected": null,
+    "detection_complete": false,
+    "total_seconds": 0.599463582970202
+  }
+}

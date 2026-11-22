@@ -1,0 +1,5286 @@
+{
+  "schema_version": 1,
+  "order": 64,
+  "project": "python_dotenv",
+  "target": "parse_value",
+  "agent": "codex",
+  "condition": "L",
+  "repetition": 2,
+  "id": "python_dotenv__parse_value__codex__L__2",
+  "phase": "main",
+  "lock_hash": "49dd66a522994eb03001a67255ded0aa13cc696255859f45a924b43f05f5da33",
+  "started_at": "2026-11-22T04:10:35.321709+00:00",
+  "status": "finished",
+  "generation": {
+    "status": "completed",
+    "input_tokens": 7716,
+    "output_tokens": 1811,
+    "seconds": 42.20266812504269,
+    "version": "codex-cli 0.170.0",
+    "tool_log": [],
+    "usage": {
+      "input_tokens": 7716,
+      "cached_input_tokens": 5504,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 1811,
+      "reasoning_output_tokens": 125
+    },
+    "details": [],
+    "capabilities": {
+      "tool_surface_verified": true,
+      "tools": [
+        "functions.list_mcp_resource_templates",
+        "functions.list_mcp_resources",
+        "functions.read_mcp_resource",
+        "mcp__contextlab.list_files",
+        "mcp__contextlab.read_file",
+        "mcp__contextlab.search"
+      ],
+      "catalog_sha256": "a61b50641627a2941fc8be4db823d1fbbfa4ae628add4d7ec443dbab559140fb",
+      "probe": "offline-localhost",
+      "model": "gpt-6.2-sol",
+      "command_rejected": true,
+      "outside_packet_rejected": true,
+      "allowed_read_verified": true
+    },
+    "returncode": 0,
+    "context_stats": {
+      "chars_used": 5854,
+      "initial_chars": 5854,
+      "response_chars": 0,
+      "remaining_chars": 24146,
+      "tool_calls": 0,
+      "max_calls": 20,
+      "budget": 30000
+    },
+    "session_id": "01a20172-e57f-7742-b297-b719c27a8f5b"
+  },
+  "evaluation": {
+    "target_id": "parse_value",
+    "test_kind": "unit",
+    "received": true,
+    "syntax_ok": true,
+    "collected": 54,
+    "active_started": true,
+    "reference_passed": true,
+    "approval": "pending_review",
+    "approved": false,
+    "coverage_raw": {
+      "executed": true,
+      "line_total": 10,
+      "line_covered": 10,
+      "line_rate": 1.0,
+      "branch_total": 6,
+      "branch_covered": 6,
+      "branch_rate": 1.0,
+      "executable_lines": [
+        131,
+        132,
+        133,
+        134,
+        135,
+        136,
+        137,
+        138,
+        139,
+        141
+      ],
+      "covered_lines": [
+        131,
+        132,
+        133,
+        134,
+        135,
+        136,
+        137,
+        138,
+        139,
+        141
+      ],
+      "branches": {
+        "135": {
+          "total": 2,
+          "covered": 2
+        },
+        "132": {
+          "total": 2,
+          "covered": 2
+        },
+        "138": {
+          "total": 2,
+          "covered": 2
+        }
+      }
+    },
+    "coverage_main": null,
+    "defects": [],
+    "detection_rate": null,
+    "review": null,
+    "backend": "docker",
+    "submission_sha256": "f80ec9cd948f870ca24589e925f55bea270e902c17d16e7fa8db05980024f485",
+    "status": "completed",
+    "seconds": 0.5166047920938581,
+    "active_count": 54,
+    "passed_count": 54,
+    "skipped_count": 0,
+    "xfail_count": 0,
+    "failure_categories": [],
+    "original": {
+      "status": "completed",
+      "seconds": 0.5166047920938581,
+      "exit_code": 0,
+      "production_unchanged": true,
+      "collected": 54,
+      "active_started": true,
+      "active_count": 54,
+      "passed_count": 54,
+      "skipped_count": 0,
+      "xfail_count": 0,
+      "failure_categories": [],
+      "reference_passed": true,
+      "assertion_failure": false,
+      "focal": {
+        "executed": true,
+        "line_total": 10,
+        "line_covered": 10,
+        "line_rate": 1.0,
+        "branch_total": 6,
+        "branch_covered": 6,
+        "branch_rate": 1.0,
+        "executable_lines": [
+          131,
+          132,
+          133,
+          134,
+          135,
+          136,
+          137,
+          138,
+          139,
+          141
+        ],
+        "covered_lines": [
+          131,
+          132,
+          133,
+          134,
+          135,
+          136,
+          137,
+          138,
+          139,
+          141
+        ],
+        "branches": {
+          "135": {
+            "total": 2,
+            "covered": 2
+          },
+          "132": {
+            "total": 2,
+            "covered": 2
+          },
+          "138": {
+            "total": 2,
+            "covered": 2
+          }
+        }
+      },
+      "raw": {
+        "exit_code": 0,
+        "collected": 54,
+        "reports": [
+          {
+            "nodeid": "::test_empty_value_leaves_line_ending_unread[]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_empty_value_leaves_line_ending_unread[]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_empty_value_leaves_line_ending_unread[]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_empty_value_leaves_line_ending_unread[\\n]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_empty_value_leaves_line_ending_unread[\\n]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_empty_value_leaves_line_ending_unread[\\n]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_empty_value_leaves_line_ending_unread[\\r]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_empty_value_leaves_line_ending_unread[\\r]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_empty_value_leaves_line_ending_unread[\\r]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_empty_value_leaves_line_ending_unread[\\r\\n]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_empty_value_leaves_line_ending_unread[\\r\\n]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_empty_value_leaves_line_ending_unread[\\r\\n]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unquoted_value_and_remaining_input[text-text-]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unquoted_value_and_remaining_input[text-text-]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unquoted_value_and_remaining_input[text-text-]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unquoted_value_and_remaining_input[  alpha  beta\\t  \\nNEXT=1-  alpha  beta-\\nNEXT=1]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unquoted_value_and_remaining_input[  alpha  beta\\t  \\nNEXT=1-  alpha  beta-\\nNEXT=1]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unquoted_value_and_remaining_input[  alpha  beta\\t  \\nNEXT=1-  alpha  beta-\\nNEXT=1]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unquoted_value_and_remaining_input[value\\rNEXT=1-value-\\rNEXT=1]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unquoted_value_and_remaining_input[value\\rNEXT=1-value-\\rNEXT=1]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unquoted_value_and_remaining_input[value\\rNEXT=1-value-\\rNEXT=1]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unquoted_value_and_remaining_input[value\\r\\nNEXT=1-value-\\r\\nNEXT=1]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unquoted_value_and_remaining_input[value\\r\\nNEXT=1-value-\\r\\nNEXT=1]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unquoted_value_and_remaining_input[value\\r\\nNEXT=1-value-\\r\\nNEXT=1]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unquoted_value_and_remaining_input[ \\t\\u2003\\n--\\n]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unquoted_value_and_remaining_input[ \\t\\u2003\\n--\\n]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unquoted_value_and_remaining_input[ \\t\\u2003\\n--\\n]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unquoted_value_and_remaining_input[value\\u2003-value-]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unquoted_value_and_remaining_input[value\\u2003-value-]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unquoted_value_and_remaining_input[value\\u2003-value-]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unquoted_value_and_remaining_input[#literal hash-#literal hash-]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unquoted_value_and_remaining_input[#literal hash-#literal hash-]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unquoted_value_and_remaining_input[#literal hash-#literal hash-]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unquoted_value_and_remaining_input[value#tag\\t # discarded # text\\nNEXT=1-value#tag-\\nNEXT=1]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unquoted_value_and_remaining_input[value#tag\\t # discarded # text\\nNEXT=1-value#tag-\\nNEXT=1]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unquoted_value_and_remaining_input[value#tag\\t # discarded # text\\nNEXT=1-value#tag-\\nNEXT=1]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unquoted_value_and_remaining_input[value\\t# discarded-value-]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unquoted_value_and_remaining_input[value\\t# discarded-value-]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unquoted_value_and_remaining_input[value\\t# discarded-value-]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unquoted_value_and_remaining_input[caf\\xe9\\u2003# discarded-caf\\xe9-]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unquoted_value_and_remaining_input[caf\\xe9\\u2003# discarded-caf\\xe9-]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unquoted_value_and_remaining_input[caf\\xe9\\u2003# discarded-caf\\xe9-]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unquoted_value_and_remaining_input[ \\t# discarded\\r--\\r]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unquoted_value_and_remaining_input[ \\t# discarded\\r--\\r]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unquoted_value_and_remaining_input[ \\t# discarded\\r--\\r]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unquoted_value_and_remaining_input[value # discarded\\u2028still discarded-value-]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unquoted_value_and_remaining_input[value # discarded\\u2028still discarded-value-]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unquoted_value_and_remaining_input[value # discarded\\u2028still discarded-value-]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unquoted_value_and_remaining_input[left\\x0bcenter\\u2028right-left\\x0bcenter\\u2028right-]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unquoted_value_and_remaining_input[left\\x0bcenter\\u2028right-left\\x0bcenter\\u2028right-]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unquoted_value_and_remaining_input[left\\x0bcenter\\u2028right-left\\x0bcenter\\u2028right-]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unquoted_value_and_remaining_input[one 'two' \"three\" = four-one 'two' \"three\" = four-]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unquoted_value_and_remaining_input[one 'two' \"three\" = four-one 'two' \"three\" = four-]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unquoted_value_and_remaining_input[one 'two' \"three\" = four-one 'two' \"three\" = four-]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unquoted_value_and_remaining_input[ 'quoted' # discarded- 'quoted'-]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unquoted_value_and_remaining_input[ 'quoted' # discarded- 'quoted'-]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unquoted_value_and_remaining_input[ 'quoted' # discarded- 'quoted'-]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unquoted_value_and_remaining_input[one\\\\ntwo\\\\#tag\\\\q-one\\\\ntwo\\\\#tag\\\\q-]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unquoted_value_and_remaining_input[one\\\\ntwo\\\\#tag\\\\q-one\\\\ntwo\\\\#tag\\\\q-]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unquoted_value_and_remaining_input[one\\\\ntwo\\\\#tag\\\\q-one\\\\ntwo\\\\#tag\\\\q-]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unquoted_value_and_remaining_input[value\\\\\\nNEXT=1-value\\\\-\\nNEXT=1]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unquoted_value_and_remaining_input[value\\\\\\nNEXT=1-value\\\\-\\nNEXT=1]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unquoted_value_and_remaining_input[value\\\\\\nNEXT=1-value\\\\-\\nNEXT=1]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_value_preserves_literal_body_and_leaves_suffix[-']",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_value_preserves_literal_body_and_leaves_suffix[-']",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_value_preserves_literal_body_and_leaves_suffix[-']",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_value_preserves_literal_body_and_leaves_suffix[-\"]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_value_preserves_literal_body_and_leaves_suffix[-\"]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_value_preserves_literal_body_and_leaves_suffix[-\"]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_value_preserves_literal_body_and_leaves_suffix[ \\tcaf\\xe9 # literal\\t -']",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_value_preserves_literal_body_and_leaves_suffix[ \\tcaf\\xe9 # literal\\t -']",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_value_preserves_literal_body_and_leaves_suffix[ \\tcaf\\xe9 # literal\\t -']",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_value_preserves_literal_body_and_leaves_suffix[ \\tcaf\\xe9 # literal\\t -\"]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_value_preserves_literal_body_and_leaves_suffix[ \\tcaf\\xe9 # literal\\t -\"]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_value_preserves_literal_body_and_leaves_suffix[ \\tcaf\\xe9 # literal\\t -\"]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_value_preserves_literal_body_and_leaves_suffix[first\\nsecond\\r\\nthird\\rfourth-']",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_value_preserves_literal_body_and_leaves_suffix[first\\nsecond\\r\\nthird\\rfourth-']",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_value_preserves_literal_body_and_leaves_suffix[first\\nsecond\\r\\nthird\\rfourth-']",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_value_preserves_literal_body_and_leaves_suffix[first\\nsecond\\r\\nthird\\rfourth-\"]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_value_preserves_literal_body_and_leaves_suffix[first\\nsecond\\r\\nthird\\rfourth-\"]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_value_preserves_literal_body_and_leaves_suffix[first\\nsecond\\r\\nthird\\rfourth-\"]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_value_preserves_literal_body_and_leaves_suffix[left\\\\\\nright-']",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_value_preserves_literal_body_and_leaves_suffix[left\\\\\\nright-']",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_value_preserves_literal_body_and_leaves_suffix[left\\\\\\nright-']",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_value_preserves_literal_body_and_leaves_suffix[left\\\\\\nright-\"]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_value_preserves_literal_body_and_leaves_suffix[left\\\\\\nright-\"]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_value_preserves_literal_body_and_leaves_suffix[left\\\\\\nright-\"]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_escape_decoding['-a\\\\'b-a'b]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_escape_decoding['-a\\\\'b-a'b]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_escape_decoding['-a\\\\'b-a'b]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_escape_decoding['-a\\\\\"b-a\\\\\"b]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_escape_decoding['-a\\\\\"b-a\\\\\"b]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_escape_decoding['-a\\\\\"b-a\\\\\"b]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_escape_decoding['-a\"b-a\"b]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_escape_decoding['-a\"b-a\"b]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_escape_decoding['-a\"b-a\"b]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_escape_decoding['-\\\\a\\\\b\\\\f\\\\n\\\\r\\\\t\\\\v-\\\\a\\\\b\\\\f\\\\n\\\\r\\\\t\\\\v]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_escape_decoding['-\\\\a\\\\b\\\\f\\\\n\\\\r\\\\t\\\\v-\\\\a\\\\b\\\\f\\\\n\\\\r\\\\t\\\\v]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_escape_decoding['-\\\\a\\\\b\\\\f\\\\n\\\\r\\\\t\\\\v-\\\\a\\\\b\\\\f\\\\n\\\\r\\\\t\\\\v]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_escape_decoding[\"-a\\\\\"b-a\"b]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_escape_decoding[\"-a\\\\\"b-a\"b]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_escape_decoding[\"-a\\\\\"b-a\"b]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_escape_decoding[\"-a\\\\'b-a'b]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_escape_decoding[\"-a\\\\'b-a'b]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_escape_decoding[\"-a\\\\'b-a'b]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_escape_decoding[\"-a'b-a'b]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_escape_decoding[\"-a'b-a'b]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_escape_decoding[\"-a'b-a'b]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_escape_decoding[\"-\\\\a\\\\b\\\\f\\\\n\\\\r\\\\t\\\\v-\\x07\\x08\\x0c\\n\\r\\t\\x0b]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_escape_decoding[\"-\\\\a\\\\b\\\\f\\\\n\\\\r\\\\t\\\\v-\\x07\\x08\\x0c\\n\\r\\t\\x0b]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_escape_decoding[\"-\\\\a\\\\b\\\\f\\\\n\\\\r\\\\t\\\\v-\\x07\\x08\\x0c\\n\\r\\t\\x0b]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_escape_decoding[\"-\\\\\\\\n\\\\n-\\\\n\\n]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_escape_decoding[\"-\\\\\\\\n\\\\n-\\\\n\\n]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_escape_decoding[\"-\\\\\\\\n\\\\n-\\\\n\\n]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_escape_decoding['-caf\\xe9\\\\q\\\\0\\\\x41\\\\u0041\\\\U00000041\\\\N{LATIN CAPITAL LETTER A}\\\\$-caf\\xe9\\\\q\\\\0\\\\x41\\\\u0041\\\\U00000041\\\\N{LATIN CAPITAL LETTER A}\\\\$]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_escape_decoding['-caf\\xe9\\\\q\\\\0\\\\x41\\\\u0041\\\\U00000041\\\\N{LATIN CAPITAL LETTER A}\\\\$-caf\\xe9\\\\q\\\\0\\\\x41\\\\u0041\\\\U00000041\\\\N{LATIN CAPITAL LETTER A}\\\\$]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_escape_decoding['-caf\\xe9\\\\q\\\\0\\\\x41\\\\u0041\\\\U00000041\\\\N{LATIN CAPITAL LETTER A}\\\\$-caf\\xe9\\\\q\\\\0\\\\x41\\\\u0041\\\\U00000041\\\\N{LATIN CAPITAL LETTER A}\\\\$]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_escape_decoding[\"-caf\\xe9\\\\q\\\\0\\\\x41\\\\u0041\\\\U00000041\\\\N{LATIN CAPITAL LETTER A}\\\\$-caf\\xe9\\\\q\\\\0\\\\x41\\\\u0041\\\\U00000041\\\\N{LATIN CAPITAL LETTER A}\\\\$]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_escape_decoding[\"-caf\\xe9\\\\q\\\\0\\\\x41\\\\u0041\\\\U00000041\\\\N{LATIN CAPITAL LETTER A}\\\\$-caf\\xe9\\\\q\\\\0\\\\x41\\\\u0041\\\\U00000041\\\\N{LATIN CAPITAL LETTER A}\\\\$]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_escape_decoding[\"-caf\\xe9\\\\q\\\\0\\\\x41\\\\u0041\\\\U00000041\\\\N{LATIN CAPITAL LETTER A}\\\\$-caf\\xe9\\\\q\\\\0\\\\x41\\\\u0041\\\\U00000041\\\\N{LATIN CAPITAL LETTER A}\\\\$]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_even_backslashes_allow_the_following_quote_to_close[1-']",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_even_backslashes_allow_the_following_quote_to_close[1-']",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_even_backslashes_allow_the_following_quote_to_close[1-']",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_even_backslashes_allow_the_following_quote_to_close[1-\"]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_even_backslashes_allow_the_following_quote_to_close[1-\"]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_even_backslashes_allow_the_following_quote_to_close[1-\"]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_even_backslashes_allow_the_following_quote_to_close[2-']",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_even_backslashes_allow_the_following_quote_to_close[2-']",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_even_backslashes_allow_the_following_quote_to_close[2-']",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_even_backslashes_allow_the_following_quote_to_close[2-\"]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_even_backslashes_allow_the_following_quote_to_close[2-\"]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_even_backslashes_allow_the_following_quote_to_close[2-\"]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_odd_backslashes_escape_the_following_quote[']",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_odd_backslashes_escape_the_following_quote[']",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_odd_backslashes_escape_the_following_quote[']",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_odd_backslashes_escape_the_following_quote[\"]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_odd_backslashes_escape_the_following_quote[\"]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_odd_backslashes_escape_the_following_quote[\"]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unclosed_quote_raises_parser_error_without_consuming_input[-']",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unclosed_quote_raises_parser_error_without_consuming_input[-']",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unclosed_quote_raises_parser_error_without_consuming_input[-']",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unclosed_quote_raises_parser_error_without_consuming_input[-\"]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unclosed_quote_raises_parser_error_without_consuming_input[-\"]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unclosed_quote_raises_parser_error_without_consuming_input[-\"]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unclosed_quote_raises_parser_error_without_consuming_input[unterminated\\r\\nvalue-']",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unclosed_quote_raises_parser_error_without_consuming_input[unterminated\\r\\nvalue-']",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unclosed_quote_raises_parser_error_without_consuming_input[unterminated\\r\\nvalue-']",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unclosed_quote_raises_parser_error_without_consuming_input[unterminated\\r\\nvalue-\"]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unclosed_quote_raises_parser_error_without_consuming_input[unterminated\\r\\nvalue-\"]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unclosed_quote_raises_parser_error_without_consuming_input[unterminated\\r\\nvalue-\"]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unclosed_quote_raises_parser_error_without_consuming_input[ends in a backslash\\\\-']",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unclosed_quote_raises_parser_error_without_consuming_input[ends in a backslash\\\\-']",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unclosed_quote_raises_parser_error_without_consuming_input[ends in a backslash\\\\-']",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unclosed_quote_raises_parser_error_without_consuming_input[ends in a backslash\\\\-\"]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unclosed_quote_raises_parser_error_without_consuming_input[ends in a backslash\\\\-\"]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unclosed_quote_raises_parser_error_without_consuming_input[ends in a backslash\\\\-\"]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_escaped_final_quote_cannot_close_value[']",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_escaped_final_quote_cannot_close_value[']",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_escaped_final_quote_cannot_close_value[']",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_escaped_final_quote_cannot_close_value[\"]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_escaped_final_quote_cannot_close_value[\"]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_escaped_final_quote_cannot_close_value[\"]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          }
+        ],
+        "collection_errors": [],
+        "focal": {
+          "executed": true,
+          "line_total": 10,
+          "line_covered": 10,
+          "line_rate": 1.0,
+          "branch_total": 6,
+          "branch_covered": 6,
+          "branch_rate": 1.0,
+          "executable_lines": [
+            131,
+            132,
+            133,
+            134,
+            135,
+            136,
+            137,
+            138,
+            139,
+            141
+          ],
+          "covered_lines": [
+            131,
+            132,
+            133,
+            134,
+            135,
+            136,
+            137,
+            138,
+            139,
+            141
+          ],
+          "branches": {
+            "135": {
+              "total": 2,
+              "covered": 2
+            },
+            "132": {
+              "total": 2,
+              "covered": 2
+            },
+            "138": {
+              "total": 2,
+              "covered": 2
+            }
+          }
+        }
+      }
+    },
+    "defects_eligible": null,
+    "defects_measured": null,
+    "defects_detected": null,
+    "detection_complete": null,
+    "total_seconds": 0.5227280410472304
+  },
+  "preparation_seconds": 0.01051495794672519,
+  "submission_sha256": "f80ec9cd948f870ca24589e925f55bea270e902c17d16e7fa8db05980024f485",
+  "finished_at": "2026-11-22T04:11:18.060717+00:00",
+  "review": {
+    "behavioral_assertions": true,
+    "no_target_mock": true,
+    "no_production_changes": true,
+    "defect_attribution": {
+      "DOT-01-sem-escapes": true
+    },
+    "dependency_doubles": false,
+    "reviewer": "Gabriel Lopes Pereira",
+    "created_at": "2026-11-22T05:07:51.013486+00:00"
+  },
+  "reviewed_evaluation": {
+    "target_id": "parse_value",
+    "test_kind": "unit",
+    "received": true,
+    "syntax_ok": true,
+    "collected": 54,
+    "active_started": true,
+    "reference_passed": true,
+    "approval": "approved",
+    "approved": true,
+    "coverage_raw": {
+      "executed": true,
+      "line_total": 10,
+      "line_covered": 10,
+      "line_rate": 1.0,
+      "branch_total": 6,
+      "branch_covered": 6,
+      "branch_rate": 1.0,
+      "executable_lines": [
+        131,
+        132,
+        133,
+        134,
+        135,
+        136,
+        137,
+        138,
+        139,
+        141
+      ],
+      "covered_lines": [
+        131,
+        132,
+        133,
+        134,
+        135,
+        136,
+        137,
+        138,
+        139,
+        141
+      ],
+      "branches": {
+        "135": {
+          "total": 2,
+          "covered": 2
+        },
+        "132": {
+          "total": 2,
+          "covered": 2
+        },
+        "138": {
+          "total": 2,
+          "covered": 2
+        }
+      }
+    },
+    "coverage_main": {
+      "executed": true,
+      "line_total": 10,
+      "line_covered": 10,
+      "line_rate": 1.0,
+      "branch_total": 6,
+      "branch_covered": 6,
+      "branch_rate": 1.0,
+      "executable_lines": [
+        131,
+        132,
+        133,
+        134,
+        135,
+        136,
+        137,
+        138,
+        139,
+        141
+      ],
+      "covered_lines": [
+        131,
+        132,
+        133,
+        134,
+        135,
+        136,
+        137,
+        138,
+        139,
+        141
+      ],
+      "branches": {
+        "135": {
+          "total": 2,
+          "covered": 2
+        },
+        "132": {
+          "total": 2,
+          "covered": 2
+        },
+        "138": {
+          "total": 2,
+          "covered": 2
+        }
+      }
+    },
+    "defects": [
+      {
+        "id": "DOT-01-sem-escapes",
+        "eligible": true,
+        "validation": {
+          "id": "DOT-01-sem-escapes",
+          "eligible": true,
+          "project_sha256": "6bcde34bd3360d411621e27684efbd8afd30c701647c1ef098355a19c23f408d",
+          "definition_sha256": "0fa554f81b73213b1e9b1840f37b910fae0b7c164762a0f8afaa3cee465ccd7f",
+          "reason": null,
+          "baseline": {
+            "status": "completed",
+            "seconds": 0.5604134170571342,
+            "exit_code": 0,
+            "production_unchanged": true,
+            "collected": 1,
+            "active_started": true,
+            "active_count": 1,
+            "passed_count": 1,
+            "skipped_count": 0,
+            "xfail_count": 0,
+            "failure_categories": [],
+            "reference_passed": true,
+            "assertion_failure": false,
+            "focal": {
+              "executed": true,
+              "line_total": 10,
+              "line_covered": 5,
+              "line_rate": 0.5,
+              "branch_total": 6,
+              "branch_covered": 2,
+              "branch_rate": 0.3333333333333333,
+              "executable_lines": [
+                131,
+                132,
+                133,
+                134,
+                135,
+                136,
+                137,
+                138,
+                139,
+                141
+              ],
+              "covered_lines": [
+                131,
+                132,
+                135,
+                136,
+                137
+              ],
+              "branches": {
+                "135": {
+                  "total": 2,
+                  "covered": 1
+                },
+                "132": {
+                  "total": 2,
+                  "covered": 1
+                },
+                "138": {
+                  "total": 2,
+                  "covered": 0
+                }
+              }
+            },
+            "raw": {
+              "exit_code": 0,
+              "collected": 1,
+              "reports": [
+                {
+                  "nodeid": "tcc_referencia/test_ref_parse_value.py::test_aspas_duplas_decodificam_quebra_de_linha",
+                  "when": "setup",
+                  "outcome": "passed",
+                  "exception": null,
+                  "assertion_failure": false,
+                  "expected_failure": false,
+                  "message": null
+                },
+                {
+                  "nodeid": "tcc_referencia/test_ref_parse_value.py::test_aspas_duplas_decodificam_quebra_de_linha",
+                  "when": "call",
+                  "outcome": "passed",
+                  "exception": null,
+                  "assertion_failure": false,
+                  "expected_failure": false,
+                  "message": null
+                },
+                {
+                  "nodeid": "tcc_referencia/test_ref_parse_value.py::test_aspas_duplas_decodificam_quebra_de_linha",
+                  "when": "teardown",
+                  "outcome": "passed",
+                  "exception": null,
+                  "assertion_failure": false,
+                  "expected_failure": false,
+                  "message": null
+                }
+              ],
+              "collection_errors": [],
+              "focal": {
+                "executed": true,
+                "line_total": 10,
+                "line_covered": 5,
+                "line_rate": 0.5,
+                "branch_total": 6,
+                "branch_covered": 2,
+                "branch_rate": 0.3333333333333333,
+                "executable_lines": [
+                  131,
+                  132,
+                  133,
+                  134,
+                  135,
+                  136,
+                  137,
+                  138,
+                  139,
+                  141
+                ],
+                "covered_lines": [
+                  131,
+                  132,
+                  135,
+                  136,
+                  137
+                ],
+                "branches": {
+                  "135": {
+                    "total": 2,
+                    "covered": 1
+                  },
+                  "132": {
+                    "total": 2,
+                    "covered": 1
+                  },
+                  "138": {
+                    "total": 2,
+                    "covered": 0
+                  }
+                }
+              }
+            }
+          },
+          "mutated": {
+            "status": "completed",
+            "seconds": 0.527600958943367,
+            "exit_code": 1,
+            "production_unchanged": true,
+            "collected": 1,
+            "active_started": true,
+            "active_count": 1,
+            "passed_count": 0,
+            "skipped_count": 0,
+            "xfail_count": 0,
+            "failure_categories": [
+              "assertion_failure"
+            ],
+            "reference_passed": false,
+            "assertion_failure": true,
+            "focal": {
+              "executed": true,
+              "line_total": 10,
+              "line_covered": 5,
+              "line_rate": 0.5,
+              "branch_total": 6,
+              "branch_covered": 2,
+              "branch_rate": 0.3333333333333333,
+              "executable_lines": [
+                131,
+                132,
+                133,
+                134,
+                135,
+                136,
+                137,
+                138,
+                139,
+                141
+              ],
+              "covered_lines": [
+                131,
+                132,
+                135,
+                136,
+                137
+              ],
+              "branches": {
+                "135": {
+                  "total": 2,
+                  "covered": 1
+                },
+                "132": {
+                  "total": 2,
+                  "covered": 1
+                },
+                "138": {
+                  "total": 2,
+                  "covered": 0
+                }
+              }
+            },
+            "raw": {
+              "exit_code": 1,
+              "collected": 1,
+              "reports": [
+                {
+                  "nodeid": "tcc_referencia/test_ref_parse_value.py::test_aspas_duplas_decodificam_quebra_de_linha",
+                  "when": "setup",
+                  "outcome": "passed",
+                  "exception": null,
+                  "assertion_failure": false,
+                  "expected_failure": false,
+                  "message": null
+                },
+                {
+                  "nodeid": "tcc_referencia/test_ref_parse_value.py::test_aspas_duplas_decodificam_quebra_de_linha",
+                  "when": "call",
+                  "outcome": "failed",
+                  "exception": "AssertionError",
+                  "assertion_failure": true,
+                  "expected_failure": false,
+                  "message": "tcc_referencia/test_ref_parse_value.py:56: in test_aspas_duplas_decodificam_quebra_de_linha\n    assert parse_value(leitor) == \"linha1\\nlinha2\"\nE   AssertionError: assert 'linha1\\\\nlinha2' == 'linha1\\nlinha2'\nE     \nE     + linha1\\nlinha2\nE     - linha1\nE     - linha2"
+                },
+                {
+                  "nodeid": "tcc_referencia/test_ref_parse_value.py::test_aspas_duplas_decodificam_quebra_de_linha",
+                  "when": "teardown",
+                  "outcome": "passed",
+                  "exception": null,
+                  "assertion_failure": false,
+                  "expected_failure": false,
+                  "message": null
+                }
+              ],
+              "collection_errors": [],
+              "focal": {
+                "executed": true,
+                "line_total": 10,
+                "line_covered": 5,
+                "line_rate": 0.5,
+                "branch_total": 6,
+                "branch_covered": 2,
+                "branch_rate": 0.3333333333333333,
+                "executable_lines": [
+                  131,
+                  132,
+                  133,
+                  134,
+                  135,
+                  136,
+                  137,
+                  138,
+                  139,
+                  141
+                ],
+                "covered_lines": [
+                  131,
+                  132,
+                  135,
+                  136,
+                  137
+                ],
+                "branches": {
+                  "135": {
+                    "total": 2,
+                    "covered": 1
+                  },
+                  "132": {
+                    "total": 2,
+                    "covered": 1
+                  },
+                  "138": {
+                    "total": 2,
+                    "covered": 0
+                  }
+                }
+              }
+            }
+          }
+        },
+        "detected": true,
+        "status": "detected",
+        "run": {
+          "status": "completed",
+          "seconds": 0.6349282920127735,
+          "exit_code": 1,
+          "production_unchanged": true,
+          "collected": 54,
+          "active_started": true,
+          "active_count": 54,
+          "passed_count": 47,
+          "skipped_count": 0,
+          "xfail_count": 0,
+          "failure_categories": [
+            "assertion_failure"
+          ],
+          "reference_passed": false,
+          "assertion_failure": true,
+          "focal": {
+            "executed": true,
+            "line_total": 10,
+            "line_covered": 10,
+            "line_rate": 1.0,
+            "branch_total": 6,
+            "branch_covered": 6,
+            "branch_rate": 1.0,
+            "executable_lines": [
+              131,
+              132,
+              133,
+              134,
+              135,
+              136,
+              137,
+              138,
+              139,
+              141
+            ],
+            "covered_lines": [
+              131,
+              132,
+              133,
+              134,
+              135,
+              136,
+              137,
+              138,
+              139,
+              141
+            ],
+            "branches": {
+              "135": {
+                "total": 2,
+                "covered": 2
+              },
+              "132": {
+                "total": 2,
+                "covered": 2
+              },
+              "138": {
+                "total": 2,
+                "covered": 2
+              }
+            }
+          },
+          "raw": {
+            "exit_code": 1,
+            "collected": 54,
+            "reports": [
+              {
+                "nodeid": "::test_empty_value_leaves_line_ending_unread[]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_empty_value_leaves_line_ending_unread[]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_empty_value_leaves_line_ending_unread[]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_empty_value_leaves_line_ending_unread[\\n]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_empty_value_leaves_line_ending_unread[\\n]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_empty_value_leaves_line_ending_unread[\\n]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_empty_value_leaves_line_ending_unread[\\r]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_empty_value_leaves_line_ending_unread[\\r]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_empty_value_leaves_line_ending_unread[\\r]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_empty_value_leaves_line_ending_unread[\\r\\n]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_empty_value_leaves_line_ending_unread[\\r\\n]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_empty_value_leaves_line_ending_unread[\\r\\n]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_unquoted_value_and_remaining_input[text-text-]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_unquoted_value_and_remaining_input[text-text-]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_unquoted_value_and_remaining_input[text-text-]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_unquoted_value_and_remaining_input[  alpha  beta\\t  \\nNEXT=1-  alpha  beta-\\nNEXT=1]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_unquoted_value_and_remaining_input[  alpha  beta\\t  \\nNEXT=1-  alpha  beta-\\nNEXT=1]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_unquoted_value_and_remaining_input[  alpha  beta\\t  \\nNEXT=1-  alpha  beta-\\nNEXT=1]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_unquoted_value_and_remaining_input[value\\rNEXT=1-value-\\rNEXT=1]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_unquoted_value_and_remaining_input[value\\rNEXT=1-value-\\rNEXT=1]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_unquoted_value_and_remaining_input[value\\rNEXT=1-value-\\rNEXT=1]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_unquoted_value_and_remaining_input[value\\r\\nNEXT=1-value-\\r\\nNEXT=1]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_unquoted_value_and_remaining_input[value\\r\\nNEXT=1-value-\\r\\nNEXT=1]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_unquoted_value_and_remaining_input[value\\r\\nNEXT=1-value-\\r\\nNEXT=1]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_unquoted_value_and_remaining_input[ \\t\\u2003\\n--\\n]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_unquoted_value_and_remaining_input[ \\t\\u2003\\n--\\n]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_unquoted_value_and_remaining_input[ \\t\\u2003\\n--\\n]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_unquoted_value_and_remaining_input[value\\u2003-value-]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_unquoted_value_and_remaining_input[value\\u2003-value-]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_unquoted_value_and_remaining_input[value\\u2003-value-]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_unquoted_value_and_remaining_input[#literal hash-#literal hash-]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_unquoted_value_and_remaining_input[#literal hash-#literal hash-]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_unquoted_value_and_remaining_input[#literal hash-#literal hash-]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_unquoted_value_and_remaining_input[value#tag\\t # discarded # text\\nNEXT=1-value#tag-\\nNEXT=1]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_unquoted_value_and_remaining_input[value#tag\\t # discarded # text\\nNEXT=1-value#tag-\\nNEXT=1]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_unquoted_value_and_remaining_input[value#tag\\t # discarded # text\\nNEXT=1-value#tag-\\nNEXT=1]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_unquoted_value_and_remaining_input[value\\t# discarded-value-]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_unquoted_value_and_remaining_input[value\\t# discarded-value-]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_unquoted_value_and_remaining_input[value\\t# discarded-value-]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_unquoted_value_and_remaining_input[caf\\xe9\\u2003# discarded-caf\\xe9-]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_unquoted_value_and_remaining_input[caf\\xe9\\u2003# discarded-caf\\xe9-]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_unquoted_value_and_remaining_input[caf\\xe9\\u2003# discarded-caf\\xe9-]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_unquoted_value_and_remaining_input[ \\t# discarded\\r--\\r]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_unquoted_value_and_remaining_input[ \\t# discarded\\r--\\r]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_unquoted_value_and_remaining_input[ \\t# discarded\\r--\\r]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_unquoted_value_and_remaining_input[value # discarded\\u2028still discarded-value-]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_unquoted_value_and_remaining_input[value # discarded\\u2028still discarded-value-]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_unquoted_value_and_remaining_input[value # discarded\\u2028still discarded-value-]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_unquoted_value_and_remaining_input[left\\x0bcenter\\u2028right-left\\x0bcenter\\u2028right-]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_unquoted_value_and_remaining_input[left\\x0bcenter\\u2028right-left\\x0bcenter\\u2028right-]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_unquoted_value_and_remaining_input[left\\x0bcenter\\u2028right-left\\x0bcenter\\u2028right-]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_unquoted_value_and_remaining_input[one 'two' \"three\" = four-one 'two' \"three\" = four-]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_unquoted_value_and_remaining_input[one 'two' \"three\" = four-one 'two' \"three\" = four-]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_unquoted_value_and_remaining_input[one 'two' \"three\" = four-one 'two' \"three\" = four-]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_unquoted_value_and_remaining_input[ 'quoted' # discarded- 'quoted'-]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_unquoted_value_and_remaining_input[ 'quoted' # discarded- 'quoted'-]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_unquoted_value_and_remaining_input[ 'quoted' # discarded- 'quoted'-]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_unquoted_value_and_remaining_input[one\\\\ntwo\\\\#tag\\\\q-one\\\\ntwo\\\\#tag\\\\q-]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_unquoted_value_and_remaining_input[one\\\\ntwo\\\\#tag\\\\q-one\\\\ntwo\\\\#tag\\\\q-]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_unquoted_value_and_remaining_input[one\\\\ntwo\\\\#tag\\\\q-one\\\\ntwo\\\\#tag\\\\q-]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_unquoted_value_and_remaining_input[value\\\\\\nNEXT=1-value\\\\-\\nNEXT=1]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_unquoted_value_and_remaining_input[value\\\\\\nNEXT=1-value\\\\-\\nNEXT=1]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_unquoted_value_and_remaining_input[value\\\\\\nNEXT=1-value\\\\-\\nNEXT=1]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_quoted_value_preserves_literal_body_and_leaves_suffix[-']",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_quoted_value_preserves_literal_body_and_leaves_suffix[-']",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_quoted_value_preserves_literal_body_and_leaves_suffix[-']",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_quoted_value_preserves_literal_body_and_leaves_suffix[-\"]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_quoted_value_preserves_literal_body_and_leaves_suffix[-\"]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_quoted_value_preserves_literal_body_and_leaves_suffix[-\"]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_quoted_value_preserves_literal_body_and_leaves_suffix[ \\tcaf\\xe9 # literal\\t -']",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_quoted_value_preserves_literal_body_and_leaves_suffix[ \\tcaf\\xe9 # literal\\t -']",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_quoted_value_preserves_literal_body_and_leaves_suffix[ \\tcaf\\xe9 # literal\\t -']",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_quoted_value_preserves_literal_body_and_leaves_suffix[ \\tcaf\\xe9 # literal\\t -\"]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_quoted_value_preserves_literal_body_and_leaves_suffix[ \\tcaf\\xe9 # literal\\t -\"]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_quoted_value_preserves_literal_body_and_leaves_suffix[ \\tcaf\\xe9 # literal\\t -\"]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_quoted_value_preserves_literal_body_and_leaves_suffix[first\\nsecond\\r\\nthird\\rfourth-']",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_quoted_value_preserves_literal_body_and_leaves_suffix[first\\nsecond\\r\\nthird\\rfourth-']",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_quoted_value_preserves_literal_body_and_leaves_suffix[first\\nsecond\\r\\nthird\\rfourth-']",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_quoted_value_preserves_literal_body_and_leaves_suffix[first\\nsecond\\r\\nthird\\rfourth-\"]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_quoted_value_preserves_literal_body_and_leaves_suffix[first\\nsecond\\r\\nthird\\rfourth-\"]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_quoted_value_preserves_literal_body_and_leaves_suffix[first\\nsecond\\r\\nthird\\rfourth-\"]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_quoted_value_preserves_literal_body_and_leaves_suffix[left\\\\\\nright-']",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_quoted_value_preserves_literal_body_and_leaves_suffix[left\\\\\\nright-']",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_quoted_value_preserves_literal_body_and_leaves_suffix[left\\\\\\nright-']",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_quoted_value_preserves_literal_body_and_leaves_suffix[left\\\\\\nright-\"]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_quoted_value_preserves_literal_body_and_leaves_suffix[left\\\\\\nright-\"]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_quoted_value_preserves_literal_body_and_leaves_suffix[left\\\\\\nright-\"]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_quoted_escape_decoding['-a\\\\'b-a'b]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_quoted_escape_decoding['-a\\\\'b-a'b]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_quoted_escape_decoding['-a\\\\'b-a'b]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_quoted_escape_decoding['-a\\\\\"b-a\\\\\"b]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_quoted_escape_decoding['-a\\\\\"b-a\\\\\"b]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_quoted_escape_decoding['-a\\\\\"b-a\\\\\"b]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_quoted_escape_decoding['-a\"b-a\"b]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_quoted_escape_decoding['-a\"b-a\"b]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_quoted_escape_decoding['-a\"b-a\"b]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_quoted_escape_decoding['-\\\\a\\\\b\\\\f\\\\n\\\\r\\\\t\\\\v-\\\\a\\\\b\\\\f\\\\n\\\\r\\\\t\\\\v]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_quoted_escape_decoding['-\\\\a\\\\b\\\\f\\\\n\\\\r\\\\t\\\\v-\\\\a\\\\b\\\\f\\\\n\\\\r\\\\t\\\\v]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_quoted_escape_decoding['-\\\\a\\\\b\\\\f\\\\n\\\\r\\\\t\\\\v-\\\\a\\\\b\\\\f\\\\n\\\\r\\\\t\\\\v]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_quoted_escape_decoding[\"-a\\\\\"b-a\"b]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_quoted_escape_decoding[\"-a\\\\\"b-a\"b]",
+                "when": "call",
+                "outcome": "failed",
+                "exception": "AssertionError",
+                "assertion_failure": true,
+                "expected_failure": false,
+                "message": "/submission/test_generated.py:84: in test_quoted_escape_decoding\n    assert parse_value(reader) == expected\nE   assert 'a\\\\\"b' == 'a\"b'\nE     \nE     - a\"b\nE     + a\\\"b\nE     ?  +"
+              },
+              {
+                "nodeid": "::test_quoted_escape_decoding[\"-a\\\\\"b-a\"b]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_quoted_escape_decoding[\"-a\\\\'b-a'b]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_quoted_escape_decoding[\"-a\\\\'b-a'b]",
+                "when": "call",
+                "outcome": "failed",
+                "exception": "AssertionError",
+                "assertion_failure": true,
+                "expected_failure": false,
+                "message": "/submission/test_generated.py:84: in test_quoted_escape_decoding\n    assert parse_value(reader) == expected\nE   assert \"a\\\\'b\" == \"a'b\"\nE     \nE     - a'b\nE     + a\\'b\nE     ?  +"
+              },
+              {
+                "nodeid": "::test_quoted_escape_decoding[\"-a\\\\'b-a'b]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_quoted_escape_decoding[\"-a'b-a'b]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_quoted_escape_decoding[\"-a'b-a'b]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_quoted_escape_decoding[\"-a'b-a'b]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_quoted_escape_decoding[\"-\\\\a\\\\b\\\\f\\\\n\\\\r\\\\t\\\\v-\\x07\\x08\\x0c\\n\\r\\t\\x0b]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_quoted_escape_decoding[\"-\\\\a\\\\b\\\\f\\\\n\\\\r\\\\t\\\\v-\\x07\\x08\\x0c\\n\\r\\t\\x0b]",
+                "when": "call",
+                "outcome": "failed",
+                "exception": "AssertionError",
+                "assertion_failure": true,
+                "expected_failure": false,
+                "message": "/submission/test_generated.py:84: in test_quoted_escape_decoding\n    assert parse_value(reader) == expected\nE   AssertionError: assert '\\\\a\\\\b\\\\f\\\\n\\\\r\\\\t\\\\v' == '\\x07\\x08\\x0c\\n\\r\\t\\x0b'\nE     \nE     + \\a\\b\\f\\n\\r\\t\\v\nE     - \u0007\b\nE     \nE     - \nE     - \nE     -"
+              },
+              {
+                "nodeid": "::test_quoted_escape_decoding[\"-\\\\a\\\\b\\\\f\\\\n\\\\r\\\\t\\\\v-\\x07\\x08\\x0c\\n\\r\\t\\x0b]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_quoted_escape_decoding[\"-\\\\\\\\n\\\\n-\\\\n\\n]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_quoted_escape_decoding[\"-\\\\\\\\n\\\\n-\\\\n\\n]",
+                "when": "call",
+                "outcome": "failed",
+                "exception": "AssertionError",
+                "assertion_failure": true,
+                "expected_failure": false,
+                "message": "/submission/test_generated.py:84: in test_quoted_escape_decoding\n    assert parse_value(reader) == expected\nE   AssertionError: assert '\\\\\\\\n\\\\n' == '\\\\n\\n'\nE     \nE     - \\n\nE     + \\\\n\\n"
+              },
+              {
+                "nodeid": "::test_quoted_escape_decoding[\"-\\\\\\\\n\\\\n-\\\\n\\n]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_quoted_escape_decoding['-caf\\xe9\\\\q\\\\0\\\\x41\\\\u0041\\\\U00000041\\\\N{LATIN CAPITAL LETTER A}\\\\$-caf\\xe9\\\\q\\\\0\\\\x41\\\\u0041\\\\U00000041\\\\N{LATIN CAPITAL LETTER A}\\\\$]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_quoted_escape_decoding['-caf\\xe9\\\\q\\\\0\\\\x41\\\\u0041\\\\U00000041\\\\N{LATIN CAPITAL LETTER A}\\\\$-caf\\xe9\\\\q\\\\0\\\\x41\\\\u0041\\\\U00000041\\\\N{LATIN CAPITAL LETTER A}\\\\$]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_quoted_escape_decoding['-caf\\xe9\\\\q\\\\0\\\\x41\\\\u0041\\\\U00000041\\\\N{LATIN CAPITAL LETTER A}\\\\$-caf\\xe9\\\\q\\\\0\\\\x41\\\\u0041\\\\U00000041\\\\N{LATIN CAPITAL LETTER A}\\\\$]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_quoted_escape_decoding[\"-caf\\xe9\\\\q\\\\0\\\\x41\\\\u0041\\\\U00000041\\\\N{LATIN CAPITAL LETTER A}\\\\$-caf\\xe9\\\\q\\\\0\\\\x41\\\\u0041\\\\U00000041\\\\N{LATIN CAPITAL LETTER A}\\\\$]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_quoted_escape_decoding[\"-caf\\xe9\\\\q\\\\0\\\\x41\\\\u0041\\\\U00000041\\\\N{LATIN CAPITAL LETTER A}\\\\$-caf\\xe9\\\\q\\\\0\\\\x41\\\\u0041\\\\U00000041\\\\N{LATIN CAPITAL LETTER A}\\\\$]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_quoted_escape_decoding[\"-caf\\xe9\\\\q\\\\0\\\\x41\\\\u0041\\\\U00000041\\\\N{LATIN CAPITAL LETTER A}\\\\$-caf\\xe9\\\\q\\\\0\\\\x41\\\\u0041\\\\U00000041\\\\N{LATIN CAPITAL LETTER A}\\\\$]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_even_backslashes_allow_the_following_quote_to_close[1-']",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_even_backslashes_allow_the_following_quote_to_close[1-']",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_even_backslashes_allow_the_following_quote_to_close[1-']",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_even_backslashes_allow_the_following_quote_to_close[1-\"]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_even_backslashes_allow_the_following_quote_to_close[1-\"]",
+                "when": "call",
+                "outcome": "failed",
+                "exception": "AssertionError",
+                "assertion_failure": true,
+                "expected_failure": false,
+                "message": "/submission/test_generated.py:95: in test_even_backslashes_allow_the_following_quote_to_close\n    assert parse_value(reader) == \"end\" + \"\\\\\" * pair_count\nE   AssertionError: assert 'end\\\\\\\\' == 'end\\\\'\nE     \nE     - end\\\nE     + end\\\\\nE     ?     +"
+              },
+              {
+                "nodeid": "::test_even_backslashes_allow_the_following_quote_to_close[1-\"]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_even_backslashes_allow_the_following_quote_to_close[2-']",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_even_backslashes_allow_the_following_quote_to_close[2-']",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_even_backslashes_allow_the_following_quote_to_close[2-']",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_even_backslashes_allow_the_following_quote_to_close[2-\"]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_even_backslashes_allow_the_following_quote_to_close[2-\"]",
+                "when": "call",
+                "outcome": "failed",
+                "exception": "AssertionError",
+                "assertion_failure": true,
+                "expected_failure": false,
+                "message": "/submission/test_generated.py:95: in test_even_backslashes_allow_the_following_quote_to_close\n    assert parse_value(reader) == \"end\" + \"\\\\\" * pair_count\nE   AssertionError: assert 'end\\\\\\\\\\\\\\\\' == 'end\\\\\\\\'\nE     \nE     - end\\\\\nE     + end\\\\\\\\\nE     ?      ++"
+              },
+              {
+                "nodeid": "::test_even_backslashes_allow_the_following_quote_to_close[2-\"]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_odd_backslashes_escape_the_following_quote[']",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_odd_backslashes_escape_the_following_quote[']",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_odd_backslashes_escape_the_following_quote[']",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_odd_backslashes_escape_the_following_quote[\"]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_odd_backslashes_escape_the_following_quote[\"]",
+                "when": "call",
+                "outcome": "failed",
+                "exception": "AssertionError",
+                "assertion_failure": true,
+                "expected_failure": false,
+                "message": "/submission/test_generated.py:104: in test_odd_backslashes_escape_the_following_quote\n    assert parse_value(reader) == \"left\\\\\" + quote + \"right\"\nE   assert 'left\\\\\\\\\\\\\"right' == 'left\\\\\"right'\nE     \nE     - left\\\"right\nE     + left\\\\\\\"right\nE     ?     ++"
+              },
+              {
+                "nodeid": "::test_odd_backslashes_escape_the_following_quote[\"]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_unclosed_quote_raises_parser_error_without_consuming_input[-']",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_unclosed_quote_raises_parser_error_without_consuming_input[-']",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_unclosed_quote_raises_parser_error_without_consuming_input[-']",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_unclosed_quote_raises_parser_error_without_consuming_input[-\"]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_unclosed_quote_raises_parser_error_without_consuming_input[-\"]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_unclosed_quote_raises_parser_error_without_consuming_input[-\"]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_unclosed_quote_raises_parser_error_without_consuming_input[unterminated\\r\\nvalue-']",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_unclosed_quote_raises_parser_error_without_consuming_input[unterminated\\r\\nvalue-']",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_unclosed_quote_raises_parser_error_without_consuming_input[unterminated\\r\\nvalue-']",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_unclosed_quote_raises_parser_error_without_consuming_input[unterminated\\r\\nvalue-\"]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_unclosed_quote_raises_parser_error_without_consuming_input[unterminated\\r\\nvalue-\"]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_unclosed_quote_raises_parser_error_without_consuming_input[unterminated\\r\\nvalue-\"]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_unclosed_quote_raises_parser_error_without_consuming_input[ends in a backslash\\\\-']",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_unclosed_quote_raises_parser_error_without_consuming_input[ends in a backslash\\\\-']",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_unclosed_quote_raises_parser_error_without_consuming_input[ends in a backslash\\\\-']",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_unclosed_quote_raises_parser_error_without_consuming_input[ends in a backslash\\\\-\"]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_unclosed_quote_raises_parser_error_without_consuming_input[ends in a backslash\\\\-\"]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_unclosed_quote_raises_parser_error_without_consuming_input[ends in a backslash\\\\-\"]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_escaped_final_quote_cannot_close_value[']",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_escaped_final_quote_cannot_close_value[']",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_escaped_final_quote_cannot_close_value[']",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_escaped_final_quote_cannot_close_value[\"]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_escaped_final_quote_cannot_close_value[\"]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_escaped_final_quote_cannot_close_value[\"]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              }
+            ],
+            "collection_errors": [],
+            "focal": {
+              "executed": true,
+              "line_total": 10,
+              "line_covered": 10,
+              "line_rate": 1.0,
+              "branch_total": 6,
+              "branch_covered": 6,
+              "branch_rate": 1.0,
+              "executable_lines": [
+                131,
+                132,
+                133,
+                134,
+                135,
+                136,
+                137,
+                138,
+                139,
+                141
+              ],
+              "covered_lines": [
+                131,
+                132,
+                133,
+                134,
+                135,
+                136,
+                137,
+                138,
+                139,
+                141
+              ],
+              "branches": {
+                "135": {
+                  "total": 2,
+                  "covered": 2
+                },
+                "132": {
+                  "total": 2,
+                  "covered": 2
+                },
+                "138": {
+                  "total": 2,
+                  "covered": 2
+                }
+              }
+            }
+          }
+        }
+      }
+    ],
+    "detection_rate": 1.0,
+    "review": {
+      "behavioral_assertions": true,
+      "no_target_mock": true,
+      "no_production_changes": true,
+      "defect_attribution": {
+        "DOT-01-sem-escapes": true
+      },
+      "dependency_doubles": false,
+      "reviewer": "Gabriel Lopes Pereira",
+      "created_at": "2026-11-22T05:07:51.013486+00:00"
+    },
+    "backend": "docker",
+    "submission_sha256": "f80ec9cd948f870ca24589e925f55bea270e902c17d16e7fa8db05980024f485",
+    "status": "completed",
+    "seconds": 0.5733916249591857,
+    "active_count": 54,
+    "passed_count": 54,
+    "skipped_count": 0,
+    "xfail_count": 0,
+    "failure_categories": [],
+    "original": {
+      "status": "completed",
+      "seconds": 0.5733916249591857,
+      "exit_code": 0,
+      "production_unchanged": true,
+      "collected": 54,
+      "active_started": true,
+      "active_count": 54,
+      "passed_count": 54,
+      "skipped_count": 0,
+      "xfail_count": 0,
+      "failure_categories": [],
+      "reference_passed": true,
+      "assertion_failure": false,
+      "focal": {
+        "executed": true,
+        "line_total": 10,
+        "line_covered": 10,
+        "line_rate": 1.0,
+        "branch_total": 6,
+        "branch_covered": 6,
+        "branch_rate": 1.0,
+        "executable_lines": [
+          131,
+          132,
+          133,
+          134,
+          135,
+          136,
+          137,
+          138,
+          139,
+          141
+        ],
+        "covered_lines": [
+          131,
+          132,
+          133,
+          134,
+          135,
+          136,
+          137,
+          138,
+          139,
+          141
+        ],
+        "branches": {
+          "135": {
+            "total": 2,
+            "covered": 2
+          },
+          "132": {
+            "total": 2,
+            "covered": 2
+          },
+          "138": {
+            "total": 2,
+            "covered": 2
+          }
+        }
+      },
+      "raw": {
+        "exit_code": 0,
+        "collected": 54,
+        "reports": [
+          {
+            "nodeid": "::test_empty_value_leaves_line_ending_unread[]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_empty_value_leaves_line_ending_unread[]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_empty_value_leaves_line_ending_unread[]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_empty_value_leaves_line_ending_unread[\\n]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_empty_value_leaves_line_ending_unread[\\n]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_empty_value_leaves_line_ending_unread[\\n]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_empty_value_leaves_line_ending_unread[\\r]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_empty_value_leaves_line_ending_unread[\\r]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_empty_value_leaves_line_ending_unread[\\r]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_empty_value_leaves_line_ending_unread[\\r\\n]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_empty_value_leaves_line_ending_unread[\\r\\n]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_empty_value_leaves_line_ending_unread[\\r\\n]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unquoted_value_and_remaining_input[text-text-]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unquoted_value_and_remaining_input[text-text-]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unquoted_value_and_remaining_input[text-text-]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unquoted_value_and_remaining_input[  alpha  beta\\t  \\nNEXT=1-  alpha  beta-\\nNEXT=1]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unquoted_value_and_remaining_input[  alpha  beta\\t  \\nNEXT=1-  alpha  beta-\\nNEXT=1]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unquoted_value_and_remaining_input[  alpha  beta\\t  \\nNEXT=1-  alpha  beta-\\nNEXT=1]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unquoted_value_and_remaining_input[value\\rNEXT=1-value-\\rNEXT=1]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unquoted_value_and_remaining_input[value\\rNEXT=1-value-\\rNEXT=1]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unquoted_value_and_remaining_input[value\\rNEXT=1-value-\\rNEXT=1]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unquoted_value_and_remaining_input[value\\r\\nNEXT=1-value-\\r\\nNEXT=1]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unquoted_value_and_remaining_input[value\\r\\nNEXT=1-value-\\r\\nNEXT=1]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unquoted_value_and_remaining_input[value\\r\\nNEXT=1-value-\\r\\nNEXT=1]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unquoted_value_and_remaining_input[ \\t\\u2003\\n--\\n]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unquoted_value_and_remaining_input[ \\t\\u2003\\n--\\n]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unquoted_value_and_remaining_input[ \\t\\u2003\\n--\\n]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unquoted_value_and_remaining_input[value\\u2003-value-]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unquoted_value_and_remaining_input[value\\u2003-value-]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unquoted_value_and_remaining_input[value\\u2003-value-]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unquoted_value_and_remaining_input[#literal hash-#literal hash-]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unquoted_value_and_remaining_input[#literal hash-#literal hash-]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unquoted_value_and_remaining_input[#literal hash-#literal hash-]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unquoted_value_and_remaining_input[value#tag\\t # discarded # text\\nNEXT=1-value#tag-\\nNEXT=1]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unquoted_value_and_remaining_input[value#tag\\t # discarded # text\\nNEXT=1-value#tag-\\nNEXT=1]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unquoted_value_and_remaining_input[value#tag\\t # discarded # text\\nNEXT=1-value#tag-\\nNEXT=1]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unquoted_value_and_remaining_input[value\\t# discarded-value-]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unquoted_value_and_remaining_input[value\\t# discarded-value-]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unquoted_value_and_remaining_input[value\\t# discarded-value-]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unquoted_value_and_remaining_input[caf\\xe9\\u2003# discarded-caf\\xe9-]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unquoted_value_and_remaining_input[caf\\xe9\\u2003# discarded-caf\\xe9-]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unquoted_value_and_remaining_input[caf\\xe9\\u2003# discarded-caf\\xe9-]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unquoted_value_and_remaining_input[ \\t# discarded\\r--\\r]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unquoted_value_and_remaining_input[ \\t# discarded\\r--\\r]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unquoted_value_and_remaining_input[ \\t# discarded\\r--\\r]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unquoted_value_and_remaining_input[value # discarded\\u2028still discarded-value-]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unquoted_value_and_remaining_input[value # discarded\\u2028still discarded-value-]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unquoted_value_and_remaining_input[value # discarded\\u2028still discarded-value-]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unquoted_value_and_remaining_input[left\\x0bcenter\\u2028right-left\\x0bcenter\\u2028right-]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unquoted_value_and_remaining_input[left\\x0bcenter\\u2028right-left\\x0bcenter\\u2028right-]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unquoted_value_and_remaining_input[left\\x0bcenter\\u2028right-left\\x0bcenter\\u2028right-]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unquoted_value_and_remaining_input[one 'two' \"three\" = four-one 'two' \"three\" = four-]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unquoted_value_and_remaining_input[one 'two' \"three\" = four-one 'two' \"three\" = four-]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unquoted_value_and_remaining_input[one 'two' \"three\" = four-one 'two' \"three\" = four-]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unquoted_value_and_remaining_input[ 'quoted' # discarded- 'quoted'-]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unquoted_value_and_remaining_input[ 'quoted' # discarded- 'quoted'-]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unquoted_value_and_remaining_input[ 'quoted' # discarded- 'quoted'-]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unquoted_value_and_remaining_input[one\\\\ntwo\\\\#tag\\\\q-one\\\\ntwo\\\\#tag\\\\q-]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unquoted_value_and_remaining_input[one\\\\ntwo\\\\#tag\\\\q-one\\\\ntwo\\\\#tag\\\\q-]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unquoted_value_and_remaining_input[one\\\\ntwo\\\\#tag\\\\q-one\\\\ntwo\\\\#tag\\\\q-]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unquoted_value_and_remaining_input[value\\\\\\nNEXT=1-value\\\\-\\nNEXT=1]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unquoted_value_and_remaining_input[value\\\\\\nNEXT=1-value\\\\-\\nNEXT=1]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unquoted_value_and_remaining_input[value\\\\\\nNEXT=1-value\\\\-\\nNEXT=1]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_value_preserves_literal_body_and_leaves_suffix[-']",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_value_preserves_literal_body_and_leaves_suffix[-']",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_value_preserves_literal_body_and_leaves_suffix[-']",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_value_preserves_literal_body_and_leaves_suffix[-\"]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_value_preserves_literal_body_and_leaves_suffix[-\"]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_value_preserves_literal_body_and_leaves_suffix[-\"]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_value_preserves_literal_body_and_leaves_suffix[ \\tcaf\\xe9 # literal\\t -']",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_value_preserves_literal_body_and_leaves_suffix[ \\tcaf\\xe9 # literal\\t -']",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_value_preserves_literal_body_and_leaves_suffix[ \\tcaf\\xe9 # literal\\t -']",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_value_preserves_literal_body_and_leaves_suffix[ \\tcaf\\xe9 # literal\\t -\"]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_value_preserves_literal_body_and_leaves_suffix[ \\tcaf\\xe9 # literal\\t -\"]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_value_preserves_literal_body_and_leaves_suffix[ \\tcaf\\xe9 # literal\\t -\"]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_value_preserves_literal_body_and_leaves_suffix[first\\nsecond\\r\\nthird\\rfourth-']",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_value_preserves_literal_body_and_leaves_suffix[first\\nsecond\\r\\nthird\\rfourth-']",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_value_preserves_literal_body_and_leaves_suffix[first\\nsecond\\r\\nthird\\rfourth-']",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_value_preserves_literal_body_and_leaves_suffix[first\\nsecond\\r\\nthird\\rfourth-\"]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_value_preserves_literal_body_and_leaves_suffix[first\\nsecond\\r\\nthird\\rfourth-\"]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_value_preserves_literal_body_and_leaves_suffix[first\\nsecond\\r\\nthird\\rfourth-\"]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_value_preserves_literal_body_and_leaves_suffix[left\\\\\\nright-']",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_value_preserves_literal_body_and_leaves_suffix[left\\\\\\nright-']",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_value_preserves_literal_body_and_leaves_suffix[left\\\\\\nright-']",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_value_preserves_literal_body_and_leaves_suffix[left\\\\\\nright-\"]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_value_preserves_literal_body_and_leaves_suffix[left\\\\\\nright-\"]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_value_preserves_literal_body_and_leaves_suffix[left\\\\\\nright-\"]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_escape_decoding['-a\\\\'b-a'b]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_escape_decoding['-a\\\\'b-a'b]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_escape_decoding['-a\\\\'b-a'b]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_escape_decoding['-a\\\\\"b-a\\\\\"b]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_escape_decoding['-a\\\\\"b-a\\\\\"b]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_escape_decoding['-a\\\\\"b-a\\\\\"b]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_escape_decoding['-a\"b-a\"b]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_escape_decoding['-a\"b-a\"b]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_escape_decoding['-a\"b-a\"b]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_escape_decoding['-\\\\a\\\\b\\\\f\\\\n\\\\r\\\\t\\\\v-\\\\a\\\\b\\\\f\\\\n\\\\r\\\\t\\\\v]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_escape_decoding['-\\\\a\\\\b\\\\f\\\\n\\\\r\\\\t\\\\v-\\\\a\\\\b\\\\f\\\\n\\\\r\\\\t\\\\v]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_escape_decoding['-\\\\a\\\\b\\\\f\\\\n\\\\r\\\\t\\\\v-\\\\a\\\\b\\\\f\\\\n\\\\r\\\\t\\\\v]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_escape_decoding[\"-a\\\\\"b-a\"b]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_escape_decoding[\"-a\\\\\"b-a\"b]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_escape_decoding[\"-a\\\\\"b-a\"b]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_escape_decoding[\"-a\\\\'b-a'b]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_escape_decoding[\"-a\\\\'b-a'b]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_escape_decoding[\"-a\\\\'b-a'b]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_escape_decoding[\"-a'b-a'b]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_escape_decoding[\"-a'b-a'b]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_escape_decoding[\"-a'b-a'b]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_escape_decoding[\"-\\\\a\\\\b\\\\f\\\\n\\\\r\\\\t\\\\v-\\x07\\x08\\x0c\\n\\r\\t\\x0b]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_escape_decoding[\"-\\\\a\\\\b\\\\f\\\\n\\\\r\\\\t\\\\v-\\x07\\x08\\x0c\\n\\r\\t\\x0b]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_escape_decoding[\"-\\\\a\\\\b\\\\f\\\\n\\\\r\\\\t\\\\v-\\x07\\x08\\x0c\\n\\r\\t\\x0b]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_escape_decoding[\"-\\\\\\\\n\\\\n-\\\\n\\n]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_escape_decoding[\"-\\\\\\\\n\\\\n-\\\\n\\n]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_escape_decoding[\"-\\\\\\\\n\\\\n-\\\\n\\n]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_escape_decoding['-caf\\xe9\\\\q\\\\0\\\\x41\\\\u0041\\\\U00000041\\\\N{LATIN CAPITAL LETTER A}\\\\$-caf\\xe9\\\\q\\\\0\\\\x41\\\\u0041\\\\U00000041\\\\N{LATIN CAPITAL LETTER A}\\\\$]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_escape_decoding['-caf\\xe9\\\\q\\\\0\\\\x41\\\\u0041\\\\U00000041\\\\N{LATIN CAPITAL LETTER A}\\\\$-caf\\xe9\\\\q\\\\0\\\\x41\\\\u0041\\\\U00000041\\\\N{LATIN CAPITAL LETTER A}\\\\$]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_escape_decoding['-caf\\xe9\\\\q\\\\0\\\\x41\\\\u0041\\\\U00000041\\\\N{LATIN CAPITAL LETTER A}\\\\$-caf\\xe9\\\\q\\\\0\\\\x41\\\\u0041\\\\U00000041\\\\N{LATIN CAPITAL LETTER A}\\\\$]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_escape_decoding[\"-caf\\xe9\\\\q\\\\0\\\\x41\\\\u0041\\\\U00000041\\\\N{LATIN CAPITAL LETTER A}\\\\$-caf\\xe9\\\\q\\\\0\\\\x41\\\\u0041\\\\U00000041\\\\N{LATIN CAPITAL LETTER A}\\\\$]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_escape_decoding[\"-caf\\xe9\\\\q\\\\0\\\\x41\\\\u0041\\\\U00000041\\\\N{LATIN CAPITAL LETTER A}\\\\$-caf\\xe9\\\\q\\\\0\\\\x41\\\\u0041\\\\U00000041\\\\N{LATIN CAPITAL LETTER A}\\\\$]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_quoted_escape_decoding[\"-caf\\xe9\\\\q\\\\0\\\\x41\\\\u0041\\\\U00000041\\\\N{LATIN CAPITAL LETTER A}\\\\$-caf\\xe9\\\\q\\\\0\\\\x41\\\\u0041\\\\U00000041\\\\N{LATIN CAPITAL LETTER A}\\\\$]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_even_backslashes_allow_the_following_quote_to_close[1-']",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_even_backslashes_allow_the_following_quote_to_close[1-']",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_even_backslashes_allow_the_following_quote_to_close[1-']",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_even_backslashes_allow_the_following_quote_to_close[1-\"]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_even_backslashes_allow_the_following_quote_to_close[1-\"]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_even_backslashes_allow_the_following_quote_to_close[1-\"]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_even_backslashes_allow_the_following_quote_to_close[2-']",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_even_backslashes_allow_the_following_quote_to_close[2-']",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_even_backslashes_allow_the_following_quote_to_close[2-']",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_even_backslashes_allow_the_following_quote_to_close[2-\"]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_even_backslashes_allow_the_following_quote_to_close[2-\"]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_even_backslashes_allow_the_following_quote_to_close[2-\"]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_odd_backslashes_escape_the_following_quote[']",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_odd_backslashes_escape_the_following_quote[']",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_odd_backslashes_escape_the_following_quote[']",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_odd_backslashes_escape_the_following_quote[\"]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_odd_backslashes_escape_the_following_quote[\"]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_odd_backslashes_escape_the_following_quote[\"]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unclosed_quote_raises_parser_error_without_consuming_input[-']",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unclosed_quote_raises_parser_error_without_consuming_input[-']",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unclosed_quote_raises_parser_error_without_consuming_input[-']",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unclosed_quote_raises_parser_error_without_consuming_input[-\"]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unclosed_quote_raises_parser_error_without_consuming_input[-\"]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unclosed_quote_raises_parser_error_without_consuming_input[-\"]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unclosed_quote_raises_parser_error_without_consuming_input[unterminated\\r\\nvalue-']",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unclosed_quote_raises_parser_error_without_consuming_input[unterminated\\r\\nvalue-']",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unclosed_quote_raises_parser_error_without_consuming_input[unterminated\\r\\nvalue-']",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unclosed_quote_raises_parser_error_without_consuming_input[unterminated\\r\\nvalue-\"]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unclosed_quote_raises_parser_error_without_consuming_input[unterminated\\r\\nvalue-\"]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unclosed_quote_raises_parser_error_without_consuming_input[unterminated\\r\\nvalue-\"]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unclosed_quote_raises_parser_error_without_consuming_input[ends in a backslash\\\\-']",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unclosed_quote_raises_parser_error_without_consuming_input[ends in a backslash\\\\-']",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unclosed_quote_raises_parser_error_without_consuming_input[ends in a backslash\\\\-']",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unclosed_quote_raises_parser_error_without_consuming_input[ends in a backslash\\\\-\"]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unclosed_quote_raises_parser_error_without_consuming_input[ends in a backslash\\\\-\"]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_unclosed_quote_raises_parser_error_without_consuming_input[ends in a backslash\\\\-\"]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_escaped_final_quote_cannot_close_value[']",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_escaped_final_quote_cannot_close_value[']",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_escaped_final_quote_cannot_close_value[']",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_escaped_final_quote_cannot_close_value[\"]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_escaped_final_quote_cannot_close_value[\"]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_escaped_final_quote_cannot_close_value[\"]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          }
+        ],
+        "collection_errors": [],
+        "focal": {
+          "executed": true,
+          "line_total": 10,
+          "line_covered": 10,
+          "line_rate": 1.0,
+          "branch_total": 6,
+          "branch_covered": 6,
+          "branch_rate": 1.0,
+          "executable_lines": [
+            131,
+            132,
+            133,
+            134,
+            135,
+            136,
+            137,
+            138,
+            139,
+            141
+          ],
+          "covered_lines": [
+            131,
+            132,
+            133,
+            134,
+            135,
+            136,
+            137,
+            138,
+            139,
+            141
+          ],
+          "branches": {
+            "135": {
+              "total": 2,
+              "covered": 2
+            },
+            "132": {
+              "total": 2,
+              "covered": 2
+            },
+            "138": {
+              "total": 2,
+              "covered": 2
+            }
+          }
+        }
+      }
+    },
+    "defects_eligible": 1,
+    "defects_measured": 1,
+    "defects_detected": 1,
+    "detection_complete": true,
+    "total_seconds": 2.336193416034803
+  }
+}

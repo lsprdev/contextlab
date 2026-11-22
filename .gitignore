@@ -30,3 +30,6 @@ auth.json
 
 # Site gerado localmente
 site-dist/
+
+# Locks publicados do experimento do TCC (protocolo congelado)
+!experimento-tcc/manifesto/*.lock.json

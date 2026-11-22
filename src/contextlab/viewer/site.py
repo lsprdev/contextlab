@@ -10,7 +10,8 @@ from . import build_site
 def main(argv: list[str] | None = None) -> int:
     args = sys.argv[1:] if argv is None else argv
     destination = Path(args[0] if args else "site-dist")
-    print(f"Site gerado em {build_site(destination)}")
+    experiment = Path(args[1]) if len(args) > 1 else None
+    print(f"Site gerado em {build_site(destination, experiment=experiment)}")
     return 0
 
 

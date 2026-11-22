@@ -1,0 +1,3158 @@
+{
+  "schema_version": 1,
+  "order": 98,
+  "project": "python_dotenv",
+  "target": "parse_variables",
+  "agent": "codex",
+  "condition": "L",
+  "repetition": 2,
+  "id": "python_dotenv__parse_variables__codex__L__2",
+  "phase": "main",
+  "lock_hash": "49dd66a522994eb03001a67255ded0aa13cc696255859f45a924b43f05f5da33",
+  "started_at": "2026-11-22T04:39:50.425817+00:00",
+  "status": "finished",
+  "generation": {
+    "status": "completed",
+    "input_tokens": 13827,
+    "output_tokens": 1237,
+    "seconds": 30.374284416087903,
+    "version": "codex-cli 0.170.0",
+    "tool_log": [
+      {
+        "index": 1,
+        "tool": "list_files",
+        "arguments": {},
+        "delivered_chars": 37,
+        "chars_before": 2398,
+        "status": "ok",
+        "chars_after": 2435
+      }
+    ],
+    "usage": {
+      "input_tokens": 13827,
+      "cached_input_tokens": 12288,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 1237,
+      "reasoning_output_tokens": 248
+    },
+    "details": [],
+    "capabilities": {
+      "tool_surface_verified": true,
+      "tools": [
+        "functions.list_mcp_resource_templates",
+        "functions.list_mcp_resources",
+        "functions.read_mcp_resource",
+        "mcp__contextlab.list_files",
+        "mcp__contextlab.read_file",
+        "mcp__contextlab.search"
+      ],
+      "catalog_sha256": "a61b50641627a2941fc8be4db823d1fbbfa4ae628add4d7ec443dbab559140fb",
+      "probe": "offline-localhost",
+      "model": "gpt-6.2-sol",
+      "command_rejected": true,
+      "outside_packet_rejected": true,
+      "allowed_read_verified": true
+    },
+    "returncode": 0,
+    "context_stats": {
+      "chars_used": 2435,
+      "initial_chars": 2398,
+      "response_chars": 37,
+      "remaining_chars": 27565,
+      "tool_calls": 1,
+      "max_calls": 20,
+      "budget": 30000
+    },
+    "session_id": "01a2018d-ab85-7743-9cde-7b674569676d"
+  },
+  "evaluation": {
+    "target_id": "parse_variables",
+    "test_kind": "unit",
+    "received": true,
+    "syntax_ok": true,
+    "collected": 27,
+    "active_started": true,
+    "reference_passed": true,
+    "approval": "pending_review",
+    "approved": false,
+    "coverage_raw": {
+      "executed": true,
+      "line_total": 12,
+      "line_covered": 12,
+      "line_rate": 1.0,
+      "branch_total": 6,
+      "branch_covered": 6,
+      "branch_rate": 1.0,
+      "executable_lines": [
+        71,
+        73,
+        74,
+        75,
+        76,
+        78,
+        79,
+        81,
+        82,
+        84,
+        85,
+        86
+      ],
+      "covered_lines": [
+        71,
+        73,
+        74,
+        75,
+        76,
+        78,
+        79,
+        81,
+        82,
+        84,
+        85,
+        86
+      ],
+      "branches": {
+        "85": {
+          "total": 2,
+          "covered": 2
+        },
+        "73": {
+          "total": 2,
+          "covered": 2
+        },
+        "78": {
+          "total": 2,
+          "covered": 2
+        }
+      }
+    },
+    "coverage_main": null,
+    "defects": [],
+    "detection_rate": null,
+    "review": null,
+    "backend": "docker",
+    "submission_sha256": "b8a4bae1ee118793fbc6fa13c42e5e169cbbdf0552503585361a912a921729f1",
+    "status": "completed",
+    "seconds": 0.5413878340041265,
+    "active_count": 27,
+    "passed_count": 27,
+    "skipped_count": 0,
+    "xfail_count": 0,
+    "failure_categories": [],
+    "original": {
+      "status": "completed",
+      "seconds": 0.5413878340041265,
+      "exit_code": 0,
+      "production_unchanged": true,
+      "collected": 27,
+      "active_started": true,
+      "active_count": 27,
+      "passed_count": 27,
+      "skipped_count": 0,
+      "xfail_count": 0,
+      "failure_categories": [],
+      "reference_passed": true,
+      "assertion_failure": false,
+      "focal": {
+        "executed": true,
+        "line_total": 12,
+        "line_covered": 12,
+        "line_rate": 1.0,
+        "branch_total": 6,
+        "branch_covered": 6,
+        "branch_rate": 1.0,
+        "executable_lines": [
+          71,
+          73,
+          74,
+          75,
+          76,
+          78,
+          79,
+          81,
+          82,
+          84,
+          85,
+          86
+        ],
+        "covered_lines": [
+          71,
+          73,
+          74,
+          75,
+          76,
+          78,
+          79,
+          81,
+          82,
+          84,
+          85,
+          86
+        ],
+        "branches": {
+          "85": {
+            "total": 2,
+            "covered": 2
+          },
+          "73": {
+            "total": 2,
+            "covered": 2
+          },
+          "78": {
+            "total": 2,
+            "covered": 2
+          }
+        }
+      },
+      "raw": {
+        "exit_code": 0,
+        "collected": 27,
+        "reports": [
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[-expected0]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[-expected0]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[-expected0]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[plain text-expected1]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[plain text-expected1]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[plain text-expected1]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[ \\t\\n -expected2]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[ \\t\\n -expected2]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[ \\t\\n -expected2]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[$NAME $9 $# $(NAME) {NAME} ${OPEN-expected3]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[$NAME $9 $# $(NAME) {NAME} ${OPEN-expected3]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[$NAME $9 $# $(NAME) {NAME} ${OPEN-expected3]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[${NAME}-expected4]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[${NAME}-expected4]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[${NAME}-expected4]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[${NAME:-}-expected5]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[${NAME:-}-expected5]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[${NAME:-}-expected5]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[${NAME:-fallback}-expected6]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[${NAME:-fallback}-expected6]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[${NAME:-fallback}-expected6]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[${}-expected7]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[${}-expected7]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[${}-expected7]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[${:-}-expected8]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[${:-}-expected8]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[${:-}-expected8]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[${:-fallback}-expected9]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[${:-fallback}-expected9]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[${:-fallback}-expected9]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[left${A}-expected10]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[left${A}-expected10]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[left${A}-expected10]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[${A}right-expected11]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[${A}right-expected11]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[${A}right-expected11]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[${A}${B:-second}${A:-}-expected12]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[${A}${B:-second}${A:-}-expected12]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[${A}${B:-second}${A:-}-expected12]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[\\u03c0\\n${A} / ${B:-two}\\t${C}\\n\\u7d42-expected13]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[\\u03c0\\n${A} / ${B:-two}\\t${C}\\n\\u7d42-expected13]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[\\u03c0\\n${A} / ${B:-two}\\t${C}\\n\\u7d42-expected13]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[${ 9-\\xfc.$\\t\\n:-  one:two:-three #$x={\\n }-expected14]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[${ 9-\\xfc.$\\t\\n:-  one:two:-three #$x={\\n }-expected14]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[${ 9-\\xfc.$\\t\\n:-  one:two:-three #$x={\\n }-expected14]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[${a{b}-expected15]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[${a{b}-expected15]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[${a{b}-expected15]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[${A:word}${B-default}${C:=x}-expected16]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[${A:word}${B-default}${C:=x}-expected16]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[${A:word}${B-default}${C:=x}-expected16]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[${A:+x}${A:?x}${A:}${A: -x}-expected17]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[${A:+x}${A:?x}${A:}${A: -x}-expected17]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[${A:+x}${A:?x}${A:}${A: -x}-expected17]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[${bad:word}${OK}${unfinished-expected18]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[${bad:word}${OK}${unfinished-expected18]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[${bad:word}${OK}${unfinished-expected18]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[${A:-${B}}-expected19]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[${A:-${B}}-expected19]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[${A:-${B}}-expected19]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[\\\\${X} $$${Y}-expected20]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[\\\\${X} $$${Y}-expected20]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[\\\\${X} $$${Y}-expected20]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[${A}\\x00${B:-\\x00}-expected21]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[${A}\\x00${B:-\\x00}-expected21]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[${A}\\x00${B:-\\x00}-expected21]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_returns_an_iterator",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_returns_an_iterator",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_returns_an_iterator",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_atoms_resolve_in_order[env0-left|fallback||right]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_atoms_resolve_in_order[env0-left|fallback||right]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_atoms_resolve_in_order[env0-left|fallback||right]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_atoms_resolve_in_order[env1-left|actual|present|valueright]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_atoms_resolve_in_order[env1-left|actual|present|valueright]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_atoms_resolve_in_order[env1-left|actual|present|valueright]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_atoms_resolve_in_order[env2-left|||right]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_atoms_resolve_in_order[env2-left|||right]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_atoms_resolve_in_order[env2-left|||right]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_atoms_resolve_in_order[env3-left|||otherright]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_atoms_resolve_in_order[env3-left|||otherright]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_atoms_resolve_in_order[env3-left|||otherright]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          }
+        ],
+        "collection_errors": [],
+        "focal": {
+          "executed": true,
+          "line_total": 12,
+          "line_covered": 12,
+          "line_rate": 1.0,
+          "branch_total": 6,
+          "branch_covered": 6,
+          "branch_rate": 1.0,
+          "executable_lines": [
+            71,
+            73,
+            74,
+            75,
+            76,
+            78,
+            79,
+            81,
+            82,
+            84,
+            85,
+            86
+          ],
+          "covered_lines": [
+            71,
+            73,
+            74,
+            75,
+            76,
+            78,
+            79,
+            81,
+            82,
+            84,
+            85,
+            86
+          ],
+          "branches": {
+            "85": {
+              "total": 2,
+              "covered": 2
+            },
+            "73": {
+              "total": 2,
+              "covered": 2
+            },
+            "78": {
+              "total": 2,
+              "covered": 2
+            }
+          }
+        }
+      }
+    },
+    "defects_eligible": null,
+    "defects_measured": null,
+    "defects_detected": null,
+    "detection_complete": null,
+    "total_seconds": 0.553506915923208
+  },
+  "preparation_seconds": 0.011158291948959231,
+  "submission_sha256": "b8a4bae1ee118793fbc6fa13c42e5e169cbbdf0552503585361a912a921729f1",
+  "finished_at": "2026-11-22T04:40:21.368228+00:00",
+  "review": {
+    "behavioral_assertions": true,
+    "no_target_mock": true,
+    "no_production_changes": true,
+    "defect_attribution": {
+      "DOT-02-sem-literal-final": true
+    },
+    "dependency_doubles": false,
+    "reviewer": "Gabriel Lopes Pereira",
+    "created_at": "2026-11-22T05:08:14.905660+00:00"
+  },
+  "reviewed_evaluation": {
+    "target_id": "parse_variables",
+    "test_kind": "unit",
+    "received": true,
+    "syntax_ok": true,
+    "collected": 27,
+    "active_started": true,
+    "reference_passed": true,
+    "approval": "approved",
+    "approved": true,
+    "coverage_raw": {
+      "executed": true,
+      "line_total": 12,
+      "line_covered": 12,
+      "line_rate": 1.0,
+      "branch_total": 6,
+      "branch_covered": 6,
+      "branch_rate": 1.0,
+      "executable_lines": [
+        71,
+        73,
+        74,
+        75,
+        76,
+        78,
+        79,
+        81,
+        82,
+        84,
+        85,
+        86
+      ],
+      "covered_lines": [
+        71,
+        73,
+        74,
+        75,
+        76,
+        78,
+        79,
+        81,
+        82,
+        84,
+        85,
+        86
+      ],
+      "branches": {
+        "85": {
+          "total": 2,
+          "covered": 2
+        },
+        "73": {
+          "total": 2,
+          "covered": 2
+        },
+        "78": {
+          "total": 2,
+          "covered": 2
+        }
+      }
+    },
+    "coverage_main": {
+      "executed": true,
+      "line_total": 12,
+      "line_covered": 12,
+      "line_rate": 1.0,
+      "branch_total": 6,
+      "branch_covered": 6,
+      "branch_rate": 1.0,
+      "executable_lines": [
+        71,
+        73,
+        74,
+        75,
+        76,
+        78,
+        79,
+        81,
+        82,
+        84,
+        85,
+        86
+      ],
+      "covered_lines": [
+        71,
+        73,
+        74,
+        75,
+        76,
+        78,
+        79,
+        81,
+        82,
+        84,
+        85,
+        86
+      ],
+      "branches": {
+        "85": {
+          "total": 2,
+          "covered": 2
+        },
+        "73": {
+          "total": 2,
+          "covered": 2
+        },
+        "78": {
+          "total": 2,
+          "covered": 2
+        }
+      }
+    },
+    "defects": [
+      {
+        "id": "DOT-02-sem-literal-final",
+        "eligible": true,
+        "validation": {
+          "id": "DOT-02-sem-literal-final",
+          "eligible": true,
+          "project_sha256": "6bcde34bd3360d411621e27684efbd8afd30c701647c1ef098355a19c23f408d",
+          "definition_sha256": "37ec0e8ae1c8b7bdfcd1465cf1bc9d938f292d44cd580a57c5cd9ba6b1e55a69",
+          "reason": null,
+          "baseline": {
+            "status": "completed",
+            "seconds": 0.5541754589648917,
+            "exit_code": 0,
+            "production_unchanged": true,
+            "collected": 1,
+            "active_started": true,
+            "active_count": 1,
+            "passed_count": 1,
+            "skipped_count": 0,
+            "xfail_count": 0,
+            "failure_categories": [],
+            "reference_passed": true,
+            "assertion_failure": false,
+            "focal": {
+              "executed": true,
+              "line_total": 12,
+              "line_covered": 12,
+              "line_rate": 1.0,
+              "branch_total": 6,
+              "branch_covered": 4,
+              "branch_rate": 0.6666666666666666,
+              "executable_lines": [
+                71,
+                73,
+                74,
+                75,
+                76,
+                78,
+                79,
+                81,
+                82,
+                84,
+                85,
+                86
+              ],
+              "covered_lines": [
+                71,
+                73,
+                74,
+                75,
+                76,
+                78,
+                79,
+                81,
+                82,
+                84,
+                85,
+                86
+              ],
+              "branches": {
+                "85": {
+                  "total": 2,
+                  "covered": 1
+                },
+                "73": {
+                  "total": 2,
+                  "covered": 2
+                },
+                "78": {
+                  "total": 2,
+                  "covered": 1
+                }
+              }
+            },
+            "raw": {
+              "exit_code": 0,
+              "collected": 1,
+              "reports": [
+                {
+                  "nodeid": "tcc_referencia/test_ref_parse_variables.py::test_literais_nas_duas_extremidades_e_valor_padrao",
+                  "when": "setup",
+                  "outcome": "passed",
+                  "exception": null,
+                  "assertion_failure": false,
+                  "expected_failure": false,
+                  "message": null
+                },
+                {
+                  "nodeid": "tcc_referencia/test_ref_parse_variables.py::test_literais_nas_duas_extremidades_e_valor_padrao",
+                  "when": "call",
+                  "outcome": "passed",
+                  "exception": null,
+                  "assertion_failure": false,
+                  "expected_failure": false,
+                  "message": null
+                },
+                {
+                  "nodeid": "tcc_referencia/test_ref_parse_variables.py::test_literais_nas_duas_extremidades_e_valor_padrao",
+                  "when": "teardown",
+                  "outcome": "passed",
+                  "exception": null,
+                  "assertion_failure": false,
+                  "expected_failure": false,
+                  "message": null
+                }
+              ],
+              "collection_errors": [],
+              "focal": {
+                "executed": true,
+                "line_total": 12,
+                "line_covered": 12,
+                "line_rate": 1.0,
+                "branch_total": 6,
+                "branch_covered": 4,
+                "branch_rate": 0.6666666666666666,
+                "executable_lines": [
+                  71,
+                  73,
+                  74,
+                  75,
+                  76,
+                  78,
+                  79,
+                  81,
+                  82,
+                  84,
+                  85,
+                  86
+                ],
+                "covered_lines": [
+                  71,
+                  73,
+                  74,
+                  75,
+                  76,
+                  78,
+                  79,
+                  81,
+                  82,
+                  84,
+                  85,
+                  86
+                ],
+                "branches": {
+                  "85": {
+                    "total": 2,
+                    "covered": 1
+                  },
+                  "73": {
+                    "total": 2,
+                    "covered": 2
+                  },
+                  "78": {
+                    "total": 2,
+                    "covered": 1
+                  }
+                }
+              }
+            }
+          },
+          "mutated": {
+            "status": "completed",
+            "seconds": 0.6880114580271766,
+            "exit_code": 1,
+            "production_unchanged": true,
+            "collected": 1,
+            "active_started": true,
+            "active_count": 1,
+            "passed_count": 0,
+            "skipped_count": 0,
+            "xfail_count": 0,
+            "failure_categories": [
+              "assertion_failure"
+            ],
+            "reference_passed": false,
+            "assertion_failure": true,
+            "focal": {
+              "executed": true,
+              "line_total": 11,
+              "line_covered": 11,
+              "line_rate": 1.0,
+              "branch_total": 4,
+              "branch_covered": 3,
+              "branch_rate": 0.75,
+              "executable_lines": [
+                71,
+                73,
+                74,
+                75,
+                76,
+                78,
+                79,
+                81,
+                82,
+                84,
+                85
+              ],
+              "covered_lines": [
+                71,
+                73,
+                74,
+                75,
+                76,
+                78,
+                79,
+                81,
+                82,
+                84,
+                85
+              ],
+              "branches": {
+                "73": {
+                  "total": 2,
+                  "covered": 2
+                },
+                "78": {
+                  "total": 2,
+                  "covered": 1
+                }
+              }
+            },
+            "raw": {
+              "exit_code": 1,
+              "collected": 1,
+              "reports": [
+                {
+                  "nodeid": "tcc_referencia/test_ref_parse_variables.py::test_literais_nas_duas_extremidades_e_valor_padrao",
+                  "when": "setup",
+                  "outcome": "passed",
+                  "exception": null,
+                  "assertion_failure": false,
+                  "expected_failure": false,
+                  "message": null
+                },
+                {
+                  "nodeid": "tcc_referencia/test_ref_parse_variables.py::test_literais_nas_duas_extremidades_e_valor_padrao",
+                  "when": "call",
+                  "outcome": "failed",
+                  "exception": "AssertionError",
+                  "assertion_failure": true,
+                  "expected_failure": false,
+                  "message": "tcc_referencia/test_ref_parse_variables.py:26: in test_literais_nas_duas_extremidades_e_valor_padrao\n    assert _itens(\"pre${NOME:-x}fim\") == [\nE   AssertionError: assert [('Literal', ...me': 'NOME'})] == [('Literal', ...lue': 'fim'})]\nE     \nE     Right contains one more item: ('Literal', {'value': 'fim'})\nE     Use -v to get more diff"
+                },
+                {
+                  "nodeid": "tcc_referencia/test_ref_parse_variables.py::test_literais_nas_duas_extremidades_e_valor_padrao",
+                  "when": "teardown",
+                  "outcome": "passed",
+                  "exception": null,
+                  "assertion_failure": false,
+                  "expected_failure": false,
+                  "message": null
+                }
+              ],
+              "collection_errors": [],
+              "focal": {
+                "executed": true,
+                "line_total": 11,
+                "line_covered": 11,
+                "line_rate": 1.0,
+                "branch_total": 4,
+                "branch_covered": 3,
+                "branch_rate": 0.75,
+                "executable_lines": [
+                  71,
+                  73,
+                  74,
+                  75,
+                  76,
+                  78,
+                  79,
+                  81,
+                  82,
+                  84,
+                  85
+                ],
+                "covered_lines": [
+                  71,
+                  73,
+                  74,
+                  75,
+                  76,
+                  78,
+                  79,
+                  81,
+                  82,
+                  84,
+                  85
+                ],
+                "branches": {
+                  "73": {
+                    "total": 2,
+                    "covered": 2
+                  },
+                  "78": {
+                    "total": 2,
+                    "covered": 1
+                  }
+                }
+              }
+            }
+          }
+        },
+        "detected": true,
+        "status": "detected",
+        "run": {
+          "status": "completed",
+          "seconds": 0.6263480000197887,
+          "exit_code": 1,
+          "production_unchanged": true,
+          "collected": 27,
+          "active_started": true,
+          "active_count": 27,
+          "passed_count": 13,
+          "skipped_count": 0,
+          "xfail_count": 0,
+          "failure_categories": [
+            "assertion_failure",
+            "execution_error"
+          ],
+          "reference_passed": false,
+          "assertion_failure": true,
+          "focal": {
+            "executed": true,
+            "line_total": 11,
+            "line_covered": 11,
+            "line_rate": 1.0,
+            "branch_total": 4,
+            "branch_covered": 4,
+            "branch_rate": 1.0,
+            "executable_lines": [
+              71,
+              73,
+              74,
+              75,
+              76,
+              78,
+              79,
+              81,
+              82,
+              84,
+              85
+            ],
+            "covered_lines": [
+              71,
+              73,
+              74,
+              75,
+              76,
+              78,
+              79,
+              81,
+              82,
+              84,
+              85
+            ],
+            "branches": {
+              "73": {
+                "total": 2,
+                "covered": 2
+              },
+              "78": {
+                "total": 2,
+                "covered": 2
+              }
+            }
+          },
+          "raw": {
+            "exit_code": 1,
+            "collected": 27,
+            "reports": [
+              {
+                "nodeid": "::test_parse_variables_yields_expected_atoms[-expected0]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_variables_yields_expected_atoms[-expected0]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_variables_yields_expected_atoms[-expected0]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_variables_yields_expected_atoms[plain text-expected1]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_variables_yields_expected_atoms[plain text-expected1]",
+                "when": "call",
+                "outcome": "failed",
+                "exception": "AssertionError",
+                "assertion_failure": true,
+                "expected_failure": false,
+                "message": "/submission/test_generated.py:38: in test_parse_variables_yields_expected_atoms\n    assert list(parse_variables(value)) == expected\nE   assert [] == [Literal(value=plain text)]\nE     \nE     Right contains one more item: Literal(value=plain text)\nE     Use -v to get more diff"
+              },
+              {
+                "nodeid": "::test_parse_variables_yields_expected_atoms[plain text-expected1]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_variables_yields_expected_atoms[ \\t\\n -expected2]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_variables_yields_expected_atoms[ \\t\\n -expected2]",
+                "when": "call",
+                "outcome": "failed",
+                "exception": "AssertionError",
+                "assertion_failure": true,
+                "expected_failure": false,
+                "message": "/submission/test_generated.py:38: in test_parse_variables_yields_expected_atoms\n    assert list(parse_variables(value)) == expected\nE   assert [] == [Literal(value= \t\\n )]\nE     \nE     Right contains one more item: Literal(value= \t\\n )\nE     Use -v to get more diff"
+              },
+              {
+                "nodeid": "::test_parse_variables_yields_expected_atoms[ \\t\\n -expected2]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_variables_yields_expected_atoms[$NAME $9 $# $(NAME) {NAME} ${OPEN-expected3]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_variables_yields_expected_atoms[$NAME $9 $# $(NAME) {NAME} ${OPEN-expected3]",
+                "when": "call",
+                "outcome": "failed",
+                "exception": "AssertionError",
+                "assertion_failure": true,
+                "expected_failure": false,
+                "message": "/submission/test_generated.py:38: in test_parse_variables_yields_expected_atoms\n    assert list(parse_variables(value)) == expected\nE   assert [] == [Literal(valu...NAME} ${OPEN)]\nE     \nE     Right contains one more item: Literal(value=$NAME $9 $# $(NAME) {NAME} ${OPEN)\nE     Use -v to get more diff"
+              },
+              {
+                "nodeid": "::test_parse_variables_yields_expected_atoms[$NAME $9 $# $(NAME) {NAME} ${OPEN-expected3]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_variables_yields_expected_atoms[${NAME}-expected4]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_variables_yields_expected_atoms[${NAME}-expected4]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_variables_yields_expected_atoms[${NAME}-expected4]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_variables_yields_expected_atoms[${NAME:-}-expected5]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_variables_yields_expected_atoms[${NAME:-}-expected5]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_variables_yields_expected_atoms[${NAME:-}-expected5]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_variables_yields_expected_atoms[${NAME:-fallback}-expected6]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_variables_yields_expected_atoms[${NAME:-fallback}-expected6]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_variables_yields_expected_atoms[${NAME:-fallback}-expected6]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_variables_yields_expected_atoms[${}-expected7]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_variables_yields_expected_atoms[${}-expected7]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_variables_yields_expected_atoms[${}-expected7]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_variables_yields_expected_atoms[${:-}-expected8]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_variables_yields_expected_atoms[${:-}-expected8]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_variables_yields_expected_atoms[${:-}-expected8]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_variables_yields_expected_atoms[${:-fallback}-expected9]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_variables_yields_expected_atoms[${:-fallback}-expected9]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_variables_yields_expected_atoms[${:-fallback}-expected9]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_variables_yields_expected_atoms[left${A}-expected10]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_variables_yields_expected_atoms[left${A}-expected10]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_variables_yields_expected_atoms[left${A}-expected10]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_variables_yields_expected_atoms[${A}right-expected11]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_variables_yields_expected_atoms[${A}right-expected11]",
+                "when": "call",
+                "outcome": "failed",
+                "exception": "AssertionError",
+                "assertion_failure": true,
+                "expected_failure": false,
+                "message": "/submission/test_generated.py:38: in test_parse_variables_yields_expected_atoms\n    assert list(parse_variables(value)) == expected\nE   assert [Variable(nam...default=None)] == [Variable(nam...(value=right)]\nE     \nE     Right contains one more item: Literal(value=right)\nE     Use -v to get more diff"
+              },
+              {
+                "nodeid": "::test_parse_variables_yields_expected_atoms[${A}right-expected11]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_variables_yields_expected_atoms[${A}${B:-second}${A:-}-expected12]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_variables_yields_expected_atoms[${A}${B:-second}${A:-}-expected12]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_variables_yields_expected_atoms[${A}${B:-second}${A:-}-expected12]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_variables_yields_expected_atoms[\\u03c0\\n${A} / ${B:-two}\\t${C}\\n\\u7d42-expected13]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_variables_yields_expected_atoms[\\u03c0\\n${A} / ${B:-two}\\t${C}\\n\\u7d42-expected13]",
+                "when": "call",
+                "outcome": "failed",
+                "exception": "AssertionError",
+                "assertion_failure": true,
+                "expected_failure": false,
+                "message": "/submission/test_generated.py:38: in test_parse_variables_yields_expected_atoms\n    assert list(parse_variables(value)) == expected\nE   assert [Literal(valu...default=None)] == [Literal(valu...lt=None), ...]\nE     \nE     Right contains one more item: Literal(value=\\n終)\nE     Use -v to get more diff"
+              },
+              {
+                "nodeid": "::test_parse_variables_yields_expected_atoms[\\u03c0\\n${A} / ${B:-two}\\t${C}\\n\\u7d42-expected13]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_variables_yields_expected_atoms[${ 9-\\xfc.$\\t\\n:-  one:two:-three #$x={\\n }-expected14]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_variables_yields_expected_atoms[${ 9-\\xfc.$\\t\\n:-  one:two:-three #$x={\\n }-expected14]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_variables_yields_expected_atoms[${ 9-\\xfc.$\\t\\n:-  one:two:-three #$x={\\n }-expected14]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_variables_yields_expected_atoms[${a{b}-expected15]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_variables_yields_expected_atoms[${a{b}-expected15]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_variables_yields_expected_atoms[${a{b}-expected15]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_variables_yields_expected_atoms[${A:word}${B-default}${C:=x}-expected16]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_variables_yields_expected_atoms[${A:word}${B-default}${C:=x}-expected16]",
+                "when": "call",
+                "outcome": "failed",
+                "exception": "AssertionError",
+                "assertion_failure": true,
+                "expected_failure": false,
+                "message": "/submission/test_generated.py:38: in test_parse_variables_yields_expected_atoms\n    assert list(parse_variables(value)) == expected\nE   assert [Literal(valu...default=None)] == [Literal(valu...alue=${C:=x})]\nE     \nE     Right contains one more item: Literal(value=${C:=x})\nE     Use -v to get more diff"
+              },
+              {
+                "nodeid": "::test_parse_variables_yields_expected_atoms[${A:word}${B-default}${C:=x}-expected16]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_variables_yields_expected_atoms[${A:+x}${A:?x}${A:}${A: -x}-expected17]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_variables_yields_expected_atoms[${A:+x}${A:?x}${A:}${A: -x}-expected17]",
+                "when": "call",
+                "outcome": "failed",
+                "exception": "AssertionError",
+                "assertion_failure": true,
+                "expected_failure": false,
+                "message": "/submission/test_generated.py:38: in test_parse_variables_yields_expected_atoms\n    assert list(parse_variables(value)) == expected\nE   assert [] == [Literal(valu...{A:}${A: -x})]\nE     \nE     Right contains one more item: Literal(value=${A:+x}${A:?x}${A:}${A: -x})\nE     Use -v to get more diff"
+              },
+              {
+                "nodeid": "::test_parse_variables_yields_expected_atoms[${A:+x}${A:?x}${A:}${A: -x}-expected17]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_variables_yields_expected_atoms[${bad:word}${OK}${unfinished-expected18]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_variables_yields_expected_atoms[${bad:word}${OK}${unfinished-expected18]",
+                "when": "call",
+                "outcome": "failed",
+                "exception": "AssertionError",
+                "assertion_failure": true,
+                "expected_failure": false,
+                "message": "/submission/test_generated.py:38: in test_parse_variables_yields_expected_atoms\n    assert list(parse_variables(value)) == expected\nE   assert [Literal(valu...default=None)] == [Literal(valu...${unfinished)]\nE     \nE     Right contains one more item: Literal(value=${unfinished)\nE     Use -v to get more diff"
+              },
+              {
+                "nodeid": "::test_parse_variables_yields_expected_atoms[${bad:word}${OK}${unfinished-expected18]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_variables_yields_expected_atoms[${A:-${B}}-expected19]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_variables_yields_expected_atoms[${A:-${B}}-expected19]",
+                "when": "call",
+                "outcome": "failed",
+                "exception": "AssertionError",
+                "assertion_failure": true,
+                "expected_failure": false,
+                "message": "/submission/test_generated.py:38: in test_parse_variables_yields_expected_atoms\n    assert list(parse_variables(value)) == expected\nE   assert [Variable(nam... default=${B)] == [Variable(nam...eral(value=})]\nE     \nE     Right contains one more item: Literal(value=})\nE     Use -v to get more diff"
+              },
+              {
+                "nodeid": "::test_parse_variables_yields_expected_atoms[${A:-${B}}-expected19]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_variables_yields_expected_atoms[\\\\${X} $$${Y}-expected20]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_variables_yields_expected_atoms[\\\\${X} $$${Y}-expected20]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_variables_yields_expected_atoms[\\\\${X} $$${Y}-expected20]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_variables_yields_expected_atoms[${A}\\x00${B:-\\x00}-expected21]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_variables_yields_expected_atoms[${A}\\x00${B:-\\x00}-expected21]",
+                "when": "call",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_variables_yields_expected_atoms[${A}\\x00${B:-\\x00}-expected21]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_variables_returns_an_iterator",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_variables_returns_an_iterator",
+                "when": "call",
+                "outcome": "failed",
+                "exception": "StopIteration",
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": "/submission/test_generated.py:47: in test_parse_variables_returns_an_iterator\n    assert next(atoms) == Literal('tail')\n           ^^^^^^^^^^^\nE   StopIteration"
+              },
+              {
+                "nodeid": "::test_parse_variables_returns_an_iterator",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_variables_atoms_resolve_in_order[env0-left|fallback||right]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_variables_atoms_resolve_in_order[env0-left|fallback||right]",
+                "when": "call",
+                "outcome": "failed",
+                "exception": "AssertionError",
+                "assertion_failure": true,
+                "expected_failure": false,
+                "message": "/submission/test_generated.py:64: in test_parse_variables_atoms_resolve_in_order\n    assert ''.join(atom.resolve(env) for atom in atoms) == expected\nE   AssertionError: assert 'left|fallback||' == 'left|fallback||right'\nE     \nE     - left|fallback||right\nE     ?                -----\nE     + left|fallback||"
+              },
+              {
+                "nodeid": "::test_parse_variables_atoms_resolve_in_order[env0-left|fallback||right]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_variables_atoms_resolve_in_order[env1-left|actual|present|valueright]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_variables_atoms_resolve_in_order[env1-left|actual|present|valueright]",
+                "when": "call",
+                "outcome": "failed",
+                "exception": "AssertionError",
+                "assertion_failure": true,
+                "expected_failure": false,
+                "message": "/submission/test_generated.py:64: in test_parse_variables_atoms_resolve_in_order\n    assert ''.join(atom.resolve(env) for atom in atoms) == expected\nE   AssertionError: assert 'left|actual|present|value' == 'left|actual|...nt|valueright'\nE     \nE     - left|actual|present|valueright\nE     ?                          -----\nE     + left|actual|present|value"
+              },
+              {
+                "nodeid": "::test_parse_variables_atoms_resolve_in_order[env1-left|actual|present|valueright]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_variables_atoms_resolve_in_order[env2-left|||right]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_variables_atoms_resolve_in_order[env2-left|||right]",
+                "when": "call",
+                "outcome": "failed",
+                "exception": "AssertionError",
+                "assertion_failure": true,
+                "expected_failure": false,
+                "message": "/submission/test_generated.py:64: in test_parse_variables_atoms_resolve_in_order\n    assert ''.join(atom.resolve(env) for atom in atoms) == expected\nE   AssertionError: assert 'left|||' == 'left|||right'\nE     \nE     - left|||right\nE     + left|||"
+              },
+              {
+                "nodeid": "::test_parse_variables_atoms_resolve_in_order[env2-left|||right]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_variables_atoms_resolve_in_order[env3-left|||otherright]",
+                "when": "setup",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              },
+              {
+                "nodeid": "::test_parse_variables_atoms_resolve_in_order[env3-left|||otherright]",
+                "when": "call",
+                "outcome": "failed",
+                "exception": "AssertionError",
+                "assertion_failure": true,
+                "expected_failure": false,
+                "message": "/submission/test_generated.py:64: in test_parse_variables_atoms_resolve_in_order\n    assert ''.join(atom.resolve(env) for atom in atoms) == expected\nE   AssertionError: assert 'left|||other' == 'left|||otherright'\nE     \nE     - left|||otherright\nE     ?             -----\nE     + left|||other"
+              },
+              {
+                "nodeid": "::test_parse_variables_atoms_resolve_in_order[env3-left|||otherright]",
+                "when": "teardown",
+                "outcome": "passed",
+                "exception": null,
+                "assertion_failure": false,
+                "expected_failure": false,
+                "message": null
+              }
+            ],
+            "collection_errors": [],
+            "focal": {
+              "executed": true,
+              "line_total": 11,
+              "line_covered": 11,
+              "line_rate": 1.0,
+              "branch_total": 4,
+              "branch_covered": 4,
+              "branch_rate": 1.0,
+              "executable_lines": [
+                71,
+                73,
+                74,
+                75,
+                76,
+                78,
+                79,
+                81,
+                82,
+                84,
+                85
+              ],
+              "covered_lines": [
+                71,
+                73,
+                74,
+                75,
+                76,
+                78,
+                79,
+                81,
+                82,
+                84,
+                85
+              ],
+              "branches": {
+                "73": {
+                  "total": 2,
+                  "covered": 2
+                },
+                "78": {
+                  "total": 2,
+                  "covered": 2
+                }
+              }
+            }
+          }
+        }
+      }
+    ],
+    "detection_rate": 1.0,
+    "review": {
+      "behavioral_assertions": true,
+      "no_target_mock": true,
+      "no_production_changes": true,
+      "defect_attribution": {
+        "DOT-02-sem-literal-final": true
+      },
+      "dependency_doubles": false,
+      "reviewer": "Gabriel Lopes Pereira",
+      "created_at": "2026-11-22T05:08:14.905660+00:00"
+    },
+    "backend": "docker",
+    "submission_sha256": "b8a4bae1ee118793fbc6fa13c42e5e169cbbdf0552503585361a912a921729f1",
+    "status": "completed",
+    "seconds": 0.5268348330864683,
+    "active_count": 27,
+    "passed_count": 27,
+    "skipped_count": 0,
+    "xfail_count": 0,
+    "failure_categories": [],
+    "original": {
+      "status": "completed",
+      "seconds": 0.5268348330864683,
+      "exit_code": 0,
+      "production_unchanged": true,
+      "collected": 27,
+      "active_started": true,
+      "active_count": 27,
+      "passed_count": 27,
+      "skipped_count": 0,
+      "xfail_count": 0,
+      "failure_categories": [],
+      "reference_passed": true,
+      "assertion_failure": false,
+      "focal": {
+        "executed": true,
+        "line_total": 12,
+        "line_covered": 12,
+        "line_rate": 1.0,
+        "branch_total": 6,
+        "branch_covered": 6,
+        "branch_rate": 1.0,
+        "executable_lines": [
+          71,
+          73,
+          74,
+          75,
+          76,
+          78,
+          79,
+          81,
+          82,
+          84,
+          85,
+          86
+        ],
+        "covered_lines": [
+          71,
+          73,
+          74,
+          75,
+          76,
+          78,
+          79,
+          81,
+          82,
+          84,
+          85,
+          86
+        ],
+        "branches": {
+          "85": {
+            "total": 2,
+            "covered": 2
+          },
+          "73": {
+            "total": 2,
+            "covered": 2
+          },
+          "78": {
+            "total": 2,
+            "covered": 2
+          }
+        }
+      },
+      "raw": {
+        "exit_code": 0,
+        "collected": 27,
+        "reports": [
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[-expected0]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[-expected0]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[-expected0]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[plain text-expected1]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[plain text-expected1]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[plain text-expected1]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[ \\t\\n -expected2]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[ \\t\\n -expected2]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[ \\t\\n -expected2]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[$NAME $9 $# $(NAME) {NAME} ${OPEN-expected3]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[$NAME $9 $# $(NAME) {NAME} ${OPEN-expected3]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[$NAME $9 $# $(NAME) {NAME} ${OPEN-expected3]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[${NAME}-expected4]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[${NAME}-expected4]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[${NAME}-expected4]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[${NAME:-}-expected5]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[${NAME:-}-expected5]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[${NAME:-}-expected5]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[${NAME:-fallback}-expected6]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[${NAME:-fallback}-expected6]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[${NAME:-fallback}-expected6]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[${}-expected7]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[${}-expected7]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[${}-expected7]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[${:-}-expected8]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[${:-}-expected8]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[${:-}-expected8]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[${:-fallback}-expected9]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[${:-fallback}-expected9]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[${:-fallback}-expected9]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[left${A}-expected10]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[left${A}-expected10]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[left${A}-expected10]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[${A}right-expected11]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[${A}right-expected11]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[${A}right-expected11]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[${A}${B:-second}${A:-}-expected12]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[${A}${B:-second}${A:-}-expected12]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[${A}${B:-second}${A:-}-expected12]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[\\u03c0\\n${A} / ${B:-two}\\t${C}\\n\\u7d42-expected13]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[\\u03c0\\n${A} / ${B:-two}\\t${C}\\n\\u7d42-expected13]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[\\u03c0\\n${A} / ${B:-two}\\t${C}\\n\\u7d42-expected13]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[${ 9-\\xfc.$\\t\\n:-  one:two:-three #$x={\\n }-expected14]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[${ 9-\\xfc.$\\t\\n:-  one:two:-three #$x={\\n }-expected14]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[${ 9-\\xfc.$\\t\\n:-  one:two:-three #$x={\\n }-expected14]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[${a{b}-expected15]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[${a{b}-expected15]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[${a{b}-expected15]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[${A:word}${B-default}${C:=x}-expected16]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[${A:word}${B-default}${C:=x}-expected16]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[${A:word}${B-default}${C:=x}-expected16]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[${A:+x}${A:?x}${A:}${A: -x}-expected17]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[${A:+x}${A:?x}${A:}${A: -x}-expected17]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[${A:+x}${A:?x}${A:}${A: -x}-expected17]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[${bad:word}${OK}${unfinished-expected18]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[${bad:word}${OK}${unfinished-expected18]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[${bad:word}${OK}${unfinished-expected18]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[${A:-${B}}-expected19]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[${A:-${B}}-expected19]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[${A:-${B}}-expected19]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[\\\\${X} $$${Y}-expected20]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[\\\\${X} $$${Y}-expected20]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[\\\\${X} $$${Y}-expected20]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[${A}\\x00${B:-\\x00}-expected21]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[${A}\\x00${B:-\\x00}-expected21]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_yields_expected_atoms[${A}\\x00${B:-\\x00}-expected21]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_returns_an_iterator",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_returns_an_iterator",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_returns_an_iterator",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_atoms_resolve_in_order[env0-left|fallback||right]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_atoms_resolve_in_order[env0-left|fallback||right]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_atoms_resolve_in_order[env0-left|fallback||right]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_atoms_resolve_in_order[env1-left|actual|present|valueright]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_atoms_resolve_in_order[env1-left|actual|present|valueright]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_atoms_resolve_in_order[env1-left|actual|present|valueright]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_atoms_resolve_in_order[env2-left|||right]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_atoms_resolve_in_order[env2-left|||right]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_atoms_resolve_in_order[env2-left|||right]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_atoms_resolve_in_order[env3-left|||otherright]",
+            "when": "setup",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_atoms_resolve_in_order[env3-left|||otherright]",
+            "when": "call",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          },
+          {
+            "nodeid": "::test_parse_variables_atoms_resolve_in_order[env3-left|||otherright]",
+            "when": "teardown",
+            "outcome": "passed",
+            "exception": null,
+            "assertion_failure": false,
+            "expected_failure": false,
+            "message": null
+          }
+        ],
+        "collection_errors": [],
+        "focal": {
+          "executed": true,
+          "line_total": 12,
+          "line_covered": 12,
+          "line_rate": 1.0,
+          "branch_total": 6,
+          "branch_covered": 6,
+          "branch_rate": 1.0,
+          "executable_lines": [
+            71,
+            73,
+            74,
+            75,
+            76,
+            78,
+            79,
+            81,
+            82,
+            84,
+            85,
+            86
+          ],
+          "covered_lines": [
+            71,
+            73,
+            74,
+            75,
+            76,
+            78,
+            79,
+            81,
+            82,
+            84,
+            85,
+            86
+          ],
+          "branches": {
+            "85": {
+              "total": 2,
+              "covered": 2
+            },
+            "73": {
+              "total": 2,
+              "covered": 2
+            },
+            "78": {
+              "total": 2,
+              "covered": 2
+            }
+          }
+        }
+      }
+    },
+    "defects_eligible": 1,
+    "defects_measured": 1,
+    "defects_detected": 1,
+    "detection_complete": true,
+    "total_seconds": 2.4327369169332087
+  }
+}

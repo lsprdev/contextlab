@@ -1,0 +1,414 @@
+{
+  "schema_version": 1,
+  "phase": "main",
+  "seed": 20261121,
+  "conditions": [
+    "L",
+    "R",
+    "A"
+  ],
+  "repetitions": 3,
+  "limits": {
+    "context_chars": 30000,
+    "tool_calls": 20,
+    "generation_seconds": 300,
+    "evaluation_seconds": 60
+  },
+  "agents": [
+    {
+      "id": "codex",
+      "kind": "codex",
+      "model": "gpt-6.2-sol",
+      "reasoning_effort": "medium",
+      "auth_file": "~/.codex/auth.json"
+    }
+  ],
+  "evaluation": {
+    "backend": "docker",
+    "image": "sha256:5fae9b0d2ee16d23a270dc3650f469a27384f205d9dc4fa5bbde576ab2894f9c"
+  },
+  "projects": [
+    {
+      "id": "fava",
+      "name": "Fava 1.30.16",
+      "root": "../projetos/fava",
+      "source_roots": [
+        "src"
+      ],
+      "include": [
+        "src/fava/__init__.py",
+        "src/fava/helpers.py",
+        "src/fava/core/**/*.py",
+        "src/fava/beans/**/*.py",
+        "src/fava/util/**/*.py",
+        "README.rst"
+      ],
+      "evaluation_include": [
+        "src/fava/**/*.py",
+        "tcc_referencia/test_ref_calculate_budget.py",
+        "tcc_referencia/test_ref_group_entries_by_account.py",
+        "tcc_referencia/test_ref_find_insert_position.py"
+      ],
+      "targets": [
+        {
+          "id": "calculate_budget",
+          "path": "src/fava/core/budgets.py",
+          "symbol": "calculate_budget",
+          "import": "fava.core.budgets:calculate_budget",
+          "test_kind": "unit",
+          "reference_tests": [
+            "tcc_referencia/test_ref_calculate_budget.py"
+          ],
+          "defects": [
+            {
+              "id": "FAV-01-sem-divisao",
+              "path": "src/fava/core/budgets.py",
+              "old": "currency_dict[budget.currency] += budget.number / days_in_period",
+              "new": "currency_dict[budget.currency] += budget.number",
+              "witness": "tcc_referencia/test_ref_calculate_budget.py::test_orcamento_mensal_de_um_dia_e_a_parcela_diaria"
+            }
+          ]
+        },
+        {
+          "id": "group_entries_by_account",
+          "path": "src/fava/core/group_entries.py",
+          "symbol": "group_entries_by_account",
+          "import": "fava.core.group_entries:group_entries_by_account",
+          "test_kind": "unit",
+          "reference_tests": [
+            "tcc_referencia/test_ref_group_entries_by_account.py"
+          ],
+          "defects": [
+            {
+              "id": "FAV-02-sem-ordenar",
+              "path": "src/fava/core/group_entries.py",
+              "old": "return dict(sorted(res.items()))",
+              "new": "return dict(res.items())",
+              "witness": "tcc_referencia/test_ref_group_entries_by_account.py::test_chaves_ficam_em_ordem_alfabetica"
+            },
+            {
+              "id": "FAV-02-transacao-no-lugar-do-par",
+              "path": "src/fava/core/group_entries.py",
+              "old": "res[posting.account].append(TransactionPosting(entry, posting))",
+              "new": "res[posting.account].append(entry)",
+              "witness": "tcc_referencia/test_ref_group_entries_by_account.py::test_transacao_aparece_em_cada_conta_como_par_transacao_lancamento"
+            }
+          ]
+        },
+        {
+          "id": "find_insert_position",
+          "path": "src/fava/core/file.py",
+          "symbol": "find_insert_position",
+          "import": "fava.core.file:find_insert_position",
+          "test_kind": "unit",
+          "reference_tests": [
+            "tcc_referencia/test_ref_find_insert_position.py"
+          ],
+          "defects": [
+            {
+              "id": "FAV-03-data-estrita",
+              "path": "src/fava/core/file.py",
+              "old": "if insert_option.date >= entry.date:",
+              "new": "if insert_option.date > entry.date:",
+              "witness": "tcc_referencia/test_ref_find_insert_position.py::test_opcao_com_mesma_data_da_diretiva_e_ignorada"
+            },
+            {
+              "id": "FAV-03-sem-menos-um",
+              "path": "src/fava/core/file.py",
+              "old": "return (insert_option.filename, insert_option.lineno - 1)",
+              "new": "return (insert_option.filename, insert_option.lineno)",
+              "witness": "tcc_referencia/test_ref_find_insert_position.py::test_opcao_anterior_que_casa_retorna_arquivo_e_linha_anterior"
+            },
+            {
+              "id": "FAV-03-ordem-crescente",
+              "path": "src/fava/core/file.py",
+              "old": "        key=attrgetter(\"date\"),\n        reverse=True,",
+              "new": "        key=attrgetter(\"date\"),\n        reverse=False,",
+              "witness": "tcc_referencia/test_ref_find_insert_position.py::test_entre_duas_opcoes_vale_a_mais_recente_em_qualquer_ordem"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bump_my_version",
+      "name": "bump-my-version 1.8.1",
+      "root": "../projetos/bump-my-version",
+      "source_roots": [
+        "."
+      ],
+      "include": [
+        "bumpversion/__init__.py",
+        "bumpversion/exceptions.py",
+        "bumpversion/utils.py",
+        "bumpversion/ui.py",
+        "bumpversion/versioning/**/*.py",
+        "bumpversion/scm/**/*.py",
+        "README.md"
+      ],
+      "evaluation_include": [
+        "bumpversion/**/*.py",
+        "tcc_referencia/test_ref_version_config_parse.py",
+        "tcc_referencia/test_ref_serialize.py",
+        "tcc_referencia/test_ref_get_version_from_tag.py"
+      ],
+      "targets": [
+        {
+          "id": "version_config_parse",
+          "path": "bumpversion/versioning/version_config.py",
+          "symbol": "VersionConfig.parse",
+          "import": "bumpversion.versioning.version_config:VersionConfig.parse",
+          "test_kind": "unit",
+          "reference_tests": [
+            "tcc_referencia/test_ref_version_config_parse.py"
+          ],
+          "defects": [
+            {
+              "id": "BMV-01-erro-invertido",
+              "path": "bumpversion/versioning/version_config.py",
+              "old": "if not parsed and raise_error:",
+              "new": "if not parsed and not raise_error:",
+              "witness": "tcc_referencia/test_ref_version_config_parse.py::test_cadeia_que_nao_corresponde_retorna_none"
+            },
+            {
+              "id": "BMV-01-sem-original",
+              "path": "bumpversion/versioning/version_config.py",
+              "old": "version.original = version_string",
+              "new": "pass",
+              "witness": "tcc_referencia/test_ref_version_config_parse.py::test_guarda_a_cadeia_original"
+            }
+          ]
+        },
+        {
+          "id": "serialize",
+          "path": "bumpversion/versioning/serialization.py",
+          "symbol": "serialize",
+          "import": "bumpversion.versioning.serialization:serialize",
+          "test_kind": "unit",
+          "reference_tests": [
+            "tcc_referencia/test_ref_serialize.py"
+          ],
+          "defects": [
+            {
+              "id": "BMV-02-partes-decrescente",
+              "path": "bumpversion/versioning/serialization.py",
+              "old": "(\"num_labels\", False)",
+              "new": "(\"num_labels\", True)",
+              "witness": "tcc_referencia/test_ref_serialize.py::test_patch_zero_usa_o_formato_mais_curto"
+            },
+            {
+              "id": "BMV-02-sem-obrigatorias",
+              "path": "bumpversion/versioning/serialization.py",
+              "old": "((\"has_required_components\", True), (\"num_labels\", False), (\"order\", False))",
+              "new": "((\"num_labels\", False), (\"order\", False))",
+              "witness": "tcc_referencia/test_ref_serialize.py::test_patch_diferente_de_zero_exige_o_formato_completo"
+            },
+            {
+              "id": "BMV-02-sem-copia",
+              "path": "bumpversion/versioning/serialization.py",
+              "old": "local_context = copy(context)",
+              "new": "local_context = context",
+              "witness": "tcc_referencia/test_ref_serialize.py::test_contexto_do_chamador_nao_e_alterado"
+            }
+          ]
+        },
+        {
+          "id": "get_version_from_tag",
+          "path": "bumpversion/scm/models.py",
+          "symbol": "SCMConfig.get_version_from_tag",
+          "import": "bumpversion.scm.models:SCMConfig.get_version_from_tag",
+          "test_kind": "unit",
+          "reference_tests": [
+            "tcc_referencia/test_ref_get_version_from_tag.py"
+          ],
+          "defects": [
+            {
+              "id": "BMV-03-sem-escape",
+              "path": "bumpversion/scm/models.py",
+              "old": "{re.escape(prefix)}",
+              "new": "{prefix}",
+              "witness": "tcc_referencia/test_ref_get_version_from_tag.py::test_prefixo_e_tratado_como_texto_literal"
+            },
+            {
+              "id": "BMV-03-sem-flags",
+              "path": "bumpversion/scm/models.py",
+              "old": "rep = f\"{regex_flags}{",
+              "new": "rep = f\"{",
+              "witness": "tcc_referencia/test_ref_get_version_from_tag.py::test_marcacao_verbose_no_inicio_do_padrao_continua_valendo"
+            },
+            {
+              "id": "BMV-03-prefixo-errado",
+              "path": "bumpversion/scm/models.py",
+              "old": "prefix = parts[0]",
+              "new": "prefix = parts[-1]",
+              "witness": "tcc_referencia/test_ref_get_version_from_tag.py::test_modelo_com_sufixo_usa_so_o_prefixo"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "python_dotenv",
+      "name": "python-dotenv 1.2.4",
+      "root": "../projetos/python-dotenv",
+      "source_roots": [
+        "src"
+      ],
+      "include": [
+        "src/dotenv/**/*.py",
+        "README.md"
+      ],
+      "evaluation_include": [
+        "src/dotenv/**/*.py",
+        "tcc_referencia/test_ref_parse_value.py",
+        "tcc_referencia/test_ref_parse_variables.py",
+        "tcc_referencia/test_ref_resolve_variables.py"
+      ],
+      "targets": [
+        {
+          "id": "parse_value",
+          "path": "src/dotenv/parser.py",
+          "symbol": "parse_value",
+          "import": "dotenv.parser:parse_value",
+          "test_kind": "unit",
+          "reference_tests": [
+            "tcc_referencia/test_ref_parse_value.py"
+          ],
+          "defects": [
+            {
+              "id": "DOT-01-sem-escapes",
+              "path": "src/dotenv/parser.py",
+              "old": "return decode_escapes(_double_quote_escapes, value)",
+              "new": "return value",
+              "witness": "tcc_referencia/test_ref_parse_value.py::test_aspas_duplas_decodificam_quebra_de_linha"
+            }
+          ]
+        },
+        {
+          "id": "parse_variables",
+          "path": "src/dotenv/variables.py",
+          "symbol": "parse_variables",
+          "import": "dotenv.variables:parse_variables",
+          "test_kind": "unit",
+          "reference_tests": [
+            "tcc_referencia/test_ref_parse_variables.py"
+          ],
+          "defects": [
+            {
+              "id": "DOT-02-sem-literal-final",
+              "path": "src/dotenv/variables.py",
+              "old": "    if cursor < length:",
+              "new": "    if False:",
+              "witness": "tcc_referencia/test_ref_parse_variables.py::test_literais_nas_duas_extremidades_e_valor_padrao"
+            }
+          ]
+        },
+        {
+          "id": "resolve_variables",
+          "path": "src/dotenv/main.py",
+          "symbol": "resolve_variables",
+          "import": "dotenv.main:resolve_variables",
+          "test_kind": "unit",
+          "reference_tests": [
+            "tcc_referencia/test_ref_resolve_variables.py"
+          ],
+          "defects": [
+            {
+              "id": "DOT-03-override-invertido",
+              "path": "src/dotenv/main.py",
+              "old": "            if override:\n                env.update(os.environ)",
+              "new": "            if not override:\n                env.update(os.environ)",
+              "witness": "tcc_referencia/test_ref_resolve_variables.py::test_conflito_entre_ambiente_e_arquivo_com_override_verdadeiro"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "python_stdnum",
+      "name": "python-stdnum 2.2",
+      "root": "../projetos/python-stdnum",
+      "source_roots": [
+        "."
+      ],
+      "include": [
+        "stdnum/__init__.py",
+        "stdnum/exceptions.py",
+        "stdnum/util.py",
+        "stdnum/br/**/*.py",
+        "stdnum/es/**/*.py",
+        "stdnum/isbn.py",
+        "stdnum/ean.py",
+        "stdnum/issn.py",
+        "stdnum/ismn.py",
+        "README.md"
+      ],
+      "evaluation_include": [
+        "stdnum/**/*.py",
+        "stdnum/**/*.dat",
+        "tcc_referencia/test_ref_cpf_validate.py",
+        "tcc_referencia/test_ref_isbn_validate.py",
+        "tcc_referencia/test_ref_nif_validate.py"
+      ],
+      "targets": [
+        {
+          "id": "br_cpf_validate",
+          "path": "stdnum/br/cpf.py",
+          "symbol": "validate",
+          "import": "stdnum.br.cpf:validate",
+          "test_kind": "unit",
+          "reference_tests": [
+            "tcc_referencia/test_ref_cpf_validate.py"
+          ],
+          "defects": [
+            {
+              "id": "STD-01-sem-verificacao",
+              "path": "stdnum/br/cpf.py",
+              "old": "if _calc_check_digits(number) != number[-2:]:",
+              "new": "if False and _calc_check_digits(number) != number[-2:]:",
+              "witness": "tcc_referencia/test_ref_cpf_validate.py::test_digito_verificador_errado"
+            }
+          ]
+        },
+        {
+          "id": "isbn_validate",
+          "path": "stdnum/isbn.py",
+          "symbol": "validate",
+          "import": "stdnum.isbn:validate",
+          "test_kind": "unit",
+          "reference_tests": [
+            "tcc_referencia/test_ref_isbn_validate.py"
+          ],
+          "defects": [
+            {
+              "id": "STD-02-ignora-conversao",
+              "path": "stdnum/isbn.py",
+              "old": "    if convert:\n        number = to_isbn13(number)\n    return number",
+              "new": "    return number",
+              "witness": "tcc_referencia/test_ref_isbn_validate.py::test_isbn10_com_conversao_vira_isbn13"
+            }
+          ]
+        },
+        {
+          "id": "es_nif_validate",
+          "path": "stdnum/es/nif.py",
+          "symbol": "validate",
+          "import": "stdnum.es.nif:validate",
+          "test_kind": "unit",
+          "reference_tests": [
+            "tcc_referencia/test_ref_nif_validate.py"
+          ],
+          "defects": [
+            {
+              "id": "STD-03-sem-nie",
+              "path": "stdnum/es/nif.py",
+              "old": "        nie.validate(number)",
+              "new": "        pass",
+              "witness": "tcc_referencia/test_ref_nif_validate.py::test_nie_com_letra_errada_e_erro_de_verificacao"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

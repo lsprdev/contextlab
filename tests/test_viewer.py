@@ -284,3 +284,16 @@ def test_build_site_publishes_only_documentation(tmp_path):
     assert 'id="nav-runs"' not in html and '<main id="view-runs" hidden>' in html
     assert '<main id="view-docs">' in html and '<body class="site">' in html
     assert html.index("contextlab-tema") < html.index("<style>")
+
+
+def test_build_site_with_experiment_adds_page_without_local_data(tmp_path):
+    root = Path(__file__).resolve().parents[1] / "experimento-tcc"
+    if not (root / "resultados" / "coleta" / "tentativas").is_dir():
+        pytest.skip("Material do experimento ausente")
+    html = build_site(tmp_path / "site", experiment=root).read_text(encoding="utf-8")
+    data = json.loads(html.split('<script type="application/json" id="data">', 1)[1].split("</script>", 1)[0])
+    attempts = data["experiment"]["attempts"]
+    assert len(attempts) == 108 and sum(a["approved"] for a in attempts) == 85
+    assert '<button id="nav-exp">Experimento</button>' in html and 'id="view-exp"' in html
+    serialized = json.dumps(data["experiment"])
+    assert "/Users/" not in serialized and "/Volumes/" not in serialized and "test_code" not in serialized

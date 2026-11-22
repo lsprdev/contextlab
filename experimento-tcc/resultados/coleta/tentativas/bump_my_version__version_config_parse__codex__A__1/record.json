@@ -1,0 +1,179 @@
+{
+  "schema_version": 1,
+  "order": 14,
+  "project": "bump_my_version",
+  "target": "version_config_parse",
+  "agent": "codex",
+  "condition": "A",
+  "repetition": 1,
+  "id": "bump_my_version__version_config_parse__codex__A__1",
+  "phase": "main",
+  "lock_hash": "49dd66a522994eb03001a67255ded0aa13cc696255859f45a924b43f05f5da33",
+  "started_at": "2026-11-22T03:22:42.162231+00:00",
+  "status": "limit",
+  "generation": {
+    "status": "limit",
+    "input_tokens": null,
+    "output_tokens": null,
+    "seconds": 20.878362583986018,
+    "version": "codex-cli 0.170.0",
+    "tool_log": [
+      {
+        "index": 1,
+        "tool": "list_files",
+        "arguments": {
+          "path": "bumpversion/versioning"
+        },
+        "delivered_chars": 246,
+        "chars_before": 0,
+        "status": "ok",
+        "chars_after": 246
+      },
+      {
+        "index": 2,
+        "tool": "read_file",
+        "arguments": {
+          "path": "bumpversion/versioning/version_config.py",
+          "start_line": 1,
+          "end_line": 265
+        },
+        "delivered_chars": 3775,
+        "chars_before": 246,
+        "status": "ok",
+        "chars_after": 4021
+      },
+      {
+        "index": 3,
+        "tool": "read_file",
+        "arguments": {
+          "path": "bumpversion/versioning/serialization.py",
+          "start_line": 1,
+          "end_line": 225
+        },
+        "delivered_chars": 4925,
+        "chars_before": 4021,
+        "status": "ok",
+        "chars_after": 8946
+      },
+      {
+        "index": 4,
+        "tool": "list_files",
+        "arguments": {
+          "path": "tests"
+        },
+        "delivered_chars": 12,
+        "chars_before": 8946,
+        "status": "ok",
+        "chars_after": 8958
+      },
+      {
+        "index": 5,
+        "tool": "list_files",
+        "arguments": {},
+        "delivered_chars": 462,
+        "chars_before": 8958,
+        "status": "ok",
+        "chars_after": 9420
+      },
+      {
+        "index": 6,
+        "tool": "read_file",
+        "arguments": {
+          "path": "bumpversion/versioning/models.py",
+          "start_line": 1,
+          "end_line": 280
+        },
+        "delivered_chars": 11480,
+        "chars_before": 9420,
+        "status": "ok",
+        "chars_after": 20900
+      },
+      {
+        "index": 7,
+        "tool": "read_file",
+        "arguments": {
+          "path": "bumpversion/versioning/functions.py",
+          "start_line": 1,
+          "end_line": 165
+        },
+        "delivered_chars": 6150,
+        "chars_before": 20900,
+        "status": "ok",
+        "chars_after": 27050
+      },
+      {
+        "index": 8,
+        "tool": "search",
+        "arguments": {
+          "query": ".parse(",
+          "path": "bumpversion"
+        },
+        "delivered_chars": 181,
+        "chars_before": 27050,
+        "status": "ok",
+        "chars_after": 27231
+      },
+      {
+        "index": 9,
+        "tool": "read_file",
+        "arguments": {
+          "path": "bumpversion/exceptions.py",
+          "start_line": 1,
+          "end_line": 90
+        },
+        "delivered_chars": 1527,
+        "chars_before": 27231,
+        "status": "ok",
+        "chars_after": 28758
+      },
+      {
+        "index": 10,
+        "tool": "read_file",
+        "arguments": {
+          "path": "bumpversion/ui.py",
+          "start_line": 1,
+          "end_line": 145
+        },
+        "delivered_chars": 0,
+        "chars_before": 28758,
+        "status": "budget_exceeded",
+        "requested_chars": 2093,
+        "chars_after": 28758
+      }
+    ],
+    "usage": {},
+    "details": [
+      "BudgetExceeded"
+    ],
+    "capabilities": {
+      "tool_surface_verified": true,
+      "tools": [
+        "functions.list_mcp_resource_templates",
+        "functions.list_mcp_resources",
+        "functions.read_mcp_resource",
+        "mcp__contextlab.list_files",
+        "mcp__contextlab.read_file",
+        "mcp__contextlab.search"
+      ],
+      "catalog_sha256": "a61b50641627a2941fc8be4db823d1fbbfa4ae628add4d7ec443dbab559140fb",
+      "probe": "offline-localhost",
+      "model": "gpt-6.2-sol",
+      "command_rejected": true,
+      "outside_packet_rejected": true,
+      "allowed_read_verified": true
+    },
+    "returncode": -9,
+    "context_stats": {
+      "chars_used": 28758,
+      "initial_chars": 0,
+      "response_chars": 28758,
+      "remaining_chars": 1242,
+      "tool_calls": 10,
+      "max_calls": 20,
+      "budget": 30000
+    }
+  },
+  "evaluation": null,
+  "preparation_seconds": 0.019134917005430907,
+  "finished_at": "2026-11-22T03:23:03.060929+00:00"
+}
