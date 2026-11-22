@@ -153,8 +153,8 @@
     box.replaceChildren(svg);
   }
   document.getElementById("exp-tokens-note").textContent =
-    `A consumiu em média ${nf(mean(stats.A.tok) / mean(stats.L.tok), 1)} vezes mais tokens de entrada que L, mas ${pct(num(by("A").map(a => a.cached_input_tokens)).reduce((x, y) => x + y, 0) / stats.A.tok.reduce((x, y) => x + y, 0))} deles vieram do cache, que custa vinte vezes menos. ` +
-    `${missing} tentativas de A atingiram o limite de contexto sem informar tokens e não aparecem aqui; os valores de A são mínimos.`;
+    `Nas tentativas com medição, A consumiu em média ${nf(mean(stats.A.tok) / mean(stats.L.tok), 1)} vezes os tokens de entrada de L, mas ${pct(num(by("A").map(a => a.cached_input_tokens)).reduce((x, y) => x + y, 0) / stats.A.tok.reduce((x, y) => x + y, 0))} deles vieram do cache, que custa vinte vezes menos. ` +
+    `${missing} tentativas de A atingiram o limite de contexto sem informar tokens e não aparecem aqui: as médias de A descrevem as demais, e as somas e razões por suíte aprovada de A são limites inferiores.`;
 
   // ---- 4. Esforço por suíte aprovada, por função: gráfico de pontos (Cleveland), custo ou tokens
   let mode = "cost";
@@ -215,7 +215,7 @@
     ["Caracteres de contexto", ...C.map(c => avg(c, a => a.context_chars))],
     ["Consultas às ferramentas", ...C.map(c => avg(c, a => a.tool_calls, 1))],
     ["Geração (s)", ...C.map(c => avg(c, a => a.generation_seconds, 1))],
-    ["Avaliação inicial (s)", ...C.map(c => avg(c, a => a.evaluation_seconds, 1))],
+    ["Avaliação inicial (s)", ...C.map(c => avg(c, a => a.evaluation_seconds, 2))],
     ["Custo estimado por tentativa", ...C.map(c => usd(mean(stats[c].cost)))],
   ], [1, 2, 3]));
   document.getElementById("exp-resources-note").textContent = EXP.pricing
@@ -228,9 +228,9 @@
 
   // ---- Achados e configuração
   const findings = [
-    `L e A aprovaram ${stats.L.ok} de 36 suítes cada; R aprovou ${stats.R.ok}. As diferenças se concentraram em três funções: find_insert_position, VersionConfig.parse e group_entries_by_account.`,
-    "Onde o teste precisa construir objetos definidos fora do arquivo da função e das dependências diretas (registros do Beancount, partes de uma versão), L e R falharam, e A, explorando o repositório, encontrou o caminho.",
-    "Nas funções autocontidas (python-dotenv e python-stdnum), o contexto local bastou: A só acrescentou consumo.",
+    `L e A tiveram suítes aprovadas em ${stats.L.ok} das 36 tentativas cada; R, em ${stats.R.ok}. As diferenças se concentraram em três funções: find_insert_position, VersionConfig.parse e group_entries_by_account.`,
+    "Onde o teste precisa construir objetos definidos fora do arquivo da função e das dependências diretas (registros do Beancount, partes de uma versão), A aprovou 4 de 6 tentativas, R 1 (usando o analisador do Beancount) e L nenhuma.",
+    "Nas outras dez funções, L aprovou todas as repetições: o contexto local bastou, e A acrescentou consumo sem aumentar a aprovação.",
     `Toda suíte aprovada cobriu a função inteira e detectou todos os defeitos controlados: efeito de teto nessas duas medidas.`,
     `Por suíte aprovada, L foi a mais econômica na maioria das funções; o cache reduz a desvantagem de A em custo (${nf(mean(stats.A.tok) / mean(stats.L.tok), 1)}× os tokens, ${nf(mean(stats.A.cost) / mean(stats.L.cost), 1)}× o custo).`,
     "Três suítes de L substituíram por dublês a função que identifica as contas de um registro, ausente do pacote L; foram aprovadas e marcadas na revisão.",

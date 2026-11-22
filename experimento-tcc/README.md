@@ -41,7 +41,7 @@ O código dos projetos não é copiado. O manifesto aponta as revisões:
 | `defeitos/` | `candidatos.json`: os 20 defeitos controlados (trecho original e alterado). A testemunha de cada um está no manifesto. |
 | `verificacoes/` | Scripts de conferência do ambiente, dos defeitos e de triagem da revisão. |
 | `precos.json` | Tarifas de API do `gpt-6.2-sol` usadas no cenário de custo (consulta de 22/11/2026). |
-| `resultados/coleta/` | `report.md`, `report.json`, `results.csv` e, em `tentativas/`, o `record.json` e o teste entregue de cada uma das 108 tentativas. |
+| `resultados/coleta/` | `report.md`, `report.json`, `results.csv` e, em `tentativas/`, o `record.json` de cada uma das 108 tentativas e o teste entregue nas 105 que produziram arquivo. |
 | `resultados/piloto/` | O mesmo para as 12 gerações do piloto. |
 
 Os registros brutos das sessões (`agent/native.jsonl`), os contextos entregues
@@ -58,8 +58,9 @@ alterá-los invalidaria o `lock_hash`.
 | Tokens de entrada por tentativa | 23,8 mil | 23,7 mil | 77,0 mil¹ |
 | Custo estimado por suíte aprovada (API) | US$ 0,044 | US$ 0,054 | US$ 0,060¹ |
 
-¹ Três tentativas de A atingiram o limite de contexto sem contagem de tokens:
-valores mínimos.
+¹ Três tentativas de A atingiram o limite de contexto sem contagem de tokens.
+A média de tokens descreve as 33 tentativas com medição, e o custo por suíte
+aprovada é um limite inferior.
 
 ## Reproduzir
 

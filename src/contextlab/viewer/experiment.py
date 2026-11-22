@@ -14,7 +14,8 @@ from . import estimate_cost, load_prices
 
 def _attempt(record: dict, rates: dict | None) -> dict:
     generation = record.get("generation") or {}
-    evaluation = record.get("reviewed_evaluation") or record.get("evaluation") or {}
+    initial = record.get("evaluation") or {}
+    evaluation = record.get("reviewed_evaluation") or initial
     usage = generation.get("usage") or {}
     stats = generation.get("context_stats") or {}
     coverage = evaluation.get("coverage_main") or {}
@@ -40,7 +41,7 @@ def _attempt(record: dict, rates: dict | None) -> dict:
                                "output_tokens": generation.get("output_tokens")}, rates),
         "context_chars": stats.get("chars_used"), "tool_calls": stats.get("tool_calls"),
         "generation_seconds": generation.get("seconds"),
-        "evaluation_seconds": evaluation.get("total_seconds", evaluation.get("seconds")),
+        "evaluation_seconds": initial.get("total_seconds", initial.get("seconds")),
         "tests": evaluation.get("collected") if approved else None,
         "line_rate": coverage.get("line_rate") if approved else None,
         "branch_rate": coverage.get("branch_rate") if approved and coverage.get("branch_total") else None,
