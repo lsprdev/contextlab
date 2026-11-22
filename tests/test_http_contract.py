@@ -15,7 +15,7 @@ def save_config(tmp_path, kind, phase="demo"):
     config["projects"][0]["targets"][0]["test_kind"] = kind
     config["phase"] = phase
     if phase != "demo":
-        config["agents"] = [{"id": "codex", "kind": "codex", "model": "fixed-model"}]
+        config["agents"] = [{"id": "codex", "kind": "codex", "model": "fixed-model", "reasoning_effort": "medium"}]
         config["evaluation"]["backend"] = "docker"
     path = tmp_path / "config.json"
     path.write_text(json.dumps(config))

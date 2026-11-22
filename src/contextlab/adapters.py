@@ -142,7 +142,7 @@ def _mcp_config(packet: Path, audit: Path) -> dict:
 
 
 def _codex_command(binary: str, model: str, workspace: Path, schema: Path,
-                   final: Path, mcp: dict, catalog: Path) -> list[str]:
+                   final: Path, mcp: dict, catalog: Path, reasoning_effort: str | None = None) -> list[str]:
     command = [binary, "exec", "--json", "--ephemeral", "--ignore-user-config",
                "--skip-git-repo-check", "--sandbox", "read-only", "--model", model,
                "--output-schema", str(schema), "--output-last-message", str(final),
@@ -164,6 +164,9 @@ def _codex_command(binary: str, model: str, workspace: Path, schema: Path,
         "mcp_servers.contextlab.enabled_tools": list(TOOLS),
         "mcp_servers.contextlab.default_tools_approval_mode": "approve",
     }
+    if reasoning_effort:
+        # A configuração do usuário é ignorada (--ignore-user-config): o esforço vem só do manifesto.
+        settings["model_reasoning_effort"] = reasoning_effort
     settings.update({"features." + name: False for name in CODEX_DISABLED})
     for key, value in settings.items():
         command += ["-c", key + "=" + json.dumps(value, ensure_ascii=False)]
@@ -325,7 +328,8 @@ def run_agent(agent: dict, prompt: str, context: dict, output_dir: Path, limits:
                 if catalog_hash != readiness["capabilities"]["catalog_sha256"]:
                     raise ValueError("Codex model catalog changed after capability verification")
                 result["capabilities"] = readiness["capabilities"]
-                command = _codex_command(readiness["binary"], agent["model"], workspace, schema, final, mcp, catalog)
+                command = _codex_command(readiness["binary"], agent["model"], workspace, schema, final, mcp, catalog,
+                                         agent.get("reasoning_effort"))
             else:
                 mcp_file = private / "mcp.json"
                 mcp_file.write_text(json.dumps({"mcpServers": {"contextlab": mcp}}), encoding="utf-8")

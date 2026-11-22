@@ -249,6 +249,7 @@
     <tbody>
       <tr><td><code>agents[].kind</code></td><td><code>codex</code>, <code>fixture</code></td><td><code>codex</code> chama o cliente real. <code>fixture</code> carrega um teste já escrito e só vale em <code>demo</code>.</td></tr>
       <tr><td><code>agents[].model</code></td><td>texto</td><td>Identificador exato do modelo. Obrigatório para agentes reais.</td></tr>
+      <tr><td><code>agents[].reasoning_effort</code></td><td>texto</td><td>Esforço de raciocínio do Codex: <code>low</code>, <code>medium</code>, <code>high</code>, <code>xhigh</code>, <code>max</code> ou <code>ultra</code>. Obrigatório na coleta principal; sem ele, vale o padrão do modelo, que muda entre modelos.</td></tr>
       <tr><td><code>agents[].auth_file</code></td><td>caminho</td><td>Onde está o login do Codex. Aceita <code>~</code>. Sem ele, usa a variável <code>CODEX_API_KEY</code>.</td></tr>
       <tr><td><code>agents[].fixture_dir</code></td><td>pasta</td><td>Onde ficam os testes prontos do modo <code>demo</code>.</td></tr>
       <tr><td><code>evaluation.backend</code></td><td><code>docker</code>, <code>local</code></td><td><code>local</code> só é aceito em <code>demo</code>, com <code>--trusted-local</code>. Código gerado por modelo sempre roda no Docker.</td></tr>

@@ -257,3 +257,14 @@ def test_interruption_or_unexpected_error_stops_native_process_before_cleanup(tm
     assert stopped == [proc]
     assert proc.calls == 2
     assert not proc.cwd.exists()
+
+
+def test_codex_command_passes_reasoning_effort_only_when_configured(tmp_path):
+    from contextlab.adapters import _codex_command
+    mcp = {"command": "python", "args": []}
+    base = _codex_command("codex", "m", tmp_path, tmp_path / "s", tmp_path / "f", mcp, tmp_path / "c")
+    assert not any(arg.startswith("model_reasoning_effort=") for arg in base)
+    assert "--ignore-user-config" in base
+    command = _codex_command("codex", "m", tmp_path, tmp_path / "s", tmp_path / "f", mcp, tmp_path / "c", "medium")
+    assert 'model_reasoning_effort="medium"' in command
+    assert command[command.index('model_reasoning_effort="medium"') - 1] == "-c"

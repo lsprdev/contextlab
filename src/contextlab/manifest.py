@@ -19,6 +19,9 @@ class ManifestError(ValueError):
     pass
 
 
+REASONING_EFFORTS = ("low", "medium", "high", "xhigh", "max", "ultra")
+
+
 def now() -> str:
     return datetime.now(timezone.utc).isoformat()
 
@@ -137,6 +140,14 @@ def load_config(path: str | Path) -> dict:
                 agent["fixture_dir"] = str((path.parent / agent["fixture_dir"]).resolve())
             elif not agent.get("model"):
                 raise ManifestError("Fixe explicitamente o modelo do agente")
+            if "reasoning_effort" in agent:
+                # Sem este campo o Codex usa o padrão do modelo, que muda entre modelos e versões.
+                if agent["kind"] != "codex":
+                    raise ManifestError("reasoning_effort só se aplica ao agente Codex")
+                if agent["reasoning_effort"] not in REASONING_EFFORTS:
+                    raise ManifestError("reasoning_effort deve ser um de: " + ", ".join(REASONING_EFFORTS))
+            elif config["phase"] == "main" and agent["kind"] == "codex":
+                raise ManifestError("A coleta principal exige reasoning_effort explícito no agente Codex")
             if agent.get("auth_file"):
                 agent["auth_file"] = str((path.parent / Path(agent["auth_file"]).expanduser()).resolve())
         _unique(config["projects"], "projects")

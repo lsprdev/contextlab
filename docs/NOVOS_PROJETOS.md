@@ -203,6 +203,7 @@ A distinção mais importante é:
 | `source_roots` | Raízes de importação relativas ao projeto |
 | `targets` | Funções selecionadas, suas referências e seus defeitos |
 | `auth_file` | Caminho para um login existente; nunca o conteúdo da credencial |
+| `reasoning_effort` | Esforço de raciocínio do Codex (`low`, `medium`, `high`, `xhigh`, `max`, `ultra`). Obrigatório na coleta principal; sem ele vale o padrão do modelo |
 
 O exemplo usa o caminho de autenticação do ambiente em que o piloto inicial foi
 executado. Ajuste-o se seu login estiver em outro diretório, como `~/.codex/`.

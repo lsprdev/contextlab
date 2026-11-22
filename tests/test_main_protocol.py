@@ -12,7 +12,7 @@ def make_manifest(tmp_path, projects=4, targets=3):
     configuration = {
         "schema_version": 1, "phase": "main", "seed": 42,
         "repetitions": 3, "conditions": ["L", "R", "A"],
-        "agents": [{"id": "codex", "kind": "codex", "model": "fixed-model"}],
+        "agents": [{"id": "codex", "kind": "codex", "model": "fixed-model", "reasoning_effort": "medium"}],
         "limits": {"context_chars": 10000, "tool_calls": 10,
                    "generation_seconds": 30, "evaluation_seconds": 10},
         "evaluation": {"backend": "docker", "image": "contextlab:test"},
@@ -88,7 +88,8 @@ def test_main_randomizes_complete_blocks_reproducibly(main_config):
 ])
 def test_main_rejects_other_designs(tmp_path, projects, targets, kinds, repetitions):
     configuration = make_manifest(tmp_path, projects, targets)
-    configuration["agents"] = [{"id": f"agent_{i}", "kind": kind, "model": f"model_{i}"}
+    configuration["agents"] = [{"id": f"agent_{i}", "kind": kind, "model": f"model_{i}",
+                                **({"reasoning_effort": "medium"} if kind == "codex" else {})}
                                for i, kind in enumerate(kinds)]
     configuration["repetitions"] = repetitions
     with pytest.raises(ManifestError, match="108 gerações"):
@@ -158,3 +159,23 @@ def test_main_rejects_pilot_with_different_model(main_config, main_evidence):
     manifest.write_json(pilot_dir / "run.json", header)
     with pytest.raises(ManifestError, match="Modelos da coleta"):
         runner.check_main_evidence(main_config, evidence)
+
+
+def test_main_requires_explicit_reasoning_effort(tmp_path):
+    configuration = make_manifest(tmp_path)
+    del configuration["agents"][0]["reasoning_effort"]
+    with pytest.raises(ManifestError, match="reasoning_effort"):
+        load_manifest(tmp_path, configuration)
+
+
+@pytest.mark.parametrize("effort", ["", "medio", "MEDIUM", None])
+def test_reasoning_effort_must_be_a_known_level(tmp_path, effort):
+    configuration = make_manifest(tmp_path)
+    configuration["agents"][0]["reasoning_effort"] = effort
+    with pytest.raises(ManifestError, match="reasoning_effort"):
+        load_manifest(tmp_path, configuration)
+
+
+def test_reasoning_effort_is_frozen_with_the_configuration(tmp_path):
+    configuration = load_manifest(tmp_path, make_manifest(tmp_path))
+    assert configuration["agents"][0]["reasoning_effort"] == "medium"
