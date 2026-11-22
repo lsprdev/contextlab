@@ -195,7 +195,28 @@ pre.code-sample { font-size: 12px; line-height: 1.65; } .cmt { color: var(--fain
 .cmd-head span { color: var(--muted); font-size: 13px; } .cmd p { font-size: 13.5px; }
 [hidden] { display: none !important; }
 @media (max-width: 520px) { body.site .nav { display: none; } }
-@media (max-width: 900px) { .docs { grid-template-columns: minmax(0, 1fr); gap: 20px; } .toc { position: static; flex-direction: row; flex-wrap: wrap; } .toc b { width: 100%; }
+/* Celular: sumário em uma linha rolável presa abaixo da barra, tabelas que quebram linha
+   e diagramas largos com rolagem horizontal em vez de encolhidos até ficarem ilegíveis. */
+@media (max-width: 900px) {
+  .toc { position: sticky; top: 52px; z-index: 3; flex-direction: row; flex-wrap: nowrap; overflow-x: auto; gap: 2px;
+         margin: -18px -14px 0; padding: 8px 14px; background: var(--bg); border-bottom: 1px solid var(--line); scrollbar-width: none; }
+  .toc::-webkit-scrollbar { display: none; }
+  .toc b { display: none; }
+  .toc a { flex: none; white-space: nowrap; font-size: 13px; padding: 5px 10px; }
+  article.doc section { scroll-margin-top: 112px; }
+  article.doc { font-size: 14px; }
+  table.doc { display: block; overflow-x: auto; max-width: 100%; }
+  table.doc td:first-child { white-space: normal; overflow-wrap: anywhere; min-width: 110px; }
+  table.doc.opts td:first-child { width: auto; }
+  .diagram { padding: 12px; }
+  .diagram.wide { text-align: left; }
+  .diagram.wide svg { max-width: none !important; width: var(--natural-width); }
+}
+@media (max-width: 520px) {
+  article.doc h2 { font-size: 20px; }
+  .cmd { padding: 10px 12px 2px; }
+}
+@media (max-width: 900px) { .docs { grid-template-columns: minmax(0, 1fr); gap: 20px; }
   .topbar { padding: 0 14px; } main { padding: 18px 14px 50px; } .seg { margin-left: 0; } table.compare td:first-child { width: auto; } }
 </style>
 </head>
@@ -597,6 +618,10 @@ async function renderDiagrams() {
       // A fonte do diagrama é texto autoral desta página, nunca dado de execução.
       const {svg} = await mermaid.render(`diagrama-${index}-${isDark() ? "d" : "l"}`, block.textContent);
       holder.innerHTML = svg;
+      // Diagramas largos mantêm o tamanho natural em tela estreita e rolam na horizontal.
+      const box = holder.querySelector("svg")?.viewBox?.baseVal;
+      holder.classList.toggle("wide", Boolean(box && box.width / box.height > 2.2));
+      if (box) holder.style.setProperty("--natural-width", Math.round(box.width * 0.85) + "px");
       block.hidden = true;
     } catch (error) { holder.remove(); block.hidden = false; block.classList.add("shown"); }
   }
@@ -622,7 +647,12 @@ function setupDocs() {
   const links = [...toc.querySelectorAll("a")];
   const spy = new IntersectionObserver(entries => {
     for (const entry of entries) if (entry.isIntersecting)
-      links.forEach(a => a.classList.toggle("on", a.getAttribute("href") === "#docs/" + entry.target.id));
+      links.forEach(a => {
+        const on = a.getAttribute("href") === "#docs/" + entry.target.id;
+        a.classList.toggle("on", on);
+        // No celular o sumário é uma linha rolável: mantém a seção atual visível nela.
+        if (on && toc.scrollWidth > toc.clientWidth) toc.scrollTo({left: a.offsetLeft - 14, behavior: "smooth"});
+      });
   }, {rootMargin: "-90px 0px -65% 0px"});
   sections.forEach(s => spy.observe(s));
   liveConfig();

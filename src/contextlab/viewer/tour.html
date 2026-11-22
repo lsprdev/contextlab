@@ -20,6 +20,7 @@
 .tour-sprite { position: absolute; width: 0; height: 0; overflow: hidden; }
 .tour { margin: 14px 0 26px; border: 1px solid var(--line); border-radius: 14px; background: var(--panel); overflow: hidden; }
 .tour .t-fit { position: relative; width: 100%; overflow: hidden; }
+.tour .t-fit.scroll { overflow-x: auto; overflow-y: hidden; }
 .tour .t-stage { position: absolute; left: 0; top: 0; width: 880px; height: 600px; transform-origin: 0 0; font: 13px/1.45 var(--sans); color: var(--ink); }
 .tour .t-term { position: absolute; left: 0; top: 0; width: 880px; height: 160px; background: #0d0d10; color: #e4e4e7; }
 .tour .t-bar { height: 28px; display: flex; align-items: center; gap: 7px; padding: 0 12px; border-bottom: 1px solid #1f1f24; }
@@ -153,9 +154,11 @@ window.contextlabTour = (root, opts) => {
   let gen = 0, paused = false, visible = false, started = false, finished = false, current = 0, wires = null;
 
   function resize() {
-    const s = Math.min(1, fit.clientWidth / W);
+    // Abaixo de 60% o texto fica ilegível: a animação para de encolher e rola na horizontal.
+    const s = Math.max(0.6, Math.min(1, fit.clientWidth / W));
     stage.style.transform = `scale(${s})`;
     fit.style.height = H * s + "px";
+    fit.classList.toggle("scroll", W * s > fit.clientWidth + 1);
   }
   new ResizeObserver(resize).observe(fit);
   resize();
