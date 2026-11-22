@@ -25,6 +25,7 @@ _CSV_FIELDS = [
     "reference_passed", "syntax_ok", "collected", "line_rate", "branch_rate", "preparation_seconds",
     "generation_seconds", "evaluation_seconds", "context_chars", "tool_calls", "input_tokens", "output_tokens", "detection_rate",
     "defects_configured", "defects_eligible", "defects_measured", "defects_detected", "detection_complete",
+    "infrastructure_retry", "infrastructure_retry_reason", "dependency_doubles",
 ]
 
 
@@ -97,6 +98,11 @@ def _row(planned, record, config, target):
         "defects_detected": evaluation.get("defects_detected"),
         "detection_complete": evaluation.get("detection_complete"),
         "defects": evaluation.get("defects", []),
+        # Repetição única por falha de infraestrutura (seção 6.1.3), com o motivo registrado.
+        # Marcação da revisão (seção 6.2.4): dublês das dependências, para análise separada.
+        "dependency_doubles": (evaluation.get("review") or {}).get("dependency_doubles"),
+        "infrastructure_retry": ((record or {}).get("retry") or (record or {}).get("evaluation_retry") or {}).get("kind"),
+        "infrastructure_retry_reason": ((record or {}).get("retry") or (record or {}).get("evaluation_retry") or {}).get("reason"),
     }
 
 
@@ -111,6 +117,9 @@ def _summary(rows):
         "pending": pending,
         "generation_infrastructure": sum(row["generation_infrastructure"] for row in rows),
         "evaluation_infrastructure": sum(row["evaluation_infrastructure"] for row in rows),
+        "infrastructure_retries": sum(bool(row["infrastructure_retry"]) for row in rows),
+        "approved_with_dependency_doubles": sum(row["approved"] is True and row["dependency_doubles"] is True
+                                                for row in rows),
         "approval_pending": sum(row["approval"] == "pending_review" for row in observable),
         "approval_unresolved": unresolved, "approved": len(approved),
         "approval_known_n": len(known), "approval_observable_n": len(observable),

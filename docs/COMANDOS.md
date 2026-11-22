@@ -281,6 +281,8 @@ tentativa pode conter vários testes. Com somente L e uma repetição, o plano j
 tem uma tentativa; nesse caso, `--max-runs 1` é redundante. Para continuar um
 lote parcial, use `--resume LOTE`, sem iniciar um novo `run` independente.
 
+**Repetição por infraestrutura.** No `--resume`, uma tentativa que falhou por motivo não atribuível ao agente (erro de infraestrutura, Docker ou serviço indisponível, interrupção) é repetida **uma única vez**. Sem entrega, gera de novo e guarda a original em `original/`; com entrega, só reavalia o mesmo arquivo e guarda a avaliação anterior em `evaluation-original/`. O motivo fica em `retry` ou `evaluation_retry` no `record.json`. Limite, timeout, violação de protocolo e saída inválida são resultados do agente e nunca se repetem.
+
 A retomada conserva o plano antigo, mesmo que o JSON editável tenha mudado.
 Ela pula tentativas que já possuem registro, inclusive falhas e interrupções;
 não pede outra entrega para substituir uma tentativa malsucedida. Retomada e
@@ -421,6 +423,7 @@ após ler os testes; passar na execução não implica aprovação automática.
 | `--behavioral-assertions yes` ou `no` | As asserções verificam resultados ou exceções esperados? |
 | `--no-target-mock yes` ou `no` | A função alvo foi usada de verdade, sem ser substituída por uma resposta simulada? |
 | `--no-production-changes yes` ou `no` | A implementação foi preservada durante a execução? |
+| `--dependency-doubles yes` ou `no` | A suíte substitui dependências da função alvo por dublês? Só marca, não reprova. |
 | `--http-requests yes` ou `no` | Somente alvos `http`: o teste fez requisições ao alvo, com regras e SQLite reais, sem chamar diretamente o handler? |
 
 As opções adicionais abaixo não são perguntadas interativamente:
@@ -476,7 +479,7 @@ Todos os comandos também aceitam `-h` / `--help`.
 | `contextlab validate MANIFESTO --out PASTA` | Executa referências e testemunhos dos defeitos, salvando a validação. | `--trusted-local`. |
 | `contextlab freeze MANIFESTO --out ARQUIVO.lock.json` | Congela configuração, fontes, ambiente e ordem. Não gera testes. | `--evidence EVIDENCIAS.json`; exigida com evidências válidas para `main`. |
 | `contextlab run ARQUIVO.lock.json --out PASTA` | Executa o plano congelado. | `--trusted-local`, `--max-runs NUMERO`, `--resume`. |
-| `contextlab review PASTA_DA_TENTATIVA --reviewer "Seu nome" --behavioral-assertions yes --no-target-mock yes --no-production-changes yes` | Registra a inspeção e reavalia a entrega. Os valores devem refletir a conferência; também aceitam `no`. | `--http-requests yes` ou `no` para alvos HTTP; `--trusted-local`; `--defect-attribution ID_DO_DEFEITO=yes` ou `no`, repetível. |
+| `contextlab review PASTA_DA_TENTATIVA --reviewer "Seu nome" --behavioral-assertions yes --no-target-mock yes --no-production-changes yes --dependency-doubles no` | Registra a inspeção e reavalia a entrega. Os valores devem refletir a conferência; também aceitam `no`. `--dependency-doubles` marca se a suíte trocou dependências da função alvo por dublês: é registrado para análise separada e não decide a aprovação. | `--http-requests yes` ou `no` para alvos HTTP; `--trusted-local`; `--defect-attribution ID_DO_DEFEITO=yes` ou `no`, repetível. |
 | `contextlab report PASTA_DA_EXECUCAO` | Exporta `results.csv`, `report.json` e `report.md`; não reexecuta os testes. | Nenhuma. |
 
 `--project` e `--target` em `prepare` são os IDs definidos no manifesto, não

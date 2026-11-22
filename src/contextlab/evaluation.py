@@ -312,7 +312,8 @@ def evaluate_submission(project, target, submission_path, output_dir, config, de
 
     `defects` is the fixed inventory of {id,path,old,new,witness}; each definition
     is validated against its witness before evaluating the submitted suite.
-    `review` requires the three boolean review keys (plus http_requests for HTTP pilots), and may contain
+    `review` requires the three boolean review keys (plus http_requests for HTTP pilots). It may also record
+    dependency_doubles, a marking for separate analysis that never gates approval, and may contain
     defect_attribution={defect_id: true|false} after inspecting mutant failures.
     """
     evaluation_started = time.monotonic()

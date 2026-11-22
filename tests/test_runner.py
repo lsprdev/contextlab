@@ -151,3 +151,139 @@ def test_review_preserves_original_evaluation_and_appends_history(frozen_review)
     assert record["reviewed_evaluation"]["approval"] == "rejected"
     assert len(list((path / "reviews").glob("review-*.json"))) == 2
     assert evaluator.call_count == 2
+
+
+# Repetição única por falha de infraestrutura (seção 6.1.3 do TCC).
+
+def _demo_lock(tmp_path):
+    config = load_config(DEMO)
+    lock = tmp_path / "demo.lock.json"
+    freeze(config, lock)
+    return config, lock
+
+
+def test_generation_infrastructure_failure_is_retried_once_and_original_is_kept(tmp_path, monkeypatch):
+    import contextlab.evaluation
+    import contextlab.runner as runner
+    monkeypatch.setattr(contextlab.evaluation, "evaluate_submission", lambda *a, **k: {"status": "completed"})
+    real = runner.fixture_generation
+    calls = []
+
+    def flaky(*args, **kwargs):
+        calls.append(1)
+        if len(calls) == 1:
+            raise ConnectionError("serviço indisponível")
+        return real(*args, **kwargs)
+
+    monkeypatch.setattr(runner, "fixture_generation", flaky)
+    config, lock = _demo_lock(tmp_path)
+    destination = tmp_path / "run"
+    row = plan(config)[0]
+    execute(lock, destination, trusted_local=True, max_runs=1)
+    first = json.loads((destination / row["id"] / "record.json").read_text())
+    assert first["status"] == "infrastructure_error"
+
+    execute(lock, destination, trusted_local=True, resume=True, max_runs=1)
+    record = json.loads((destination / row["id"] / "record.json").read_text())
+    assert record["status"] == "finished"
+    assert record["retry"]["kind"] == "generation"
+    assert "serviço indisponível" in record["retry"]["reason"]
+    original = json.loads((destination / row["id"] / "original" / "record.json").read_text())
+    assert original == first
+
+
+def test_retry_happens_only_once(tmp_path, monkeypatch):
+    import contextlab.runner as runner
+
+    def always_down(*args, **kwargs):
+        raise ConnectionError("rede fora do ar")
+
+    monkeypatch.setattr(runner, "fixture_generation", always_down)
+    config, lock = _demo_lock(tmp_path)
+    destination = tmp_path / "run"
+    row = plan(config)[0]
+    execute(lock, destination, trusted_local=True, max_runs=1)
+    execute(lock, destination, trusted_local=True, resume=True, max_runs=1)
+    retried = (destination / row["id"] / "record.json").read_bytes()
+    execute(lock, destination, trusted_local=True, resume=True, max_runs=1)
+    assert (destination / row["id"] / "record.json").read_bytes() == retried
+    assert not (destination / row["id"] / "original" / "original").exists()
+    assert json.loads(retried)["status"] == "infrastructure_error"
+
+
+@pytest.mark.parametrize("status", ["limit", "timeout", "protocol_violation"])
+def test_agent_failures_are_never_retried(tmp_path, monkeypatch, status):
+    import contextlab.runner as runner
+    monkeypatch.setattr(runner, "fixture_generation", lambda *a, **k: {"status": status, "response": None})
+    config, lock = _demo_lock(tmp_path)
+    destination = tmp_path / "run"
+    row = plan(config)[0]
+    execute(lock, destination, trusted_local=True, max_runs=1)
+    before = (destination / row["id"] / "record.json").read_bytes()
+    execute(lock, destination, trusted_local=True, resume=True, max_runs=1)
+    assert (destination / row["id"] / "record.json").read_bytes() == before
+    assert not (destination / row["id"] / "original").exists()
+
+
+def test_evaluation_infrastructure_failure_reevaluates_the_same_delivery(tmp_path, monkeypatch):
+    import contextlab.evaluation
+    results = iter([{"status": "infrastructure_error", "error": "Docker executable unavailable"},
+                    {"status": "completed"}])
+    monkeypatch.setattr(contextlab.evaluation, "evaluate_submission", lambda *a, **k: next(results))
+    config, lock = _demo_lock(tmp_path)
+    destination = tmp_path / "run"
+    row = plan(config)[0]
+    execute(lock, destination, trusted_local=True, max_runs=1)
+    response = (destination / row["id"] / "response.txt").read_bytes()
+    delivered = (destination / row["id"] / "test_generated.py").read_bytes()
+
+    execute(lock, destination, trusted_local=True, resume=True, max_runs=1)
+    record = json.loads((destination / row["id"] / "record.json").read_text())
+    assert record["evaluation"] == {"status": "completed"}
+    assert record["evaluation_retry"]["kind"] == "evaluation"
+    assert record["evaluation_retry"]["previous_evaluation"]["status"] == "infrastructure_error"
+    assert "Docker" in record["evaluation_retry"]["reason"]
+    assert (destination / row["id"] / "response.txt").read_bytes() == response
+    assert (destination / row["id"] / "test_generated.py").read_bytes() == delivered
+    assert not (destination / row["id"] / "original").exists()
+
+
+def test_interrupted_attempt_without_delivery_is_regenerated(tmp_path, monkeypatch):
+    import contextlab.evaluation
+    monkeypatch.setattr(contextlab.evaluation, "evaluate_submission", lambda *a, **k: {"status": "completed"})
+    config, lock = _demo_lock(tmp_path)
+    destination = tmp_path / "run"
+    row = plan(config)[0]
+    execute(lock, destination, trusted_local=True, max_runs=1)
+    folder = destination / row["id"]
+    record = json.loads((folder / "record.json").read_text())
+    record.update(status="running", generation=None, evaluation=None)
+    record.pop("submission_sha256", None)
+    (folder / "test_generated.py").unlink()
+    (folder / "record.json").write_text(json.dumps(record))
+    execute(lock, destination, trusted_local=True, resume=True, max_runs=1)
+    retried = json.loads((folder / "record.json").read_text())
+    assert retried["retry"]["kind"] == "generation" and retried["retry"]["previous_status"] == "interrupted"
+    assert retried["status"] == "finished"
+
+
+def test_report_counts_infrastructure_retries(tmp_path, monkeypatch):
+    import contextlab.evaluation
+    import contextlab.runner as runner
+    from contextlab.reporting import read_report
+    monkeypatch.setattr(contextlab.evaluation, "evaluate_submission", lambda *a, **k: {"status": "completed"})
+    real, calls = runner.fixture_generation, []
+
+    def flaky(*args, **kwargs):
+        calls.append(1)
+        if len(calls) == 1:
+            raise ConnectionError("serviço indisponível")
+        return real(*args, **kwargs)
+
+    monkeypatch.setattr(runner, "fixture_generation", flaky)
+    _, lock = _demo_lock(tmp_path)
+    destination = tmp_path / "run"
+    execute(lock, destination, trusted_local=True, max_runs=1)
+    execute(lock, destination, trusted_local=True, resume=True, max_runs=1)
+    rows = read_report(destination)["rows"]
+    assert sum(bool(row["infrastructure_retry"]) for row in rows) == 1

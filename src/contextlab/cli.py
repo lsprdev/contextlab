@@ -42,6 +42,8 @@ def parser() -> argparse.ArgumentParser:
     reviewing.add_argument("--reviewer", required=True)
     for key in ("behavioral-assertions", "no-target-mock", "no-production-changes"):
         reviewing.add_argument("--" + key, choices=["yes", "no"], required=True)
+    reviewing.add_argument("--dependency-doubles", choices=["yes", "no"], required=True,
+                           help="Marca se a suíte substitui dependências da função alvo por dublês; não decide a aprovação")
     reviewing.add_argument("--http-requests", choices=["yes", "no"], help="Revisão adicional dos alvos HTTP de piloto")
     reviewing.add_argument("--defect-attribution", action="append", default=[], metavar="ID=yes|no")
     reviewing.add_argument("--trusted-local", action="store_true")
@@ -130,6 +132,7 @@ def _execute(args):
         decisions = {key: getattr(args, key) == "yes" for key in
                      ("behavioral_assertions", "no_target_mock", "no_production_changes")}
         decisions["defect_attribution"] = attribution
+        decisions["dependency_doubles"] = args.dependency_doubles == "yes"
         if args.http_requests is not None:
             decisions["http_requests"] = args.http_requests == "yes"
         return review_trajectory(args.trajectory.resolve(), args.reviewer, decisions, args.trusted_local)

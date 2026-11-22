@@ -160,6 +160,7 @@
       <tr><td><code>--behavioral-assertions</code></td><td>Os testes verificam valores e comportamentos, e não apenas que a função "não quebrou"?</td></tr>
       <tr><td><code>--no-target-mock</code></td><td>A função-alvo foi chamada de verdade, sem ser trocada por uma resposta simulada?</td></tr>
       <tr><td><code>--no-production-changes</code></td><td>O código de produção ficou intacto?</td></tr>
+      <tr><td><code>--dependency-doubles</code></td><td>Dependências da função foram trocadas por dublês? Marca para análise separada, sem reprovar.</td></tr>
       <tr><td><code>--http-requests</code></td><td>Só em alvos HTTP de piloto: a rota foi exercitada por requisições reais?</td></tr>
     </tbody>
   </table>
@@ -333,7 +334,7 @@
   <ul>
     <li><strong>Conferências:</strong> se algo falhar aqui, nenhuma geração começa e nada é gasto.</li>
     <li><strong>Congelamento:</strong> a partir daqui o lote não aceita mudanças no código, na configuração ou na ordem.</li>
-    <li><strong>Tentativas:</strong> seguem a ordem sorteada. O resultado de uma nunca volta ao agente. Se a execução parar no meio, <code>run --resume LOTE</code> continua de onde parou, sem repetir nada.</li>
+    <li><strong>Tentativas:</strong> seguem a ordem sorteada. O resultado de uma nunca volta ao agente. Se a execução parar no meio, <code>run --resume LOTE</code> continua de onde parou. Só uma falha de infraestrutura (Docker, rede, serviço, interrupção) é repetida, uma única vez, com o motivo registrado e o original guardado.</li>
   </ul>
   <p>Ao final, o teste pode ter passado, mas ainda fica <em>aguardando revisão</em>.</p>
 
@@ -403,7 +404,7 @@
     <p>Cria um lote, valida os testes de referência e as testemunhas, congela o plano e executa cada tentativa: gera, preserva a entrega e avalia.</p>
     <table class="doc opts"><tbody>
       <tr><td><code>--max-runs N</code></td><td>Processa no máximo N tentativas nesta chamada. Não reduz o plano.</td></tr>
-      <tr><td><code>--resume LOTE</code></td><td>Continua um lote. Pula o que já foi registrado, inclusive falhas: nunca gera de novo.</td></tr>
+      <tr><td><code>--resume LOTE</code></td><td>Continua um lote. Pula o que já foi registrado. A única exceção é a falha de infraestrutura, repetida uma vez; falhas do agente nunca se repetem.</td></tr>
       <tr><td><code>--trusted-local</code></td><td>Só em <code>demo</code>: permite avaliar sem Docker testes escritos por você.</td></tr>
     </tbody></table></div>
 
@@ -425,6 +426,7 @@
       <tr><td><code>--behavioral-assertions yes|no</code></td><td>Há verificações de comportamento.</td></tr>
       <tr><td><code>--no-target-mock yes|no</code></td><td>O alvo não foi simulado.</td></tr>
       <tr><td><code>--no-production-changes yes|no</code></td><td>A produção ficou intacta.</td></tr>
+      <tr><td><code>--dependency-doubles yes|no</code></td><td>A suíte trocou dependências da função por dublês. Só marca, para análise separada; não reprova.</td></tr>
       <tr><td><code>--http-requests yes|no</code></td><td>Só em alvos HTTP.</td></tr>
       <tr><td><code>--defect-attribution ID=yes|no</code></td><td>Atribui a falha ao defeito. Pode repetir, uma vez por defeito.</td></tr>
     </tbody></table></div>

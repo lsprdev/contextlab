@@ -143,8 +143,12 @@ def test_run_listing_review_and_resume_preserve_submission(project, capsys):
     assert before == {p: p.read_bytes() for p in (project / "runs").rglob("*") if p.is_file()}
     assert main(["simples", "review", rows[0]["attempt_id"], "--reviewer", "Teste automatizado",
                  "--behavioral-assertions", "yes", "--no-target-mock", "yes",
-                 "--no-production-changes", "yes", "--trusted-local"]) == 0
+                 "--no-production-changes", "yes", "--dependency-doubles", "yes", "--trusted-local"]) == 0
     assert attempts(project)[0]["approval"] == "approved"
+    # Dublês das dependências são marcados, sem impedir a aprovação.
+    from contextlab.reporting import read_report
+    row = read_report(path.parent)["rows"][0]
+    assert row["approved"] is True and row["dependency_doubles"] is True
     assert main(["simples", "run", "--resume", rows[0]["batch"], "--trusted-local"]) == 0
     assert len(attempts(project)) == 1
     assert (path / "test_generated.py").read_bytes() == submitted

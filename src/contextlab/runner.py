@@ -216,64 +216,151 @@ def _execute_run(lock_path: Path, output: Path, *, trusted_local=False, resume=F
     completed = 0
     for row in lock["plan"]:
         destination = output / row["id"]
+        retry = None
         if (destination / "record.json").exists():
             previous = json.loads((destination / "record.json").read_text())
             if previous.get("status") == "running":
-                previous.update(status="interrupted", interruption="Execução anterior interrompida; não regenerada")
+                previous.update(status="interrupted", interruption="Execução anterior interrompida")
                 write_json(destination / "record.json", previous)
-            continue
+            retry = retry_kind(previous, destination)
+            if retry is None:
+                continue
         if max_runs is not None and completed >= max_runs:
             break
         load_lock(lock_path)  # Detecta mudanças entre trajetórias.
         project, target, agent = resolve_row(config, row)
-        destination.mkdir(parents=True, exist_ok=True)
-        record = {"schema_version": 1, **row, "phase": config["phase"], "lock_hash": lock["lock_hash"],
-                  "started_at": now(), "status": "running", "generation": None, "evaluation": None}
-        write_json(destination / "record.json", record)
-        try:
-            started = time.monotonic()
-            context = build_context(project, target, row["condition"], config["limits"]["context_chars"])
-            record["preparation_seconds"] = time.monotonic() - started
-            write_json(destination / "context.json", context)
-            prompt = prompt_for(target, context, config["limits"])
-            (destination / "prompt.txt").write_text(prompt, encoding="utf-8")
-            if agent["kind"] == "fixture":
-                generation = fixture_generation(agent, project, target, context, config["limits"])
-            else:
-                from .adapters import run_agent
-                generation = run_agent(agent, prompt, context, destination / "agent", config["limits"])
-            response = generation.pop("response", None)
-            record["generation"] = generation
-            if response is not None:
-                (destination / "response.txt").write_text(response, encoding="utf-8")
-            if generation["status"] == "completed":
-                try:
-                    code = extract_submission(response)
-                except ValueError as exc:
-                    record["submission_error"] = str(exc)
-                    record["status"] = "invalid_submission"
-                else:
-                    submission = destination / "test_generated.py"
-                    submission.write_text(code, encoding="utf-8")
-                    record["submission_sha256"] = hashlib.sha256(submission.read_bytes()).hexdigest()
-                    # Persistir entrega antes de avaliar permite auditar interrupções.
-                    write_json(destination / "record.json", record)
-                    record["evaluation"] = evaluate_submission(
-                        project, target, submission, destination / "evaluation", settings,
-                        defects=target.get("defects", []))
-                    record["status"] = "finished"
-            else:
-                record["status"] = generation["status"]
-        except KeyboardInterrupt:
-            record.update(status="interrupted", interruption="Interrupção do operador; nenhuma regeneração")
-            write_json(destination / "record.json", record)
-            raise
-        except Exception as exc:
-            record.update(status="infrastructure_error", error=f"{type(exc).__name__}: {exc}")
-        record["finished_at"] = now()
-        write_json(destination / "record.json", record)
+        if retry == "evaluation":
+            _retry_evaluation(destination, project, target, settings, evaluate_submission)
+        else:
+            if retry == "generation":
+                archived = _archive_for_retry(destination)
+            _run_attempt(row, destination, config, lock, project, target, agent, settings,
+                         build_context, evaluate_submission,
+                         retry=None if retry is None else archived)
         completed += 1
     return {"run": str(output), "processed_now": completed, "planned": len(lock["plan"])}
+
+
+# Regra de repetição (TCC, seção 6.1.3): uma tentativa interrompida por falha não
+# atribuível ao agente é repetida uma única vez, no `run --resume`. O registro
+# original é preservado e o motivo fica gravado. Falhas do próprio agente
+# (limite, timeout, violação de protocolo, saída inválida) nunca são repetidas.
+_RETRYABLE = {"infrastructure_error", "interrupted"}
+
+
+def retry_kind(record: dict, destination: Path) -> str | None:
+    """'generation', 'evaluation' ou None, conforme a falha e as repetições já feitas."""
+    if record.get("retry") or record.get("evaluation_retry"):
+        return None
+    status = record.get("status")
+    generation = record.get("generation") or {}
+    delivered = (destination / "test_generated.py").is_file() and bool(record.get("submission_sha256"))
+    evaluation = record.get("evaluation") or {}
+    if delivered and generation.get("status") == "completed":
+        # A entrega existe: repete-se só a avaliação, nunca a geração.
+        if evaluation.get("status") in _RETRYABLE or (status in _RETRYABLE and not evaluation):
+            return "evaluation"
+        return None
+    if status in _RETRYABLE and generation.get("status") in (None, *_RETRYABLE):
+        return "generation"
+    return None
+
+
+def _failure_reason(record: dict) -> str:
+    generation = record.get("generation") or {}
+    evaluation = record.get("evaluation") or {}
+    for value in (record.get("error"), record.get("interruption"), evaluation.get("error"),
+                  *(generation.get("details") or [])):
+        if isinstance(value, str) and value:
+            return value
+    return record.get("status") or "desconhecido"
+
+
+def _archive_for_retry(destination: Path) -> dict:
+    """Move a tentativa original para `original/`, intacta, e devolve o registro do motivo."""
+    import shutil
+    previous = json.loads((destination / "record.json").read_text())
+    archive = destination / "original"
+    archive.mkdir()
+    for item in list(destination.iterdir()):
+        if item != archive:
+            shutil.move(str(item), archive / item.name)
+    return {"kind": "generation", "reason": _failure_reason(previous), "previous_status": previous.get("status"),
+            "previous_started_at": previous.get("started_at"), "original": "original/record.json", "at": now()}
+
+
+def _retry_evaluation(destination: Path, project, target, settings, evaluate_submission) -> None:
+    record = json.loads((destination / "record.json").read_text())
+    submission = destination / "test_generated.py"
+    if record.get("submission_sha256") != hashlib.sha256(submission.read_bytes()).hexdigest():
+        raise ManifestError("A submissão foi alterada; a repetição da avaliação não autoriza reparar o teste")
+    original = destination / "evaluation"
+    if original.exists():
+        original.rename(destination / "evaluation-original")
+    record["evaluation_retry"] = {"kind": "evaluation", "reason": _failure_reason(record),
+                                  "previous_status": record.get("status"), "previous_evaluation": record.get("evaluation"),
+                                  "original": "evaluation-original" if (destination / "evaluation-original").exists() else None,
+                                  "at": now()}
+    try:
+        record["evaluation"] = evaluate_submission(project, target, submission, destination / "evaluation", settings,
+                                                   defects=target.get("defects", []))
+        record["status"] = "finished"
+    except Exception as exc:
+        record.update(status="infrastructure_error", error=f"{type(exc).__name__}: {exc}")
+    record["finished_at"] = now()
+    write_json(destination / "record.json", record)
+
+
+def _run_attempt(row, destination, config, lock, project, target, agent, settings,
+                 build_context, evaluate_submission, retry=None) -> None:
+    destination.mkdir(parents=True, exist_ok=True)
+    record = {"schema_version": 1, **row, "phase": config["phase"], "lock_hash": lock["lock_hash"],
+              "started_at": now(), "status": "running", "generation": None, "evaluation": None}
+    if retry:
+        record["retry"] = retry
+    write_json(destination / "record.json", record)
+    try:
+        started = time.monotonic()
+        context = build_context(project, target, row["condition"], config["limits"]["context_chars"])
+        record["preparation_seconds"] = time.monotonic() - started
+        write_json(destination / "context.json", context)
+        prompt = prompt_for(target, context, config["limits"])
+        (destination / "prompt.txt").write_text(prompt, encoding="utf-8")
+        if agent["kind"] == "fixture":
+            generation = fixture_generation(agent, project, target, context, config["limits"])
+        else:
+            from .adapters import run_agent
+            generation = run_agent(agent, prompt, context, destination / "agent", config["limits"])
+        response = generation.pop("response", None)
+        record["generation"] = generation
+        if response is not None:
+            (destination / "response.txt").write_text(response, encoding="utf-8")
+        if generation["status"] == "completed":
+            try:
+                code = extract_submission(response)
+            except ValueError as exc:
+                record["submission_error"] = str(exc)
+                record["status"] = "invalid_submission"
+            else:
+                submission = destination / "test_generated.py"
+                submission.write_text(code, encoding="utf-8")
+                record["submission_sha256"] = hashlib.sha256(submission.read_bytes()).hexdigest()
+                # Persistir entrega antes de avaliar permite auditar interrupções.
+                write_json(destination / "record.json", record)
+                record["evaluation"] = evaluate_submission(
+                    project, target, submission, destination / "evaluation", settings,
+                    defects=target.get("defects", []))
+                record["status"] = "finished"
+        else:
+            record["status"] = generation["status"]
+    except KeyboardInterrupt:
+        record.update(status="interrupted", interruption="Interrupção do operador")
+        write_json(destination / "record.json", record)
+        raise
+    except Exception as exc:
+        record.update(status="infrastructure_error", error=f"{type(exc).__name__}: {exc}")
+    record["finished_at"] = now()
+    write_json(destination / "record.json", record)
 
 
 def review_trajectory(path: Path, reviewer: str, decisions: dict, trusted_local=False) -> dict:

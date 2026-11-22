@@ -119,6 +119,7 @@ contextlab review runs/demo/loja__frete__fixture__L__1 \
   --behavioral-assertions yes \
   --no-target-mock yes \
   --no-production-changes yes \
+  --dependency-doubles no \
   --trusted-local
 contextlab report runs/demo
 ```
@@ -146,6 +147,7 @@ contextlab review runs/demo/loja__frete__fixture__L__1 \
   --behavioral-assertions yes \
   --no-target-mock yes \
   --no-production-changes yes \
+  --dependency-doubles no \
   --defect-attribution vip-limite=yes \
   --trusted-local
 contextlab report runs/demo

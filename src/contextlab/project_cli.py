@@ -86,7 +86,7 @@ def project_parser(name):
             display.add_argument("--json", action="store_true", help="Mostrar somente o JSON da avaliação mais recente")
         else:
             sub.add_argument("--reviewer")
-            for flag in ("behavioral-assertions", "no-target-mock", "no-production-changes", "http-requests"):
+            for flag in ("behavioral-assertions", "no-target-mock", "no-production-changes", "dependency-doubles", "http-requests"):
                 sub.add_argument("--" + flag, choices=["yes", "no"])
             sub.add_argument("--defect-attribution", action="append", default=[], metavar="ID=yes|no")
             sub.add_argument("--trusted-local", action="store_true")
@@ -275,6 +275,11 @@ def review_attempt(path, args, console):
                           ("no_production_changes", "O código de produção foi preservado?")]:
         answer = getattr(args, key) or _ask(console, question, choices=["yes", "no"], default="no")
         decisions[key] = answer == "yes"
+    # Marcação, não critério de aprovação: dublês das dependências são aceitos e analisados à parte.
+    answer = args.dependency_doubles or _ask(
+        console, "A suíte substitui dependências da função alvo por dublês (mock, stub, fake)?",
+        choices=["yes", "no"], default="no")
+    decisions["dependency_doubles"] = answer == "yes"
     if evaluation.get("test_kind") == "http":
         answer = args.http_requests or _ask(console, "O alvo foi exercitado via HTTP, com regras e SQLite reais, sem chamada direta ao handler?",
                                            choices=["yes", "no"], default="no")

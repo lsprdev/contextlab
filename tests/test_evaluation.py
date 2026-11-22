@@ -312,3 +312,8 @@ def test_keyboard_interrupt_kills_group_reaps_child_and_removes_docker(tmp_path,
     assert events == [("wait", 30.0), ("killpg", 54321, signal.SIGKILL), ("wait", 5),
                       ("docker_remove", ["docker", "rm", "-f", captured["container"]])]
     assert not (tmp_path / "results/evaluation.json").exists()
+
+
+def test_dependency_doubles_marking_does_not_gate_approval():
+    from contextlab.evaluation import _REVIEW_KEYS
+    assert "dependency_doubles" not in _REVIEW_KEYS
